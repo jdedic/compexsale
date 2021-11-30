@@ -1,7 +1,9 @@
 'use strict';
 (function() {
     var db = {
-        loadData: function(filter) {
+        loadData: function (filter) {
+            var users = '@ViewBag.Users';
+            var kk = users;
             return $.grep(this.clients, function(client) {
                 return (!filter.Name || client.Name.indexOf(filter.Name) > -1)
                     && (!filter.Action || client.Action === filter.Action)
@@ -20,7 +22,9 @@
             this.clients.splice(clientIndex, 1);
         }
     };
+
     window.db = db;
+
     db.countries = [
         { Name: "India", Id: 0 },
         { Name: "United States", Id: 1 },
@@ -31,163 +35,9 @@
         { Name: "China", Id: 6 },
         { Name: "Russia", Id: 7 }
     ];
-    db.clients = [
-        {
-            "First Name": "Rowan",
-            "Last Name": "Torres",
-            "Email": "Rowan.torres@gmail.com",
-            "Telephone": "6 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Alonzo",
-            "Last Name": "Perez",
-            "Email": "Perez.Alonzo@gmail.com",
-            "Telephone": "2 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Skylar",
-            "Last Name": "Lane",
-            "Email": "Lane.Skylar@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Brody",
-            "Last Name": "Gray",
-            "Email": "Gray.Brody@gmail.com",
-            "Telephone": "3 Days ago",
-            "Working Position": "Admin",
-        },
-        {
-            "First Name": "Colton",
-            "Last Name": "Clay",
-            "Email": "Colton.Clay@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Maxine",
-            "Last Name": "Woters",
-            "Email": "woters.maxine@gmail.com",
-            "Telephone": "10 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Alonzo",
-            "Last Name": "Perez",
-            "Email": "Perez.Alonzo@gmail.com",
-            "Telephone": "2 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Skylar",
-            "Last Name": "Lane",
-            "Email": "Lane.Skylar@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Brody",
-            "Last Name": "Gray",
-            "Email": "Gray.Brody@gmail.com",
-            "Telephone": "3 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Colton",
-            "Last Name": "Clay",
-            "Email": "Colton.Clay@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Admin",
-        },
-        {
-            "First Name": "Maxine",
-            "Last Name": "Woters",
-            "Email": "woters.maxine@gmail.com",
-            "Telephone": "10 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Alonzo",
-            "Last Name": "Perez",
-            "Email": "Perez.Alonzo@gmail.com",
-            "Telephone": "2 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Skylar",
-            "Last Name": "Lane",
-            "Email": "Lane.Skylar@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Brody",
-            "Last Name": "Gray",
-            "Email": "Gray.Brody@gmail.com",
-            "Telephone": "3 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Colton",
-            "Last Name": "Clay",
-            "Email": "Colton.Clay@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Rowan",
-            "Last Name": "Torres",
-            "Email": "Rowan.torres@gmail.com",
-            "Telephone": "6 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Alonzo",
-            "Last Name": "Perez",
-            "Email": "Perez.Alonzo@gmail.com",
-            "Telephone": "2 Days ago",
-            "Working Position": "Admin",
-        },
-        {
-            "First Name": "Skylar",
-            "Last Name": "Lane",
-            "Email": "Lane.Skylar@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Brody",
-            "Last Name": "Gray",
-            "Email": "Gray.Brody@gmail.com",
-            "Telephone": "3 Days ago",
-            "Working Position": "Admin",
-        },
-        {
-            "First Name": "Colton",
-            "Last Name": "Clay",
-            "Email": "Colton.Clay@gmail.com",
-            "Telephone": "1 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Maxine",
-            "Last Name": "Woters",
-            "Email": "woters.maxine@gmail.com",
-            "Telephone": "10 Days ago",
-            "Working Position": "Customer",
-        },
-        {
-            "First Name": "Alonzo",
-            "Last Name": "Perez",
-            "Email": "Perez.Alonzo@gmail.com",
-            "Telephone": "2 Days ago",
-            "Working Position": "Customer",
-        },
 
-    ];
+   
+    
     db.users = [
         {
             "ID": "x",

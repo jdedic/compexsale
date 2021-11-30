@@ -7,7 +7,21 @@
         paging: true,
         controller: {
             loadData: function() {
-                return db.clients;
+                return [
+                    {
+                        "First Name": "Rowan",
+                        "Last Name": "Torres",
+                        "Email": "Rowan.torres@gmail.com",
+                        "Telephone": "6 Days ago",
+                        "Working Position": "Customer",
+                    },
+                    {
+                        "First Name": "Alonzo",
+                        "Last Name": "Perez",
+                        "Email": "Perez.Alonzo@gmail.com",
+                        "Telephone": "2 Days ago",
+                        "Working Position": "Customer",
+                    }];
             }
         },
         fields: [
@@ -28,11 +42,11 @@
             align: "center",
             width: 50
             },
-            { name: "First Name", type: "text", width: 100 },
-            { name: "Last Name", type: "text", width: 100 },
+            { name: "Ime", type: "text", width: 100 },
+            { name: "Prezime", type: "text", width: 100 },
             { name: "Email", width: 100 },
-            { name: "Telephone", type: "text", width: 100 },
-            { name: "Working Position", type: "text", width: 100 }
+            { name: "Telefon", type: "text", width: 100 },
+            { name: "Funkcija", type: "text", width: 100 }
         ]
     });
     var selectedItems = [];

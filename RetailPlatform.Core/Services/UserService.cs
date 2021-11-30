@@ -1,6 +1,10 @@
-﻿using RetailPlatform.Common.Interfaces.Repository;
+﻿using RetailPlatform.Common.Entities;
+using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Extensions;
+using System.Collections;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RetailPlatform.Core.Services
 {
@@ -23,6 +27,11 @@ namespace RetailPlatform.Core.Services
             }
 
             return false;
+        }
+
+        public async Task<IEnumerable<User>> FetchUsers()
+        {
+            return await _repositoryWrapper.User.FindAllAsync();
         }
     }
 }

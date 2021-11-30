@@ -12,6 +12,20 @@ namespace RetailPlatform.Infrastructure.Repository
 
         }
 
+        public bool CheckIfEmailAlreadyExist(long userId, string email)
+        {
+            bool exist = false;
+            if(userId != 0)
+            {
+                exist = _dbContext.Users.Any(model => model.Id != userId && model.Email.Equals(email));
+            }
+            else
+            {
+                exist = _dbContext.Users.Any(model => model.Email.Equals(email));
+            }
+            return exist;
+        }
+
         public User GetUserByEmail(string email)
         {
             return _dbContext.Users.FirstOrDefault(m => m.Email.Equals(email));

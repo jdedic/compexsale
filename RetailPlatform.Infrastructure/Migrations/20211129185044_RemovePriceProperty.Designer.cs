@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20211129185044_RemovePriceProperty")]
+    partial class RemovePriceProperty
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -156,21 +158,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.ToTable("ProfileCategories");
                 });
 
-            modelBuilder.Entity("RetailPlatform.Common.Entities.Role", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Roles");
-                });
-
             modelBuilder.Entity("RetailPlatform.Common.Entities.User", b =>
                 {
                     b.Property<long>("Id")
@@ -205,8 +192,8 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<DateTime>("RegistrationDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<long>("RoleId")
-                        .HasColumnType("bigint");
+                    b.Property<int>("Role")
+                        .HasColumnType("int");
 
                     b.Property<string>("Telephone")
                         .HasColumnType("nvarchar(max)");
@@ -218,8 +205,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("RoleId");
 
                     b.ToTable("Users");
                 });
@@ -260,17 +245,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Profile");
-                });
-
-            modelBuilder.Entity("RetailPlatform.Common.Entities.User", b =>
-                {
-                    b.HasOne("RetailPlatform.Common.Entities.Role", "Role")
-                        .WithMany()
-                        .HasForeignKey("RoleId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Role");
                 });
 #pragma warning restore 612, 618
         }

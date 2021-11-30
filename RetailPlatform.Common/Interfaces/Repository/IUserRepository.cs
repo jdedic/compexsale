@@ -6,5 +6,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
     {
         User GetUserByEmail(string email);
         string GetUserFullNameByEmail(string email);
+        bool CheckIfEmailAlreadyExist(long userId, string email);
     }
 }
