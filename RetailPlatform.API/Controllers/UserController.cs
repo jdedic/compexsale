@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
+using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
@@ -16,26 +17,16 @@ namespace RetailPlatform.API.Controllers
             _userService = userService;
         }
 
-        [HttpGet]
-        [Route("User/UserList")]
-        public async Task<List<UserDTO>> UserList()
+        public IActionResult UserList()
         {
-            var users = await _userService.FetchUsers();
-            var usersList = new List<UserDTO>();
+            return View();
+        }
 
-            foreach (var user in users)
-            {
-                usersList.Add(new UserDTO
-                {
-                    FirstName = user.FirstName,
-                    LastName = user.LastName,
-                    Email = user.Email,
-                    Telephone = user.Telephone
-                    //SelectedRole = user.Role.ToString()
-                });
-            }
-            
-            return usersList;
+        [HttpGet]
+        public async Task<IEnumerable<User>> Get()
+        {
+            var result = await _userService.FetchUsers();
+            return result.ToArray();
         }
 
         public IActionResult CreateUser()

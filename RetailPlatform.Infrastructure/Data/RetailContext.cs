@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RetailPlatform.Common.Entities;
+using System;
 
 namespace RetailPlatform.Infrastructure.Data
 {
@@ -7,6 +8,19 @@ namespace RetailPlatform.Infrastructure.Data
     {
         public RetailContext(DbContextOptions<RetailContext> options) : base(options)
         {
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Role>().HasData(
+                new Role { Id = 1, Name = "Administrator" },
+                new Role { Id = 2, Name = "Controller" }
+            );
+
+            modelBuilder.Entity<User>().HasData(
+                new User { Id = 1, FirstName = "Jovana", LastName = "Dedic", RegistrationDate = DateTime.Now, Address = "Augusta Cesarca 17", City = "Novi Sad", ZipCode = "21000", Email = "jovanna.deddic@gmail.com", Telephone = "069 5485 156", Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", ForgotPasswordToken = null, Active = true, WorkingPosition = "Business Manager", RoleId = 1 },
+                new User { Id = 2, FirstName = "Marko", LastName = "Jankovic", RegistrationDate = DateTime.Now, Address = "Radnicka 8", City = "Novi Sad", ZipCode = "21000", Email = "marko.jankovic@gmail.test", Telephone = "069 5485 156", Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", ForgotPasswordToken = null, Active = true, WorkingPosition = "Business Manager", RoleId = 2 }
+            );
         }
 
         public DbSet<User> Users { get; set; }

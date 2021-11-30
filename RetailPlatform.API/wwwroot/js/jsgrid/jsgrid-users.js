@@ -1,65 +1,41 @@
-(function($) {
+(function ($) {
     "use strict";
     $("#batchDelete").jsGrid({
         width: "100%",
         autoload: true,
-        confirmDeleting: false,
+        //filtering: true,
+        //inserting: true,
+        //editing: true,
         paging: true,
+        sorting: true,
+        confirmDeleting: false,
+
+        pageSize: 15,
+        pageButtonCount: 5,
+
         controller: {
-            loadData: function() {
-                return [
-                    {
-                        "First Name": "Rowan",
-                        "Last Name": "Torres",
-                        "Email": "Rowan.torres@gmail.com",
-                        "Telephone": "6 Days ago",
-                        "Working Position": "Customer",
-                    },
-                    {
-                        "First Name": "Alonzo",
-                        "Last Name": "Perez",
-                        "Email": "Perez.Alonzo@gmail.com",
-                        "Telephone": "2 Days ago",
-                        "Working Position": "Customer",
-                    }];
+            loadData: function (filter) {
+                return $.ajax({
+                    type: "GET",
+                    url: "/User/Get",
+                    data: filter,
+                    dataType: "json"
+                });
             }
         },
         fields: [
-            {
-                headerTemplate: function() {
-                    return $("<button>").attr("type", "button").text("Delete") .addClass("btn btn-danger btn-sm btn-delete mb-0 b-r-2")
-                        .click( function () {
-                            deleteSelectedItems();
-                        });
-            },
-            itemTemplate: function(_, item) {
-                return $("<input>").attr("type", "checkbox")
-                        .prop("checked", $.inArray(item, selectedItems) > -1)
-                        .on("change", function () {
-                            $(this).is(":checked") ? selectItem(item) : unselectItem(item);
-                        });
-            },
-            align: "center",
-            width: 50
-            },
-            { name: "Ime", type: "text", width: 100 },
-            { name: "Prezime", type: "text", width: 100 },
-            { name: "Email", width: 100 },
-            { name: "Telefon", type: "text", width: 100 },
-            { name: "Funkcija", type: "text", width: 100 }
+            { name: "firstName", type: "text", width: 100, title: "First Name" },
+            { name: "lastName", type: "text", width: 100, title: "Last Name" },
+            { name: "email", width: 100, title: "Email" },
+            { name: "workingPosition", width: 100, title: "Working Position" },
+            { type: "control" }
+            //{ name: "Telephone", type: "text", width: 100 },
+            //{ name: "Working Position", type: "text", width: 100 }
         ]
     });
-    var selectedItems = [];
-    var selectItem = function(item) {
-        selectedItems.push(item);
-    };
-    var unselectItem = function(item) {
-        selectedItems = $.grep(selectedItems, function(i) {
-            return i !== item;
-        });
-    };
-    var deleteSelectedItems = function() {
-        if(!selectedItems.length || !confirm("Are you sure?"))
+
+    var deleteSelectedItems = function () {
+        if (!selectedItems.length || !confirm("Are you sure?"))
             return;
         deleteClientsFromDb(selectedItems);
         var $grid = $("#batchDelete");
@@ -67,9 +43,10 @@
         $grid.jsGrid("loadData");
         selectedItems = [];
     };
-    var deleteClientsFromDb = function(deletingClients) {
-        db.clients = $.map(db.clients, function(client) {
+    var deleteClientsFromDb = function (deletingClients) {
+        db.clients = $.map(db.clients, function (client) {
             return ($.inArray(client, deletingClients) > -1) ? null : client;
         });
     };
 })(jQuery);
+

@@ -1,56 +1,187 @@
-﻿<!DOCTYPE html>
+﻿
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - RetailPlatform.API</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    @*<meta name="description" content="Multikart admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities.">
+        <meta name="keywords" content="admin template, Multikart admin template, dashboard template, flat admin template, responsive admin template, web app">
+        <meta name="author" content="pixelstrap">
+        <link rel="icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">
+        <link rel="shortcut icon" href="../assets/images/dashboard/favicon.png" type="image/x-icon">*@
+    <title>Multikart - Premium Admin Template</title>
+    @RenderSection("headSection", required: false)
+    <!-- Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <link href="~/css/vendors/fontawesome.css" rel="stylesheet" />
+    <link href="~/css/vendors/flag-icon.css" rel="stylesheet" />
+    <link href="~/css/vendors/bootstrap.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">RetailPlatform.API</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    <div class="page-wrapper">
+        <div class="page-main-header">
+            <div class="main-header-right row">
+                <div class="main-header-left d-lg-none w-auto">
+                    <div class="logo-wrapper"><a href="index.html"><img class="blur-up lazyloaded" src="~/images/icon/Unbenannt-2.png" alt=""></a></div>
+                </div>
+                <div class="mobile-sidebar w-auto">
+                    <div class="media-body text-end switch-sm">
+                        <label class="switch"><a href="#"><i id="sidebar-toggle" data-feather="align-left"></i></a></label>
+                    </div>
+                </div>
+                <div class="nav-right col">
+                    <ul class="nav-menus">
+                        <li><a class="text-dark" href="#" onclick="javascript:toggleFullScreen()"><i data-feather="maximize-2"></i></a></li>
+                        <li class="onhover-dropdown">
+                            <div class="media align-items-center">
+                                <img class="align-self-center pull-right img-50 rounded-circle blur-up lazyloaded" src="~/images/dashboard/man.png" alt="header-user">
+                                <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
+                            </div>
+                            <ul class="profile-dropdown onhover-show-div p-20">
+                                <li><a href="#"><i data-feather="user"></i>Edit Profile</a></li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><a href="@Url.Action("Logout", "Account")"><i data-feather="log-out"></i>Logout</a></li>
+                                }
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                    </ul>
+                    <div class="d-lg-none mobile-toggle pull-right"><i data-feather="more-horizontal"></i></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Page Body Start-->
+        <div class="page-body-wrapper">
+
+            <!-- Page Sidebar Start-->
+            <div class="page-sidebar">
+                <div class="sidebar custom-scrollbar">
+                    <div class="sidebar-user text-center">
+                        <div>
+                            <img class="img-60 rounded-circle blur-up lazyloaded" src="~/images/dashboard/man.png" alt="#">
+                        </div>
+                        <h6 class="mt-3 f-14">JOHN</h6>
+                        <p>general manager.</p>
+                    </div>
+                    <ul class="sidebar-menu">
+                        <li><a class="sidebar-header" href="index.html"><i data-feather="home"></i><span>Dashboard</span></a></li>
+                        <li>
+                            <a class="sidebar-header" href="#"><i data-feather="box"></i> <span>Products</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Physical</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="product-list.html"><i class="fa fa-circle"></i>Product List</a></li>
+                                        <li><a href="product-detail.html"><i class="fa fa-circle"></i>Product Detail</a></li>
+                                    </ul>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        <i class="fa fa-circle"></i>
+                                        <span>Digital</span> <i class="fa fa-angle-right pull-right"></i>
+                                    </a>
+                                    <ul class="sidebar-submenu">
+                                        <li><a href="category-digital.html"><i class="fa fa-circle"></i>Category</a></li>
+                                        <li><a href="category-digitalsub.html"><i class="fa fa-circle"></i>Sub Category</a></li>
+                                        <li><a href="product-listdigital.html"><i class="fa fa-circle"></i>Product List</a></li>
+                                        <li><a href="add-digital-product.html"><i class="fa fa-circle"></i>Add Product</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Secured">Secured</a>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="tag"></i><span>Coupons</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="coupon-list.html"><i class="fa fa-circle"></i>List Coupons</a></li>
+                                <li><a href="coupon-create.html"><i class="fa fa-circle"></i>Create Coupons </a></li>
+                            </ul>
                         </li>
-                        @if (User.Identity.IsAuthenticated) { 
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Logout">Logout</a>
+                        <li>
+                            <a class="sidebar-header" href="#"><i data-feather="clipboard"></i><span>Pages</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="pages-list.html"><i class="fa fa-circle"></i>List Page</a></li>
+                                <li><a href="page-create.html"><i class="fa fa-circle"></i>Create Page</a></li>
+                            </ul>
                         </li>
-                        }
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Users</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="@Url.Action("UserList", "User")"><i class="fa fa-circle"></i>User List</a></li>
+                                <li><a href="@Url.Action("CreateUser", "User")"><i class="fa fa-circle"></i>Create User</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="users"></i><span>Vendors</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="list-vendor.html"><i class="fa fa-circle"></i>Vendor List</a></li>
+                                <li><a href="create-vendors.html"><i class="fa fa-circle"></i>Create Vendor</a></li>
+                            </ul>
+                        </li>
+                        <li><a class="sidebar-header" href="reports.html"><i data-feather="bar-chart"></i><span>Reports</span></a></li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="settings"></i><span>Settings</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="profile.html"><i class="fa fa-circle"></i>Profile</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href="invoice.html"><i data-feather="archive"></i><span>Invoice</span></a>
+                        </li>
                     </ul>
                 </div>
             </div>
-        </nav>
-    </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+            <!-- Page Sidebar Ends-->
+
+            <div class="page-body">
+
+                <!-- Container-fluid starts-->
+                <div class="container-fluid">
+                    <main role="main" class="pb-3">
+                        @RenderBody()
+                    </main>
+                </div>
+
+            </div>
+
+            <!-- footer start-->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6 footer-copyright">
+                            <p class="mb-0">Copyright 2019 © Multikart All rights reserved.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p class="pull-right mb-0">Hand crafted & made with<i class="fa fa-heart"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- footer end-->
+        </div>
+
     </div>
 
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2021 - RetailPlatform.API - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-        </div>
-    </footer>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/site.js" asp-append-version="true"></script>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/icons/feather-icon/feather.min.js"></script>
+    <script src="~/js/icons/feather-icon/feather-icon.js"></script>
+    <script src="~/js/sidebar-menu.js"></script>
+    <script src="~/js/admin-customizer.js"></script>
+    <script src="~/js/lazysizes.min.js"></script>
+    <script src="~/js/chat-menu.js"></script>
+    <script src="~/js/admin-script.js"></script>
+    @RenderSection("dataTables", required: false)
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
