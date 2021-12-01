@@ -31,7 +31,8 @@ namespace RetailPlatform.API.Controllers
 
         public IActionResult CreateUser()
         {
-            return View();
+            UserDTO user = new UserDTO();
+            return View(user);
         }
 
         [HttpPost]

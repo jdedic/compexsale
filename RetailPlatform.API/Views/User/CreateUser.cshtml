@@ -1,5 +1,4 @@
-﻿
-
+﻿@model RetailPlatform.API.Models.DTO.UserDTO
 
 <div class="container-fluid">
     <div class="page-header">
@@ -38,12 +37,14 @@
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
-                            <form class="needs-validation user-add" novalidate="">
-                                <h4>Account Details</h4>
+                            <form asp-controller="User" asp-action="CreateUser" autocomplete="off">
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="form-group row">
                                     <label for="validationCustom0" class="col-xl-3 col-md-4"><span>*</span> First Name</label>
                                     <div class="col-xl-8 col-md-7">
-                                        <input class="form-control" id="validationCustom0" type="text" required="">
+                                        @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", autocomplete = "off" })
+                                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                        @*<input class="form-control" id="validationCustom0" type="text" required="">*@
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -131,7 +132,7 @@
                         </div>
                     </div>
                     <div class="pull-right">
-                        <button type="button" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </div>
@@ -143,5 +144,5 @@
 
 @section dataTables {
     <script src="~/js/custom-js/create-user.js"></script>
-    <script src="~/js/dashboard/form-validation-custom.js"></script>
+    @*<script src="~/js/dashboard/form-validation-custom.js"></script>*@
 }
