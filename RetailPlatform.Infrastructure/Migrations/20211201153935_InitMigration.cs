@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
-    public partial class Init : Migration
+    public partial class InitMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -163,12 +163,12 @@ namespace RetailPlatform.Infrastructure.Migrations
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 11, 30, 22, 41, 22, 249, DateTimeKind.Local).AddTicks(1352), 1L, "069 5485 156", "Business Manager", "21000" });
+                values: new object[] { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 1, 16, 39, 35, 474, DateTimeKind.Local).AddTicks(5139), 1L, "069 5485 156", "Business Manager", "21000" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 11, 30, 22, 41, 22, 252, DateTimeKind.Local).AddTicks(755), 2L, "069 5485 156", "Business Manager", "21000" });
+                values: new object[] { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 1, 16, 39, 35, 477, DateTimeKind.Local).AddTicks(4475), 2L, "069 5485 156", "Business Manager", "21000" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Adds_CategoryId",
