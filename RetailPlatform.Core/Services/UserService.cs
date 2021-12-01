@@ -2,7 +2,6 @@
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Extensions;
-using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

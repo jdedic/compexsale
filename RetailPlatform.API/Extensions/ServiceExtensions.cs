@@ -17,6 +17,7 @@ namespace RetailPlatform.API.Extensions
         public static void ConfigureAppServices(this IServiceCollection services)
         {
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEmailService, EmailService>();
         }
     }
 }
