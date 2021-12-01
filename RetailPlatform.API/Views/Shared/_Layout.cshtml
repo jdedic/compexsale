@@ -123,8 +123,15 @@
                         <li>
                             <a class="sidebar-header" href=""><i data-feather="users"></i><span>Vendors</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="list-vendor.html"><i class="fa fa-circle"></i>Vendor List</a></li>
-                                <li><a href="create-vendors.html"><i class="fa fa-circle"></i>Create Vendor</a></li>
+                                <li><a href="@Url.Action("VendorList", "Vendor")"><i class="fa fa-circle"></i>Vendor List</a></li>
+                                <li><a href="@Url.Action("CreateVendor", "Vendor")"><i class="fa fa-circle"></i>Create Vendor</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="shopping-bag"></i><span>Customers</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="@Url.Action("CustomerList", "Customer")"><i class="fa fa-circle"></i>Customer List</a></li>
+                                <li><a href="@Url.Action("CreateCustomer", "Customer")"><i class="fa fa-circle"></i>Create Customer</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="reports.html"><i data-feather="bar-chart"></i><span>Reports</span></a></li>
