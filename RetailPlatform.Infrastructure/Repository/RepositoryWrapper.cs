@@ -7,10 +7,12 @@ namespace RetailPlatform.Infrastructure.Repository
     {
         private readonly RetailContext _retailContext;
         public IUserRepository User { get; set; }
-        public RepositoryWrapper(RetailContext retailContext, IUserRepository user)
+        public IRoleRepository Role { get; set; }
+        public RepositoryWrapper(RetailContext retailContext, IUserRepository user, IRoleRepository role)
         {
             _retailContext = retailContext;
             User = user;
+            Role = role;
         }
 
     }

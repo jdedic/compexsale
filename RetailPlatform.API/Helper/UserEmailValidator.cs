@@ -1,10 +1,6 @@
 ﻿using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Interfaces.Repository;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Helper
 {
@@ -19,7 +15,8 @@ namespace RetailPlatform.API.Helper
             {
                 return null;
             }
-            var id = ((UserDTO)validationContext.ObjectInstance).Id;
+            
+            var id = validationContext.ObjectType.Name == "UserDTO" ? ((UserDTO)validationContext.ObjectInstance).Id : ((EditUserDTO)validationContext.ObjectInstance).Id;
             return repositoryWrapper.User.CheckIfEmailAlreadyExist(id, value.ToString()) ? errorMessage : ValidationResult.Success;
         }
     }

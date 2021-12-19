@@ -1,4 +1,4 @@
-﻿@model RetailPlatform.API.Models.DTO.UserDTO
+﻿@model RetailPlatform.API.Models.DTO.EditUserDTO
 
 <div class="container-fluid">
     <div class="page-header">
@@ -31,10 +31,10 @@
                     <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
                         <li class="nav-item"><a class="nav-link active show" id="account-tab" data-bs-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true" data-original-title="" title="">Account</a></li>
                     </ul>
-                    <form id="create-user" asp-controller="User" asp-action="CreateUser" autocomplete="off" novalidate>
+                    <form id="create-user" asp-controller="User" asp-action="EditUser" autocomplete="off" novalidate>
                         <div class="tab-content" id="myTabContent">
                             <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
-
+                                @Html.HiddenFor(model => model.Id)
                                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                 <div class="row">
                                     <div class="form-group row col-xl-6 col-md-4 col-sm-12">
@@ -102,43 +102,37 @@
                                 </div>
                                 <div class="row">
                                     <div class="form-group row col-xl-6 col-md-4 col-sm-12">
-                                        <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Password</label>
-                                        <div class="col-xl-8 col-md-7">
-                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", autocomplete = "off", required = "required" })
-                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="form-group row col-xl-6 col-md-4 col-sm-12">
                                         <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Role</label>
                                         <div class="col-xl-8 col-md-7">
                                             @Html.DropDownListFor(x => x.SelectedRole, new SelectList(Model.FilteredRoleTypes, "Value", "Text"), "Select Role", htmlAttributes: new { @class = "custom-select form-control", @id = "role" })
                                             @Html.ValidationMessageFor(model => model.SelectedRole, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
+                                    <div class="form-group row col-xl-6 col-md-4 col-sm-12"></div>
+                                </div>
+                                <br />
+                                <div id="userPassword" class="row d-none">
+                                    <div class="retail-border">
+                                        <div class="form-group row col-xl-6 col-md-4 col-sm-12">
+                                            <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Password</label>
+                                            <div class="col-xl-8 col-md-7">
+                                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-xl-6 col-md-4 col-sm-12">
+                                            <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Confirm Password</label>
+                                            <div class="col-xl-8 col-md-7">
+                                                @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                            <!--<div class="tab-pane fade" id="permission" role="tabpanel" aria-labelledby="permission-tabs">
-                                <h4>Account Details</h4>
-
-
-                                <br />-->
-                            @*<button type="button" id="changePasswordBtn" onclick="changePassword();" class="btn btn-air-light btn-sm pull-left">Change Password</button>*@
-                            @*<div id="userPassword" class="form-group row d-none">
-                                    <label for="validationCustom2" class="col-xl-3 col-md-4"><span>*</span> Password</label>
-                                    <div class="col-xl-8 col-md-7">
-                                        <input class="form-control" id="validationCustom2" type="text" required="">
-                                    </div>
-                                </div>*@
-                            @*<div id="repeatUserPassword" class="form-group row d-none">
-                                    <label for="validationCustom2" class="col-xl-3 col-md-4"><span>*</span> Repeat Password</label>
-                                    <div class="col-xl-8 col-md-7">
-                                        <input class="form-control" id="validationCustom2" type="text" required="">
-                                    </div>
-                                </div>*@
-                            <!--</div>-->
-                        </div>
                     </form>
                     <div class="pull-right retail-button">
+                        <button type="button" onclick="changePassword();" class="btn btn-outline-warning">Change Password</button>
                         <button type="submit" form="create-user" class="btn btn-primary">Save</button>
                     </div>
                 </div>

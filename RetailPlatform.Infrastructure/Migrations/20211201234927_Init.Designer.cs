@@ -10,8 +10,8 @@ using RetailPlatform.Infrastructure.Data;
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    [Migration("20211201153935_InitMigration")]
-    partial class InitMigration
+    [Migration("20211201234927_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -248,7 +248,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 1, 16, 39, 35, 474, DateTimeKind.Local).AddTicks(5139),
+                            RegistrationDate = new DateTime(2021, 12, 2, 0, 49, 26, 835, DateTimeKind.Local).AddTicks(5750),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -264,7 +264,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 1, 16, 39, 35, 477, DateTimeKind.Local).AddTicks(4475),
+                            RegistrationDate = new DateTime(2021, 12, 2, 0, 49, 26, 838, DateTimeKind.Local).AddTicks(5452),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",

@@ -32,5 +32,23 @@ namespace RetailPlatform.Core.Services
         {
             return await _repositoryWrapper.User.FindAllAsync();
         }
+
+        public async Task CreateUser(User user, string role)
+        {
+            user.RoleId = _repositoryWrapper.Role.GetRoleByName(role);
+            user.Password = PasswordHasher.HashPassword(user.Password);
+            await _repositoryWrapper.User.Create(user);
+
+        }
+
+        public async Task UpdateUser(User user, string role, bool passwordUpdated)
+        {
+            user.RoleId = _repositoryWrapper.Role.GetRoleByName(role);
+            if(passwordUpdated)
+                user.Password = PasswordHasher.HashPassword(user.Password);
+
+            await _repositoryWrapper.User.Update(user);
+        }
+
     }
 }

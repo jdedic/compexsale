@@ -7,7 +7,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RetailPlatform.API.Models.DTO
 {
-    public class UserDTO
+    public class EditUserDTO
     {
         public long Id { get; set; }
         [Required(ErrorMessage = "Unesite Ime")]
@@ -17,7 +17,7 @@ namespace RetailPlatform.API.Models.DTO
         [Display(Name = "Funkcija")]
         [Required(ErrorMessage = "Izaberite funkciju")]
         public string SelectedRole { get; set; }
-        [Required(ErrorMessage ="Unesite adresu")]
+        [Required(ErrorMessage = "Unesite adresu")]
         public string Address { get; set; }
         [Required(ErrorMessage = "Unesite grad")]
         public string City { get; set; }
@@ -31,7 +31,9 @@ namespace RetailPlatform.API.Models.DTO
         public string Telephone { get; set; }
         [Required(ErrorMessage = "Unesite šifru")]
         public string Password { get; set; }
-        public DateTime RegistrationDate { get; set; }
+
+        [Compare("Password", ErrorMessage = "Confirm password doesn't match, Type again !")]
+        public string ConfirmPassword { get; set; }
         public string WorkingPosition { get; set; }
         public IEnumerable<SelectListItem> FilteredRoleTypes { get; set; }
         public List<Role> RoleTypes { get; set; }

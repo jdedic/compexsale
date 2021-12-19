@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
+using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +13,17 @@ namespace RetailPlatform.API.Controllers
     public class UserController : Controller
     {
         private readonly IUserService _userService;
-        public UserController(IUserService userService)
+        private readonly IRoleService _roleService;
+        private readonly IMapper _mapper;
+        private readonly IRepositoryWrapper _repositoryWrapper;
+
+        public UserController(IUserService userService, IRoleService roleService, IMapper mapper,
+                              IRepositoryWrapper repositoryWrapper)
         {
             _userService = userService;
+            _roleService = roleService;
+            _mapper = mapper;
+            _repositoryWrapper = repositoryWrapper;
         }
 
         public IActionResult UserList()
@@ -28,9 +38,10 @@ namespace RetailPlatform.API.Controllers
             return result.ToArray();
         }
 
-        public IActionResult CreateUser()
+        public async Task<IActionResult> CreateUser()
         {
             UserDTO user = new UserDTO();
+            user.FilteredRoleTypes = _roleService.FilterRoleTypes();
             return View(user);
         }
 
@@ -41,11 +52,49 @@ namespace RetailPlatform.API.Controllers
         {
             if (!ModelState.IsValid)
             {
+                user.FilteredRoleTypes = _roleService.FilterRoleTypes();
                 return View(user);
             }
 
+            await _userService.CreateUser(_mapper.Map<User>(user), user.SelectedRole);
+            return Redirect("/User/UserList");
+        }
 
-           
+        public async Task<IActionResult> EditUser(long id)
+        {
+            var user = await _repositoryWrapper.User.GetUserById(id);
+            EditUserDTO model = _mapper.Map<EditUserDTO>(user);
+            model.FilteredRoleTypes = _roleService.FilterRoleTypes();
+            model.SelectedRole = user.Role.Name;
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("User/EditUser")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditUser(EditUserDTO dto)
+        {
+            var user = await _repositoryWrapper.User.GetUserById(dto.Id);
+            if (!ModelState.IsValid)
+            {
+                if (user.Email.Equals(dto.Email))
+                {
+                    ModelState.Remove("Email");
+                }
+
+                if(dto.Password == null)
+                {
+                    ModelState.Remove("Password");
+                }
+
+                dto.FilteredRoleTypes = _roleService.FilterRoleTypes();
+                if(!ModelState.IsValid)
+                     return View(dto);
+            }
+
+            var passwordUpdated = dto.Password != null ? true : false;
+            dto.Password = passwordUpdated == false ? user.Password : dto.Password;
+            await _userService.UpdateUser(_mapper.Map<User>(dto), dto.SelectedRole, passwordUpdated);
             return Redirect("/User/UserList");
         }
     }

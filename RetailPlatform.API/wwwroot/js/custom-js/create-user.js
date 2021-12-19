@@ -1,5 +1,10 @@
 ﻿function changePassword() {
-    document.getElementById("changePasswordBtn").classList.add("d-none"); 
-    document.getElementById("userPassword").classList.remove("d-none"); 
-    document.getElementById("repeatUserPassword").classList.remove("d-none"); 
+    var x = document.getElementById("userPassword");
+    if (x.classList.contains('d-none')) {
+        x.classList.remove('d-none');
+        x.classList.add('d-block');
+    } else {
+        x.classList.remove('d-block');
+        x.classList.add('d-none');
+    }
 }

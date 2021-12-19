@@ -1,5 +1,5 @@
 ﻿using RetailPlatform.Common.Entities;
-using System.Collections.Generic;
+using System.Threading.Tasks;
 
 namespace RetailPlatform.Common.Interfaces.Repository
 {
@@ -8,5 +8,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         User GetUserByEmail(string email);
         string GetUserFullNameByEmail(string email);
         bool CheckIfEmailAlreadyExist(long userId, string email);
+        Task<User> GetUserById(long id);
     }
 }
