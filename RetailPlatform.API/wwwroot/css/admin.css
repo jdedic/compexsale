@@ -1,6 +1,6 @@
 ﻿@charset "UTF-8";
 :root {
-  --theme-deafult: #f2ce1b;
+  --theme-deafult: #d0c979;
 }
 
 .theme-color-1 {
@@ -95,7 +95,7 @@
   --theme-deafult2: #F7BB97; }
 
 :root {
-   --theme-deafult: #f2ce1b;
+   --theme-deafult: #d0c979;
 }
 
 @-webkit-keyframes textNoise1 {
@@ -26111,7 +26111,7 @@ label {
         z-index: 1;
         width: 0.75rem;
         height: 0.75rem;
-        background: #f2ce1b;
+        background: #d0c979;
         border-radius: 50%;
     }
   .radio_animated:after {
@@ -26129,7 +26129,7 @@ label {
             transform: scale(1, 1); }
 
 a:hover {
-  color: #f2ce1b;
+  color: #d0c979;
 }
 
 .btn-popup {
@@ -26585,10 +26585,10 @@ a:hover {
 .tab2-card .nav-tabs .nav-link {
   color: #333333; }
     .tab2-card .nav-tabs .nav-link.active, .tab2-card .nav-tabs .nav-link:focus, .tab2-card .nav-tabs .nav-link:hover {
-        color: #f2ce1b;
+        color: #d0c979;
         font-weight: bold;
         border-color: transparent;
-        border-bottom: 3px solid #f2ce1b;
+        border-bottom: 3px solid #d0c979;
     }
 
 .tab2-card .nav-tabs .nav-item.show .nav-link {
@@ -27394,7 +27394,7 @@ ul {
   padding-right: 0px; }
 
 * a {
-  color: #f2ce1b;
+  color: #d0c979;
 }
 
 *.btn:focus {
@@ -27618,7 +27618,7 @@ input:focus {
           height: 25px;
           width: 25px;
           z-index: 10;
-          border: 5px solid #f2ce1bd6;
+          border: 5px solid #d0c979d6;
           border-radius: 70px;
           -webkit-animation: heartbit 1s ease-out;
                   animation: heartbit 1s ease-out;
@@ -27628,7 +27628,7 @@ input:focus {
           width: 6px;
           height: 6px;
           border-radius: 30px;
-          background-color: #F2CE1BD6;
+          background-color: #d0c979D6;
           position: absolute;
           right: 6px;
           top: -10px; }
@@ -27960,7 +27960,7 @@ ul.notification-dropdown.onhover-show-div {
             box-shadow: 3px 2px 7px -1px rgba(127, 151, 249, 0.13);
     position: relative; }
     .page-wrapper .page-body-wrapper .page-sidebar .sidebar-user h6 {
-      color: #f2ce1bd6;
+      color: #d0c979d6;
       text-transform: uppercase;
       font-weight: 600;
       letter-spacing: 1.5px;
@@ -28981,7 +28981,7 @@ ul.notification-dropdown.onhover-show-div {
 /*======= Badge-color css end  ======= */
 /*======= Background-color css starts  ======= */
 .bg-primary {
-  background-color: #f2ce1bd6 !important;
+  background-color: #d0c979d6 !important;
   color: #ffffff;
 }
 
@@ -29018,8 +29018,8 @@ ul.notification-dropdown.onhover-show-div {
 /*======= Font-color css end  ======= */
 /*======= Button-color css starts  ======= */
 .btn-primary {
-    background-color: #f2ce1b !important;
-    border-color: #f2ce1b !important;
+    background-color: #d0c979 !important;
+    border-color: #d0c979 !important;
 }
   .btn-primary.disabled {
     background-color: #ff8084 !important;
@@ -29037,8 +29037,8 @@ ul.notification-dropdown.onhover-show-div {
             box-shadow: 0 0 0 0.2rem white; }
 
 .btn-secondary {
-    background-color: #f2ce1bd6 !important;
-    border-color: #f2ce1bd6 !important;
+    background-color: #d0c979d6 !important;
+    border-color: #d0c979d6 !important;
 }
   .btn-secondary.disabled {
     background-color: #13c9ca !important;
@@ -30525,8 +30525,8 @@ table tbody .border-bottom-warning td {
     .authentication-box .container .bg-primary {
         padding: 50px;
         background-position: center;
-        -webkit-box-shadow: 1px 5px 24px 0 #f2ce1bdb;
-        box-shadow: 1px 5px 24px 0 #f2ce1bdb;
+        -webkit-box-shadow: 1px 5px 24px 0 #d0c979db;
+        box-shadow: 1px 5px 24px 0 #d0c979db;
     }
     .authentication-box .container .form-group {
       margin-bottom: 1.5rem; }
@@ -30568,7 +30568,7 @@ table tbody .border-bottom-warning td {
 .forgot-pass {
     padding: 0;
     margin-left: auto;
-    color: #f2ce1b;
+    color: #d0c979;
 }
 
 .custom-theme {

@@ -8,5 +8,10 @@ namespace RetailPlatform.API.Views
         {
             return View();
         }
+
+        public IActionResult FAQ()
+        {
+            return View();
+        }
     }
 }

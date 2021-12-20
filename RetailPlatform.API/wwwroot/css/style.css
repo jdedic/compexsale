@@ -1,6 +1,6 @@
 ﻿@charset "UTF-8";
 .theme-color-1 {
-  --theme-deafult: #f2ce1b;
+  --theme-deafult: #d0c979;
 }
 
 .theme-color-2 {
@@ -12568,8 +12568,8 @@ header.stickycls {
     margin: 40px 0; }
 
 .breadcrumb-section {
-  background-color: #f8f8f8;
-  padding: 30px 0; }
+  background-color: #d0c979;
+  padding: 2px 0; }
   .breadcrumb-section .page-title {
     display: -webkit-box;
     display: -ms-flexbox;
