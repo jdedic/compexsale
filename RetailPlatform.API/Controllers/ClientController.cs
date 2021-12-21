@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 
-namespace RetailPlatform.API.Views
+namespace RetailPlatform.API.Controllers
 {
     public class ClientController : Controller
     {
@@ -10,6 +10,11 @@ namespace RetailPlatform.API.Views
         }
 
         public IActionResult FAQ()
+        {
+            return View();
+        }
+
+        public IActionResult ProductPreview()
         {
             return View();
         }
