@@ -21,6 +21,17 @@ namespace RetailPlatform.API.Mappings
                 dest.Password,
                 opt => opt.MapFrom(src => string.Empty));
             CreateMap<EditUserDTO, User>();
+
+            CreateMap<Add, AddDTO>()
+                .ForMember(dest =>
+                dest.CreatedBy,
+                opt => opt.MapFrom(src => src.Profile != null ? src.Profile.CompanyName : null))
+                .ForMember(dest =>
+                dest.Category,
+                opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
+                .ForMember(dest =>
+                dest.DateOfCreation,
+                opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
         }
     }
 }

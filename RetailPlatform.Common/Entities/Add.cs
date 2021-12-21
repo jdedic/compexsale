@@ -16,6 +16,7 @@ namespace RetailPlatform.Common.Entities
         public string Description { get; set; }
         public string Place { get; set; }
         public double Quantity { get; set; }
+        public string Unit { get; set; }
         public bool Active { get; set; }
         public DateTime CreationDate { get; set; }
     }
