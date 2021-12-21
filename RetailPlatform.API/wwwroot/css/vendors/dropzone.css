@@ -406,24 +406,26 @@
  * Copyright (c) 2012 Matias Meno <m@tias.me>
  */
 .dropzone {
-  margin-right: auto;
-  margin-left: auto;
-  padding: 50px;
-  border: 2px dashed #ff8084;
-  border-radius: 15px;
-  -o-border-image: none;
-  border-image: none;
-  background: transparent;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  min-height: 150px;
-  position: relative; }
+    margin-right: auto;
+    margin-left: auto;
+    padding: 50px;
+    border: 2px dashed #d0c979;
+    border-radius: 15px;
+    -o-border-image: none;
+    border-image: none;
+    background: transparent;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    min-height: 150px;
+    position: relative;
+}
   .dropzone * {
     -webkit-box-sizing: border-box;
             box-sizing: border-box; }
-  .dropzone i {
-    font-size: 50px;
-    color: #ff8084; }
+    .dropzone i {
+        font-size: 50px;
+        color: #d0c979;
+    }
   .dropzone .dz-message {
     text-align: center;
     margin: 25px 0; }

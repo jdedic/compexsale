@@ -75,6 +75,123 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            Name = "Poljoprivreda i šumarstvo"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            Name = "Životinje"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            Name = "Prehrambeni proizvodi"
+                        },
+                        new
+                        {
+                            Id = 4L,
+                            Name = "Rudarstvo"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            Name = "Građevinarstvo"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            Name = "Nekretnine"
+                        },
+                        new
+                        {
+                            Id = 7L,
+                            Name = "Mašine"
+                        },
+                        new
+                        {
+                            Id = 8L,
+                            Name = "Oprema i alati"
+                        },
+                        new
+                        {
+                            Id = 9L,
+                            Name = "Vozila"
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            Name = "Plovni objekti i sredstva"
+                        },
+                        new
+                        {
+                            Id = 11L,
+                            Name = "Goriva"
+                        },
+                        new
+                        {
+                            Id = 12L,
+                            Name = "Razni proizvodi i oprema"
+                        },
+                        new
+                        {
+                            Id = 13L,
+                            Name = "Kancelarijske mašine"
+                        },
+                        new
+                        {
+                            Id = 14L,
+                            Name = "Mobilni uređaji, tehnika (aparati i uređaji)"
+                        },
+                        new
+                        {
+                            Id = 15L,
+                            Name = "Električne mašine i alati"
+                        },
+                        new
+                        {
+                            Id = 16L,
+                            Name = "Odeća, obuća i tekstil"
+                        },
+                        new
+                        {
+                            Id = 17L,
+                            Name = "Nameštaj"
+                        },
+                        new
+                        {
+                            Id = 18L,
+                            Name = "Hemijski proizvodi"
+                        },
+                        new
+                        {
+                            Id = 19L,
+                            Name = "Bebi oprema i dečije stvari"
+                        },
+                        new
+                        {
+                            Id = 20L,
+                            Name = "Aksesoari"
+                        },
+                        new
+                        {
+                            Id = 21L,
+                            Name = "Sportska oprema i rekviziti"
+                        },
+                        new
+                        {
+                            Id = 22L,
+                            Name = "Umetnost i razonoda"
+                        },
+                        new
+                        {
+                            Id = 23L,
+                            Name = "Obrazovanje"
+                        });
                 });
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Profile", b =>
@@ -246,7 +363,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 2, 0, 49, 26, 835, DateTimeKind.Local).AddTicks(5750),
+                            RegistrationDate = new DateTime(2021, 12, 21, 9, 23, 42, 991, DateTimeKind.Local).AddTicks(9783),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -262,7 +379,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 2, 0, 49, 26, 838, DateTimeKind.Local).AddTicks(5452),
+                            RegistrationDate = new DateTime(2021, 12, 21, 9, 23, 42, 996, DateTimeKind.Local).AddTicks(387),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",

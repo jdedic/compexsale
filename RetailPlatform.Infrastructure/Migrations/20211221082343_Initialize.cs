@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
-    public partial class Init : Migration
+    public partial class Initialize : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -151,24 +151,53 @@ namespace RetailPlatform.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Roles",
+                table: "Categories",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 1L, "Administrator" });
+                values: new object[,]
+                {
+                    { 1L, "Poljoprivreda i šumarstvo" },
+                    { 23L, "Obrazovanje" },
+                    { 22L, "Umetnost i razonoda" },
+                    { 21L, "Sportska oprema i rekviziti" },
+                    { 20L, "Aksesoari" },
+                    { 19L, "Bebi oprema i dečije stvari" },
+                    { 18L, "Hemijski proizvodi" },
+                    { 17L, "Nameštaj" },
+                    { 16L, "Odeća, obuća i tekstil" },
+                    { 15L, "Električne mašine i alati" },
+                    { 14L, "Mobilni uređaji, tehnika (aparati i uređaji)" },
+                    { 13L, "Kancelarijske mašine" },
+                    { 11L, "Goriva" },
+                    { 10L, "Plovni objekti i sredstva" },
+                    { 9L, "Vozila" },
+                    { 8L, "Oprema i alati" },
+                    { 7L, "Mašine" },
+                    { 6L, "Nekretnine" },
+                    { 5L, "Građevinarstvo" },
+                    { 4L, "Rudarstvo" },
+                    { 3L, "Prehrambeni proizvodi" },
+                    { 2L, "Životinje" },
+                    { 12L, "Razni proizvodi i oprema" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Roles",
                 columns: new[] { "Id", "Name" },
-                values: new object[] { 2L, "Controller" });
+                values: new object[,]
+                {
+                    { 1L, "Administrator" },
+                    { 2L, "Controller" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 2, 0, 49, 26, 835, DateTimeKind.Local).AddTicks(5750), 1L, "069 5485 156", "Business Manager", "21000" });
+                values: new object[] { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 21, 9, 23, 42, 991, DateTimeKind.Local).AddTicks(9783), 1L, "069 5485 156", "Business Manager", "21000" });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 2, 0, 49, 26, 838, DateTimeKind.Local).AddTicks(5452), 2L, "069 5485 156", "Business Manager", "21000" });
+                values: new object[] { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 21, 9, 23, 42, 996, DateTimeKind.Local).AddTicks(387), 2L, "069 5485 156", "Business Manager", "21000" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Adds_CategoryId",
