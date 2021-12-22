@@ -25,7 +25,7 @@
 
 <div class="container-fluid">
     <div class="row product-adding">
-        <div class="col-xl-6">
+        <div class="col-xl-5">
             <div class="card">
                 <div class="card-header">
                     <h5>General</h5>
@@ -72,46 +72,41 @@
                                 </label>
                             </div>
                         </div>
-                        <label class="col-form-label pt-0"> Product Upload</label>
-                        <form class="dropzone digits" id="singleFileUpload" action="/upload.php">
-                            <div class="dz-message needsclick">
-                                <i class="fa fa-cloud-upload"></i>
-                                <h4 class="mb-0 f-w-600">Drop files here or click to upload.</h4>
-                            </div>
-                        </form>
+                        <div class="form-group">
+                            <label class="col-form-label"> Add Description</label>
+                            <textarea name="description" cols="10" rows="7"></textarea>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="col-xl-6">
+        <div class="col-xl-7">
             <div class="card">
                 <div class="card-header">
-                    <h5>Add Description</h5>
+                    <h5>Add Photos</h5>
                 </div>
                 <div class="card-body">
-                    <div class="digital-add needs-validation">
-                        <div class="form-group mb-0">
-                            <div class="description-sm">
-                                <textarea id="editor1" name="editor1" cols="10" rows="4"></textarea>
-                            </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <input type="file" name="file" id="imgInp" class="dropify" data-height="300" />
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <input type="file" name="file" id="img1Inp" class="dropify" data-height="300" />
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top:25px;">
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <input type="file" name="file" id="imgInp" class="dropify" data-height="300" />
+                        </div>
+                        <div class="col-sm-6 col-md-6 col-lg-6">
+                            <input type="file" name="file" id="img1Inp" class="dropify" data-height="300" />
                         </div>
                     </div>
                 </div>
             </div>
             <div class="card">
-                <div class="card-header">
-                    <h5>Meta Data</h5>
-                </div>
                 <div class="card-body">
                     <div class="digital-add needs-validation">
-                        <div class="form-group">
-                            <label for="validationCustom05" class="col-form-label pt-0"> Meta Title</label>
-                            <input class="form-control" id="validationCustom05" type="text" required="">
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Meta Description</label>
-                            <textarea rows="4" cols="12"></textarea>
-                        </div>
                         <div class="form-group mb-0">
                             <div class="product-buttons text-center">
                                 <button type="button" class="btn btn-primary">Add</button>
@@ -126,14 +121,41 @@
 </div>
 
 @section headSection {
-    <link href="~/css/vendors/dropzone.css" rel="stylesheet" />
+    <link href="~/dropify/dist/css/dropify.min.css" rel="stylesheet" />
 }
 
 @section dataTables {
-    <script src="~/js/dropzone/dropzone.js"></script>
-    <script src="~/js/dropzone/dropzone-script.js"></script>
-    <script src="~/js/editor/ckeditor/ckeditor/ckeditor.js"></script>
-    <script src="~/js/editor/ckeditor/ckeditor/styles.js"></script>
-    <script src="~/js/editor/ckeditor/adapters/jquery.js"></script>
-    <script src="~/js/editor/ckeditor/ckeditor.custom.js"></script>
+    <script src="~/dropify/dist/js/dropify.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function (event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function (e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+
+            $()
+        });
+    </script>
 }
+
