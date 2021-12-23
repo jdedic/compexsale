@@ -8,5 +8,10 @@ namespace RetailPlatform.API.Controllers
         {
             return View();
         }
+
+        public IActionResult ProductPreview()
+        {
+            return View();
+        }
     }
 }
