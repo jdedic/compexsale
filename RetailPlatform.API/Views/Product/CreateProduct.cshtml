@@ -31,52 +31,55 @@
                     <h5>General</h5>
                 </div>
                 <div class="card-body">
-                    <div class="digital-add needs-validation">
-                        <div class="form-group">
-                            <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Title</label>
-                            <input class="form-control" id="validationCustom01" type="text" required="">
-                        </div>
-                        <div class="form-group">
-                            <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> SKU</label>
-                            <input class="form-control" id="validationCustomtitle" type="text" required="">
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label"><span>*</span> Categories</label>
-                            <select class="custom-select form-control" required="">
-                                <option value="">--Select--</option>
-                                <option value="1">eBooks</option>
-                                <option value="2">Graphic Design</option>
-                                <option value="3">3D Impact</option>
-                                <option value="4">Application</option>
-                                <option value="5">Websites</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label">Sort Summary</label>
-                            <textarea rows="5" cols="12"></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="validationCustom02" class="col-form-label"><span>*</span> Product Price</label>
-                            <input class="form-control" id="validationCustom02" type="text" required="">
-                        </div>
-                        <div class="form-group">
-                            <label class="col-form-label"><span>*</span> Status</label>
-                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                                <label class="d-block" for="edo-ani">
-                                    <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani">
-                                    Enable
-                                </label>
-                                <label class="d-block" for="edo-ani1">
-                                    <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani">
-                                    Disable
-                                </label>
+                    <form id="create-product" asp-controller="Product" asp-action="CreateProduct" enctype="multipart/form-data" autocomplete="off" novalidate>
+                        <div class="digital-add needs-validation">
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                            <div class="form-group">
+                                <label for="validationCustom01" class="col-form-label pt-0"><span>*</span> Title</label>
+                                <input class="form-control" id="validationCustom01" type="text" required="">
+                            </div>
+                            <div class="form-group">
+                                <label for="validationCustomtitle" class="col-form-label pt-0"><span>*</span> SKU</label>
+                                <input class="form-control" id="validationCustomtitle" type="text" required="">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label"><span>*</span> Categories</label>
+                                <select class="custom-select form-control" required="">
+                                    <option value="">--Select--</option>
+                                    <option value="1">eBooks</option>
+                                    <option value="2">Graphic Design</option>
+                                    <option value="3">3D Impact</option>
+                                    <option value="4">Application</option>
+                                    <option value="5">Websites</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">Sort Summary</label>
+                                <textarea rows="5" cols="12"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="validationCustom02" class="col-form-label"><span>*</span> Product Price</label>
+                                <input class="form-control" id="validationCustom02" type="text" required="">
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label"><span>*</span> Status</label>
+                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                    <label class="d-block" for="edo-ani">
+                                        <input class="radio_animated" id="edo-ani" type="radio" name="rdo-ani">
+                                        Enable
+                                    </label>
+                                    <label class="d-block" for="edo-ani1">
+                                        <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani">
+                                        Disable
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label"> Add Description</label>
+                                <textarea name="description" cols="10" rows="7"></textarea>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-form-label"> Add Description</label>
-                            <textarea name="description" cols="10" rows="7"></textarea>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
