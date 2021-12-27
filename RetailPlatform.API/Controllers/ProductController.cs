@@ -33,5 +33,10 @@ namespace RetailPlatform.API.Controllers
         {
             return _mapper.Map<IEnumerable<AddDTO>>(_addService.FetchActiveAdds());
         }
+
+        public IActionResult ProductPreview()
+        {
+            return View();
+        }
     }
 }

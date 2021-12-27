@@ -4,6 +4,7 @@ using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -96,6 +97,15 @@ namespace RetailPlatform.API.Controllers
             dto.Password = passwordUpdated == false ? user.Password : dto.Password;
             await _userService.UpdateUser(_mapper.Map<User>(dto), dto.SelectedRole, passwordUpdated);
             return Redirect("/User/UserList");
+        }
+
+        [HttpPost]
+        [Route("User/RemoveUser")]
+        public async Task<IActionResult> RemoveUser(long id)
+        {
+            var user = await _repositoryWrapper.User.GetUserById(id);
+            await _repositoryWrapper.User.Delete(user);
+            return new JsonResult(new { done = "Done" });
         }
     }
 }

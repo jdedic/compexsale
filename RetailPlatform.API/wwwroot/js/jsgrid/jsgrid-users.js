@@ -45,7 +45,6 @@
                         .attr({ id: "btn-edit-" + item.id })
                         .text("Edit")
                         .click(function (e) {
-                            //alert("ID: " + item.id);
                             document.location.href = "/User/EditUser/" + item.id;
                             e.stopPropagation();
                         });
@@ -55,8 +54,9 @@
                         .text("Delete")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
-                            alert("ID: " + item.id);
-                            // document.location.href = item.id + "/delete";
+                            $('#userModal').modal('show');
+                            $('#userId').text(item.id);
+                            $('#message').text("Da li zelite da uklonite " + item.firstName + " " + item.lastName + " korisnika?");
                             e.stopPropagation();
                         });
 
@@ -68,19 +68,7 @@
         ]
     });
 
-    var deleteSelectedItems = function () {
-        if (!selectedItems.length || !confirm("Are you sure?"))
-            return;
-        deleteClientsFromDb(selectedItems);
-        var $grid = $("#batchDelete");
-        $grid.jsGrid("option", "pActionIndex", 1);
-        $grid.jsGrid("loadData");
-        selectedItems = [];
-    };
-    var deleteClientsFromDb = function (deletingClients) {
-        db.clients = $.map(db.clients, function (client) {
-            return ($.inArray(client, deletingClients) > -1) ? null : client;
-        });
-    };
+   
+   
 })(jQuery);
 
