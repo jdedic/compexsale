@@ -22,6 +22,8 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => string.Empty));
             CreateMap<EditUserDTO, User>();
 
+            CreateMap<CategoryDTO, Category>();
+
             CreateMap<Add, AddDTO>()
                 .ForMember(dest =>
                 dest.CreatedBy,

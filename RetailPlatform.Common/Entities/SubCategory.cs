@@ -2,7 +2,7 @@
 
 namespace RetailPlatform.Common.Entities
 {
-    public class Category
+    public class SubCategory
     {
         [Key]
         public long Id { get; set; }

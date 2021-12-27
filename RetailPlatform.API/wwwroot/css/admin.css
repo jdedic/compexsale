@@ -26142,7 +26142,7 @@ a:hover {
   display: none !important; }
 
 .product-physical table tr th:nth-child(2), .product-physical table tr td:nth-child(2) {
-  text-align: left; }
+  text-align: center; }
 
 .timer {
   padding-left: 10px;
