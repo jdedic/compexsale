@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30804.86
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetailPlatform.API", "RetailPlatform.API\RetailPlatform.API.csproj", "{9EB13E01-C0EC-4FEB-9866-E91485CE363C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailPlatform.Core", "RetailPlatform.Core\RetailPlatform.Core.csproj", "{D7D17B72-83F9-447C-BB05-788ACA2FE9AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetailPlatform.Core", "RetailPlatform.Core\RetailPlatform.Core.csproj", "{D7D17B72-83F9-447C-BB05-788ACA2FE9AD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailPlatform.Infrastructure", "RetailPlatform.Infrastructure\RetailPlatform.Infrastructure.csproj", "{0BFC7847-DCC2-49ED-B943-E791B8C5D986}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetailPlatform.Infrastructure", "RetailPlatform.Infrastructure\RetailPlatform.Infrastructure.csproj", "{0BFC7847-DCC2-49ED-B943-E791B8C5D986}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RetailPlatform.Common", "RetailPlatform.Common\RetailPlatform.Common.csproj", "{D3C14E95-CC1E-488E-8BF3-E28B686BAE2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RetailPlatform.Common", "RetailPlatform.Common\RetailPlatform.Common.csproj", "{D3C14E95-CC1E-488E-8BF3-E28B686BAE2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

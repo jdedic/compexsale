@@ -5,5 +5,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
     {
        IUserRepository User { get; }
        IRoleRepository Role { get; }
+       IAddRepository Add { get; }
     }
 }

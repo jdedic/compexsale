@@ -7,6 +7,7 @@ namespace RetailPlatform.Common.Entities
     {
         [Key]
         public long Id { get; set; }
+        public string UniqueId { get; set; }
         public string Name { get; set; }
         public long ProfileId { get; set; }
         public Profile Profile { get; set; }

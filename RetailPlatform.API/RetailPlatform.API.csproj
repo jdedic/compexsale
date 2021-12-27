@@ -13,11 +13,17 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RetailPlatform.Core\RetailPlatform.Core.csproj" />
     <ProjectReference Include="..\RetailPlatform.Infrastructure\RetailPlatform.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\js\plugins\dropify\dist\js\" />
+    <Folder Include="wwwroot\js\plugins\dropify\dist\css\" />
   </ItemGroup>
 
 </Project>

@@ -89,13 +89,15 @@
                     <h5>Add Description</h5>
                 </div>
                 <div class="card-body">
-                    <div class="digital-add needs-validation">
-                        <div class="form-group mb-0">
-                            <div class="description-sm">
-                                <textarea id="editor1" name="editor1" cols="10" rows="4"></textarea>
-                            </div>
+                    <div class="col-lg-6">
+                        <div class="col-lg-3">
+                            <input type="file" name="backgroundFile" class="dropify" data-height="250" data-default-file="" />
+                        </div>
+                        <div class="col-lg-3">
+                            <input type="file" name="backgroundFile" class="dropify" data-height="250" data-default-file="" />
                         </div>
                     </div>
+
                 </div>
             </div>
             <div class="card">
@@ -125,15 +127,69 @@
     </div>
 </div>
 
+<script>
+    var loadFile = function (event) {
+        var output = document.getElementById('file');
+        output.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    var loadBackgroundImage = function (event) {
+        var background = document.getElementById('backgroundFile');
+        background.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    var loadImage = function (event) {
+        var imageFile = document.getElementById('imageFile');
+        imageFile.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    var loadFourthImage = function (event) {
+        var fourthImageFile = document.getElementById('fourthImageFile');
+        fourthImageFile.src = URL.createObjectURL(event.target.files[0]);
+    };
+</script>
+
 @section headSection {
-    <link href="~/css/vendors/dropzone.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/js/plugins/dropify/dist/css/dropify.min.css">
 }
 
 @section dataTables {
     <script src="~/js/dropzone/dropzone.js"></script>
     <script src="~/js/dropzone/dropzone-script.js"></script>
+    <script src="~/js/plugins/dropify/dist/js/dropify.min.js"></script>
     <script src="~/js/editor/ckeditor/ckeditor/ckeditor.js"></script>
     <script src="~/js/editor/ckeditor/ckeditor/styles.js"></script>
     <script src="~/js/editor/ckeditor/adapters/jquery.js"></script>
     <script src="~/js/editor/ckeditor/ckeditor.custom.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.dropify').dropify();
+            var drEvent = $('#input-file-events').dropify();
+
+            drEvent.on('dropify.beforeClear', function (event, element) {
+                return confirm("Do you really want to delete \"" + element.file.name + "\" ?");
+            });
+
+            drEvent.on('dropify.afterClear', function (event, element) {
+                alert('File deleted');
+            });
+
+            drEvent.on('dropify.errors', function (event, element) {
+                console.log('Has Errors');
+            });
+
+            var drDestroy = $('#input-file-to-destroy').dropify();
+            drDestroy = drDestroy.data('dropify')
+            $('#toggleDropify').on('click', function (e) {
+                e.preventDefault();
+                if (drDestroy.isDropified()) {
+                    drDestroy.destroy();
+                } else {
+                    drDestroy.init();
+                }
+            })
+
+        });
+    </script>
 }
