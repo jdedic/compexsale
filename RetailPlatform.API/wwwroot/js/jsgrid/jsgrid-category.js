@@ -21,14 +21,14 @@
                     dataType: "json"
                 });
             },
-            //updateItem: function (item) {
-            //    return $.ajax({
-            //        type: "GET",
-            //        url: "/User/EditUser" + item,
-            //        data: item,
-            //        dataType: "json"
-            //    });
-            //},
+            updateItem: function (item) {
+                return $.ajax({
+                    type: "GET",
+                    url: "/Category/EditCategory" + item,
+                    data: item,
+                    dataType: "json"
+                });
+            },
         },
         fields: [
             { name: "name", type: "text", width: 250, title: "Name" },
@@ -42,7 +42,11 @@
                         .attr({ id: "btn-edit-" + item.id })
                         .text("Edit")
                         .click(function (e) {
-                            document.location.href = "/User/EditUser/" + item.id;
+                            var url = "/Category/EditCategory"
+                            $.get(url, { id: item.id }, function (data) {
+                                $('#myModalContent').html(data);
+                                $('#myModal').modal('show');
+                            });
                             e.stopPropagation();
                         });
                     var $customDeleteButton = $("<button>")
@@ -51,9 +55,14 @@
                         .text("Delete")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
-                            $('#userModal').modal('show');
-                            $('#userId').text(item.id);
-                            $('#message').text("Da li zelite da uklonite " + item.firstName + " " + item.lastName + " korisnika?");
+                            $('#categoryModal').modal('show');
+                            $('#categoryId').text(item.id);
+                            if (item.isAssigned) {
+                                $('#message').text("Ne možete ukloniti kategoriju, jer je kategorija dodeljena jednom od proizvoda.");
+                            } else {
+                                $('#message').text("Da li zelite da uklonite " + item.name + " kategoriju?");
+                            }
+                            
                             e.stopPropagation();
                         });
 

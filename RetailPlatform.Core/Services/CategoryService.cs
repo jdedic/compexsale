@@ -17,7 +17,13 @@ namespace RetailPlatform.Core.Services
 
         public async Task<IEnumerable<Category>> FetchCategories()
         {
-            return await _repositoryWrapper.Category.FindAllAsync();
+            List<Category> list = new List<Category>();
+            foreach(var category in await _repositoryWrapper.Category.FindAllAsync())
+            {
+                category.IsAssigned = _repositoryWrapper.Category.IsCategoryAssigned(category.Id);
+                list.Add(category);
+            }
+            return list;
         }
 
         public async Task CreateCategory(Category model)

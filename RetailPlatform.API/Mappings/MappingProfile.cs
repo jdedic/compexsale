@@ -23,6 +23,7 @@ namespace RetailPlatform.API.Mappings
             CreateMap<EditUserDTO, User>();
 
             CreateMap<CategoryDTO, Category>();
+            CreateMap<Category, CategoryDTO>();
 
             CreateMap<Add, AddDTO>()
                 .ForMember(dest =>
