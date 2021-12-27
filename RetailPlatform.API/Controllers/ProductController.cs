@@ -38,5 +38,17 @@ namespace RetailPlatform.API.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        [Route("Product/RemoveAdd")]
+        public async Task<IActionResult> RemoveAdd(long id)
+        {
+            if(id <= 0)
+            {
+                return BadRequest();
+            }
+            await _addService.RemoveAdd(id);
+            return new JsonResult(new { done = "Done" });
+        }
     }
 }

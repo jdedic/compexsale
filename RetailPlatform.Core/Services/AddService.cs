@@ -4,6 +4,7 @@ using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace RetailPlatform.Core.Services
 {
@@ -19,6 +20,12 @@ namespace RetailPlatform.Core.Services
         public IEnumerable<Add> FetchActiveAdds()
         {
             return _repositoryWrapper.Add.FetchActiveAdds();
+        }
+
+        public async Task RemoveAdd(long id)
+        {
+            var add = await _repositoryWrapper.Add.GetByIdAsync(id);
+            await _repositoryWrapper.Add.Delete(add);
         }
     }
 }

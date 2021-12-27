@@ -9,5 +9,6 @@ namespace RetailPlatform.Common.Interfaces.Service
     public interface IAddService
     {
         IEnumerable<Add> FetchActiveAdds();
+        Task RemoveAdd(long id);
     }
 }
