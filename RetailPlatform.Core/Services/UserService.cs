@@ -38,7 +38,6 @@ namespace RetailPlatform.Core.Services
             user.RoleId = _repositoryWrapper.Role.GetRoleByName(role);
             user.Password = PasswordHasher.HashPassword(user.Password);
             await _repositoryWrapper.User.Create(user);
-
         }
 
         public async Task UpdateUser(User user, string role, bool passwordUpdated)

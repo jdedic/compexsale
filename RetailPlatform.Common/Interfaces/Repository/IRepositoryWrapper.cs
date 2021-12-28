@@ -8,6 +8,5 @@ namespace RetailPlatform.Common.Interfaces.Repository
        IAddRepository Add { get; }
        ICategoryRepository Category { get; }
        ISubCategoryRepository SubCategory { get; }
-       ICategorySubCategoryRepository CategorySubCategory { get; }
     }
 }

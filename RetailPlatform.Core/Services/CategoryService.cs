@@ -20,7 +20,7 @@ namespace RetailPlatform.Core.Services
             List<Category> list = new List<Category>();
             foreach(var category in await _repositoryWrapper.Category.FindAllAsync())
             {
-                category.IsAssigned = _repositoryWrapper.Category.IsCategoryAssigned(category.Id);
+                category.IsAssigned = _repositoryWrapper.SubCategory.IsCategoryAssigned(category.Id);
                 list.Add(category);
             }
             return list;

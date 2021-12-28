@@ -9,7 +9,7 @@ namespace RetailPlatform.API.Mappings
         public MappingProfile()
         {
             CreateMap<User, UserDTO>()
-                .ForMember(dest => 
+                .ForMember(dest =>
                 dest.Password,
                 opt => opt.MapFrom(src => string.Empty));
             CreateMap<UserDTO, User>()
@@ -31,10 +31,17 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.Profile != null ? src.Profile.CompanyName : null))
                 .ForMember(dest =>
                 dest.Category,
-                opt => opt.MapFrom(src => src.Category != null ? src.Category.Name : null))
+                opt => opt.MapFrom(src => src.SubCategory != null ? src.SubCategory.Name : null))
                 .ForMember(dest =>
                 dest.DateOfCreation,
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
+
+            CreateMap<SubCategory, SubCategoryModel>()
+              .ForMember(dest =>
+              dest.Category,
+              opt => opt.MapFrom(src => src.Category.Name));
+            CreateMap<SubCategoryDTO, SubCategory>();
+            CreateMap<SubCategory, SubCategoryDTO>();
         }
     }
 }
