@@ -23,17 +23,17 @@ namespace RetailPlatform.API.Controllers
         }
 
 
-        public IActionResult CreateProduct()
+        public async Task<IActionResult> CreateProduct()
         {
             CreateAddDTO add = new CreateAddDTO();
-            add.FilteredCategories = _addService.FilteredCategories();
+            add.FilteredCategories = await _addService.FilteredCategories();
             return View(add);
         }
 
         public async Task<IActionResult> EditProduct(long id)
         {
             EditAddDTO model = _mapper.Map<EditAddDTO>(await _addService.GetAddById(id));
-            model.FilteredCategories = _addService.FilteredCategories();
+            model.FilteredCategories = await _addService.FilteredCategories();
             return View(model);
         }
 
@@ -45,7 +45,7 @@ namespace RetailPlatform.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                add.FilteredCategories = _addService.FilteredCategories();
+                add.FilteredCategories = await _addService.FilteredCategories();
                 return View(add);
             }
 
