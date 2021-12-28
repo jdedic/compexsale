@@ -13,7 +13,10 @@ namespace RetailPlatform.Common.Entities
         public Profile Profile { get; set; }
         public long CategoryId { get; set; }
         public Category Category { get; set; }
-        public string ImagePaths { get; set; }
+        public string ImgUrl1 { get; set; }
+        public string ImgUrl2 { get; set; }
+        public string ImgUrl3 { get; set; }
+        public string ImgUrl4 { get; set; }
         public string Description { get; set; }
         public string Place { get; set; }
         public double Quantity { get; set; }

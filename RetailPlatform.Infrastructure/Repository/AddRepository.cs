@@ -18,8 +18,13 @@ namespace RetailPlatform.Infrastructure.Repository
         }
         public IEnumerable<Add> FetchActiveAdds()
         {
-            return _dbContext.Adds.Where(m => m.Active == true).Include(m => m.Profile)
+            return _dbContext.Adds.Include(m => m.Profile)
                 .Include(m => m.Category).ToList();
+        }
+
+        public List<Category> GetCategories()
+        {
+            return _dbContext.Categories.ToList();
         }
     }
 }

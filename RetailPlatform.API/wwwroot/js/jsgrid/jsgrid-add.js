@@ -48,7 +48,7 @@
                         .text("Edit")
                         .click(function (e) {
                             //alert("ID: " + item.id);
-                            document.location.href = "/Add/EditAdd/" + item.id;
+                            document.location.href = "/Product/EditProduct/" + item.id;
                             e.stopPropagation();
                         });
                     var $customDeleteButton = $("<button>")

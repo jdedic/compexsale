@@ -1,4 +1,5 @@
-﻿using RetailPlatform.Common.Entities;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using RetailPlatform.Common.Entities;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,5 +11,8 @@ namespace RetailPlatform.Common.Interfaces.Service
     {
         IEnumerable<Add> FetchActiveAdds();
         Task RemoveAdd(long id);
+        IEnumerable<SelectListItem> FilteredCategories();
+        Task CreateAdd(Add model);
+        Task<Add> GetAddById(long id);
     }
 }
