@@ -18,5 +18,10 @@ namespace RetailPlatform.Infrastructure.Repository
             return _dbContext.Adds.Where(m => m.Active == true).Include(m => m.Profile)
                 .Include(m => m.SubCategory).ToList();
         }
+
+        public List<Category> GetCategories()
+        {
+            return _dbContext.Categories.ToList();
+        }
     }
 }

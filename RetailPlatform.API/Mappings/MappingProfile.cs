@@ -1,4 +1,5 @@
 ﻿using RetailPlatform.API.Models.DTO;
+using RetailPlatform.API.Models.DTO.Add;
 using RetailPlatform.Common.Entities;
 using System;
 
@@ -35,6 +36,17 @@ namespace RetailPlatform.API.Mappings
                 .ForMember(dest =>
                 dest.DateOfCreation,
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
+
+            CreateMap<Add, EditAddDTO>()
+                .ForMember(dest =>
+                dest.SelectedCategory,
+                opt => opt.MapFrom(src => src.SubCategoryId.ToString()));
+                
+            CreateMap<CreateAddDTO, Add>()
+               .ForMember(dest =>
+               dest.SubCategoryId,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)));
+               
 
             CreateMap<SubCategory, SubCategoryModel>()
               .ForMember(dest =>

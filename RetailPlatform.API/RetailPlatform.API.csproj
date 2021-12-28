@@ -22,6 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="wwwroot\images\adds\" />
     <Folder Include="wwwroot\js\plugins\dropify\dist\js\" />
     <Folder Include="wwwroot\js\plugins\dropify\dist\css\" />
   </ItemGroup>

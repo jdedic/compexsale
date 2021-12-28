@@ -1,17 +1,19 @@
-﻿
-using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Models.DTO.Add
 {
-    public class CreateAddDTO
+    public class EditAddDTO
     {
+        public long Id { get; set; }
+        public string UniqueId { get; set; }
         [Required(ErrorMessage = "Unesite Naziv")]
         public string Name { get; set; }
-        
-        public string DateOfCreation { get; set; }
         [Required(ErrorMessage = "Unesite Opis")]
         public string Description { get; set; }
         [Required(ErrorMessage = "Unesite Mesto")]
@@ -20,8 +22,7 @@ namespace RetailPlatform.API.Models.DTO.Add
         public double Quantity { get; set; }
         [Required(ErrorMessage = "Unesite Jedinicu mere")]
         public string Unit { get; set; }
-        public string Status { get; set; }
-        public string CreatedBy { get; set; }
+        public bool Active { get; set; }
         public IFormFile FirstImg { get; set; }
         public IFormFile SecondImg { get; set; }
         public IFormFile ThirdImg { get; set; }
@@ -31,8 +32,6 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string ImgUrl3 { get; set; }
         public string ImgUrl4 { get; set; }
         public IEnumerable<SelectListItem> FilteredCategories { get; set; }
-        [Display(Name = "Kategorija")]
-        [Required(ErrorMessage = "Izaberite kategoriju")]
         public string SelectedCategory { get; set; }
     }
 }
