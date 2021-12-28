@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System.Threading.Tasks;
@@ -20,16 +21,22 @@ namespace RetailPlatform.API.Controllers
         [HttpGet("login")]
         public IActionResult Login()
         {
-            return View();
+            LoginModel model = new LoginModel();
+            return View(model);
         }
 
         [HttpPost("login")]
-        public async Task<IActionResult> Validate(string username, string password)
+        public async Task<IActionResult> Validate(LoginModel model)
         {
-            if (_userService.CheckUserCredentials(username, password))
+            if (!ModelState.IsValid)
             {
-                var fullName = _repositoryWrapper.User.GetUserFullNameByEmail(username);
-                await HttpContext.SignInAsync(SetClaims(username, fullName));
+                return View("login");
+            }
+
+            if (_userService.CheckUserCredentials(model.Username, model.Password))
+            {
+                var fullName = _repositoryWrapper.User.GetUserFullNameByEmail(model.Username);
+                await HttpContext.SignInAsync(SetClaims(model.Username, fullName));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
