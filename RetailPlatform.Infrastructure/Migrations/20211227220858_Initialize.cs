@@ -13,7 +13,8 @@ namespace RetailPlatform.Infrastructure.Migrations
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    IsAssigned = table.Column<bool>(type: "bit", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -61,11 +62,32 @@ namespace RetailPlatform.Infrastructure.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "SubCategories",
+                columns: table => new
+                {
+                    Id = table.Column<long>(type: "bigint", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    CategoryId = table.Column<long>(type: "bigint", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SubCategories", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_SubCategories_Categories_CategoryId",
+                        column: x => x.CategoryId,
+                        principalTable: "Categories",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Adds",
                 columns: table => new
                 {
                     Id = table.Column<long>(type: "bigint", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    UniqueId = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     ProfileId = table.Column<long>(type: "bigint", nullable: false),
                     CategoryId = table.Column<long>(type: "bigint", nullable: false),
@@ -73,6 +95,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                     Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Place = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Quantity = table.Column<double>(type: "float", nullable: false),
+                    Unit = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Active = table.Column<bool>(type: "bit", nullable: false),
                     CreationDate = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -152,32 +175,11 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             migrationBuilder.InsertData(
                 table: "Categories",
-                columns: new[] { "Id", "Name" },
+                columns: new[] { "Id", "IsAssigned", "Name" },
                 values: new object[,]
                 {
-                    { 1L, "Poljoprivreda i šumarstvo" },
-                    { 23L, "Obrazovanje" },
-                    { 22L, "Umetnost i razonoda" },
-                    { 21L, "Sportska oprema i rekviziti" },
-                    { 20L, "Aksesoari" },
-                    { 19L, "Bebi oprema i dečije stvari" },
-                    { 18L, "Hemijski proizvodi" },
-                    { 17L, "Nameštaj" },
-                    { 16L, "Odeća, obuća i tekstil" },
-                    { 15L, "Električne mašine i alati" },
-                    { 14L, "Mobilni uređaji, tehnika (aparati i uređaji)" },
-                    { 13L, "Kancelarijske mašine" },
-                    { 11L, "Goriva" },
-                    { 10L, "Plovni objekti i sredstva" },
-                    { 9L, "Vozila" },
-                    { 8L, "Oprema i alati" },
-                    { 7L, "Mašine" },
-                    { 6L, "Nekretnine" },
-                    { 5L, "Građevinarstvo" },
-                    { 4L, "Rudarstvo" },
-                    { 3L, "Prehrambeni proizvodi" },
-                    { 2L, "Životinje" },
-                    { 12L, "Razni proizvodi i oprema" }
+                    { 1L, false, "Poljoprivreda" },
+                    { 2L, false, "Nekretnine" }
                 });
 
             migrationBuilder.InsertData(
@@ -190,14 +192,26 @@ namespace RetailPlatform.Infrastructure.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Users",
-                columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 21, 9, 23, 42, 991, DateTimeKind.Local).AddTicks(9783), 1L, "069 5485 156", "Business Manager", "21000" });
+                table: "SubCategories",
+                columns: new[] { "Id", "CategoryId", "Name" },
+                values: new object[,]
+                {
+                    { 1L, 1L, "Poljoprivreda i šumarstvo" },
+                    { 2L, 1L, "Životinje" },
+                    { 3L, 1L, "Prehrambeni proizvodi" },
+                    { 5L, 2L, "Građevinarstvo" },
+                    { 6L, 2L, "Nekretnine" },
+                    { 10L, 2L, "Plovni objekti i sredstva" }
+                });
 
             migrationBuilder.InsertData(
                 table: "Users",
                 columns: new[] { "Id", "Active", "Address", "City", "Email", "FirstName", "ForgotPasswordToken", "LastName", "Password", "RegistrationDate", "RoleId", "Telephone", "WorkingPosition", "ZipCode" },
-                values: new object[] { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 21, 9, 23, 42, 996, DateTimeKind.Local).AddTicks(387), 2L, "069 5485 156", "Business Manager", "21000" });
+                values: new object[,]
+                {
+                    { 1L, true, "Augusta Cesarca 17", "Novi Sad", "jovanna.deddic@gmail.com", "Jovana", null, "Dedic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 27, 23, 8, 58, 200, DateTimeKind.Local).AddTicks(1429), 1L, "069 5485 156", "Business Manager", "21000" },
+                    { 2L, true, "Radnicka 8", "Novi Sad", "marko.jankovic@gmail.test", "Marko", null, "Jankovic", "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO", new DateTime(2021, 12, 27, 23, 8, 58, 203, DateTimeKind.Local).AddTicks(523), 2L, "069 5485 156", "Business Manager", "21000" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Adds_CategoryId",
@@ -220,6 +234,11 @@ namespace RetailPlatform.Infrastructure.Migrations
                 column: "ProfileId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_SubCategories_CategoryId",
+                table: "SubCategories",
+                column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Users_RoleId",
                 table: "Users",
                 column: "RoleId");
@@ -234,13 +253,16 @@ namespace RetailPlatform.Infrastructure.Migrations
                 name: "ProfileCategories");
 
             migrationBuilder.DropTable(
+                name: "SubCategories");
+
+            migrationBuilder.DropTable(
                 name: "Users");
 
             migrationBuilder.DropTable(
-                name: "Categories");
+                name: "Profiles");
 
             migrationBuilder.DropTable(
-                name: "Profiles");
+                name: "Categories");
 
             migrationBuilder.DropTable(
                 name: "Roles");

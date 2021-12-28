@@ -1,0 +1,28 @@
+﻿@model RetailPlatform.API.Models.DTO.SubCategoryDTO
+
+<div class="modal-header">
+    <h5 class="modal-title f-w-600" id="exampleModalLabel">Dodaj potkategoriju</h5>
+    <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+</div>
+<div class="modal-body">
+    <form id="edit-subcategory" asp-controller="SubCategory" asp-action="EditSubCategory" autocomplete="off" novalidate>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form">
+            <div class="form-group">
+                @Html.HiddenFor(model => model.Id)
+                <label class="mb-1"><span class="retail-validation">*</span> Naziv kategorije :</label>
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label class="mb-1"><span class="retail-validation">*</span> Kategorija :</label>
+                @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "role" })
+                @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="submit" form="edit-subcategory" class="btn btn-primary">Save</button>
+    <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Close</button>
+</div>

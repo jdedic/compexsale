@@ -23,29 +23,17 @@ namespace RetailPlatform.Infrastructure.Data
             );
 
             modelBuilder.Entity<Category>().HasData(
-                new Category { Id = 1, Name = "Poljoprivreda i šumarstvo" },
-                new Category { Id = 2, Name = "Životinje" },
-                new Category { Id = 3, Name = "Prehrambeni proizvodi" },
-                new Category { Id = 4, Name = "Rudarstvo" },
-                new Category { Id = 5, Name = "Građevinarstvo" },
-                new Category { Id = 6, Name = "Nekretnine" },
-                new Category { Id = 7, Name = "Mašine" },
-                new Category { Id = 8, Name = "Oprema i alati" },
-                new Category { Id = 9, Name = "Vozila" },
-                new Category { Id = 10, Name = "Plovni objekti i sredstva" },
-                new Category { Id = 11, Name = "Goriva" },
-                new Category { Id = 12, Name = "Razni proizvodi i oprema" },
-                new Category { Id = 13, Name = "Kancelarijske mašine" },
-                new Category { Id = 14, Name = "Mobilni uređaji, tehnika (aparati i uređaji)" },
-                new Category { Id = 15, Name = "Električne mašine i alati" },
-                new Category { Id = 16, Name = "Odeća, obuća i tekstil" },
-                new Category { Id = 17, Name = "Nameštaj" },
-                new Category { Id = 18, Name = "Hemijski proizvodi" },
-                new Category { Id = 19, Name = "Bebi oprema i dečije stvari" },
-                new Category { Id = 20, Name = "Aksesoari" },
-                new Category { Id = 21, Name = "Sportska oprema i rekviziti" },
-                new Category { Id = 22, Name = "Umetnost i razonoda" },
-                new Category { Id = 23, Name = "Obrazovanje" }
+                new Category { Id = 1, Name = "Poljoprivreda" },
+                new Category { Id = 2, Name = "Nekretnine" }
+            );
+
+            modelBuilder.Entity<SubCategory>().HasData(
+                new SubCategory { Id = 1, Name = "Poljoprivreda i šumarstvo", CategoryId = 1 },
+                new SubCategory { Id = 2, Name = "Životinje", CategoryId = 1 },
+                new SubCategory { Id = 3, Name = "Prehrambeni proizvodi", CategoryId = 1 },
+                new SubCategory { Id = 5, Name = "Građevinarstvo", CategoryId = 2 },
+                new SubCategory { Id = 6, Name = "Nekretnine", CategoryId = 2 },
+                new SubCategory { Id = 10, Name = "Plovni objekti i sredstva", CategoryId = 2 }
             );
         }
 
@@ -55,5 +43,6 @@ namespace RetailPlatform.Infrastructure.Data
         public DbSet<Add> Adds { get; set; }
         public DbSet<ProfileCategory> ProfileCategories { get; set; }
         public DbSet<Role> Roles { get; set; }
+        public DbSet<SubCategory> SubCategories { get; set; }
     }
 }

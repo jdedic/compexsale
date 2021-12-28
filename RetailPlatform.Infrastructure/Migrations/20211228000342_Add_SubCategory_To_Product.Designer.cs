@@ -10,8 +10,8 @@ using RetailPlatform.Infrastructure.Data;
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    [Migration("20211227150120_AddProperty")]
-    partial class AddProperty
+    [Migration("20211228000342_Add_SubCategory_To_Product")]
+    partial class Add_SubCategory_To_Product
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,9 +30,6 @@ namespace RetailPlatform.Infrastructure.Migrations
 
                     b.Property<bool>("Active")
                         .HasColumnType("bit");
-
-                    b.Property<long>("CategoryId")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("CreationDate")
                         .HasColumnType("datetime2");
@@ -55,6 +52,9 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<double>("Quantity")
                         .HasColumnType("float");
 
+                    b.Property<long>("SubCategoryId")
+                        .HasColumnType("bigint");
+
                     b.Property<string>("UniqueId")
                         .HasColumnType("nvarchar(max)");
 
@@ -63,9 +63,9 @@ namespace RetailPlatform.Infrastructure.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CategoryId");
-
                     b.HasIndex("ProfileId");
+
+                    b.HasIndex("SubCategoryId");
 
                     b.ToTable("Adds");
                 });
@@ -76,6 +76,9 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<bool>("IsAssigned")
+                        .HasColumnType("bit");
 
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
@@ -88,117 +91,14 @@ namespace RetailPlatform.Infrastructure.Migrations
                         new
                         {
                             Id = 1L,
-                            Name = "Poljoprivreda i šumarstvo"
+                            IsAssigned = false,
+                            Name = "Poljoprivreda"
                         },
                         new
                         {
                             Id = 2L,
-                            Name = "Životinje"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Name = "Prehrambeni proizvodi"
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            Name = "Rudarstvo"
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            Name = "Građevinarstvo"
-                        },
-                        new
-                        {
-                            Id = 6L,
+                            IsAssigned = false,
                             Name = "Nekretnine"
-                        },
-                        new
-                        {
-                            Id = 7L,
-                            Name = "Mašine"
-                        },
-                        new
-                        {
-                            Id = 8L,
-                            Name = "Oprema i alati"
-                        },
-                        new
-                        {
-                            Id = 9L,
-                            Name = "Vozila"
-                        },
-                        new
-                        {
-                            Id = 10L,
-                            Name = "Plovni objekti i sredstva"
-                        },
-                        new
-                        {
-                            Id = 11L,
-                            Name = "Goriva"
-                        },
-                        new
-                        {
-                            Id = 12L,
-                            Name = "Razni proizvodi i oprema"
-                        },
-                        new
-                        {
-                            Id = 13L,
-                            Name = "Kancelarijske mašine"
-                        },
-                        new
-                        {
-                            Id = 14L,
-                            Name = "Mobilni uređaji, tehnika (aparati i uređaji)"
-                        },
-                        new
-                        {
-                            Id = 15L,
-                            Name = "Električne mašine i alati"
-                        },
-                        new
-                        {
-                            Id = 16L,
-                            Name = "Odeća, obuća i tekstil"
-                        },
-                        new
-                        {
-                            Id = 17L,
-                            Name = "Nameštaj"
-                        },
-                        new
-                        {
-                            Id = 18L,
-                            Name = "Hemijski proizvodi"
-                        },
-                        new
-                        {
-                            Id = 19L,
-                            Name = "Bebi oprema i dečije stvari"
-                        },
-                        new
-                        {
-                            Id = 20L,
-                            Name = "Aksesoari"
-                        },
-                        new
-                        {
-                            Id = 21L,
-                            Name = "Sportska oprema i rekviziti"
-                        },
-                        new
-                        {
-                            Id = 22L,
-                            Name = "Umetnost i razonoda"
-                        },
-                        new
-                        {
-                            Id = 23L,
-                            Name = "Obrazovanje"
                         });
                 });
 
@@ -308,6 +208,64 @@ namespace RetailPlatform.Infrastructure.Migrations
                         });
                 });
 
+            modelBuilder.Entity("RetailPlatform.Common.Entities.SubCategory", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.ToTable("SubCategories");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1L,
+                            CategoryId = 1L,
+                            Name = "Poljoprivreda i šumarstvo"
+                        },
+                        new
+                        {
+                            Id = 2L,
+                            CategoryId = 1L,
+                            Name = "Životinje"
+                        },
+                        new
+                        {
+                            Id = 3L,
+                            CategoryId = 1L,
+                            Name = "Prehrambeni proizvodi"
+                        },
+                        new
+                        {
+                            Id = 5L,
+                            CategoryId = 2L,
+                            Name = "Građevinarstvo"
+                        },
+                        new
+                        {
+                            Id = 6L,
+                            CategoryId = 2L,
+                            Name = "Nekretnine"
+                        },
+                        new
+                        {
+                            Id = 10L,
+                            CategoryId = 2L,
+                            Name = "Plovni objekti i sredstva"
+                        });
+                });
+
             modelBuilder.Entity("RetailPlatform.Common.Entities.User", b =>
                 {
                     b.Property<long>("Id")
@@ -371,7 +329,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 27, 16, 1, 20, 169, DateTimeKind.Local).AddTicks(7076),
+                            RegistrationDate = new DateTime(2021, 12, 28, 1, 3, 42, 35, DateTimeKind.Local).AddTicks(7411),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -387,7 +345,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2021, 12, 27, 16, 1, 20, 174, DateTimeKind.Local).AddTicks(5962),
+                            RegistrationDate = new DateTime(2021, 12, 28, 1, 3, 42, 43, DateTimeKind.Local).AddTicks(731),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -397,21 +355,21 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Add", b =>
                 {
-                    b.HasOne("RetailPlatform.Common.Entities.Category", "Category")
-                        .WithMany()
-                        .HasForeignKey("CategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RetailPlatform.Common.Entities.Profile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Category");
+                    b.HasOne("RetailPlatform.Common.Entities.SubCategory", "SubCategory")
+                        .WithMany()
+                        .HasForeignKey("SubCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Profile");
+
+                    b.Navigation("SubCategory");
                 });
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.ProfileCategory", b =>
@@ -431,6 +389,17 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Navigation("Category");
 
                     b.Navigation("Profile");
+                });
+
+            modelBuilder.Entity("RetailPlatform.Common.Entities.SubCategory", b =>
+                {
+                    b.HasOne("RetailPlatform.Common.Entities.Category", "Category")
+                        .WithMany()
+                        .HasForeignKey("CategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Category");
                 });
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.User", b =>

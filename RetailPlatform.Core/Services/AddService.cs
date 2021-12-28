@@ -43,11 +43,11 @@ namespace RetailPlatform.Core.Services
             return await _repositoryWrapper.Add.GetByIdAsync(id);
         }
 
-        public IEnumerable<SelectListItem> FilteredCategories()
+        public async Task<IEnumerable<SelectListItem>> FilteredCategories()
         {
             List<SelectListItem> roles = new List<SelectListItem>();
 
-            foreach (var role in _repositoryWrapper.Add.GetCategories())
+            foreach (var role in await _repositoryWrapper.SubCategory.FindAllAsync())
             {
                 SelectListItem item = new SelectListItem
                 {

@@ -1,0 +1,80 @@
+﻿
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>
+                        Potkategorije
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="#"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Oglasi</li>
+                    <li class="breadcrumb-item active">Potkategorije</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="btn-popup pull-right">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" onclick="createSubCategory()">Dodaj potkategoriju</button>
+                        <div class="modal fade" id="subCategoryModal" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div id='subCategoryModalContent'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="basicScenario" class="product-physical table-responsive"></div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="subCategoryDeleteModal" tabindex="-1" role="dialog" aria-labelledby="categoryModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title f-w-600" id="exampleModalLabel">Ukloni potkategoriju</h5>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div class="form">
+                                    <div id="subCategoryId" class="d-none"></div>
+                                    <div></div>
+                                    <p id="message"></p>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-primary" onclick="removeSubCategory()" type="button">Save</button>
+                            <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+@section headSection {
+    <link href="~/css/vendors/jsgrid.css" rel="stylesheet" />
+}
+
+@section dataTables {
+    <script src="~/js/jsgrid/jsgrid.min.js"></script>
+    <script src="~/js/jsgrid/jsgrid-subcategories.js"></script>
+    <script src="~/js/custom-js/create-subcategory.js"></script>
+}
+

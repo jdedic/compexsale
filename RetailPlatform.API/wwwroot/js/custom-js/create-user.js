@@ -18,5 +18,4 @@ function removeUser() {
         $grid.jsGrid("option", "pActionIndex", 1);
         $grid.jsGrid("loadData");
     });
-   
 }

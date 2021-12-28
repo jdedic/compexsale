@@ -1,12 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations;
-
-namespace RetailPlatform.Common.Entities
+﻿
+namespace RetailPlatform.API.Models.DTO
 {
-    public class Category
+    public class SubCategoryModel
     {
-        [Key]
         public long Id { get; set; }
         public string Name { get; set; }
+        public string Category { get; set; }
         public bool IsAssigned { get; set; }
     }
 }

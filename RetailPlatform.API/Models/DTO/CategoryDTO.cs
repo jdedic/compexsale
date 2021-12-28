@@ -1,12 +1,11 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace RetailPlatform.Common.Entities
+namespace RetailPlatform.API.Models.DTO
 {
-    public class Category
+    public class CategoryDTO
     {
-        [Key]
         public long Id { get; set; }
+        [Required(ErrorMessage = "Unesite naziv kategorije")]
         public string Name { get; set; }
-        public bool IsAssigned { get; set; }
     }
 }

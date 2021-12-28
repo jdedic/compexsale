@@ -2,11 +2,12 @@
 
 namespace RetailPlatform.Common.Entities
 {
-    public class Category
+    public class SubCategory
     {
         [Key]
         public long Id { get; set; }
         public string Name { get; set; }
-        public bool IsAssigned { get; set; }
+        public long CategoryId { get; set; }
+        public Category Category { get; set; }
     }
 }

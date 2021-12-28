@@ -4,7 +4,6 @@ using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;

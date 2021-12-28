@@ -11,7 +11,7 @@ namespace RetailPlatform.Common.Interfaces.Service
     {
         IEnumerable<Add> FetchActiveAdds();
         Task RemoveAdd(long id);
-        IEnumerable<SelectListItem> FilteredCategories();
+        Task<IEnumerable<SelectListItem>> FilteredCategories();
         Task CreateAdd(Add model);
         Task<Add> GetAddById(long id);
     }

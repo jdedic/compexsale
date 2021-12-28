@@ -14,6 +14,8 @@ namespace RetailPlatform.API.Extensions
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRoleRepository, RoleRepository>();
             services.AddScoped<IAddRepository, AddRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
         }
 
         public static void ConfigureAppServices(this IServiceCollection services)
@@ -22,6 +24,8 @@ namespace RetailPlatform.API.Extensions
             services.AddScoped<IEmailService, EmailService>();
             services.AddScoped<IRoleService, RoleService>();
             services.AddScoped<IAddService, AddService>();
+            services.AddScoped<ICategoryService, CategoryService>();
+            services.AddScoped<ISubCategoryService, SubCategoryService>();
         }
     }
 }
