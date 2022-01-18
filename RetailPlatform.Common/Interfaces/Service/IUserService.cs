@@ -10,5 +10,6 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task<IEnumerable<User>> FetchUsers();
         Task CreateUser(User user, string role);
         Task UpdateUser(User user, string role, bool passwordUpdated);
+        Task<string> GenerateRefreshToken(User user);
     }
 }

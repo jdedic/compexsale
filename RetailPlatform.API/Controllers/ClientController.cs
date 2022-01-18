@@ -18,5 +18,15 @@ namespace RetailPlatform.API.Controllers
         {
             return View();
         }
+
+        public IActionResult Contact()
+        {
+            return View();
+        }
+
+        public IActionResult Vendor()
+        {
+            return View();
+        }
     }
 }

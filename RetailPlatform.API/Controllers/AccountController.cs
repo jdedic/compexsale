@@ -30,16 +30,40 @@ namespace RetailPlatform.API.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("login");
+                ModelState.Remove("Email");
+                if(ModelState.IsValid == false)
+                    return View("login");
             }
 
             if (_userService.CheckUserCredentials(model.Username, model.Password))
             {
-                var fullName = _repositoryWrapper.User.GetUserFullNameByEmail(model.Username);
-                await HttpContext.SignInAsync(SetClaims(model.Username, fullName));
+                var user = _repositoryWrapper.User.GetUserByEmail(model.Username);
+                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString()));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
+            return View("login");
+        }
+
+        [HttpPost("change-password")]
+        public async Task<IActionResult> ChangePassword(LoginModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.Remove("Username");
+                ModelState.Remove("Password");
+
+                if (ModelState.IsValid == false)
+                    return View("login");
+            }
+
+            if (_userService.CheckUserCredentials(model.Username, model.Password))
+            {
+                var user = _repositoryWrapper.User.GetUserByEmail(model.Username);
+                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString()));
+                return RedirectToAction("AdminDashboard", "Home");
+            }
+            TempData["Message"] = "Zahtev za promenu šifre je uspešno poslat.";
             return View("login");
         }
 

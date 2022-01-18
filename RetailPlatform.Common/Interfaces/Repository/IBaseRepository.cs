@@ -10,5 +10,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task Create(TEntity entity);
         Task Update(TEntity entity);
         Task Delete(TEntity entity);
+        Task SaveChangesAsync();
     }
 }

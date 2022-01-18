@@ -1,11 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Infrastructure.Data;
-using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.Infrastructure.Repository
@@ -43,6 +39,11 @@ namespace RetailPlatform.Infrastructure.Repository
         public async Task Update(TEntity entity)
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
+            await _dbContext.SaveChangesAsync();
+        }
+
+        public async Task SaveChangesAsync()
+        {
             await _dbContext.SaveChangesAsync();
         }
     }

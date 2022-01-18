@@ -94,6 +94,11 @@
 :root {
   --theme-deafult: #ff4c3b; }
 
+hr.rounded {
+    border-top: 8px solid #d0c979;
+    border-radius: 5px;
+}
+
 @-webkit-keyframes textNoise1 {
   0% {
     -webkit-clip-path: inset(53% 0 8% 0);

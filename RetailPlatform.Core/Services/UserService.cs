@@ -2,6 +2,7 @@
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -26,6 +27,15 @@ namespace RetailPlatform.Core.Services
             }
 
             return false;
+        }
+
+        public async Task<string> GenerateRefreshToken(User user)
+        {
+            var token = Guid.NewGuid().ToString() + "---" + DateTime.Now.AddHours(1);
+            var encodedToken = RefreshToken.Base64Encode(token);
+            user.ForgotPasswordToken = encodedToken;
+            await _repositoryWrapper.User.Update(user);
+            return encodedToken;
         }
 
         public async Task<IEnumerable<User>> FetchUsers()

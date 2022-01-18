@@ -57,7 +57,7 @@
                             <div class="form-group">
                                 <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
                                 <div class="col-xl-8 col-md-7">
-                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required", @rows="8" })
                                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                 </div>
                             </div>
