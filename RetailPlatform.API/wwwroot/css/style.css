@@ -393,8 +393,9 @@ hr.style1 {
   padding-top: 30px; }
 
 .border-section {
-  border-top: 1px solid #dddddd;
-  border-bottom: 1px solid #dddddd; }
+    border-top: 1px solid #d0c979;
+    border-bottom: 1px solid #d0c979;
+}
 
 .border-b {
   border-bottom: 1px solid #38352f; }
@@ -6937,8 +6938,8 @@ header {
     z-index: 9999; }
   .main-menu .brand-logo {
     display: inline-block;
-    padding-top: 35px;
-    padding-bottom: 35px; }
+    padding-top: 15px;
+    padding-bottom: 20px; }
   .main-menu .menu-left {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9066,12 +9067,13 @@ header.stickycls {
     .pixelstrap .full-mega-menu a, .pixelstrap .clothing-menu a {
       padding: 0;
       position: relative; }
-  .pixelstrap .full-mega-menu {
-    position: absolute;
-    background-image: url("../images/mega.jpg");
-    background-repeat: no-repeat;
-    background-position: bottom;
-    background-size: cover; }
+    .pixelstrap .full-mega-menu {
+        position: absolute;
+        /*background-image: url("../images/mega.jpg");*/
+        background-repeat: no-repeat;
+        background-position: bottom;
+        background-size: cover;
+    }
     .pixelstrap .full-mega-menu.center-mega-menu {
       left: 50% !important;
       -webkit-transform: translateX(-50%);
@@ -12079,8 +12081,9 @@ header.stickycls {
   .service-block p {
     text-transform: capitalize;
     margin-bottom: 0; }
-  .service-block + .service-block {
-    border-left: 1px solid #dddddd; }
+    .service-block + .service-block {
+        border-left: 1px solid #d0c979;
+    }
   .service-block:hover svg {
     -webkit-animation: pulse 1000ms ease-in-out;
             animation: pulse 1000ms ease-in-out;
