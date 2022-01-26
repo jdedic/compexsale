@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220126164736_update_profile_table")]
+    partial class update_profile_table
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -155,13 +157,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("PIB")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Password")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<string>("Telephone")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("ZipCode")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
@@ -339,7 +335,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 1, 26, 18, 17, 7, 269, DateTimeKind.Local).AddTicks(8730),
+                            RegistrationDate = new DateTime(2022, 1, 26, 17, 47, 35, 710, DateTimeKind.Local).AddTicks(1889),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -355,7 +351,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 1, 26, 18, 17, 7, 275, DateTimeKind.Local).AddTicks(2417),
+                            RegistrationDate = new DateTime(2022, 1, 26, 17, 47, 35, 712, DateTimeKind.Local).AddTicks(8918),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",

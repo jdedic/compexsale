@@ -1,0 +1,125 @@
+﻿@model RetailPlatform.API.Models.DTO.ProfileDTO
+
+@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>Registruj se</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">Compexsale</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 text-center" style="margin-top:25px;">
+    <a id="vendor-button" class="btn btn-solid w-auto">PONUĐAČ / OGLAŠAVAČ</a>
+    <a id="customer-button" class="btn btn-solid w-auto">KUPAC / POTRAŽIVAČ</a>
+</div>
+
+
+<section class="register-page section-b-space">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h3 id="vendor-title">Registracija ponuđača</h3>
+                <h3 id="customer-title">Registracija potraživača</h3>
+                <div class="theme-card">
+                    <form class="theme-form" id="register" asp-controller="Client" asp-action="Register" autocomplete="off" novalidate>
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group row" id="profileButtons">
+                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated justify-content-center">
+                                <label class="d-block button-padding" for="edo-ani1">
+                                    <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" checked="">
+                                    Fizičko lice
+                                </label>
+                                <label class="d-block" for="edo-ani2">
+                                    <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani">
+                                    Pravno lice
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-row row label-margin">
+                            <div class="col-md-6 physicalPerson">
+                                <label for="email">Ime i prezime</label>
+                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder="Ime i prezime", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 physicalPerson">
+                                <label for="email">JMBG</label>
+                                @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control", @placeholder = "JMBG", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.JMBG, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 legalPerson">
+                                <label for="email">Naziv kompanije</label>
+                                @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "Naziv kompanije", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6 legalPerson">
+                                <label for="review">PIB</label>
+                                @Html.TextBoxFor(model => model.PIB, new { @class = "form-control", @placeholder = "PIB", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.PIB, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row label-margin">
+                            <div class="col-md-6">
+                                <label for="review">Email adresa</label>
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email adresa", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Broj telefona</label>
+                                @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Broj telefona", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row label-margin">
+                            <div class="col-md-6">
+                                <label for="review">Adresa</label>
+                                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Adresa", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                <label for="email">Grad</label>
+                                @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Grad", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row label-margin">
+
+                            <div class="col-md-6">
+                                <label for="review">Poštanski kod</label>
+                                @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "Poštanski kod", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                            </div>
+                            <div class="col-md-6">
+                                <label for="review">Šifra</label>
+                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Šifra ", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </form>
+                    <div class="pull-right retail-button label-margin">
+                        <button type="submit" form="register" class="btn btn-solid">Kreiraj nalog</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@section dataTables {
+    <script src="~/js/custom-js/create-vendor.js"></script>
+    <script src="~/js/dashboard/form-validation-custom.js"></script>
+}

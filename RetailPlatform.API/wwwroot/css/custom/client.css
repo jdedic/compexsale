@@ -1,0 +1,21 @@
+﻿.hovered {
+    background-position: 100%;
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.radio_animated:before {
+    background: #d0c979;
+}
+
+.button-padding {
+    padding-right:15px;
+}
+
+.register-page .theme-card {
+    padding: 70px;
+}
+
+.label-margin {
+    margin-top: 10px;
+}

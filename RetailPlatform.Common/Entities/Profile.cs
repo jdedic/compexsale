@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Text;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RetailPlatform.Common.Entities
 {
@@ -15,8 +12,7 @@ namespace RetailPlatform.Common.Entities
         public string PIB { get; set; }
         public string IdentityNumber { get; set; }
         //contact person if profile is legal entity
-        public string FirstName { get; set; }
-        public string LastName { get; set; }
+        public string FullName { get; set; }
         public string Telephone { get; set; }
         //if it is not legal entity
         public string JMBG { get; set; }
@@ -28,5 +24,7 @@ namespace RetailPlatform.Common.Entities
         public bool IsVendor { get; set; }
         public bool IsCustomer { get; set; }
         public bool Active { get; set; }
+        public string ZipCode { get; set; }
+        public string Password { get; set; }
     }
 }

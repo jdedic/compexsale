@@ -11,9 +11,11 @@ namespace RetailPlatform.Infrastructure.Repository
         public ICategoryRepository Category { get; set; }
         public ISubCategoryRepository SubCategory { get; set; }
         public IAddRepository Add { get; set; }
+        public IProfileRepository Profile { get; set; }
 
         public RepositoryWrapper(RetailContext retailContext, IUserRepository user, IRoleRepository role,
-            IAddRepository add, ICategoryRepository category, ISubCategoryRepository subCategory)
+            IAddRepository add, ICategoryRepository category, ISubCategoryRepository subCategory,
+            IProfileRepository profile)
         {
             _retailContext = retailContext;
             User = user;
@@ -21,6 +23,7 @@ namespace RetailPlatform.Infrastructure.Repository
             Add = add;
             Category = category;
             SubCategory = subCategory;
+            Profile = profile;
         }
 
     }
