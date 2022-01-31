@@ -8,7 +8,7 @@ namespace RetailPlatform.Common.Interfaces.Repository
 {
     public interface IAddRepository : IBaseRepository<Add>
     {
-        IEnumerable<Add> FetchActiveAdds();
+        IEnumerable<Add> FetchAdds(bool active);
         List<Category> GetCategories();
     }
 }

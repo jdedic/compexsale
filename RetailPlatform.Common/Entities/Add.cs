@@ -22,6 +22,8 @@ namespace RetailPlatform.Common.Entities
         public double Quantity { get; set; }
         public string Unit { get; set; }
         public bool Active { get; set; }
+        public bool Confirmed { get; set; }
+        public string ReasonForRefusal { get; set; }
         public DateTime CreationDate { get; set; }
     }
 }

@@ -18,9 +18,9 @@ namespace RetailPlatform.Core.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public IEnumerable<Add> FetchActiveAdds()
+        public IEnumerable<Add> FetchAdds(bool active)
         {
-            return _repositoryWrapper.Add.FetchActiveAdds();
+            return _repositoryWrapper.Add.FetchAdds(active);
         }
 
         public async Task RemoveAdd(long id)
@@ -58,6 +58,11 @@ namespace RetailPlatform.Core.Services
             }
 
             return new SelectList(roles, "Value", "Text");
+        }
+
+        public async Task EditAdd(Add add)
+        {
+            await _repositoryWrapper.Add.Update(add);
         }
     }
 }

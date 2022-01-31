@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.API.Models.DTO.Add;
 using RetailPlatform.Common.Entities;
+using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
@@ -15,11 +16,13 @@ namespace RetailPlatform.API.Controllers
     {
         private readonly IAddService _addService;
         private readonly IMapper _mapper;
+        private readonly IRepositoryWrapper _repositoryWrapper;
 
-        public ProductController(IAddService addService, IMapper mapper)
+        public ProductController(IAddService addService, IMapper mapper, IRepositoryWrapper repositoryWrapper)
         {
             _addService = addService;
             _mapper = mapper;
+            _repositoryWrapper = repositoryWrapper;
         }
 
 
@@ -99,6 +102,73 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/adds");
         }
 
+        [IgnoreAntiforgeryToken]
+        [HttpPost]
+        [Route("Product/EditProduct")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditProduct(EditAddDTO add)
+        {
+            if (!ModelState.IsValid)
+            {
+                add.FilteredCategories = await _addService.FilteredCategories();
+                return View(add);
+            }
+            
+            var entity = await _repositoryWrapper.Add.GetByIdAsync(add.Id);
+
+            if(entity == null)
+            {
+                return BadRequest();
+            }
+           
+            if (add.FirstImg != null)
+            {
+                var fileName = Guid.NewGuid().ToString() + "_" + add.FirstImg.FileName;
+                var filePath = @"wwwroot\images\adds\" + fileName;
+                using (var fileStream = new FileStream(filePath, FileMode.Create))
+                {
+                    await add.FirstImg.CopyToAsync(fileStream);
+                }
+                add.ImgUrl1 = $"/images/adds/{fileName}";
+            }
+
+            if (add.SecondImg != null)
+            {
+                var backgroundFileName = Guid.NewGuid().ToString() + "_" + add.SecondImg.FileName;
+                var backgroundFilePath = @"wwwroot\images\adds\" + backgroundFileName;
+                using (var fileStream = new FileStream(backgroundFilePath, FileMode.Create))
+                {
+                    await add.SecondImg.CopyToAsync(fileStream);
+                }
+                add.ImgUrl2 = $"/images/adds/{backgroundFileName}";
+            }
+
+            if (add.ThirdImg != null)
+            {
+                var imageFileName = Guid.NewGuid().ToString() + "_" + add.ThirdImg.FileName;
+                var imageFilePath = @"wwwroot\images\adds\" + imageFileName;
+                using (var fileStream = new FileStream(imageFilePath, FileMode.Create))
+                {
+                    await add.ThirdImg.CopyToAsync(fileStream);
+                }
+                add.ImgUrl3 = $"/images/adds/{imageFileName}";
+            }
+
+            if (add.FourthImg != null)
+            {
+                var fourthImageFileName = Guid.NewGuid().ToString() + "_" + add.FourthImg.FileName;
+                var fourthFilePath = @"wwwroot\images\adds\" + fourthImageFileName;
+                using (var fileStream = new FileStream(fourthFilePath, FileMode.Create))
+                {
+                    await add.FourthImg.CopyToAsync(fileStream);
+                }
+                add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
+            }
+
+            await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
+            return Redirect("/adds");
+        }
+
         [HttpGet]
         [Route("adds")]
         public IActionResult Adds()
@@ -109,7 +179,8 @@ namespace RetailPlatform.API.Controllers
         [HttpGet]
         public async Task<IEnumerable<AddDTO>> Get()
         {
-            return _mapper.Map<IEnumerable<AddDTO>>(_addService.FetchActiveAdds());
+            var kk = _addService.FetchAdds(false);
+            return _mapper.Map<IEnumerable<AddDTO>>(_addService.FetchAdds(false));
         }
 
         public IActionResult ProductPreview()
