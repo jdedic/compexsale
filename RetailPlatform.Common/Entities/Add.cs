@@ -10,7 +10,7 @@ namespace RetailPlatform.Common.Entities
         public string UniqueId { get; set; }
         public string Name { get; set; }
         public long ProfileId { get; set; }
-        public Profile Profile { get; set; }
+        public ProfileModel Profile { get; set; }
         public string ImgUrl1 { get; set; }
         public string ImgUrl2 { get; set; }
         public string ImgUrl3 { get; set; }

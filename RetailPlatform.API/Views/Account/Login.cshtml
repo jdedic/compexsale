@@ -39,6 +39,12 @@
     <!-- App css-->
     <link href="~/css/admin.css" rel="stylesheet" />
 
+    <style>
+        .authentication-box .container .form-group {
+            margin-bottom: 0.7rem;
+        }
+    </style>
+
 </head>
 <body>
 
@@ -47,23 +53,11 @@
         <div class="authentication-box">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5 p-0 card-left">
-                        <div class="card bg-primary">
-                            <div>
-                                <img src="~/images/logo-symbol.png" alt="Compexsale_Company" class="img-fluid">
-                            </div>
-
-                            <div class="single-item">
-                                <div>
-                                    <div>
-                                        <h3>Welcome to Compexsale</h3>
-                                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy.</p>
-                                    </div>
-                                </div>
-                            </div>
+                    <div class="col-md-3 p-0"></div>
+                    <div class="col-md-6 p-0">
+                        <div class="mx-auto w-100 d-flex justify-content-center">
+                            <img src="~/images/icon/CompexSaleLogoSmall.png" alt="Compexsale_Company" class="img-fluid logo-margin">
                         </div>
-                    </div>
-                    <div class="col-md-7 p-0 card-right">
                         <div class="card tab2-card">
                             <div class="card-body">
                                 <ul class="nav nav-tabs nav-material" id="top-tab" role="tablist">
@@ -108,7 +102,7 @@
                                                 @Html.TextBoxFor(model => model.Email, new { @class = "form-control", placeholder = "Unesite email adresu", @type = "password", autocomplete = "off", required = "required" })
                                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
                                             </div>
-                                           
+
                                             <div class="form-button">
                                                 <button class="btn btn-primary" type="submit">Pošalji</button>
                                             </div>
@@ -118,6 +112,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-3 p-0"></div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    var error = TempData["Error"] as string;
 }
 
 <div class="breadcrumb-section">
@@ -24,74 +25,64 @@
 </div>
 
 <div class="col-md-12 text-center" style="margin-top:25px;">
-    <a id="vendor-button" class="btn btn-solid w-auto">PONUĐAČ / OGLAŠAVAČ</a>
-    <a id="customer-button" class="btn btn-solid w-auto">KUPAC / POTRAŽIVAČ</a>
+    <a id="edo-ani1" class="btn btn-solid w-auto">Fizičko lice</a>
+    <a id="edo-ani2" class="btn btn-solid w-auto">Pravno lice</a>
 </div>
-
 
 <section class="register-page section-b-space">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 id="vendor-title">Registracija ponuđača</h3>
-                <h3 id="customer-title">Registracija potraživača</h3>
+                <h3 id="vendor-title">Registracija</h3>
                 <div class="theme-card">
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <h6 class="alert-danger" style="padding:10px;margin-bottom:20px;">@error</h6>
+                    }
                     <form class="theme-form" id="register" asp-controller="Client" asp-action="Register" autocomplete="off" novalidate>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group row" id="profileButtons">
-                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated justify-content-center radio-buttons-padding">
-                                <label class="d-block button-padding" for="edo-ani1">
-                                    <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" checked="">
-                                    Fizičko lice
-                                </label>
-                                <label class="d-block" for="edo-ani2">
-                                    <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani">
-                                    Pravno lice
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6 physicalPerson">
-                                <label for="email">Ime i prezime</label>
-                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder="Ime i prezime", autocomplete = "off", required = "required" })
+                                <label for="email">Ime i prezime <span class="retail-validation">*</span></label>
+                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder = "Ime i prezime", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 physicalPerson">
-                                <label for="email">JMBG</label>
+                                <label for="email">JMBG <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control", @placeholder = "JMBG", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.JMBG, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 legalPerson">
-                                <label for="email">Naziv kompanije</label>
+                                <label for="email">Naziv kompanije <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "Naziv kompanije", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 legalPerson">
-                                <label for="review">PIB</label>
+                                <label for="review">PIB <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.PIB, new { @class = "form-control", @placeholder = "PIB", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.PIB, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6">
-                                <label for="review">Email adresa</label>
+                                <label for="review">Email adresa <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email adresa", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Broj telefona</label>
+                                <label for="email">Broj telefona <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Broj telefona", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6">
-                                <label for="review">Adresa</label>
+                                <label for="review">Adresa <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Adresa", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Grad</label>
+                                <label for="email">Grad <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Grad", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
                             </div>
@@ -99,14 +90,37 @@
                         <div class="form-row row label-margin">
 
                             <div class="col-md-6">
-                                <label for="review">Poštanski kod</label>
+                                <label for="review">Poštanski kod <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "Poštanski kod", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Šifra</label>
+                                <label for="review">Šifra <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Šifra ", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row" style="margin-top:20px;">
+                            <label>Vrsta profila <span class="retail-validation">*</span></label>
+                            <div class="m-checkbox-inline mb-0 d-flex label-margin" style="margin-top:10px;">
+                                <div style="margin-right:40px;">
+                                    @Html.CheckBoxFor(model => model.IsVendor)
+                                    <label for="@Html.DisplayNameFor(model => model.IsVendor)"><span style="color:darkslategray">Lice koje oglašava</span></label>
+                                </div>
+                                <div>
+                                    @Html.CheckBoxFor(model => model.IsCustomer)
+                                    <label for="@Html.DisplayNameFor(model => model.IsCustomer)"><span style="color:darkslategrey">Lice koje potražuje</span></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row row" style="margin-top:10px;">
+                            <label class="text-uppercase"><span class="retail-validation">**</span> Pre nego što se registrujete, pročitajte uslove korišćenja i pravilnik aktivnosti</label>
+                            <div class="m-checkbox-inline mb-0 d-flex label-margin">
+                                <div>
+                                    @Html.CheckBoxFor(model => model.AgreeWithTersmAndConditions)
+                                    <label for="@Html.DisplayNameFor(model => model.AgreeWithTersmAndConditions)"><span style="color:darkslategray">Prihvatam</span></label>
+                                    <a class='modal-link text-underline'>uslove korišćenja i pravilnik aktivnosti</a>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -119,7 +133,131 @@
     </div>
 </section>
 
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header model-header-bottom">
+                <h5 class="modal-title" id="exampleModalScrollableTitle">USLOVI KORIŠĆENJA I PRAVILA POSLOVNIH AKTIVNOSTI</h5>
+                <button type="button" class="close" style="border:none;" onclick="closeModal()" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class="text-color text-underline">
+                    USLOVI I PRAVILA POSLOVNIH AKTIVNOSTI U VEZI SA KORIŠĆENJEM POSLOVNE PLATFORME <b>COMPEXSALE</b>
+                </span>
+                <br />
+                <br />
+                <b>Poslovna platforma Compexsale</b> je razvijena kako bi pravnim i fizičkim licima kroz posredovanje omogućila ubrzavanje svojih poslovnih aktivnosti kroz kompenzaciju, razmenu, diskontnu prodaju, logistiku, konsalting i prodaju i kupovinu dela posla ili u celosti i direktno povezala i omogućila online prostor za interakciju i saradnju.
+                <br />
+                <b>Prvi element koji čini poslovnu platformu Compexsale drugačijim od postojećih idejnih rešenja</b> na ovu temu je razvijen kako bi poslovne subjekte i fizička lica kroz posredovanje i direktno povezao i omogućio online prostor za interakciju i saradnju.
+                <br />
+                <b>Drugi element koji čini poslovnu platformu Compexsale drugačijom od postojećih idejnih rešenja</b> na ovu temu je fokus na podsticanje interakcija kroz platformu, baziran na rešenjima koja će pružiti veću sigurnost i transparentnost u odnosima, kako bi se izgradilo jače poverenje i saradnja. Poslovna platforma Compexsale sadrži „5 koraka“ koji će pratiti proces od registracije, uspostavljanja kontakata, pronalaženje rešenja već postojećom ponudom i tražnjom, pronalaženje rešenja kroz posredovanje, do razmene bitnih sadržaja i dokumenata, i na kraju konkretnih dogovora-ugovora.
+                <br />
+                <br />
+                <b>Tri ključne „interakcije“ na poslovnoj platformi Compexsale su:</b>
+                <br />
+                <br />
+                1. <b>Interakcije između korisnika</b> na platformi, korisnika i platforme, platforme  i posebno podržanih grupa. Interakcije su ojačane mehanizmima koji podstiču transparentnost i sprečavaju zloupotrebe.
+                <br />
+                2. <b>Interakcije kroz informisanje korisnika</b> od strane platforme (preporučivanje jednih članova drugima; pružanje informacija uz svaku poslovnu priliku kroz posredovanje),
+                <br />
+                3. <b>Interakcije podstaknute prikupljenim podacima</b> o broju i strukturi korisnika i njihovim aktivnostima na platformi.
+                <br />
+                <br />
+                Platforma postaje baza podataka i oglasna tabla u kojoj će biti skladištene informacije o svim ponudama i tražnji kroz kategorije proizvoda i usluga, a u krajnjem treba da postane Poslovni hab.
+                <br />
+                <br />
+                <b>Poslovna platforma Compexsale ostvarivaće svoj pun potencijal</b> (funkcionalnost) kroz registrovanje profila korisnika, konkretnom ponudom ili tražnjom, kada se na platformi registruje i aktivno uključi najmanje 100 predstavnika preduzetnika, malih i srednjih preduzeća iz Srbije i bar toliko fizičkih lica. Ova online platforma bi mogla da pomogne u mentorisanju, brokeringu, i podsticanju interakcija kroz aktivnost kreiranja „poslovnog haba“, koja će pružati podršku poslovnim subjektima i fizičkim licima u ubrzavanju poslovnih aktivnosti. Poslovni hab podržava poslovne firme i fizička lica tako što na dnevnom nivou analizira ponudu i tražnju i eventualni potencijal, mapira i prilazi firmama i preduzetnicima u zemlji i inostranstvu radi podsticanja saradnje. Ovakav vid aktivnosti omogućiće raširenu, profitabilnu i bržu saradnju.
+                <br />
+                <br />
+                <b>Postupak registracije, pravila paltforme i kreiranje profila</b>
+                <br />
+                <br />
+                Prijavom na web adresu pristupa se poslovnoj platformi Compexsale. Ukoliko želite da se oglasite na platformi u određenoj grupi proizvoda ili posla na strani ponude ili tražnje, potrebno je da se prvo registrujete (klikom na polje Registruj se). Unošenjem traženih podataka kreirate svoj profil i definišete kroz koji od ponuđenih poslovnih aktivnosti želite da realizujete svoj zahtev kao i kojoj grupi pripada vaš proizvod ili usluga:
+                <br />
+                <ul>
+                    <li>•	kompenzacija, (ispunjenjem zakonskih uslova da se poslovna aktivnost realizuje kroz kompenzaciju),</li>
+                    <li>•	razmena (ispunjenjem zakonskih uslova kada je moguće izvršiti razmenu dobara ili usluga kroz interes svih strana učesnica poslovne aktivnosti),</li>
+                    <li>•	diskontna prodaja (prodaja po nižim cenama od prosečnih tržišnih zbog hitne prodaje, kratkih rokova upotrebe, neperspektivne i nepotrebne robe za firmu...),</li>
+                    <li>•	prodaja biznisa (oglašavanje klijenta plaftorme o zainteresovanosti za prodaju celokupnog ili dela posla kroz određen procenat vlasničkog udela, kao i eventualne tražnje za kupovinom konkretnog preduzeća u celosti ili određenom delu),</li>
+                    <li>•	logistika (realizacija dela ili svih logističkih poslova u celini: transporta, špedicije, skladištenja),</li>
+                    <li>•	konsalting (u odnosu na zahtev klijenta iznalaze se najoptimalnija rešenja i prezentuju ponude kako bi se realizovala konkretna zamisao).</li>
+                </ul>
+                <br />
+                <br />
+                Platforma obezbeđuje da se zahtevi registrovanih klijenata kroz posredovanje u što kraćem vremenskom roku obrade i time dođe do željene realizacije. Za sve ponuđene poslovne aktivnosti koje platforma nudi obezbeđena je zakonska propratna dokumentacija koja treba da obezbedi poslovanje u skladu sa zakonskim normama.
+                <br />
+                <br />
+                Ova poslovna platforma nije zamišljena da prvobitno svoju poslovnu misiju obavlja kroz komercijalno oglašavanje i prodaju proizvoda i usluga jer za to postoje specijalizovane platforme, sajtovi ili firme.
+                <br />
+                Na platformi je omogućeno reklamiranje firmi koje mogu da ponude bliske sadržaje podrške datoj poslovnoj ponudi čime bi se na jednom mestu omogućila brza konekcija sa potrebnim poslovnim subjektom.
+                <br />
+                Za izvršenje zahteva klijenata platforma je definisala posredničku proviziju čija visina zavisi od obima realizacije (kroz prodaju, razmenu, kompenzaciju).
+                <br />
+                <br />
+                Ukoliko je realizacija u vrednosti:
+                <br />
+                <ul>
+                    <li>•	do 500.000 dinara posrednička provizija iznosi 7% ukupne vrednosti robe ili usluge</li>
+                    <li>•	do 5.000.000 dinara posrednička provizija iznosi 5% ukupne vrednosti robe ili usluge</li>
+                    <li>•	preko 5.000.000 dinara posrednička provizija iznosi 3% ukupne vrednosti robe ili usluge</li>
+                </ul>
+                <br />
+                <b>* Posrednička provizija može biti plaćena u robi ili usluzi koja je predmet ugovora, s tim što se u tom slučaju obračunava posrednička provizija od 15% od ukupne vrednosti robe ili usluge bez obzira na njenu visinu.</b>
+                <br />
+                <br />
+                Konkretnu ponudu ili tražnju registrovanih poslovnih aktivnosti na platformi klijent kreira popunjavanjem traženih podataka kroz ponuđene opcije. Kada se dodaju fotografije koje treba da opišu bliže proizvod ili uslugu nije dozvoljeno da iste sadrže motive okoline čime bi se identifikovala tačna lokacija, naziv poslovnog subjekta, osobe iz firme ili druga obeležja koja bi omogućila tačnu identifikaciju (npr. na fotografiji nije dozvoljeno da se nalazi naziv firme u bilo kom formatu, reklama firme, širi reon lokacije, lice koje radi u firmi već isključivo samo proizvod, sredstvo ili izgled usluge). Platforma treba da obezbedi realizaciju kroz posredovanje i nije moguće da klijenti direktno korespondiraju do potpisivanja i realizacije Ugovora o posredovanju.
+                <br />
+                Kada se klijent platforme registruje administrator vrši proveru podataka i obeležja ponude ili tražnje koja moraju da budu u skladu sa definisanim pravilima oglašavanja na platformi i tek nakon detaljne provere postavlja profil na platformu. Registrovanje na platformi je besplatno. Naplaćuje se isključivo provizija na način kako je to objašnjeno ranije. Dodatni troškovi koji se kasnije ispostave kao neophodni da bi došlo do realizacje (transport, carinjenje, skladištenje, analize robe...) nisu obračunati u proviziji već idu po zahtevu klijenta i na njegov račun. Svi podaci koji se popunjavaju kroz registraciju su neophodni kako bi se izvršila poslovna provera klijenta i izradio njegov profil. Svi podaci su zaštićeni i služe isključivo za registrovanje na platformi kako bi se stvorili uslovi za izradu zakonske dokumentacije koja treba da prati poslovnu aktivnost. Prihvatanjem Izjave o zaštiti privatnosti klijent je omogućio korišćenje unetih podataka za obavljanje poslovne aktivnosti u skladu sa pravilima platforme. Ukoliko klijent nije saglasan sa nekim od pravila platforme nije moguće izvršiti registraciju dok se sve ne potvrdi kao saglasnost.
+                <br />
+                <br />
+                <hr />
+                <br />
+                <b>Ovim potvrđujem da sam pročitao Uslove korišćenja poslovne platforme Compexsale. *</b>
+                <br />
+                <b>
+                    Ovim potvrđujem da sam obavešten o neophodnosti obrade ličnih podataka u svrhu obavljanja
+                    poslovnog procesa i sačinjavanja Ugovora o posredovanju kako je ovde navedeno. *
+                </b>
+                <br />
+                <b>
+                    Ovim dajem saglasnost za obradu mojih ličnih podataka u svrhu budućeg obavljanja poslovnog
+                    procesa preko poslovne platforme Compexsale kao što je ovde navedeno.
+                </b>
+                <br />
+                <b>
+                    Nedostavljanje ovih informacija će onemogućiti registrovanje na poslovnoj platformi Compexsale i
+                    kreiranje profila na trenutno odabrani način prijave.
+                </b>
+                <br />
+                <br />
+                <br />
+                <br />
+                <span class="pull-right">
+                    <b>Compexsale team</b>
+                </span>
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button type="button" onclick="closeModal()" class="close btn btn-solid md" data-dismiss="modal">Zatvori</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 @section dataTables {
     <script src="~/js/custom-js/create-vendor.js"></script>
     <script src="~/js/dashboard/form-validation-custom.js"></script>
+    <script>
+        $(".modal-link").click(function () {
+            $('#exampleModalScrollable').modal('show');
+        });
+
+        $(".close").click(function () {
+            $('#exampleModalScrollable').modal('hide');
+        });
+    </script>
 }

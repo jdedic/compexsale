@@ -1,11 +1,23 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
+using RetailPlatform.Common.Entities;
+using RetailPlatform.Common.Interfaces.Repository;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Controllers
 {
     public class ClientController : Controller
     {
+        private readonly IRepositoryWrapper _repositoryWrapper;
+        private readonly IMapper _mapper;
+
+        public ClientController(IRepositoryWrapper repositoryWrapper,IMapper mapper)
+        {
+            _repositoryWrapper = repositoryWrapper;
+            _mapper = mapper;
+        }
+
         public IActionResult AboutUs()
         {
             return View();
@@ -37,17 +49,36 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
+        public IActionResult Logistic()
+        {
+            return View();
+        }
+
         [HttpPost]
         [Route("Client/Register")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(ProfileDTO model)
         {
+         
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
-            return Ok();
-            //return Redirect("/User/UserList");
+
+            if(model.LegalEntity == true && (string.IsNullOrEmpty(model.CompanyName) || string.IsNullOrEmpty(model.PIB) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTersmAndConditions == false)) 
+            {
+                TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
+                return View(model);
+            }
+
+            if (model.LegalEntity == false && (string.IsNullOrEmpty(model.FullName) || string.IsNullOrEmpty(model.JMBG) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTersmAndConditions == false))
+            {
+                TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
+                return View(model);
+            }
+
+            await _repositoryWrapper.Profile.CreateProfile(_mapper.Map<ProfileModel>(model));
+            return RedirectToAction("Login", "Account");
         }
 
 

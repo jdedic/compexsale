@@ -62,6 +62,7 @@ namespace RetailPlatform.API.Mappings
               opt => opt.MapFrom(src => src.Category.Name));
             CreateMap<SubCategoryDTO, SubCategory>();
             CreateMap<SubCategory, SubCategoryDTO>();
+            CreateMap<ProfileDTO, ProfileModel>();
         }
     }
 }
