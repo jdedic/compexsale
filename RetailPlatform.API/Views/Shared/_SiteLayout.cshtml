@@ -45,8 +45,8 @@
                             <li class="onhover-dropdown mobile-account">
                                 <i class="fa fa-user" aria-hidden="true"></i> Moj nalog
                                 <ul class="onhover-show-div">
-                                    <li><a href="login.html">Login</a></li>
-                                    <li><a href="register.html">Registracija</a></li>
+                                    <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                                    <li><a href="@Url.Action("Register", "Client")">Registracija</a></li>
                                 </ul>
                             </li>
                         </ul>
@@ -259,21 +259,12 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="#">LOGISTIKA</a>
-                                            @*<ul>
-                                                <li><a href="category-page.html">left sidebar</a></li>
-                                                <li><a href="category-page(right).html">right sidebar</a></li>
-                                                <li><a href="category-page(no-sidebar).html">no sidebar</a></li>
-                                                <li><a href="category-page(sidebar-popup).html">sidebar popup</a></li>
-                                                <li><a href="category-page(metro).html">metro</a></li>
-                                                <li><a href="category-page(full-width).html">full width</a></li>
-                                                <li>
-                                                    <a href="category-page(infinite-scroll).html">infinite scroll</a>
-                                                </li>
-                                                <li><a href=category-page(3-grid).html>three grid</a></li>
-                                                <li><a href="category-page(6-grid).html">six grid</a></li>
-                                                <li><a href="category-page(list-view).html">list view</a></li>
-                                            </ul>*@
+                                            <a href="@Url.Action("Logistic", "Client")">LOGISTIKA</a>
+                                            <ul>
+                                                <li><a href="#transport">Transport</a></li>
+                                                <li><a href="#storage">Skladištenje</a></li>
+                                                <li><a href="#shipping">Špedicija</a></li>
+                                            </ul>
                                         </li>
                                         <li>
                                             <a href="#">ZANIMLJIVOSTI</a>

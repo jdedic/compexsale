@@ -3,6 +3,10 @@
   --theme-deafult: #d0c979;
 }
 
+.logo-margin {
+    margin-bottom: 15px;
+}
+
 .theme-color-1 {
   --theme-deafult: #ff4c3b; }
 
@@ -27322,7 +27326,7 @@ div.dataTables_wrapper div.dataTables_paginate {
       display: block;
       letter-spacing: 1px; }
   .card .card-body {
-    padding: 30px;
+    padding: 20px;
     background-color: transparent; }
     .card .card-body p:last-child {
       margin-bottom: 0; }

@@ -38,7 +38,7 @@ namespace RetailPlatform.Infrastructure.Data
         }
 
         public DbSet<User> Users { get; set; }
-        public DbSet<Profile> Profiles { get; set; }
+        public DbSet<ProfileModel> Profiles { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Add> Adds { get; set; }
         public DbSet<ProfileCategory> ProfileCategories { get; set; }

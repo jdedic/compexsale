@@ -2,6 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
+    var error = TempData["Error"] as string;
 }
 
 <div class="breadcrumb-section">
@@ -24,74 +25,64 @@
 </div>
 
 <div class="col-md-12 text-center" style="margin-top:25px;">
-    <a id="vendor-button" class="btn btn-solid w-auto">PONUĐAČ / OGLAŠAVAČ</a>
-    <a id="customer-button" class="btn btn-solid w-auto">KUPAC / POTRAŽIVAČ</a>
+    <a id="edo-ani1" class="btn btn-solid w-auto">Fizičko lice</a>
+    <a id="edo-ani2" class="btn btn-solid w-auto">Pravno lice</a>
 </div>
-
 
 <section class="register-page section-b-space">
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h3 id="vendor-title">Registracija ponuđača</h3>
-                <h3 id="customer-title">Registracija potraživača</h3>
+                <h3 id="vendor-title">Registracija</h3>
                 <div class="theme-card">
+                    @if (!string.IsNullOrEmpty(error))
+                    {
+                        <h6 class="alert-danger" style="padding:10px;margin-bottom:20px;">@error</h6>
+                    }
                     <form class="theme-form" id="register" asp-controller="Client" asp-action="Register" autocomplete="off" novalidate>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group row" id="profileButtons">
-                            <div class="form-group m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated justify-content-center radio-buttons-padding">
-                                <label class="d-block button-padding" for="edo-ani1">
-                                    <input class="radio_animated" id="edo-ani1" type="radio" name="rdo-ani" checked="">
-                                    Fizičko lice
-                                </label>
-                                <label class="d-block" for="edo-ani2">
-                                    <input class="radio_animated" id="edo-ani2" type="radio" name="rdo-ani">
-                                    Pravno lice
-                                </label>
-                            </div>
-                        </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6 physicalPerson">
-                                <label for="email">Ime i prezime</label>
-                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder="Ime i prezime", autocomplete = "off", required = "required" })
+                                <label for="email">Ime i prezime <span class="retail-validation">*</span></label>
+                                @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder = "Ime i prezime", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 physicalPerson">
-                                <label for="email">JMBG</label>
+                                <label for="email">JMBG <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control", @placeholder = "JMBG", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.JMBG, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 legalPerson">
-                                <label for="email">Naziv kompanije</label>
+                                <label for="email">Naziv kompanije <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "Naziv kompanije", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6 legalPerson">
-                                <label for="review">PIB</label>
+                                <label for="review">PIB <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.PIB, new { @class = "form-control", @placeholder = "PIB", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.PIB, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6">
-                                <label for="review">Email adresa</label>
+                                <label for="review">Email adresa <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email adresa", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Broj telefona</label>
+                                <label for="email">Broj telefona <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Broj telefona", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="form-row row label-margin">
                             <div class="col-md-6">
-                                <label for="review">Adresa</label>
+                                <label for="review">Adresa <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Adresa", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="email">Grad</label>
+                                <label for="email">Grad <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Grad", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
                             </div>
@@ -99,14 +90,27 @@
                         <div class="form-row row label-margin">
 
                             <div class="col-md-6">
-                                <label for="review">Poštanski kod</label>
+                                <label for="review">Poštanski kod <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "Poštanski kod", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
                             </div>
                             <div class="col-md-6">
-                                <label for="review">Šifra</label>
+                                <label for="review">Šifra <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Šifra ", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-row row" style="margin-top:20px;">
+                            <label>Vrsta profila <span class="retail-validation">*</span></label>
+                            <div class="m-checkbox-inline mb-0 d-flex label-margin" style="margin-top:10px;">
+                                <div style="margin-right:40px;">
+                                    @Html.CheckBoxFor(model => model.IsVendor)
+                                    <label for="@Html.DisplayNameFor(model => model.IsVendor)"><span style="color:darkslategray">Lice koje oglašava</span></label>
+                                </div>
+                                <div>
+                                    @Html.CheckBoxFor(model => model.IsCustomer)
+                                    <label for="@Html.DisplayNameFor(model => model.IsCustomer)"><span style="color:darkslategrey">Lice koje potražuje</span></label>
+                                </div>
                             </div>
                         </div>
                     </form>
