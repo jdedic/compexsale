@@ -31,3 +31,16 @@
     color: red;
 }
 
+.text-color {
+    color: black;
+}
+
+.text-underline {
+    text-decoration: underline;
+    font-size: 15px;
+}
+
+.model-header-bottom {
+    border-bottom: 1px solid #d0c979;
+}
+
