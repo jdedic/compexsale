@@ -34,8 +34,6 @@ namespace RetailPlatform.Core.Services
             await SendEmailMessage(message);
         }
 
-       
-
         #region helper-methods
 
         public async Task<MailMessage> GetMessage(string email, string subject, string body)
