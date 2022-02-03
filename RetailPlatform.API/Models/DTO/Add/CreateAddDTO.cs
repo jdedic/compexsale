@@ -35,4 +35,6 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Required(ErrorMessage = "Izaberite kategoriju")]
         public string SelectedCategory { get; set; }
     }
+
+   
 }

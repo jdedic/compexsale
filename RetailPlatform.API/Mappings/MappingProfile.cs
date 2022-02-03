@@ -46,7 +46,15 @@ namespace RetailPlatform.API.Mappings
                .ForMember(dest =>
                dest.SubCategoryId,
                opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)));
-               
+
+            CreateMap<EditAddDTO, Add>()
+              .ForMember(dest =>
+              dest.SubCategoryId,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
+               .ForMember(dest =>
+              dest.Active,
+              opt => opt.MapFrom(src => src.Confirmed ? true : false));
+
 
             CreateMap<SubCategory, SubCategoryModel>()
               .ForMember(dest =>

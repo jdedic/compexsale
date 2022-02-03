@@ -9,10 +9,11 @@ namespace RetailPlatform.Common.Interfaces.Service
 {
     public interface IAddService
     {
-        IEnumerable<Add> FetchActiveAdds();
+        IEnumerable<Add> FetchAdds(bool active);
         Task RemoveAdd(long id);
         Task<IEnumerable<SelectListItem>> FilteredCategories();
         Task CreateAdd(Add model);
         Task<Add> GetAddById(long id);
+        Task EditAdd(Add add);
     }
 }

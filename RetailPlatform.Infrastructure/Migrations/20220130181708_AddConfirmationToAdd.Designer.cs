@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220130181708_AddConfirmationToAdd")]
+    partial class AddConfirmationToAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -115,29 +117,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RetailPlatform.Common.Entities.ProfileCategory", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("CategoryId")
-                        .HasColumnType("bigint");
-
-                    b.Property<long>("ProfileId")
-                        .HasColumnType("bigint");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CategoryId");
-
-                    b.HasIndex("ProfileId");
-
-                    b.ToTable("ProfileCategories");
-                });
-
-            modelBuilder.Entity("RetailPlatform.Common.Entities.ProfileModel", b =>
+            modelBuilder.Entity("RetailPlatform.Common.Entities.Profile", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -150,9 +130,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("AgreeWithTermsAndConditions")
-                        .HasColumnType("bit");
-
                     b.Property<string>("City")
                         .HasColumnType("nvarchar(max)");
 
@@ -161,9 +138,6 @@ namespace RetailPlatform.Infrastructure.Migrations
 
                     b.Property<string>("Country")
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime>("CreationDate")
-                        .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
                         .HasColumnType("nvarchar(max)");
@@ -201,6 +175,28 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Profiles");
+                });
+
+            modelBuilder.Entity("RetailPlatform.Common.Entities.ProfileCategory", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<long>("CategoryId")
+                        .HasColumnType("bigint");
+
+                    b.Property<long>("ProfileId")
+                        .HasColumnType("bigint");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProfileId");
+
+                    b.ToTable("ProfileCategories");
                 });
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Role", b =>
@@ -351,7 +347,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 3, 21, 21, 22, 927, DateTimeKind.Local).AddTicks(2652),
+                            RegistrationDate = new DateTime(2022, 1, 30, 19, 17, 8, 98, DateTimeKind.Local).AddTicks(4944),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -367,7 +363,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 3, 21, 21, 22, 929, DateTimeKind.Local).AddTicks(9770),
+                            RegistrationDate = new DateTime(2022, 1, 30, 19, 17, 8, 101, DateTimeKind.Local).AddTicks(60),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -377,7 +373,7 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Add", b =>
                 {
-                    b.HasOne("RetailPlatform.Common.Entities.ProfileModel", "Profile")
+                    b.HasOne("RetailPlatform.Common.Entities.Profile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -402,7 +398,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RetailPlatform.Common.Entities.ProfileModel", "Profile")
+                    b.HasOne("RetailPlatform.Common.Entities.Profile", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
                         .OnDelete(DeleteBehavior.Cascade)

@@ -22,7 +22,8 @@
 </div>
 
 <div class="container-fluid">
-    <form id="create-product" asp-controller="Product" enctype="multipart/form-data" asp-action="CreateProduct" autocomplete="off">
+    <form id="create-product" asp-controller="Product" enctype="multipart/form-data" asp-action="EditProduct" autocomplete="off">
+        @Html.HiddenFor(model => model.Id)
         <div class="row product-adding">
             <div class="col-xl-5">
                 <div class="card">
@@ -83,13 +84,29 @@
                                 </div>
                             </div>
                             <div class="form-group">
-            <label class="col-form-label"><span></span> Aktivan</label>
-            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                @Html.CheckBoxFor(model => model.Active, new { @class = "filled-in chk-col-green form-check-input" })
-                <label for="@Html.DisplayNameFor(model => model.Active)"></label>
+                                <label class="col-form-label"><span></span> Aktivan</label>
+                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                    @Html.CheckBoxFor(model => model.Active, new { @class = "filled-in chk-col-green form-check-input" })
+                                    <label for="@Html.DisplayNameFor(model => model.Active)"></label>
 
-            </div>
-        </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label"><span></span> Odobren</label>
+                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                    @Html.CheckBoxFor(model => model.Confirmed, new { @class = "filled-in chk-col-green form-check-input" })
+                                    <label for="@Html.DisplayNameFor(model => model.Confirmed)"></label>
+
+                                </div>
+                               
+                                <div class="form-group" id="description">
+                                    <label class="col-form-label"><span class="retail-validation">*</span> Obrazloženje</label>
+                                    <div class="col-xl-8 col-md-7">
+                                        @Html.TextAreaFor(model => model.ReasonForRefusal, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                        @Html.ValidationMessageFor(model => model.ReasonForRefusal, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -198,5 +215,16 @@
             $()
         });
     </script>
+@*<script>
+    $(document).ready(function () {
+        if (document.querySelector('.refuse').checked) {
+            $("#description").attr('style', 'display: block !important');
+        } else {
+            $("#description").attr('style', 'display: none !important');
+        }
+
+        $()
+    });
+</script>*@
 }
 

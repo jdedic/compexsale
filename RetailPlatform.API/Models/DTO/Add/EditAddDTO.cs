@@ -23,6 +23,8 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Required(ErrorMessage = "Unesite Jedinicu mere")]
         public string Unit { get; set; }
         public bool Active { get; set; }
+        public bool Confirmed { get; set; }
+        public string ReasonForRefusal { get; set; }
         public IFormFile FirstImg { get; set; }
         public IFormFile SecondImg { get; set; }
         public IFormFile ThirdImg { get; set; }

@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using RetailPlatform.API.Extensions;
+using RetailPlatform.Core.Config;
 using RetailPlatform.Infrastructure.Data;
 using System.Linq;
 using System.Security.Claims;
@@ -60,6 +61,7 @@ namespace RetailPlatform.API
                     };
                 });
 
+            ConfigureOptions(services);
             services.ConfigureRepositoryWrapper();
             services.ConfigureAppServices();
             services.AddAutoMapper(typeof(Startup));
@@ -91,6 +93,11 @@ namespace RetailPlatform.API
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
             });
+        }
+
+        private void ConfigureOptions(IServiceCollection services)
+        {
+            services.Configure<EmailConfig>(Configuration.GetSection("EmailConfig"));
         }
     }
 }
