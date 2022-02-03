@@ -65,13 +65,13 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            if(model.LegalEntity == true && (string.IsNullOrEmpty(model.CompanyName) || string.IsNullOrEmpty(model.PIB) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTersmAndConditions == false)) 
+            if(model.LegalEntity == true && (string.IsNullOrEmpty(model.CompanyName) || string.IsNullOrEmpty(model.PIB) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTermsAndConditions == false)) 
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
             }
 
-            if (model.LegalEntity == false && (string.IsNullOrEmpty(model.FullName) || string.IsNullOrEmpty(model.JMBG) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTersmAndConditions == false))
+            if (model.LegalEntity == false && (string.IsNullOrEmpty(model.FullName) || string.IsNullOrEmpty(model.JMBG) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTermsAndConditions == false))
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);

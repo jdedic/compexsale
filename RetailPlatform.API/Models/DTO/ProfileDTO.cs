@@ -34,6 +34,6 @@ namespace RetailPlatform.API.Models.DTO
         public bool IsVendor { get; set; }
         public bool IsCustomer { get; set; }
         public bool Active { get; set; }
-        public bool AgreeWithTersmAndConditions { get; set; }
+        public bool AgreeWithTermsAndConditions { get; set; }
     }
 }
