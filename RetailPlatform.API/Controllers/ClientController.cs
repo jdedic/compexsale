@@ -1,8 +1,13 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Repository;
+using RetailPlatform.Common.Interfaces.Service;
+using System.Collections.Generic;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Controllers
@@ -11,11 +16,14 @@ namespace RetailPlatform.API.Controllers
     {
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IMapper _mapper;
+        private readonly IProfileService _profileService;
 
-        public ClientController(IRepositoryWrapper repositoryWrapper,IMapper mapper)
+        public ClientController(IRepositoryWrapper repositoryWrapper,IMapper mapper,
+                                IProfileService profileService)
         {
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
+            _profileService = profileService;
         }
 
         public IActionResult AboutUs()
@@ -77,10 +85,46 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            await _repositoryWrapper.Profile.CreateProfile(_mapper.Map<ProfileModel>(model));
-            return RedirectToAction("Login", "Account");
+            await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model));
+            return RedirectToAction("ClientLogin", "Client");
         }
 
+        public IActionResult ClientLogin()
+        {
+            LoginModel model = new LoginModel();
+            return View(model);
+        }
 
+        [HttpPost("client-login")]
+        public async Task<IActionResult> Validate(LoginModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                ModelState.Remove("Email");
+                if (ModelState.IsValid == false)
+                    return View("login");
+            }
+
+            if (_profileService.CheckUserCredentials(model.Username, model.Password))
+            {
+                var user = _repositoryWrapper.Profile.GetProfileByEmail(model.Username);
+                await HttpContext.SignInAsync(SetClaims(model.Username, user.FullName, user.Id.ToString()));
+                return RedirectToAction("AdminDashboard", "Home");
+            }
+            TempData["Error"] = "Error. Username or password is invalid.";
+            return View("ClientLogin");
+        }
+
+        public ClaimsPrincipal SetClaims(string username, string name, string id)
+        {
+            var claims = new List<Claim>();
+            claims.Add(new Claim("username", username));
+            claims.Add(new Claim("userId", id));
+            claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
+            claims.Add(new Claim(ClaimTypes.Name, name));
+            var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+            var claimsPrincipal = new ClaimsPrincipal(claimsIdentity);
+            return claimsPrincipal;
+        }
     }
 }

@@ -63,6 +63,14 @@ namespace RetailPlatform.API.Mappings
             CreateMap<SubCategoryDTO, SubCategory>();
             CreateMap<SubCategory, SubCategoryDTO>();
             CreateMap<ProfileDTO, ProfileModel>();
+            CreateMap<ProfileModel, ProfileModelDTO>();
+            CreateMap<PrivateAccountDTO, ProfileModel>();
+
+            CreateMap<ProfileModel, EditPrivateAccountDTO>()
+                .ForMember(dest =>
+                dest.Password,
+                opt => opt.MapFrom(src => string.Empty));
+            CreateMap<EditPrivateAccountDTO, ProfileModel>();
         }
     }
 }

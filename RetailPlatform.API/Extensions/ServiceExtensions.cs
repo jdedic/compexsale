@@ -27,6 +27,7 @@ namespace RetailPlatform.API.Extensions
             services.AddScoped<IAddService, AddService>();
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ISubCategoryService, SubCategoryService>();
+            services.AddScoped<IProfileService, ProfileService>();
         }
     }
 }
