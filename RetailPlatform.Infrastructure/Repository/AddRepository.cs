@@ -4,6 +4,7 @@ using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Infrastructure.Data;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace RetailPlatform.Infrastructure.Repository
 {
@@ -24,6 +25,11 @@ namespace RetailPlatform.Infrastructure.Repository
         public List<Category> GetCategories()
         {
             return _dbContext.Categories.ToList();
+        }
+
+        public async Task<bool> CheckIfVendorIsAssigned(long vendorId)
+        {
+            return await _dbContext.Adds.AnyAsync(m => m.ProfileId == vendorId);
         }
     }
 }

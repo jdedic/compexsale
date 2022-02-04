@@ -1,7 +1,5 @@
 ﻿using RetailPlatform.Common.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.Common.Interfaces.Repository
@@ -10,5 +8,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
     {
         IEnumerable<Add> FetchAdds(bool active);
         List<Category> GetCategories();
+        Task<bool> CheckIfVendorIsAssigned(long vendorId);
     }
 }

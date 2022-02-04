@@ -50,15 +50,17 @@
                             document.location.href = "/Vendor/EditVendor/" + item.id;
                             e.stopPropagation();
                         });
+                    var hasAdds = item.isAssigned;
+                    var deleteStyle = hasAdds == true ? "d-none" : ""; 
                     var $customDeleteButton = $("<button>")
-                        .attr({ class: "btn btn-outline-danger btn-xs" })
+                        .attr({ class: "btn btn-outline-danger btn-xs" + " " + deleteStyle })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
                         .text("Delete")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
-                            $('#userModal').modal('show');
-                            $('#userId').text(item.id);
-                            $('#message').text("Da li zelite da uklonite " + item.firstName + " " + item.lastName + " korisnika?");
+                            $('#vendorModal').modal('show');
+                            $('#vendorId').text(item.id);
+                            $('#message').text("Da li zelite da uklonite " + item.fullName + " vendora?");
                             e.stopPropagation();
                         });
 

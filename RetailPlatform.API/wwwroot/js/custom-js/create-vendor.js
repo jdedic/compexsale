@@ -29,3 +29,14 @@ function changePassword() {
         x.classList.add('d-none');
     }
 }
+
+function removeVendor() {
+    var id = parseInt($('#vendorId').text());
+    var url = "/Vendor/RemoveVendor"
+    $.post(url, { id: id }, function (data) {
+        $('#vendorModal').modal('hide');
+        var $grid = $("#batchDelete");
+        $grid.jsGrid("option", "pActionIndex", 1);
+        $grid.jsGrid("loadData");
+    });
+}

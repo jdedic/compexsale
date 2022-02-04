@@ -29,7 +29,11 @@ namespace RetailPlatform.API.Controllers
 
         public async Task<IEnumerable<ProfileModelDTO>> PrivateAccounts()
         {
-            var privateAccounts = _mapper.Map<List<ProfileModelDTO>>(await _repositoryWrapper.Profile.GetPrivateAccountProfiles()); ;
+            var privateAccounts = _mapper.Map<List<ProfileModelDTO>>(await _repositoryWrapper.Profile.GetPrivateAccountProfiles()); 
+            foreach (var item in privateAccounts)
+            {
+                item.IsAssigned = await _repositoryWrapper.Add.CheckIfVendorIsAssigned(item.Id);
+            }
             return privateAccounts.ToArray();
         }
 
@@ -46,9 +50,6 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            model.LegalEntity = false;
-            model.IsVendor = true;
-            model.AgreeWithTermsAndConditions = true;
             await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model));
             return RedirectToAction("VendorList", "Vendor");
         }
@@ -77,13 +78,19 @@ namespace RetailPlatform.API.Controllers
                     return View(dto);
             }
 
-            dto.IsVendor = true;
-            dto.LegalEntity = false;
-            dto.AgreeWithTermsAndConditions = true;
             var passwordUpdated = dto.Password != null ? true : false;
             dto.Password = passwordUpdated == false ? vendor.Password : dto.Password;
             await _profileService.UpdateProfile(_mapper.Map<ProfileModel>(dto), passwordUpdated);
             return Redirect("/Vendor/VendorList");
+        }
+
+        [HttpPost]
+        [Route("Vendor/RemoveVendor")]
+        public async Task<IActionResult> RemoveVendor(long id)
+        {
+            var vendor = await _repositoryWrapper.Profile.GetVendorById(id);
+            await _repositoryWrapper.Profile.Delete(vendor);
+            return new JsonResult(new { done = "Done" });
         }
     }
 }

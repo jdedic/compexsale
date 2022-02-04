@@ -10,5 +10,6 @@ namespace RetailPlatform.API.Models.DTO
         public string Email { get; set; }
         public string City { get; set; }
         public string ZipCode { get; set; }
+        public bool IsAssigned { get; set; }
     }
 }
