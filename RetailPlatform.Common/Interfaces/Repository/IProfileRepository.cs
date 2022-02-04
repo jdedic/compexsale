@@ -10,5 +10,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<List<ProfileModel>> GetPrivateAccountProfiles();
         ProfileModel GetProfileByEmail(string email);
         Task<ProfileModel> GetVendorById(long id);
+        Task<List<ProfileModel>> GetBusinessAccountProfiles();
     }
 }

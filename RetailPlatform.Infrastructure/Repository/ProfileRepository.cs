@@ -25,6 +25,11 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.Profiles.Where(m => m.IsVendor == true && m.LegalEntity == false).ToListAsync();
         }
 
+        public async Task<List<ProfileModel>> GetBusinessAccountProfiles()
+        {
+            return await _dbContext.Profiles.Where(m => m.IsVendor == true && m.LegalEntity == true).ToListAsync();
+        }
+
         public ProfileModel GetProfileByEmail(string email)
         {
             return _dbContext.Profiles.FirstOrDefault(m => m.Email.Equals(email));

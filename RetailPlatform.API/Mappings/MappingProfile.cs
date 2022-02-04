@@ -77,6 +77,20 @@ namespace RetailPlatform.API.Mappings
                 .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => false))
                 .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
                 .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
+
+            CreateMap<ProfileModel, BusinessAccountModel>();
+            CreateMap<CreateBusinessAccountDTO, ProfileModel>()
+               .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => true))
+               .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
+               .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
+            CreateMap<ProfileModel, EditBusinessAccountDTO>()
+              .ForMember(dest =>
+              dest.Password,
+              opt => opt.MapFrom(src => string.Empty));
+            CreateMap<EditBusinessAccountDTO, ProfileModel>()
+                .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => true))
+                .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
+                .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
         }
     }
 }

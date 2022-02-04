@@ -27,6 +27,11 @@ namespace RetailPlatform.API.Controllers
             return View();
         }
 
+        public IActionResult BusinessAccountList()
+        {
+            return View();
+        }
+
         public async Task<IEnumerable<ProfileModelDTO>> PrivateAccounts()
         {
             var privateAccounts = _mapper.Map<List<ProfileModelDTO>>(await _repositoryWrapper.Profile.GetPrivateAccountProfiles()); 
@@ -37,7 +42,22 @@ namespace RetailPlatform.API.Controllers
             return privateAccounts.ToArray();
         }
 
+        public async Task<IEnumerable<BusinessAccountModel>> BusinessAccounts()
+        {
+            var businessAccounts = _mapper.Map<List<BusinessAccountModel>>(await _repositoryWrapper.Profile.GetBusinessAccountProfiles());
+            foreach (var item in businessAccounts)
+            {
+                item.IsAssigned = await _repositoryWrapper.Add.CheckIfVendorIsAssigned(item.Id);
+            }
+            return businessAccounts.ToArray();
+        }
+
         public IActionResult CreateVendor()
+        {
+            return View();
+        }
+
+        public IActionResult CreateBusinessAccount()
         {
             return View();
         }
@@ -91,6 +111,48 @@ namespace RetailPlatform.API.Controllers
             var vendor = await _repositoryWrapper.Profile.GetVendorById(id);
             await _repositoryWrapper.Profile.Delete(vendor);
             return new JsonResult(new { done = "Done" });
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateBusinessAccount(CreateBusinessAccountDTO model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model));
+            return RedirectToAction("BusinessAccountList", "Vendor");
+        }
+
+        public async Task<IActionResult> EditBusinessAccount(long id)
+        {
+            var vendor = await _repositoryWrapper.Profile.GetVendorById(id);
+            EditBusinessAccountDTO model = _mapper.Map<EditBusinessAccountDTO>(vendor);
+            return View(model);
+        }
+
+        [HttpPost]
+        [Route("Vendor/EditBusinessAccount")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditBusinessAccount(EditBusinessAccountDTO dto)
+        {
+            var vendor = await _repositoryWrapper.Profile.GetVendorById(dto.Id);
+            if (!ModelState.IsValid)
+            {
+                if (dto.Password == null)
+                {
+                    ModelState.Remove("Password");
+                }
+
+                if (!ModelState.IsValid)
+                    return View(dto);
+            }
+
+            var passwordUpdated = dto.Password != null ? true : false;
+            dto.Password = passwordUpdated == false ? vendor.Password : dto.Password;
+            await _profileService.UpdateProfile(_mapper.Map<ProfileModel>(dto), passwordUpdated);
+            return Redirect("/Vendor/BusinessAccountList");
         }
     }
 }
