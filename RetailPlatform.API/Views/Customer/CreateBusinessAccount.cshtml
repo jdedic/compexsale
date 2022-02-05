@@ -1,0 +1,122 @@
+﻿@model RetailPlatform.API.Models.DTO.CreateBusinessAccountDTO
+
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>
+                        Dodaj klijenta - pravno lice
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Klijenti </li>
+                    <li class="breadcrumb-item active">Dodaj klijenta </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="card tab2-card">
+                <div class="card-header">
+                    <h5> Add Vendor</h5>
+                </div>
+                <div class="card-body">
+                    <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
+                        <li class="nav-item"><a class="nav-link active show" id="account-tab" data-bs-toggle="tab" href="#account" role="tab" aria-controls="account" aria-selected="true" data-original-title="" title="">Account</a></li>
+                    </ul>
+                    <div class="tab-content" id="myTabContent">
+                        <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
+                            <form id="create-vendor" asp-controller="Customer" asp-action="CreateBusinessAccount" autocomplete="off" novalidate>
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Naziv kompanije</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "Naziv kompanije", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> PIB</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.PIB, new { @class = "form-control", @placeholder = "PIB", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.PIB, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom2" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Email</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email adresa", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom2" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Telefon</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Broj telefona", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom2" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Adresa</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Adresa", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom2" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Grad</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.City, new { @class = "form-control", @placeholder = "Grad", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom3" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Poštanski broj</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.ZipCode, new { @class = "form-control", @placeholder = "Poštanski kod", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.ZipCode, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom4" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Šifra</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Šifra ", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="validationCustom4" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Status</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.CheckBoxFor(model => model.Active)
+                                            <label for="@Html.DisplayNameFor(model => model.Active)">Aktiviraj</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="pull-right retail-button-form">
+                        <button type="submit" form="create-vendor" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Container-fluid Ends-->
+
+
+@section dataTables {
+    <script src="~/js/dashboard/form-validation-custom.js"></script>
+}

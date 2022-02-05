@@ -16,9 +16,11 @@ namespace RetailPlatform.Core.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public async Task CreateProfile(ProfileModel model)
+        public async Task CreateProfile(ProfileModel model, bool isVendor, bool isCustomer)
         {
             model.CreationDate = DateTime.Now;
+            model.IsVendor = isVendor;
+            model.IsCustomer = isCustomer;
             model.Password = PasswordHasher.HashPassword(model.Password);
             await _repositoryWrapper.Profile.Create(model);
         }
@@ -35,11 +37,12 @@ namespace RetailPlatform.Core.Services
             return false;
         }
 
-        public async Task UpdateProfile(ProfileModel vendor, bool passwordUpdated)
+        public async Task UpdateProfile(ProfileModel vendor, bool passwordUpdated, bool isVendor, bool isCutomer)
         {
             if (passwordUpdated)
                 vendor.Password = PasswordHasher.HashPassword(vendor.Password);
-
+            vendor.IsCustomer = isCutomer;
+            vendor.IsVendor = isVendor;
             await _repositoryWrapper.Profile.Update(vendor);
         }
     }

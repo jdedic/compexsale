@@ -17,6 +17,7 @@ namespace RetailPlatform.API.Extensions
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<ISubCategoryRepository, SubCategoryRepository>();
             services.AddScoped<IProfileRepository, ProfileRepository>();
+            services.AddScoped<IProfileCategoryRepository, ProfileCategoryRepository>();
         }
 
         public static void ConfigureAppServices(this IServiceCollection services)
@@ -28,6 +29,7 @@ namespace RetailPlatform.API.Extensions
             services.AddScoped<ICategoryService, CategoryService>();
             services.AddScoped<ISubCategoryService, SubCategoryService>();
             services.AddScoped<IProfileService, ProfileService>();
+            services.AddScoped<IProfileCategoryService, ProfileCategoryService>();
         }
     }
 }

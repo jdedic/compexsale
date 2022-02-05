@@ -9,7 +9,9 @@ namespace RetailPlatform.Common.Interfaces.Repository
         bool CheckIfEmailAlreadyExist(string email);
         Task<List<ProfileModel>> GetPrivateAccountProfiles();
         ProfileModel GetProfileByEmail(string email);
-        Task<ProfileModel> GetVendorById(long id);
+        Task<ProfileModel> GetProfileById(long id);
         Task<List<ProfileModel>> GetBusinessAccountProfiles();
+        Task<List<ProfileModel>> GetPrivateProfiles();
+        Task<List<ProfileModel>> GetBusinessProfiles();
     }
 }

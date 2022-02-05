@@ -9,5 +9,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
        ICategoryRepository Category { get; }
        ISubCategoryRepository SubCategory { get; }
        IProfileRepository Profile { get; }
+       IProfileCategoryRepository ProfileCategory { get; }
     }
 }

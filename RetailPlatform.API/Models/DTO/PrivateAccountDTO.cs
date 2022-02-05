@@ -28,6 +28,7 @@ namespace RetailPlatform.API.Models.DTO
         public bool Active { get; set; }
         public bool LegalEntity { get; set; }
         public bool IsVendor { get; set; }
+        public bool IsCustomer { get; set; }
         public bool AgreeWithTermsAndConditions { get; set; }
     }
 }

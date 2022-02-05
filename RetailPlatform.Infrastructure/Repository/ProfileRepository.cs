@@ -25,6 +25,16 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.Profiles.Where(m => m.IsVendor == true && m.LegalEntity == false).ToListAsync();
         }
 
+        public async Task<List<ProfileModel>> GetPrivateProfiles()
+        {
+            return await _dbContext.Profiles.Where(m => m.IsCustomer == true && m.LegalEntity == false).ToListAsync();
+        }
+
+        public async Task<List<ProfileModel>> GetBusinessProfiles()
+        {
+            return await _dbContext.Profiles.Where(m => m.IsCustomer == true && m.LegalEntity == true).ToListAsync();
+        }
+
         public async Task<List<ProfileModel>> GetBusinessAccountProfiles()
         {
             return await _dbContext.Profiles.Where(m => m.IsVendor == true && m.LegalEntity == true).ToListAsync();
@@ -35,7 +45,7 @@ namespace RetailPlatform.Infrastructure.Repository
             return _dbContext.Profiles.FirstOrDefault(m => m.Email.Equals(email));
         }
 
-        public async Task<ProfileModel> GetVendorById(long id)
+        public async Task<ProfileModel> GetProfileById(long id)
         {
             return await _dbContext.Profiles.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
         }

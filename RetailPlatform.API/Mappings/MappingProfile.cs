@@ -66,7 +66,6 @@ namespace RetailPlatform.API.Mappings
             CreateMap<ProfileModel, ProfileModelDTO>();
             CreateMap<PrivateAccountDTO, ProfileModel>()
                 .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => false))
-                .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
                 .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
 
             CreateMap<ProfileModel, EditPrivateAccountDTO>()
@@ -75,13 +74,11 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => string.Empty));
             CreateMap<EditPrivateAccountDTO, ProfileModel>()
                 .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => false))
-                .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
                 .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
 
             CreateMap<ProfileModel, BusinessAccountModel>();
             CreateMap<CreateBusinessAccountDTO, ProfileModel>()
                .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => true))
-               .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
                .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
             CreateMap<ProfileModel, EditBusinessAccountDTO>()
               .ForMember(dest =>
@@ -89,7 +86,6 @@ namespace RetailPlatform.API.Mappings
               opt => opt.MapFrom(src => string.Empty));
             CreateMap<EditBusinessAccountDTO, ProfileModel>()
                 .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => true))
-                .ForMember(dest => dest.IsVendor, opt => opt.MapFrom(src => true))
                 .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
         }
     }

@@ -40,3 +40,14 @@ function removeVendor() {
         $grid.jsGrid("loadData");
     });
 }
+
+function removeCustomer() {
+    var id = parseInt($('#customerId').text());
+    var url = "/Customer/RemoveCustomer"
+    $.post(url, { id: id }, function (data) {
+        $('#vendorModal').modal('hide');
+        var $grid = $("#batchDelete");
+        $grid.jsGrid("option", "pActionIndex", 1);
+        $grid.jsGrid("loadData");
+    });
+}

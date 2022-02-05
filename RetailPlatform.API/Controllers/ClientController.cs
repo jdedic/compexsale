@@ -85,7 +85,7 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model));
+            await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model), model.IsVendor, model.IsCustomer);
             return RedirectToAction("ClientLogin", "Client");
         }
 
