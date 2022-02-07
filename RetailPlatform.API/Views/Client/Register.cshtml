@@ -41,8 +41,10 @@
                     }
                     <form class="theme-form" id="register" asp-controller="Client" asp-action="Register" autocomplete="off" novalidate>
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
                         <div class="form-row row label-margin">
                             <div class="col-md-6 physicalPerson">
+                                @Html.CheckBoxFor(model => model.LegalEntity, new { style = "display:none;", id = "legalCheckbox" })
                                 <label for="email">Ime i prezime <span class="retail-validation">*</span></label>
                                 @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder = "Ime i prezime", autocomplete = "off", required = "required" })
                                 @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
@@ -117,8 +119,8 @@
                             <label class="text-uppercase"><span class="retail-validation">**</span> Pre nego što se registrujete, pročitajte uslove korišćenja i pravilnik aktivnosti</label>
                             <div class="m-checkbox-inline mb-0 d-flex label-margin">
                                 <div>
-                                    @Html.CheckBoxFor(model => model.AgreeWithTersmAndConditions)
-                                    <label for="@Html.DisplayNameFor(model => model.AgreeWithTersmAndConditions)"><span style="color:darkslategray">Prihvatam</span></label>
+                                    @Html.CheckBoxFor(model => model.AgreeWithTermsAndConditions)
+                                    <label for="@Html.DisplayNameFor(model => model.AgreeWithTermsAndConditions)"><span style="color:darkslategray">Prihvatam</span></label>
                                     <a class='modal-link text-underline'>uslove korišćenja i pravilnik aktivnosti</a>
                                 </div>
                             </div>

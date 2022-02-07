@@ -36,5 +36,10 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return _dbContext.Categories.ToList();
         }
+
+        public async Task<bool> CheckIfVendorIsAssigned(long vendorId)
+        {
+            return await _dbContext.Adds.AnyAsync(m => m.ProfileId == vendorId);
+        }
     }
 }

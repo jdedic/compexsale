@@ -1,4 +1,4 @@
-﻿@model RetailPlatform.API.Models.DTO.PrivateAccountDTO
+﻿@model RetailPlatform.API.Models.DTO.EditPrivateAccountDTO
 
 <div class="container-fluid">
     <div class="page-header">
@@ -6,15 +6,15 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>
-                        Dodaj vendora - fizičko lice
+                        Izmeni klijenta - fizičko lice
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Vendori </li>
-                    <li class="breadcrumb-item active">Dodaj vendora </li>
+                    <li class="breadcrumb-item">Klijenti </li>
+                    <li class="breadcrumb-item active">Izmeni klijenta </li>
                 </ol>
             </div>
         </div>
@@ -26,7 +26,7 @@
         <div class="col-sm-12">
             <div class="card tab2-card">
                 <div class="card-header">
-                    <h5> Add Vendor</h5>
+                    <h5> Izmeni klijenta</h5>
                 </div>
                 <div class="card-body">
                     <ul class="nav nav-tabs tab-coupon" id="myTab" role="tablist">
@@ -34,8 +34,10 @@
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
-                            <form id="create-vendor" asp-controller="Vendor" asp-action="CreateVendor" autocomplete="off" novalidate>
+                            <form id="edit-vendor" asp-controller="Customer" asp-action="EditPrivateAccount" autocomplete="off" novalidate>
                                 <div>
+                                    @Html.HiddenFor(model => model.Id)
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group row">
                                         <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Ime i prezime</label>
                                         <div class="col-xl-8 col-md-7">
@@ -88,17 +90,29 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="validationCustom4" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Šifra</label>
-                                        <div class="col-xl-8 col-md-7">
-                                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @placeholder = "Šifra ", autocomplete = "off", required = "required" })
-                                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
                                         <label for="validationCustom4" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Status</label>
                                         <div class="col-xl-8 col-md-7">
-                                                @Html.CheckBoxFor(model => model.Active)
-                                                <label for="@Html.DisplayNameFor(model => model.Active)">Aktiviraj</label>
+                                            @Html.CheckBoxFor(model => model.Active)
+                                            <label for="@Html.DisplayNameFor(model => model.Active)">Aktiviraj</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div id="vendorPassword" class="row d-none">
+                                    <div class="retail-border">
+                                        <div class="form-group row col-xl-6 col-md-4 col-sm-12">
+                                            <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Password</label>
+                                            <div class="col-xl-8 col-md-7">
+                                                @Html.TextBoxFor(model => model.Password, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                            </div>
+                                        </div>
+                                        <div class="form-group row col-xl-6 col-md-4 col-sm-12">
+                                            <label class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Confirm Password</label>
+                                            <div class="col-xl-8 col-md-7">
+                                                @Html.TextBoxFor(model => model.ConfirmPassword, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                                @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -107,7 +121,8 @@
                         </div>
                     </div>
                     <div class="pull-right retail-button-form">
-                        <button type="submit" form="create-vendor" class="btn btn-primary">Save</button>
+                        <button type="button" onclick="changePassword();" class="btn btn-outline-warning">Change Password</button>
+                        <button type="submit" form="edit-vendor" class="btn btn-primary">Save</button>
                     </div>
                 </div>
             </div>
@@ -118,5 +133,6 @@
 
 
 @section dataTables {
+    <script src="~/js/custom-js/create-vendor.js"></script>
     <script src="~/js/dashboard/form-validation-custom.js"></script>
 }

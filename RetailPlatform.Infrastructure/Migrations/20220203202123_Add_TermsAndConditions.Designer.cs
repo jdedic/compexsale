@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220203202123_Add_TermsAndConditions")]
+    partial class Add_TermsAndConditions
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -27,9 +29,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<bool>("Active")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("Confirmed")
                         .HasColumnType("bit");
 
                     b.Property<DateTime>("CreationDate")
@@ -50,18 +49,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("ImgUrl4")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsComepnsation")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDiscontSale")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsExchange")
-                        .HasColumnType("bit");
-
-                    b.Property<long>("JobTypeId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -74,9 +61,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<double>("Quantity")
                         .HasColumnType("float");
 
-                    b.Property<string>("ReasonForRefusal")
-                        .HasColumnType("nvarchar(max)");
-
                     b.Property<long>("SubCategoryId")
                         .HasColumnType("bigint");
 
@@ -86,18 +70,11 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("Unit")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<long>("UnitTypeId")
-                        .HasColumnType("bigint");
-
                     b.HasKey("Id");
-
-                    b.HasIndex("JobTypeId");
 
                     b.HasIndex("ProfileId");
 
                     b.HasIndex("SubCategoryId");
-
-                    b.HasIndex("UnitTypeId");
 
                     b.ToTable("Adds");
                 });
@@ -131,33 +108,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                             Id = 2L,
                             IsAssigned = false,
                             Name = "Nekretnine"
-                        });
-                });
-
-            modelBuilder.Entity("RetailPlatform.Common.Entities.JobType", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("JobTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Name = "Ponuda"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Name = "Tražnja"
                         });
                 });
 
@@ -334,58 +284,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         });
                 });
 
-            modelBuilder.Entity("RetailPlatform.Common.Entities.UnitType", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("Name")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("UnitTypes");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1L,
-                            Name = "komad"
-                        },
-                        new
-                        {
-                            Id = 2L,
-                            Name = "m"
-                        },
-                        new
-                        {
-                            Id = 3L,
-                            Name = "m²"
-                        },
-                        new
-                        {
-                            Id = 4L,
-                            Name = "m3"
-                        },
-                        new
-                        {
-                            Id = 5L,
-                            Name = "t"
-                        },
-                        new
-                        {
-                            Id = 6L,
-                            Name = "l"
-                        },
-                        new
-                        {
-                            Id = 7L,
-                            Name = "kg"
-                        });
-                });
-
             modelBuilder.Entity("RetailPlatform.Common.Entities.User", b =>
                 {
                     b.Property<long>("Id")
@@ -449,7 +347,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 268, DateTimeKind.Local).AddTicks(9694),
+                            RegistrationDate = new DateTime(2022, 2, 3, 21, 21, 22, 927, DateTimeKind.Local).AddTicks(2652),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -465,7 +363,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 272, DateTimeKind.Local).AddTicks(299),
+                            RegistrationDate = new DateTime(2022, 2, 3, 21, 21, 22, 929, DateTimeKind.Local).AddTicks(9770),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -475,12 +373,6 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Add", b =>
                 {
-                    b.HasOne("RetailPlatform.Common.Entities.JobType", "JobType")
-                        .WithMany()
-                        .HasForeignKey("JobTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RetailPlatform.Common.Entities.ProfileModel", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
@@ -493,19 +385,9 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("RetailPlatform.Common.Entities.UnitType", "UnitType")
-                        .WithMany()
-                        .HasForeignKey("UnitTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("JobType");
-
                     b.Navigation("Profile");
 
                     b.Navigation("SubCategory");
-
-                    b.Navigation("UnitType");
                 });
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.ProfileCategory", b =>

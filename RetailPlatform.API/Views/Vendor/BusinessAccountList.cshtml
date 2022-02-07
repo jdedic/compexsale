@@ -5,7 +5,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>
-                        Fizička lica
+                        Pravna lica
                     </h3>
                 </div>
             </div>
@@ -13,7 +13,7 @@
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
                     <li class="breadcrumb-item">Vedori</li>
-                    <li class="breadcrumb-item active">Fizička lica</li>
+                    <li class="breadcrumb-item active">Pravna lica</li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body">
             <div class="btn-popup pull-right">
-                <a href="@Url.Action("CreateVendor", "Vendor")" class="btn btn-secondary">Create Vendor</a>
+                <a href="@Url.Action("CreateBusinessAccount", "Vendor")" class="btn btn-secondary">Create Vendor</a>
             </div>
             <div id="batchDelete" class="category-table user-list order-table"></div>
         </div>
@@ -60,6 +60,6 @@
 @section dataTables {
     <script src="~/js/jsgrid/jsgrid.min.js"></script>
     <script src="~/js/custom-js/create-vendor.js"></script>
-    <script src="~/js/jsgrid/jsgrid-private-accounts.js"></script>
+    <script src="~/js/jsgrid/jsgrid-business-accounts.js"></script>
 }
 

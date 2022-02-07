@@ -3,19 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace RetailPlatform.API.Models.DTO
 {
-    public class ProfileDTO
+    public class PrivateAccountDTO
     {
-        public bool LegalEntity { get; set; }
-        //if profile is legal entity we need next information
-        //[Required(ErrorMessage = "Unesite naziv kompanije")]
-        public string CompanyName { get; set; }
-        //[Required(ErrorMessage = "Unesite PIB")]
-        public string PIB { get; set; }
-        //[Required(ErrorMessage = "Unesite ime i prezime")]
+        [Required(ErrorMessage = "Unesite ime i prezime")]
         public string FullName { get; set; }
         [Required(ErrorMessage = "Unesite telefon")]
         public string Telephone { get; set; }
-        //[Required(ErrorMessage = "Unesite JMBG")]
+        [Required(ErrorMessage = "Unesite JMBG")]
         public string JMBG { get; set; }
         [Required(ErrorMessage = "Unesite e-mail")]
         [ProfileEmailValidator(ErrorMessage = "E-mail već postoji")]
@@ -31,9 +25,10 @@ namespace RetailPlatform.API.Models.DTO
         public string ZipCode { get; set; }
         [Required(ErrorMessage = "Unesite šifru")]
         public string Password { get; set; }
+        public bool Active { get; set; }
+        public bool LegalEntity { get; set; }
         public bool IsVendor { get; set; }
         public bool IsCustomer { get; set; }
-        public bool Active { get; set; }
         public bool AgreeWithTermsAndConditions { get; set; }
     }
 }

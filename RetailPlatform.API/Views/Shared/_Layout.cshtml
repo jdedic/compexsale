@@ -105,7 +105,7 @@
                                 </li>
                             </ul>
                         </li>
-                       
+
                         <li>
                             <a class="sidebar-header" href=""><i data-feather="user-plus"></i><span>Korisnici</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
@@ -116,8 +116,15 @@
                         <li>
                             <a class="sidebar-header" href=""><i data-feather="users"></i><span>Vendori</span><i class="fa fa-angle-right pull-right"></i></a>
                             <ul class="sidebar-submenu">
-                                <li><a href="@Url.Action("VendorList", "Vendor")"><i class="fa fa-circle"></i>Lista vendora</a></li>
-                                <li><a href="@Url.Action("CreateVendor", "Vendor")"><i class="fa fa-circle"></i>Kreiraj vendora</a></li>
+                                <li><a href="@Url.Action("VendorList", "Vendor")"><i class="fa fa-circle"></i>Fizička lica</a></li>
+                                <li><a href="@Url.Action("BusinessAccountList", "Vendor")"><i class="fa fa-circle"></i>Pravna lica</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a class="sidebar-header" href=""><i data-feather="users"></i><span>Klijenti</span><i class="fa fa-angle-right pull-right"></i></a>
+                            <ul class="sidebar-submenu">
+                                <li><a href="@Url.Action("PrivateAccountList", "Customer")"><i class="fa fa-circle"></i>Fizička lica</a></li>
+                                <li><a href="@Url.Action("BusinessAccountList", "Customer")"><i class="fa fa-circle"></i>Pravna lica</a></li>
                             </ul>
                         </li>
                         <li><a class="sidebar-header" href="reports.html"><i data-feather="bar-chart"></i><span>Report</span></a></li>

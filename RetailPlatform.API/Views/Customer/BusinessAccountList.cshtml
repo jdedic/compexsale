@@ -5,15 +5,15 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>
-                        Fizička lica
+                        Pravna lica
                     </h3>
                 </div>
             </div>
             <div class="col-lg-6">
                 <ol class="breadcrumb pull-right">
                     <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
-                    <li class="breadcrumb-item">Vedori</li>
-                    <li class="breadcrumb-item active">Fizička lica</li>
+                    <li class="breadcrumb-item">Klijenti</li>
+                    <li class="breadcrumb-item active">Pravna lica</li>
                 </ol>
             </div>
         </div>
@@ -24,7 +24,7 @@
     <div class="card">
         <div class="card-body">
             <div class="btn-popup pull-right">
-                <a href="@Url.Action("CreateVendor", "Vendor")" class="btn btn-secondary">Create Vendor</a>
+                <a href="@Url.Action("CreateBusinessAccount", "Customer")" class="btn btn-secondary">Create Customer</a>
             </div>
             <div id="batchDelete" class="category-table user-list order-table"></div>
         </div>
@@ -33,19 +33,19 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Ukloni vendora</h5>
+                    <h5 class="modal-title f-w-600" id="exampleModalLabel">Ukloni klijenta</h5>
                     <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                 </div>
                 <div class="modal-body">
                     <form>
                         <div class="form">
-                            <div id="vendorId" class="d-none"></div>
+                            <div id="customerId" class="d-none"></div>
                             <p id="message"></p>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" onclick="removeVendor()" type="button">Save</button>
+                    <button class="btn btn-primary" onclick="removeCustomer()" type="button">Save</button>
                     <button class="btn btn-light" type="button" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -60,6 +60,6 @@
 @section dataTables {
     <script src="~/js/jsgrid/jsgrid.min.js"></script>
     <script src="~/js/custom-js/create-vendor.js"></script>
-    <script src="~/js/jsgrid/jsgrid-private-accounts.js"></script>
+    <script src="~/js/jsgrid/jsgrid-customer-business.js"></script>
 }
 

@@ -1,4 +1,4 @@
-﻿@model RetailPlatform.API.Models.DTO.PrivateAccountDTO
+﻿@model RetailPlatform.API.Models.DTO.CreateBusinessAccountDTO
 
 <div class="container-fluid">
     <div class="page-header">
@@ -6,7 +6,7 @@
             <div class="col-lg-6">
                 <div class="page-header-left">
                     <h3>
-                        Dodaj vendora - fizičko lice
+                        Dodaj vendora - pravno lice
                     </h3>
                 </div>
             </div>
@@ -34,20 +34,20 @@
                     </ul>
                     <div class="tab-content" id="myTabContent">
                         <div class="tab-pane fade active show" id="account" role="tabpanel" aria-labelledby="account-tab">
-                            <form id="create-vendor" asp-controller="Vendor" asp-action="CreateVendor" autocomplete="off" novalidate>
+                            <form id="create-vendor" asp-controller="Vendor" asp-action="CreateBusinessAccount" autocomplete="off" novalidate>
                                 <div>
                                     <div class="form-group row">
-                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Ime i prezime</label>
+                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Naziv kompanije</label>
                                         <div class="col-xl-8 col-md-7">
-                                            @Html.TextBoxFor(model => model.FullName, new { @class = "form-control", @placeholder = "Ime i prezime", autocomplete = "off", required = "required" })
-                                            @Html.ValidationMessageFor(model => model.FullName, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(model => model.CompanyName, new { @class = "form-control", @placeholder = "Naziv kompanije", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.CompanyName, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> JMBG</label>
+                                        <label for="validationCustom1" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> PIB</label>
                                         <div class="col-xl-8 col-md-7">
-                                            @Html.TextBoxFor(model => model.JMBG, new { @class = "form-control", @placeholder = "JMBG", autocomplete = "off", required = "required" })
-                                            @Html.ValidationMessageFor(model => model.JMBG, "", new { @class = "text-danger" })
+                                            @Html.TextBoxFor(model => model.PIB, new { @class = "form-control", @placeholder = "PIB", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.PIB, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
                                     <div class="form-group row">
@@ -97,8 +97,8 @@
                                     <div class="form-group row">
                                         <label for="validationCustom4" class="col-xl-3 col-md-4"><span class="retail-validation">*</span> Status</label>
                                         <div class="col-xl-8 col-md-7">
-                                                @Html.CheckBoxFor(model => model.Active)
-                                                <label for="@Html.DisplayNameFor(model => model.Active)">Aktiviraj</label>
+                                            @Html.CheckBoxFor(model => model.Active)
+                                            <label for="@Html.DisplayNameFor(model => model.Active)">Aktiviraj</label>
                                         </div>
                                     </div>
                                 </div>
