@@ -1,107 +1,1587 @@
-﻿@{ 
-    Layout = null;
+﻿@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
 
-<!DOCTYPE html>
-<html lang="en">
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>OGLASI</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">COMPEXSALE</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
 
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!--<meta name="description" content="multikart">
-    <meta name="keywords" content="multikart">
-    <meta name="author" content="multikart">
-    <link rel="icon" href="../assets/images/favicon/1.png" type="image/x-icon" />
-    <link rel="shortcut icon" href="../assets/images/favicon/1.png" type="image/x-icon" />-->
-    <title>Multikart - Multi-purpopse E-commerce Html Template</title>
-
-    <!--Google font-->
-    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
-
-    <!-- Icons -->
-    <link href="~/css/vendors/fontawesome.css" rel="stylesheet" />
-
-    <!--Slick slider css-->
-    <link href="~/css/vendors/slick.css" rel="stylesheet" />
-    <link href="~/css/vendors/slick-theme.css" rel="stylesheet" />
-
-    <!-- Animate icon -->
-    <link href="~/css/vendors/animate.css" rel="stylesheet" />
-
-    <!-- Themify icon -->
-    <link href="~/css/vendors/themify-icons.css" rel="stylesheet" />
-
-    <!-- Bootstrap css -->
-    <link href="~/css/vendors/bootstrap.css" rel="stylesheet" />
-
-    <!-- Theme css -->
-    <link href="~/css/style.css" rel="stylesheet" />
-
-
-</head>
-
-<body class="theme-color-1">
-    <div class="template-password">
-        <div class="container">
-            <div id="container" class="text-center">
-                <div>
-                    <div id="login">
-                        <div>
-                            <div class="logo mb-4">
-                                <a href="#">
-                                    <img src="~/images/icon/CompexSaleLogo.png" alt="Multikart_fashion" class="img-fluid">
-                                </a>
-                            </div>
-                            <h2 class="mb-3">
-                                Will be Opening Soon!
-                            </h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <form action="#" class="theme-form">
-                                    <div class="col-md-12 mt-2">
-                                        <h3>Enter Your Email: </h3>
-                                    </div>
-                                    <div class="form-row row">
-                                        <div class="col-md-12">
-                                            <input type="password" name="password" id="password" class="form-control"
-                                                   autofocus="">
-                                        </div>
-                                        <div class="col-md-12">
-                                            <div class="actions">
-                                                <button type="submit" class="btn btn-solid">notify me</button>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                        <div id="footer" class="mt-4">
-                            <div id="owner">
-                                Are you the store owner? <a href="@Url.Action("Login", "Account")">Log in here</a> or <a href="#">
-                                    change your password
-                                    settings
-                                </a>
+<section class="p-0 position-relative height-85 bg_cls">
+    <div class="home-slider slider-animate">
+        <div>
+            <div class="home">
+                <img src="~/images/bicycle/home-slider/1.jpg" alt="" class="bg-img blur-up lazyload">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="slider-contain product-detail">
+                                <div>
+                                    <h1 class="animated font-cormorant" data-animation-in="fadeInUp"
+                                        data-delay-in="0.2">
+                                        Hero Cycles
+                                    </h1>
+                                    <p class="animated d-lg-block d-none" data-animation-in="fadeInUp"
+                                       data-delay-in="0.3">
+                                        Lorem
+                                        Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the
+                                        1500s, when an unknown printer
+                                    </p>
+                                    <ul data-animation-in="fadeInUp" data-delay-in="0.4" class="color-variant">
+                                        <li class="bg-light0"></li>
+                                        <li class="bg-light1"></li>
+                                        <li class="bg-light2"></li>
+                                    </ul>
+                                    <h3 class="animated" data-animation-in="fadeInUp" data-delay-in="0.5">
+                                        <span>$32.96</span><del>$459.00</del>
+                                    </h3>
+                                    <a href="#" class="btn btn-solid animated" data-animation-in="fadeInUp"
+                                       data-delay-in="0.6">add to cart</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div id="powered">
-                        <p>© 2021, Powered by <a href="https://go2concepts.com/" style="color: #d0c979;">Go2MarketConcepts</a></p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="home">
+                <img src="~/images/bicycle/home-slider/2.jpg" alt="" class="bg-img blur-up lazyload">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                            <div class="slider-contain product-detail">
+                                <div>
+                                    <h1 class="animated font-cormorant" data-animation-in="fadeInUp"
+                                        data-delay-in="0.2">
+                                        Launched Bikes
+                                    </h1>
+                                    <p class="animated d-lg-block d-none" data-animation-in="fadeInUp"
+                                       data-delay-in="0.3">
+                                        Lorem
+                                        Ipsum is simply dummy text of the printing and typesetting industry.
+                                        Lorem Ipsum has been the industry's standard dummy text ever since the
+                                        1500s, when an unknown printer
+                                    </p>
+                                    <ul data-animation-in="fadeInUp" data-delay-in="0.4" class="color-variant">
+                                        <li class="bg-light0"></li>
+                                        <li class="bg-light1"></li>
+                                        <li class="bg-light2"></li>
+                                    </ul>
+                                    <h3 class="animated" data-animation-in="fadeInUp" data-delay-in="0.5">
+                                        <span>$32.96</span><del>$459.00</del>
+                                    </h3>
+                                    <a href="#" class="btn btn-solid animated" data-animation-in="fadeInUp"
+                                       data-delay-in="0.6">add to cart</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="~/js/jquery-3.3.1.min.js"></script>
-    <script src="~/js/menu.js"></script>
-    <script src="~/js/lazysizes.min.js"></script>
-    <script src="~/js/slick.js"></script>
-    <script src="~/js/bootstrap.bundle.min.js"></script>
-    <script src="~/js/bootstrap-notify.min.js"></script>
-    <script src="~/js/script.js"></script>
-</body>
-</html>
+</section>
+
+<section class="ratio2_3 bg_cls">
+    <div class="title1">
+        <h4>recent story</h4>
+        <h2 class="title-inner1">trending products</h2>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="theme-tab">
+                    <ul class="tabs tab-title">
+                        <li class="current"><a href="tab-4">Man cycle</a></li>
+                        <li class=""><a href="tab-5">Women cycle</a></li>
+                        <li class=""><a href="tab-6">Kids cycle</a></li>
+                    </ul>
+                    <div class="tab-content-cls">
+                        <div id="tab-4" class="tab-content active default">
+                            <div class="row cycle-box-row">
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/1.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/2.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/3.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/4.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/5.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/6.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/7.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/8.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-5" class="tab-content">
+                            <div class="row cycle-box-row">
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/3.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/4.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/5.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/1.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/2.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/6.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/7.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/8.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="tab-6" class="tab-content">
+                            <div class="row cycle-box-row">
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/5.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/6.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/7.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/8.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/1.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/2.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/3.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <div class="col-3">
+                                    <div class="cycle-box">
+                                        <div class="product-detail">
+                                            <a href="product-page(no-sidebar).html">
+                                                <h4>Bicycle Scout 26T</h4>
+                                            </a>
+                                            <div class="rating">
+                                                <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                                            </div>
+                                            <ul class="details">
+                                                <li><i class="fa fa-user-o" aria-hidden="true"></i> 10-50 YR</li>
+                                                <li>
+                                                    <i class="fa fa-arrows-v" aria-hidden="true"></i> 5 ft – 6.3 ft
+                                                </li>
+                                            </ul>
+                                            <div class="add-wish">
+                                                <a href="javascript:void(0)" title="Add to Wishlist" tabindex="0">
+                                                    <i data-feather="heart"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="img-wrapper">
+                                            <a href="product-page(no-sidebar).html">
+                                                <img src="~/images/bicycle/4.jpg"
+                                                     class="img-fluid blur-up lazyload bg-img" alt="">
+                                            </a>
+                                            <div class="quick-view-part">
+                                                <a href="#" data-bs-toggle="modal" data-bs-target="#quick-view"
+                                                   title="Quick View" tabindex="0">
+                                                    <i data-feather="search"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="bottom-detail">
+                                            <div>
+                                                <ul class="color-variant">
+                                                    <li class="bg-light0"></li>
+                                                    <li class="bg-light1"></li>
+                                                    <li class="bg-light2"></li>
+                                                </ul>
+                                                <h4>$500.00</h4>
+                                            </div>
+                                        </div>
+                                        <ul class="cart-detail">
+                                            <li>
+                                                <button data-bs-toggle="modal" data-bs-target="#addtocart"
+                                                        title="Add to cart" tabindex="0">
+                                                    <i data-feather="shopping-cart"></i>add to cart
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <a href="compare.html" title="Compare" tabindex="0">
+                                                    <i data-feather="refresh-ccw"></i>compare
+                                                </a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section-b-space bg_cls">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slide-6 no-arrow">
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/1.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/2.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/3.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/4.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/5.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/6.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/7.png" alt=""></a>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="logo-block">
+                            <a href="#"><img src="~/images/logos/8.png" alt=""></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section dataTables {
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/slick-animation.min.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/feather.min.js"></script>
+    <script src="~/js/theme-setting.js"></script>
+    <script src="~/js/custom-slick-animated.js"></script>
+    <script src="~/js/footer-reveal.min.js"></script>
+}

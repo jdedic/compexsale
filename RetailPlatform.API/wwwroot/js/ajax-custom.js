@@ -17,16 +17,16 @@ var states = new Bloodhound({
         datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
         queryTokenizer: Bloodhound.tokenizers.whitespace,
         local: [
-            {'name':'WOMEN PINK SHIRT', 'image': '../assets/images/fashion/product/1.jpg', 'price':'$250'}, 
-            {'name':'Apple Phones', 'image': '../assets/images/fashion/product/55.jpg', 'price':'$250'},
-            {'name':'Body Lotion', 'image': '../assets/images/fashion/product/56.jpg', 'price':'$250'},
-            {'name':'Car Accessories', 'image': '../assets/images/fashion/product/57.jpg', 'price':'$250'},
-            {'name':'Drone', 'image': '../assets/images/fashion/product/16.jpg', 'price':'$250'},
-            {'name':'Earpods', 'image': '../assets/images/fashion/product/17.jpg', 'price':'$250'},
-            {'name':'Face Mask', 'image': '../assets/images/fashion/product/19.jpg', 'price':'$250'},
-            {'name':'Gaming Laptop', 'image': '../assets/images/fashion/product/21.jpg', 'price':'$250'},
-            {'name':'headphone', 'image': '../assets/images/fashion/product/25.jpg', 'price':'$250'},
-            {'name':'iphone', 'image': '../assets/images/fashion/product/13.jpg', 'price':'$250'},
+            {'name':'WOMEN PINK SHIRT', 'image': '~/images/fashion/product/1.jpg', 'price':'$250'}, 
+            {'name':'Apple Phones', 'image': '~/images/fashion/product/55.jpg', 'price':'$250'},
+            {'name':'Body Lotion', 'image': '~/images/fashion/product/56.jpg', 'price':'$250'},
+            {'name':'Car Accessories', 'image': '~/images/fashion/product/57.jpg', 'price':'$250'},
+            {'name':'Drone', 'image': '~/images/fashion/product/16.jpg', 'price':'$250'},
+            {'name':'Earpods', 'image': '~/images/fashion/product/17.jpg', 'price':'$250'},
+            {'name':'Face Mask', 'image': '~/images/fashion/product/19.jpg', 'price':'$250'},
+            {'name':'Gaming Laptop', 'image': '~/images/fashion/product/21.jpg', 'price':'$250'},
+            {'name':'headphone', 'image': '~/images/fashion/product/25.jpg', 'price':'$250'},
+            {'name':'iphone', 'image': '~/images/fashion/product/13.jpg', 'price':'$250'},
             ]
     });
 
