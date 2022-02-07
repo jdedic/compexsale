@@ -25,12 +25,12 @@ namespace RetailPlatform.Core.Services
         }
 
        
-        public async Task SendEmailForRefusedAdd(string email)
+        public async Task SendEmailForRefusedAdd(string email, string reason)
         {
             var pathToFile = await GetPathToFile("refuse-add-template.html");
             var body = await GetBody(pathToFile);
-            body = body.Replace("{Username}", email);
-            var message = await GetMessage(email, "Successfully created account", body);
+            body = body.Replace("{Reason}", reason);
+            var message = await GetMessage(email, "Oglas - obrazloženje", body);
             await SendEmailMessage(message);
         }
 

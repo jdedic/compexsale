@@ -14,13 +14,23 @@ namespace RetailPlatform.Infrastructure.Repository
         {
 
         }
-        public IEnumerable<Add> FetchAdds(bool active)
+        public List<Add> FetchAdds(bool active)
         {
-            var adds = _dbContext.Adds.Include(m => m.Profile)
-                .Include(m => m.SubCategory).ToList();
+            var adds = _dbContext.Adds.ToList();
 
             return active ? adds.Where(m => m.Active == true).ToList() : adds;
         }
+
+        public async Task<IEnumerable<UnitType>> GetUnits()
+        {
+            return await _dbContext.UnitTypes.ToListAsync();
+        }
+
+        public async Task<IEnumerable<JobType>> GetJobTypes()
+        {
+            return await _dbContext.JobTypes.ToListAsync();
+        }
+
 
         public List<Category> GetCategories()
         {

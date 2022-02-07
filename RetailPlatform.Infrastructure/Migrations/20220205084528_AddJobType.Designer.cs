@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220205084528_AddJobType")]
+    partial class AddJobType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -50,13 +52,13 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("ImgUrl4")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("IsComepnsation")
-                        .HasColumnType("bit");
-
-                    b.Property<bool>("IsDiscontSale")
-                        .HasColumnType("bit");
-
                     b.Property<bool>("IsExchange")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsPurchase")
+                        .HasColumnType("bit");
+
+                    b.Property<bool>("IsSale")
                         .HasColumnType("bit");
 
                     b.Property<long>("JobTypeId")
@@ -196,7 +198,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("AgreeWithTermsAndConditions")
+                    b.Property<bool>("AgreeWithTersmAndConditions")
                         .HasColumnType("bit");
 
                     b.Property<string>("City")
@@ -449,7 +451,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 268, DateTimeKind.Local).AddTicks(9694),
+                            RegistrationDate = new DateTime(2022, 2, 5, 9, 45, 27, 667, DateTimeKind.Local).AddTicks(5015),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -465,7 +467,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 272, DateTimeKind.Local).AddTicks(299),
+                            RegistrationDate = new DateTime(2022, 2, 5, 9, 45, 27, 671, DateTimeKind.Local).AddTicks(7031),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",

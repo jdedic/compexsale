@@ -34,5 +34,10 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return _dbContext.Adds.Any(m => m.SubCategoryId == id);
         }
+
+        public string GetSubcategoryById(long id)
+        {
+            return _dbContext.SubCategories.Where(m => m.Id == id).Select(m => m.Name).FirstOrDefault();
+        }
     }
 }

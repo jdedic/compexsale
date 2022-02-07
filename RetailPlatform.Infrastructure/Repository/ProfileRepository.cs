@@ -49,5 +49,10 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return await _dbContext.Profiles.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
         }
+
+        public string GetProfileInfoById(long id)
+        {
+            return _dbContext.Profiles.Where(m => m.Id == id).Select(m => m.CompanyName).FirstOrDefault();
+        }
     }
 }

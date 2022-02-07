@@ -18,10 +18,11 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string Place { get; set; }
         [Required(ErrorMessage = "Unesite Količinu")]
         public double Quantity { get; set; }
-        [Required(ErrorMessage = "Unesite Jedinicu mere")]
-        public string Unit { get; set; }
         public string Status { get; set; }
         public string CreatedBy { get; set; }
+        public bool IsComepnsation { get; set; }
+        public bool IsDiscontSale { get; set; }
+        public bool IsExchange { get; set; }
         public IFormFile FirstImg { get; set; }
         public IFormFile SecondImg { get; set; }
         public IFormFile ThirdImg { get; set; }
@@ -34,6 +35,16 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Display(Name = "Kategorija")]
         [Required(ErrorMessage = "Izaberite kategoriju")]
         public string SelectedCategory { get; set; }
+
+        public IEnumerable<SelectListItem> Units { get; set; }
+        [Display(Name = "Jedinica mere")]
+        [Required(ErrorMessage = "Izaberite jedinica mere")]
+        public string SelectedUnit { get; set; }
+
+        public IEnumerable<SelectListItem> JobTypes { get; set; }
+        [Display(Name = "Radnja")]
+        [Required(ErrorMessage = "Odaberite vrstu posla")]
+        public string SelectedJobType { get; set; }
     }
 
    

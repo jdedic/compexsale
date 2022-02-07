@@ -6,8 +6,10 @@ namespace RetailPlatform.Common.Interfaces.Repository
 {
     public interface IAddRepository : IBaseRepository<Add>
     {
-        IEnumerable<Add> FetchAdds(bool active);
+        List<Add> FetchAdds(bool active);
         List<Category> GetCategories();
         Task<bool> CheckIfVendorIsAssigned(long vendorId);
+        Task<IEnumerable<UnitType>> GetUnits();
+        Task<IEnumerable<JobType>> GetJobTypes();
     }
 }

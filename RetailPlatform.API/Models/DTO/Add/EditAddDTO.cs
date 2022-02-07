@@ -21,7 +21,10 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Required(ErrorMessage = "Unesite Količinu")]
         public double Quantity { get; set; }
         [Required(ErrorMessage = "Unesite Jedinicu mere")]
-        public string Unit { get; set; }
+        public IEnumerable<SelectListItem> JobTypes { get; set; }
+        [Display(Name = "Radnja")]
+        [Required(ErrorMessage = "Odaberite vrstu posla")]
+        public string SelectedJobType { get; set; }
         public bool Active { get; set; }
         public bool Confirmed { get; set; }
         public string ReasonForRefusal { get; set; }
@@ -35,5 +38,10 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string ImgUrl4 { get; set; }
         public IEnumerable<SelectListItem> FilteredCategories { get; set; }
         public string SelectedCategory { get; set; }
+        public IEnumerable<SelectListItem> Units { get; set; }
+        public string SelectedUnit { get; set; }
+        public bool IsComepnsation { get; set; }
+        public bool IsDiscontSale { get; set; }
+        public bool IsExchange { get; set; }
     }
 }

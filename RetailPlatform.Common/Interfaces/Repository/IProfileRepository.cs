@@ -7,6 +7,8 @@ namespace RetailPlatform.Common.Interfaces.Repository
     public interface IProfileRepository : IBaseRepository<ProfileModel>
     {
         bool CheckIfEmailAlreadyExist(string email);
+        //Task CreateProfile(ProfileModel model);
+        string GetProfileInfoById(long id);
         Task<List<ProfileModel>> GetPrivateAccountProfiles();
         ProfileModel GetProfileByEmail(string email);
         Task<ProfileModel> GetProfileById(long id);
