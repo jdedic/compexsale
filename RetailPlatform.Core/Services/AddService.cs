@@ -18,7 +18,7 @@ namespace RetailPlatform.Core.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public IEnumerable<Add> FetchAdds(bool active)
+        public List<Add> FetchAdds(bool active)
         {
             return _repositoryWrapper.Add.FetchAdds(active);
         }
@@ -58,6 +58,40 @@ namespace RetailPlatform.Core.Services
             }
 
             return new SelectList(roles, "Value", "Text");
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetUnits()
+        {
+            List<SelectListItem> cities = new List<SelectListItem>();
+
+            foreach (var unit in await _repositoryWrapper.Add.GetUnits())
+            {
+                SelectListItem item = new SelectListItem
+                {
+                    Value = unit.Id.ToString(),
+                    Text = unit.Name
+                };
+                cities.Add(item);
+            }
+
+            return new SelectList(cities, "Value", "Text");
+        }
+
+        public async Task<IEnumerable<SelectListItem>> GetJobTypes()
+        {
+            List<SelectListItem> cities = new List<SelectListItem>();
+
+            foreach (var unit in await _repositoryWrapper.Add.GetJobTypes())
+            {
+                SelectListItem item = new SelectListItem
+                {
+                    Value = unit.Id.ToString(),
+                    Text = unit.Name
+                };
+                cities.Add(item);
+            }
+
+            return new SelectList(cities, "Value", "Text");
         }
 
         public async Task EditAdd(Add add)

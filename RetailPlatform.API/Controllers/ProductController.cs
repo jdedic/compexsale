@@ -16,12 +16,18 @@ namespace RetailPlatform.API.Controllers
     {
         private readonly IAddService _addService;
         private readonly IMapper _mapper;
+        private readonly IEmailService _emailService;
         private readonly IRepositoryWrapper _repositoryWrapper;
 
-        public ProductController(IAddService addService, IMapper mapper, IRepositoryWrapper repositoryWrapper)
+        public ProductController(
+            IAddService addService,
+            IMapper mapper,
+            IEmailService emailService,
+            IRepositoryWrapper repositoryWrapper)
         {
             _addService = addService;
             _mapper = mapper;
+            _emailService = emailService;
             _repositoryWrapper = repositoryWrapper;
         }
 
@@ -30,6 +36,8 @@ namespace RetailPlatform.API.Controllers
         {
             CreateAddDTO add = new CreateAddDTO();
             add.FilteredCategories = await _addService.FilteredCategories();
+            add.Units = await _addService.GetUnits();
+            add.JobTypes = await _addService.GetJobTypes();
             return View(add);
         }
 
@@ -37,6 +45,8 @@ namespace RetailPlatform.API.Controllers
         {
             EditAddDTO model = _mapper.Map<EditAddDTO>(await _addService.GetAddById(id));
             model.FilteredCategories = await _addService.FilteredCategories();
+            model.Units = await _addService.GetUnits();
+            model.JobTypes = await _addService.GetJobTypes();
             return View(model);
         }
 
@@ -49,6 +59,8 @@ namespace RetailPlatform.API.Controllers
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
+                add.Units = await _addService.GetUnits();
+                add.JobTypes = await _addService.GetJobTypes();
                 return View(add);
             }
 
@@ -96,8 +108,6 @@ namespace RetailPlatform.API.Controllers
                 add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
             }
 
-            //Int32.Parse(HttpContext.Session.GetString("id"))
-
             await _addService.CreateAdd(_mapper.Map<Add>(add));
             return Redirect("/adds");
         }
@@ -111,6 +121,8 @@ namespace RetailPlatform.API.Controllers
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
+                add.Units = await _addService.GetUnits();
+                add.JobTypes = await _addService.GetJobTypes();
                 return View(add);
             }
             
@@ -166,6 +178,11 @@ namespace RetailPlatform.API.Controllers
             }
 
             await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
+
+            if (add.Confirmed)
+            {
+                await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
+            }
             return Redirect("/adds");
         }
 
@@ -177,10 +194,19 @@ namespace RetailPlatform.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<AddDTO>> Get()
+        public IEnumerable<AddDTO> Get()
         {
-            var kk = _addService.FetchAdds(false);
-            return _mapper.Map<IEnumerable<AddDTO>>(_addService.FetchAdds(false));
+            var adds = _addService.FetchAdds(false);
+            List<AddDTO> addsList = new List<AddDTO>();
+            adds.ForEach(m =>
+            {
+                var add = _mapper.Map<AddDTO>(m);
+                add.CreatedBy = _repositoryWrapper.Profile.GetProfileInfoById(m.ProfileId);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+
+                addsList.Add(add);
+            });
+            return addsList;
         }
 
         public IActionResult ProductPreview()

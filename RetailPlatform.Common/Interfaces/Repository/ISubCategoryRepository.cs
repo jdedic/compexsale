@@ -10,5 +10,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<IEnumerable<SubCategory>> GetSubCategories();
         Task<SubCategory> GetSubCategoryById(long id);
         bool IsAssignToProduct(long id);
+        string GetSubcategoryById(long id);
     }
 }

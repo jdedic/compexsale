@@ -7,5 +7,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
     {
         bool CheckIfEmailAlreadyExist(string email);
         Task CreateProfile(ProfileModel model);
+        string GetProfileInfoById(long id);
     }
 }

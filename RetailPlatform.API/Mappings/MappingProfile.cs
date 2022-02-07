@@ -28,32 +28,44 @@ namespace RetailPlatform.API.Mappings
 
             CreateMap<Add, AddDTO>()
                 .ForMember(dest =>
-                dest.CreatedBy,
-                opt => opt.MapFrom(src => src.Profile != null ? src.Profile.CompanyName : null))
-                .ForMember(dest =>
-                dest.Category,
-                opt => opt.MapFrom(src => src.SubCategory != null ? src.SubCategory.Name : null))
-                .ForMember(dest =>
                 dest.DateOfCreation,
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
 
             CreateMap<Add, EditAddDTO>()
                 .ForMember(dest =>
                 dest.SelectedCategory,
-                opt => opt.MapFrom(src => src.SubCategoryId.ToString()));
+                opt => opt.MapFrom(src => src.SubCategoryId.ToString()))
+                .ForMember(dest =>
+                dest.SelectedUnit,
+                opt => opt.MapFrom(src => src.UnitTypeId.ToString()))
+                .ForMember(dest =>
+                dest.SelectedJobType,
+                opt => opt.MapFrom(src => src.JobTypeId.ToString()));
                 
             CreateMap<CreateAddDTO, Add>()
                .ForMember(dest =>
                dest.SubCategoryId,
-               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)));
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
+               .ForMember(dest =>
+               dest.UnitTypeId,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
+               .ForMember(dest =>
+               dest.JobTypeId,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedJobType) ? 0 : Int32.Parse(src.SelectedJobType)));
 
             CreateMap<EditAddDTO, Add>()
               .ForMember(dest =>
               dest.SubCategoryId,
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
+              .ForMember(dest =>
+              dest.UnitTypeId,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
+              .ForMember(dest =>
+              dest.JobTypeId,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedJobType) ? 0 : Int32.Parse(src.SelectedJobType)))
                .ForMember(dest =>
               dest.Active,
-              opt => opt.MapFrom(src => src.Confirmed ? true : false));
+              opt => opt.MapFrom(src => src.Confirmed ? true : false));  
 
 
             CreateMap<SubCategory, SubCategoryModel>()

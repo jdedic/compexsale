@@ -35,6 +35,21 @@ namespace RetailPlatform.Infrastructure.Data
                 new SubCategory { Id = 6, Name = "Nekretnine", CategoryId = 2 },
                 new SubCategory { Id = 10, Name = "Plovni objekti i sredstva", CategoryId = 2 }
             );
+
+            modelBuilder.Entity<UnitType>().HasData(
+               new UnitType { Id = 1, Name = "komad" },
+               new UnitType { Id = 2, Name = "m" },
+               new UnitType { Id = 3, Name = "m²" },
+               new UnitType { Id = 4, Name = "m3" },
+               new UnitType { Id = 5, Name = "t"},
+               new UnitType { Id = 6, Name = "l" },
+               new UnitType { Id = 7, Name = "kg" }
+           );
+
+            modelBuilder.Entity<JobType>().HasData(
+              new JobType { Id = 1, Name = "Ponuda" },
+              new JobType { Id = 2, Name = "Tražnja" }
+          );
         }
 
         public DbSet<User> Users { get; set; }
@@ -44,5 +59,7 @@ namespace RetailPlatform.Infrastructure.Data
         public DbSet<ProfileCategory> ProfileCategories { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
+        public DbSet<UnitType> UnitTypes { get; set; }
+        public DbSet<JobType> JobTypes { get; set; }
     }
 }

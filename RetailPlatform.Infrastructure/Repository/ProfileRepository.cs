@@ -24,5 +24,10 @@ namespace RetailPlatform.Infrastructure.Repository
             model.CreationDate = DateTime.Now;
             await Create(model);
         }
+
+        public string GetProfileInfoById(long id)
+        {
+            return _dbContext.Profiles.Where(m => m.Id == id).Select(m => m.CompanyName).FirstOrDefault();
+        }
     }
 }

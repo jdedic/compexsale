@@ -57,10 +57,11 @@
                         .text("Delete")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
-                            alert("ID: " + item.id);
-                            // document.location.href = item.id + "/delete";
+                            $('#addModal').modal('show');
+                            $('#addId').text(item.id);
+                            $('#message').text("Da li zelite da uklonite " + item.name + " oglas?");
                             e.stopPropagation();
-                        });
+                         });
 
                     return $("<div>")
                         .append($customEditButton)
