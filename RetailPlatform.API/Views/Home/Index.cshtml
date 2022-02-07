@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model RetailPlatform.API.Models.DTO.EmailModel
+@{
     Layout = null;
 }
 
@@ -61,14 +62,14 @@
                         </div>
                         <div class="row">
                             <div class="col-sm-12">
-                                <form action="#" class="theme-form">
+                                <form asp-controller="Home" asp-action="SendEmail" class="theme-form">
                                     <div class="col-md-12 mt-2">
                                         <h3>Enter Your Email: </h3>
                                     </div>
                                     <div class="form-row row">
                                         <div class="col-md-12">
-                                            <input type="password" name="password" id="password" class="form-control"
-                                                   autofocus="">
+                                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                                         </div>
                                         <div class="col-md-12">
                                             <div class="actions">

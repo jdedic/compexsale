@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Options;
-using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Config;
 using System;
@@ -52,9 +51,7 @@ namespace RetailPlatform.Core.Services
         {
             return _env.WebRootPath
                     + Path.DirectorySeparatorChar.ToString()
-                    + "Templates"
-                    + Path.DirectorySeparatorChar.ToString()
-                    + "EmailTemplate"
+                    + "templates"
                     + Path.DirectorySeparatorChar.ToString()
                     + $"{templateName}";
         }
@@ -71,7 +68,7 @@ namespace RetailPlatform.Core.Services
                 smtp.Credentials = credential;
                 smtp.Host = _emailConfig.IMAPServer;
                 smtp.Port = _emailConfig.IMAPPort;
-                smtp.EnableSsl = true;
+                smtp.EnableSsl = false;
                 await smtp.SendMailAsync(message);
             }
         }
@@ -84,6 +81,14 @@ namespace RetailPlatform.Core.Services
                 body = SourceReader.ReadToEnd();
             }
             return body;
+        }
+
+        public async Task SendWelcomEmail(string email)
+        {
+            var pathToFile = await GetPathToFile("welcome.html");
+            var body = await GetBody(pathToFile);
+            var message = await GetMessage(email, "Compexsale saradnja", body);
+            await SendEmailMessage(message);
         }
         #endregion
     }
