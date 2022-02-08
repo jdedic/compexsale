@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using RetailPlatform.API.Models;
+using RetailPlatform.API.Models.DTO;
+using RetailPlatform.Common.Interfaces.Service;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Security.Claims;
@@ -14,15 +16,33 @@ namespace RetailPlatform.API.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly IEmailService _emailService;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger,
+            IEmailService emailService)
         {
             _logger = logger;
+            _emailService = emailService;
         }
 
         public IActionResult Index()
         {
             return View();
+        }
+
+        [IgnoreAntiforgeryToken]
+        [HttpPost]
+        [Route("Home/SendEmail")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmail(EmailModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _emailService.SendWelcomEmail(model.Email);
+            return Redirect("/");
         }
 
         [Authorize]

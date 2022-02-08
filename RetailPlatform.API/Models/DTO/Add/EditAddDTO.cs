@@ -20,10 +20,8 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string Place { get; set; }
         [Required(ErrorMessage = "Unesite Količinu")]
         public double Quantity { get; set; }
-        [Required(ErrorMessage = "Unesite Jedinicu mere")]
         public IEnumerable<SelectListItem> JobTypes { get; set; }
-        [Display(Name = "Radnja")]
-        [Required(ErrorMessage = "Odaberite vrstu posla")]
+
         public string SelectedJobType { get; set; }
         public bool Active { get; set; }
         public bool Confirmed { get; set; }

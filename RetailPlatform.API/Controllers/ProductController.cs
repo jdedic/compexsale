@@ -179,7 +179,7 @@ namespace RetailPlatform.API.Controllers
 
             await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
 
-            if (add.Confirmed)
+            if (!add.Confirmed)
             {
                 await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
             }
