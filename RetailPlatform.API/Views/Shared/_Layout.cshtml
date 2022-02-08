@@ -4,7 +4,6 @@
     string userId = ((ClaimsIdentity)User.Identity).FindFirst("userId").Value;
     string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
     string isCustomer = ((ClaimsIdentity)User.Identity).FindFirst("isCustomer").Value;
-    var bla = userId;
 }
 
 <!DOCTYPE html>

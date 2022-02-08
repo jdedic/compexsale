@@ -10,8 +10,8 @@ using RetailPlatform.Infrastructure.Data;
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    [Migration("20220207104745_UpdateStatusForAdds")]
-    partial class UpdateStatusForAdds
+    [Migration("20220208192156_Initialize-Migration")]
+    partial class InitializeMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -198,7 +198,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("Address")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<bool>("AgreeWithTersmAndConditions")
+                    b.Property<bool>("AgreeWithTermsAndConditions")
                         .HasColumnType("bit");
 
                     b.Property<string>("City")
@@ -451,7 +451,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 268, DateTimeKind.Local).AddTicks(9694),
+                            RegistrationDate = new DateTime(2022, 2, 8, 20, 21, 55, 429, DateTimeKind.Local).AddTicks(7062),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -467,7 +467,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 7, 11, 47, 45, 272, DateTimeKind.Local).AddTicks(299),
+                            RegistrationDate = new DateTime(2022, 2, 8, 20, 21, 55, 432, DateTimeKind.Local).AddTicks(7028),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
