@@ -108,18 +108,21 @@ namespace RetailPlatform.API.Controllers
             if (_profileService.CheckUserCredentials(model.Username, model.Password))
             {
                 var user = _repositoryWrapper.Profile.GetProfileByEmail(model.Username);
-                await HttpContext.SignInAsync(SetClaims(model.Username, user.FullName, user.Id.ToString()));
+                var name = user.IsVendor == true ? user.CompanyName : user.FullName;
+                await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.LegalEntity));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
 
-        public ClaimsPrincipal SetClaims(string username, string name, string id)
+        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isPrivateAccount)
         {
             var claims = new List<Claim>();
             claims.Add(new Claim("username", username));
             claims.Add(new Claim("roleName", "Profile"));
+            claims.Add(new Claim("isCustomer", isCustomer.ToString()));
+            claims.Add(new Claim("isPrivateAccount", isPrivateAccount.ToString()));
             claims.Add(new Claim("userId", id));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
             claims.Add(new Claim(ClaimTypes.Name, name));

@@ -45,7 +45,7 @@
                             <li class="onhover-dropdown mobile-account">
                                 <i class="fa fa-user" aria-hidden="true"></i> Moj nalog
                                 <ul class="onhover-show-div">
-                                    <li><a href="@Url.Action("Login", "Account")">Login</a></li>
+                                    <li><a href="@Url.Action("ClientLogin", "Client")">Login</a></li>
                                     <li><a href="@Url.Action("Register", "Client")">Registracija</a></li>
                                 </ul>
                             </li>
@@ -61,7 +61,7 @@
                         <div class="menu-left">
                             
                             <div class="brand-logo">
-                                <a href="index.html">
+                                <a href="@Url.Action("Index", "Home")">
                                     <img src="~/images/icon/CompexSaleLogoSmall.png"
                                          class="img-fluid responsive-img blur-up lazyload" alt="">
                                 </a>
@@ -71,7 +71,7 @@
                             <div>
                                 <nav id="main-nav">
                                     <ul id="main-menu" class="sm pixelstrap sm-horizontal">
-                                        <li><a href="index.html">POČETNA</a></li>
+                                        <li><a href="@Url.Action("Index", "Home")">POČETNA</a></li>
                                         <li><a href="@Url.Action("AboutUs", "Client")">O NAMA</a></li>
                                         <li class="mega" id="hover-cls">
                                             <a href="#">PROIZVODI</a>
@@ -82,7 +82,7 @@
                                                             <div class="col mega-box">
                                                                 <div class="link-section">
                                                                     <div class="menu-title">
-                                                                        <h5>Proizvodi / oglasi</h5>
+                                                                        <h5 class="category-underline">POLJOPRIVREDA I OPREMA</h5>
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
@@ -93,19 +93,29 @@
                                                                             </li>
                                                                             <li>
                                                                                 <a href="vegetables.html">
-                                                                                    Životinje
+                                                                                    Radne mašine
                                                                                 </a>
                                                                             </li>
-                                                                            <li><a href="bags.html">Prehrambeni proizvodi</a></li>
-                                                                            <li>
-                                                                                <a href="shoes.html">Rudarstvo</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="shoes.html">Građevinarstvo</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="shoes.html">Nekretnine</a>
-                                                                            </li>
+                                                                            <li><a href="bags.html">Poljoprivredni preparati</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">ŽIVOTINJE I HRANA ZA ŽIVOTINJE</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="nursery.html">Životinje</a></li>
+                                                                            <li><a href="vegetables.html">Hrana za životinje</a></li>
+                                                                            <li><a href="bags.html">Preparati za životinje</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">PREVOZNA SREDSTVA I DELOVI</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="index.html">Automobili</a></li>
+                                                                            <li><a href="index.html">Kamioni</a></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -114,88 +124,24 @@
                                                                 <div class="link-section">
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li><a href="index.html">Mašine</a></li>
-                                                                            <li>
-                                                                                <a href="index.html">
-                                                                                    Oprema i alati
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="christmas.html">Vozila</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="shoes.html">Poslovni objekti i sredstva</a>
-                                                                            </li>
-                                                                            <li><a href="index.html">Goriva</a></li>
-                                                                            <li><a href="index.html">Razni proizvodi i oprema</a></li>
-                                                                            <li><a href="index.html">Medicina i stomatologija</a></li>
+                                                                            <li><a href="index.html">Kombi</a></li>
+                                                                            <li><a href="index.html">Motocikli</a></li>
+                                                                            <li><a href="index.html">Bicikli</a></li>
+                                                                            <li><a href="index.html">Plovna sredstva</a></li>
+                                                                            <li><a href="index.html">Ostala prevozna sredstva</a></li>
                                                                         </ul>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
-                                                                    <div class="menu-content">
-                                                                        <ul>
-                                                                            <li><a href="index.html">Računari i oprema</a></li>
-                                                                            <li><a href="index.html">Kancelarijske mašine</a></li>
-                                                                            <li><a href="index.html">Mobilni uređaji</a></li>
-                                                                            <li><a href="index.html">Tehnika (aparati i uređaji)</a></li>
-                                                                            <li>
-                                                                                <a href="index.html">
-                                                                                    Električne mašine i alati
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="fashion-4.html">Odeća, obuća i tekstil</a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a href="bicycle.html">Nameštaj</a>
-                                                                            </li>
-                                                                        </ul>
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">PREHRAMBENI I NEPREHRAMBENI PROIZVODI</h5>
                                                                     </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="col mega-box">
-                                                                <div class="link-section">
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-1.html">
-                                                                                    Hemijski proizvodi
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-2.html">
-                                                                                    Bebi oprema i dečije stvari
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-3.html">
-                                                                                    Aksesoari
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-4.html">
-                                                                                    Sportska oprema i rekviziti
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-5.html">
-                                                                                    Umetnost i razonoda
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="invoice-5.html">
-                                                                                    Obrazovanje
-                                                                                </a>
-                                                                            </li>
+                                                                            <li><a href="index.html">Indrustijski proizovidi</a></li>
+                                                                            <li><a href="index.html">Domaći proizvodi</a></li>
+                                                                            <li><a href="index.html">Sirovine</a></li>
+                                                                            <li><a href="index.html">Odeća, obuća </a></li>
+                                                                            <li><a href="#">Tekstilni proizvodi</a></li>
+                                                                            <li><a href="#">Bebi oprema i dečije stvari</a></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -203,51 +149,88 @@
                                                             <div class="col mega-box">
                                                                 <div class="link-section">
                                                                     <div class="menu-title">
-                                                                        <h5>email template</h5>
+                                                                        <h5 class="category-underline">ZEMLJIŠTA</h5>
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="../email-template/email-order-success.html">
-                                                                                    order
-                                                                                    success
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="../email-template/email-order-success-two.html">
-                                                                                    order
-                                                                                    success 2
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="../email-template/email-template.html">
-                                                                                    email
-                                                                                    template
-                                                                                </a>
-                                                                            </li>
-                                                                            <li>
-                                                                                <a target="_blank"
-                                                                                   href="../email-template/email-template-two.html">
-                                                                                    email
-                                                                                    template 2
-                                                                                </a>
-                                                                            </li>
+                                                                            <li><a href="#">Građevinsko zemljište</a></li>
+                                                                            <li><a href="#">Njive</a></li>
+                                                                            <li><a href="#">Ostale kategorije</a></li>
                                                                         </ul>
                                                                     </div>
                                                                     <div class="menu-title mt-2">
-                                                                        <h5>elements</h5>
+                                                                        <h5 class="category-underline">NEKRETNINE</h5>
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li>
-                                                                                <a href="elements.html">
-                                                                                    elements page<i class="ms-2 fa fa-bolt icon-trend"
-                                                                                                    aria-hidden="true"></i>
-                                                                                </a>
-                                                                            </li>
+                                                                            <li><a href="#">Stanovi</a></li>
+                                                                            <li><a href="#">Kuće</a></li>
+                                                                            <li><a href="#">Vikendice</a></li>
+                                                                            <li><a href="#">Poslovni objekti</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-title">
+                                                                        <h5 class="category-underline">GRAĐEVINSKI MATERIJAL I OPREMA</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="#">Rinfuzni građevinski materijal</a></li>
+                                                                            <li><a href="#">Upakovani građevniski materijal</a></li>
+                                                                            
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mega-box">
+                                                                <div class="link-section">
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="#">Građevinske mašine i oprema</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">TEHNIKA</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="#">Mobilni uređaji</a></li>
+                                                                            <li><a href="#">Računarska oprema</a></li>
+                                                                            <li><a href="#">Kancelarijska oprema</a></li>
+                                                                            <li><a href="#">Električne mašine</a></li>
+                                                                            <li><a href="#">Oprema</a></li>
+                                                                            <li><a href="#">Uređaji</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">RAZNE KUĆNE STVARI I OPREMA</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="index.html">Nameštaj</a></li>
+                                                                            <li><a href="index.html">Kuhinjska tehnika</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col mega-box">
+                                                                <div class="link-section">
+                                                                    <div class="menu-title mt-2">
+                                                                        <h5 class="category-underline">OSTALO</h5>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="index.html">Nameštaj</a></li>
+                                                                        </ul>
+                                                                    </div>
+                                                                    <div class="menu-content">
+                                                                        <ul>
+                                                                            <li><a href="index.html">Umetnost</a></li>
+                                                                            <li><a href="index.html">Obrazovanje i razonoda</a></li>
+                                                                            <li><a href="index.html">Sportska oprema i rekviziti</a></li>
+                                                                            <li><a href="index.html">Rudarstvo</a></li>
+                                                                            <li><a href="index.html">Goriva</a></li>
+                                                                            <li><a href="index.html">Aksesoari</a></li>
+                                                                            <li><a href="index.html">Usluge</a></li>
                                                                         </ul>
                                                                     </div>
                                                                 </div>
@@ -300,7 +283,6 @@
                             <h4>about</h4>
                         </div>
                         <div class="footer-contant">
-                            <div class="footer-logo"><img src="~/images/icon/logo.png" alt=""></div>
                             <p>
                                 <b>Compexsale</b> je preduzeće za sve vrste dogovora, saradnje i konsultacija 
                                 vezanih za razmenu, prodaju, organizaciju transporta i savetodavnih usluga.
