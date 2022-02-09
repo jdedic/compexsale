@@ -57,3 +57,6 @@
     border: 1.5px solid #d0c979;
 }
 
+.item-border {
+    border-right: 1.5px solid #d0c979;
+}
