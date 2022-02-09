@@ -1,4 +1,6 @@
-﻿@{
+﻿@model RetailPlatform.API.Models.DTO.ContactForm
+
+@{
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
 
@@ -79,25 +81,28 @@
         <hr style="margin-bottom:70px;" class="rounded">
         <div class="row">
             <div class="col-sm-12">
-                <form class="theme-form">
+                <form id="contact" class="theme-form" asp-controller="Client" asp-action="SendEmail">
                     <div class="form-row row">
                         <div class="col-md-6">
                             <label for="name">Ime i prezime</label>
-                            <input type="text" class="form-control" id="name" placeholder="Unesite ime i prezime"
-                                   required="">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Unesite ime i prezime" })
+                            @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                         </div>
                         <div class="col-md-6">
                             <label for="email">Email</label>
-                            <input type="text" class="form-control" id="last-name" placeholder="Unesite email adresu" required="">
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Unesite email" })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
                         </div>
-                        
+
                         <div class="col-md-12">
                             <label for="review">Poruka</label>
-                            <textarea class="form-control" placeholder="Unesite poruku"
-                                      id="exampleFormControlTextarea1" rows="6"></textarea>
+                            @Html.TextAreaFor(model => model.Content, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "6", @placeholder = "Unesite poruku" })
+                            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                            @*<textarea class="form-control" placeholder="Unesite poruku"
+                                      id="exampleFormControlTextarea1" rows="6"></textarea>*@
                         </div>
                         <div class="col-md-12">
-                            <button class="btn btn-solid" type="submit">POŠALJITE PORUKU</button>
+                            <button form="contact" class="btn btn-solid" type="submit">POŠALJITE PORUKU</button>
                         </div>
                     </div>
                 </form>
