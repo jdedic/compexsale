@@ -6,6 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\images\NewFolder\**" />
+    <Content Remove="wwwroot\images\NewFolder\**" />
+    <EmbeddedResource Remove="wwwroot\images\NewFolder\**" />
+    <None Remove="wwwroot\images\NewFolder\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.1.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation" Version="3.1.0" />
@@ -23,7 +30,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\images\adds\" />
-    <Folder Include="wwwroot\images\NewFolder\" />
     <Folder Include="wwwroot\js\plugins\dropify\dist\js\" />
     <Folder Include="wwwroot\js\plugins\dropify\dist\css\" />
   </ItemGroup>
