@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace RetailPlatform.API.Models.DTO
 {
@@ -21,5 +22,11 @@ namespace RetailPlatform.API.Models.DTO
         public string IsComepnsation { get; set; }
         public string IsDiscontSale { get; set; }
         public string IsExchange { get; set; }
+        [Required(ErrorMessage = "Unesite ime i prezime.")]
+        public string ClientName { get; set; }
+        [Required(ErrorMessage = "Unesite email.")]
+        public string Email { get; set; }
+        [Required(ErrorMessage = "Unesite poruku.")]
+        public string Content { get; set; }
     }
 }

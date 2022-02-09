@@ -90,6 +90,17 @@ namespace RetailPlatform.Core.Services
             var message = await GetMessage(email, "Compexsale saradnja", body);
             await SendEmailMessage(message);
         }
+
+        public async Task SendContactClientEmail(string email, string clientName, string content)
+        {
+            var pathToFile = await GetPathToFile("contact-form.html");
+            var body = await GetBody(pathToFile);
+            body = body.Replace("{Name}", clientName);
+            body = body.Replace("{Email}", email);
+            body = body.Replace("{Content}", content);
+            var message = await GetMessage("info@compexsale.com", "Pitanja klijenata", body);
+            await SendEmailMessage(message);
+        }
         #endregion
     }
 }

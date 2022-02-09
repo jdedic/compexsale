@@ -195,6 +195,21 @@ namespace RetailPlatform.API.Controllers
             return View();
         }
 
+        [HttpPost]
+        [Route("Product/SendEmail")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmail(ProductPreviewDTO model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
+            return View(new ContactForm());
+        }
+
         [HttpGet]
         public IEnumerable<AddDTO> Get()
         {

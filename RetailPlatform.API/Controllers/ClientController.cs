@@ -17,13 +17,15 @@ namespace RetailPlatform.API.Controllers
         private readonly IRepositoryWrapper _repositoryWrapper;
         private readonly IMapper _mapper;
         private readonly IProfileService _profileService;
+        private readonly IEmailService _emailService;
 
         public ClientController(IRepositoryWrapper repositoryWrapper,IMapper mapper,
-                                IProfileService profileService)
+                                IProfileService profileService, IEmailService emailService)
         {
             _repositoryWrapper = repositoryWrapper;
             _mapper = mapper;
             _profileService = profileService;
+            _emailService = emailService;
         }
 
         public IActionResult AboutUs()
@@ -87,6 +89,21 @@ namespace RetailPlatform.API.Controllers
 
             await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model), model.IsVendor, model.IsCustomer);
             return RedirectToAction("ClientLogin", "Client");
+        }
+
+        [HttpPost]
+        [Route("Client/SendEmail")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmail(ContactForm model)
+        {
+
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
+            return RedirectToAction("Contact", "Client");
         }
 
         public IActionResult ClientLogin()
