@@ -103,7 +103,7 @@ namespace RetailPlatform.API.Controllers
             }
 
             await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
-            return View(new ContactForm());
+            return RedirectToAction("Contact", "Client");
         }
 
         public IActionResult ClientLogin()
