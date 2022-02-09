@@ -1,4 +1,9 @@
-﻿@model RetailPlatform.API.Models.DTO.Add.EditAddDTO
+﻿@using System.Security.Claims;
+@model RetailPlatform.API.Models.DTO.Add.EditAddDTO
+
+@{
+    string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+}
 
 <div class="container-fluid">
     <div class="page-header">
@@ -56,13 +61,6 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-form-label"><span class="retail-validation">*</span> Vrsta posla</label>
-                                <div class="col-xl-8 col-md-7">
-                                    @Html.DropDownListFor(x => x.SelectedJobType, new SelectList(Model.JobTypes, "Value", "Text"), "Selektuj vrstu poslu", htmlAttributes: new { @class = "custom-select form-control", @id = "category" })
-                                    @Html.ValidationMessageFor(model => model.SelectedJobType, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
                                 <label class="col-form-label"><span class="retail-validation">*</span> Kategorije</label>
                                 <div class="col-xl-8 col-md-7">
                                     @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "category" })
@@ -72,7 +70,7 @@
                             <div class="form-group">
                                 <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
                                 <div class="col-xl-8 col-md-7">
-                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "8" })
                                     @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                                 </div>
                             </div>
@@ -90,30 +88,40 @@
                                     @Html.ValidationMessageFor(model => model.SelectedUnit, "", new { @class = "text-danger" })
                                 </div>
                             </div>
-                            <div class="form-group">
-                                <label class="col-form-label"><span></span> Aktivan</label>
-                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                                    @Html.CheckBoxFor(model => model.Active, new { @class = "filled-in chk-col-green form-check-input", @disabled = "disabled" })
-                                    <label for="@Html.DisplayNameFor(model => model.Active)"></label>
 
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label"><span></span> Odobren</label>
-                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
-                                    @Html.CheckBoxFor(model => model.Confirmed, new { @class = "filled-in chk-col-green form-check-input" })
-                                    <label for="@Html.DisplayNameFor(model => model.Confirmed)"></label>
-
-                                </div>
-
-                                <div class="form-group" id="description">
-                                    <label class="col-form-label"><span class="retail-validation">*</span> Obrazloženje</label>
-                                    <div class="col-xl-8 col-md-7">
-                                        @Html.TextAreaFor(model => model.ReasonForRefusal, new { @class = "form-control", autocomplete = "off", required = "required" })
-                                        @Html.ValidationMessageFor(model => model.ReasonForRefusal, "", new { @class = "text-danger" })
+                            @if (role == "User")
+                            {
+                                <div class="form-group">
+                                    <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                        @Html.CheckBoxFor(model => model.Active, new { @class = "filled-in chk-col-green form-check-input" })
+                                        <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.Active)">Aktivan</label>
                                     </div>
                                 </div>
+                                <div class="form-group">
+                                    <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                        @Html.CheckBoxFor(model => model.Confirmed, new { @class = "filled-in chk-col-green form-check-input" })
+                                        <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.Confirmed)"> Odobren</label>
+
+                                    </div>
+
+                                    <div class="form-group" id="description">
+                                        <label class="col-form-label"><span class="retail-validation">*</span> Obrazloženje</label>
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.TextAreaFor(model => model.ReasonForRefusal, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                            @Html.ValidationMessageFor(model => model.ReasonForRefusal, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+
+                            <div class="form-group">
+                                <label class="col-form-label pt-0"><span class="retail-validation">*</span> Cena</label>
+                                <div class="col-xl-8 col-md-7">
+                                    @Html.TextBoxFor(model => model.Price, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                    @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                                </div>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -121,28 +129,18 @@
             <div class="col-xl-7">
                 <div class="card">
                     <div class="row" style="margin:10px;">
-                        <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label class="col-form-label"><span></span>Kompenzacija</label>
-                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                        <div class="m-checkbox-inline mb-0 d-flex" style="margin-top:10px;">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
                                 @Html.CheckBoxFor(model => model.IsComepnsation, new { @class = "filled-in chk-col-green form-check-input" })
-                                <label for="@Html.DisplayNameFor(model => model.IsComepnsation)"></label>
-
+                                <label for="@Html.DisplayNameFor(model => model.IsComepnsation)">Kompenzacija</label>
                             </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label class="col-form-label"><span></span>Diskontna prodaja</label>
-                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
                                 @Html.CheckBoxFor(model => model.IsDiscontSale, new { @class = "filled-in chk-col-green form-check-input" })
-                                <label for="@Html.DisplayNameFor(model => model.IsDiscontSale)"></label>
-
+                                <label for="@Html.DisplayNameFor(model => model.IsDiscontSale)">Diskontna prodaja</label>
                             </div>
-                        </div>
-                        <div class="col-sm-4 col-md-4 col-lg-4">
-                            <label class="col-form-label"><span></span>Razmena</label>
-                            <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                            <div class="col-sm-4 col-md-4 col-lg-4">
                                 @Html.CheckBoxFor(model => model.IsExchange, new { @class = "filled-in chk-col-green form-check-input" })
-                                <label for="@Html.DisplayNameFor(model => model.IsExchange)"></label>
-
+                                <label for="@Html.DisplayNameFor(model => model.IsExchange)">Razmena</label>
                             </div>
                         </div>
                     </div>
@@ -248,16 +246,16 @@
             $()
         });
     </script>
-@*<script>
-    $(document).ready(function () {
-        if (document.querySelector('.refuse').checked) {
-            $("#description").attr('style', 'display: block !important');
-        } else {
-            $("#description").attr('style', 'display: none !important');
-        }
+    @*<script>
+            $(document).ready(function () {
+                if (document.querySelector('.refuse').checked) {
+                    $("#description").attr('style', 'display: block !important');
+                } else {
+                    $("#description").attr('style', 'display: none !important');
+                }
 
-        $()
-    });
-</script>*@
+                $()
+            });
+        </script>*@
 }
 

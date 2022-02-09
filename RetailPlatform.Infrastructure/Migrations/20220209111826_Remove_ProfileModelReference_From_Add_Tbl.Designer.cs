@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220209111826_Remove_ProfileModelReference_From_Add_Tbl")]
+    partial class Remove_ProfileModelReference_From_Add_Tbl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -65,9 +67,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("Place")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<decimal?>("Price")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<long>("ProfileId")
                         .HasColumnType("bigint");
 
@@ -83,12 +82,13 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<string>("UniqueId")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Unit")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<long>("UnitTypeId")
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("ProfileId");
 
                     b.HasIndex("SubCategoryId");
 
@@ -444,7 +444,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 9, 13, 24, 38, 36, DateTimeKind.Local).AddTicks(537),
+                            RegistrationDate = new DateTime(2022, 2, 9, 12, 18, 25, 518, DateTimeKind.Local).AddTicks(5417),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -460,7 +460,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 9, 13, 24, 38, 39, DateTimeKind.Local).AddTicks(8798),
+                            RegistrationDate = new DateTime(2022, 2, 9, 12, 18, 25, 522, DateTimeKind.Local).AddTicks(4739),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -470,12 +470,6 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Add", b =>
                 {
-                    b.HasOne("RetailPlatform.Common.Entities.ProfileModel", "Profile")
-                        .WithMany()
-                        .HasForeignKey("ProfileId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RetailPlatform.Common.Entities.SubCategory", "SubCategory")
                         .WithMany()
                         .HasForeignKey("SubCategoryId")
@@ -487,8 +481,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .HasForeignKey("UnitTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Profile");
 
                     b.Navigation("SubCategory");
 

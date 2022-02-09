@@ -141,7 +141,7 @@
                         else
                         {
                             var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
-                            <li><a class="sidebar-header" href="@Url.Action("AdminDashboard", "Home")"><i data-feather="box"></i><span>Oglasi</span></a></li>
+                            <li><a class="sidebar-header" href="@Url.Action("Adds", "Product")"><i data-feather="box"></i><span>Oglasi</span></a></li>
                             @if (isCustomer == "True")
                             {
                                 var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";

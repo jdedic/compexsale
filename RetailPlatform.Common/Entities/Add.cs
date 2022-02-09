@@ -17,12 +17,9 @@ namespace RetailPlatform.Common.Entities
         public string ImgUrl4 { get; set; }
         public long SubCategoryId { get; set; }
         public SubCategory SubCategory { get; set; }
-        public long JobTypeId { get; set; }
-        public JobType JobType { get; set; }
         public string Description { get; set; }
         public string Place { get; set; }
         public double Quantity { get; set; }
-        public string Unit { get; set; }
         public bool Active { get; set; }
         public bool Confirmed { get; set; }
         public bool IsComepnsation { get; set; }
@@ -32,5 +29,6 @@ namespace RetailPlatform.Common.Entities
         public DateTime CreationDate { get; set; }
         public long UnitTypeId { get; set; }
         public UnitType UnitType { get; set; }
+        public decimal? Price { get; set; }
     }
 }

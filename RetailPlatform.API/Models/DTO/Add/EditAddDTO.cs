@@ -41,5 +41,6 @@ namespace RetailPlatform.API.Models.DTO.Add
         public bool IsComepnsation { get; set; }
         public bool IsDiscontSale { get; set; }
         public bool IsExchange { get; set; }
+        public decimal? Price { get; set; }
     }
 }

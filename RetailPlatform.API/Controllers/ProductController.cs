@@ -8,6 +8,7 @@ using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Controllers
@@ -37,7 +38,6 @@ namespace RetailPlatform.API.Controllers
             CreateAddDTO add = new CreateAddDTO();
             add.FilteredCategories = await _addService.FilteredCategories();
             add.Units = await _addService.GetUnits();
-            add.JobTypes = await _addService.GetJobTypes();
             return View(add);
         }
 
@@ -56,6 +56,7 @@ namespace RetailPlatform.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateProduct(CreateAddDTO add)
         {
+            add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
@@ -201,9 +202,9 @@ namespace RetailPlatform.API.Controllers
             adds.ForEach(m =>
             {
                 var add = _mapper.Map<AddDTO>(m);
+                add.Unit = m.UnitType.Name;
                 add.CreatedBy = _repositoryWrapper.Profile.GetProfileInfoById(m.ProfileId);
                 add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
-
                 addsList.Add(add);
             });
             return addsList;

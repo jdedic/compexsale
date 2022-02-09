@@ -16,7 +16,7 @@ namespace RetailPlatform.Infrastructure.Repository
         }
         public List<Add> FetchAdds(bool active)
         {
-            var adds = _dbContext.Adds.ToList();
+            var adds = _dbContext.Adds.Include(m => m.UnitType).ToList();
 
             return active ? adds.Where(m => m.Active == true).ToList() : adds;
         }

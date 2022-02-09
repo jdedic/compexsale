@@ -31,12 +31,12 @@
             },
         },
         fields: [
-            { name: "uniqueId", type: "text", width: 100, title: "Unique id" },
+            { name: "uniqueId", type: "text", width: 60, title: "Unique id" },
             { name: "name", type: "text", width: 100, title: "Name" },
             { name: "category", width: 100, title: "Category" },
-            { name: "quantity", width: 100, title: "Quantity" },
-            { name: "unit", width: 100, title: "Unit" },
-            { name: "place", width: 100, title: "Place" },
+            { name: "quantity", width: 50, title: "Quantity" },
+            { name: "unit", width: 30, title: "Unit" },
+            { name: "place", width: 60, title: "Place" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {

@@ -31,10 +31,8 @@ namespace RetailPlatform.Core.Services
 
         public async Task CreateAdd(Add model)
         {
-            model.ProfileId = 1;
             model.CreationDate = DateTime.Now;
             model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
-            
             await _repositoryWrapper.Add.Create(model);
         }
 
