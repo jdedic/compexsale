@@ -90,6 +90,19 @@ namespace RetailPlatform.API.Mappings
             CreateMap<EditBusinessAccountDTO, ProfileModel>()
                 .ForMember(dest => dest.LegalEntity, opt => opt.MapFrom(src => true))
                 .ForMember(dest => dest.AgreeWithTermsAndConditions, opt => opt.MapFrom(src => true));
+            CreateMap<Add, ProductPreviewDTO>()
+                .ForMember(dest =>
+                dest.IsComepnsation,
+                 opt => opt.MapFrom(src => src.IsComepnsation ? "kompenzacija" : ""))
+                .ForMember(dest =>
+                dest.IsDiscontSale,
+                opt => opt.MapFrom(src => src.IsDiscontSale ? "diskontna prodaja" : ""))
+                .ForMember(dest =>
+                dest.IsExchange,
+                opt => opt.MapFrom(src => src.IsExchange ? "Razmena" : ""))
+                .ForMember(dest =>
+                dest.Active,
+                opt => opt.MapFrom(src => src.Active ? "Aktivan" : "Neaktivan"));
         }
     }
 }

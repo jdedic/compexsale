@@ -48,3 +48,12 @@
     text-decoration: solid underline #d0c979;
 }
 
+.product-preview {
+    width: 335px;
+    height: 340px;
+}
+
+.image-border {
+    border: 1.5px solid #d0c979;
+}
+

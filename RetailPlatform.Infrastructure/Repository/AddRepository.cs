@@ -41,5 +41,10 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return await _dbContext.Adds.AnyAsync(m => m.ProfileId == vendorId);
         }
+
+        public async Task<Add> GetAddWithUnit(long id)
+        {
+            return await _dbContext.Adds.Include(m => m.SubCategory).Include(m => m.UnitType).FirstOrDefaultAsync(m => m.Id == id);
+        }
     }
 }

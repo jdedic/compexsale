@@ -7,6 +7,7 @@ using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -210,9 +211,14 @@ namespace RetailPlatform.API.Controllers
             return addsList;
         }
 
-        public IActionResult ProductPreview()
+        public async Task<IActionResult> ProductPreview(long id)
         {
-            return View();
+            var product = await _repositoryWrapper.Add.GetAddWithUnit(id);
+            ProductPreviewDTO model = _mapper.Map<ProductPreviewDTO>(product);
+            model.Date = model.CreationDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+            model.Category = product.SubCategory.Name;
+            model.Unit = product.UnitType.Name;
+            return View(model);
         }
 
         [HttpPost]

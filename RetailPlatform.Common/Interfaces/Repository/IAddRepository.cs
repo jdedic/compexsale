@@ -11,5 +11,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<bool> CheckIfVendorIsAssigned(long vendorId);
         Task<IEnumerable<UnitType>> GetUnits();
         Task<IEnumerable<JobType>> GetJobTypes();
+        Task<Add> GetAddWithUnit(long id);
     }
 }
