@@ -98,8 +98,6 @@
                             <label for="review">Poruka</label>
                             @Html.TextAreaFor(model => model.Content, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "6", @placeholder = "Unesite poruku" })
                             @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-                            @*<textarea class="form-control" placeholder="Unesite poruku"
-                                      id="exampleFormControlTextarea1" rows="6"></textarea>*@
                         </div>
                         <div class="col-md-12">
                             <button form="contact" class="btn btn-solid" type="submit">POŠALJITE PORUKU</button>
