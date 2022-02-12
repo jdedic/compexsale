@@ -13455,7 +13455,9 @@ header.stickycls {
       font-size: 14px;
       color: black;
       line-height: 1.8;
-      letter-spacing: 0.06em; }
+      letter-spacing: 0.06em;
+      text-align: justify;
+    }
 
 .pwd-page {
   text-align: center; }
