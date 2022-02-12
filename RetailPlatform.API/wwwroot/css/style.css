@@ -280,7 +280,7 @@ h3 {
 
 h4 {
   font-size: 18px;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 400;
   letter-spacing: 0.03em;
   line-height: 1; }
@@ -307,7 +307,7 @@ li {
 
 p {
   font-size: 14px;
-  color: #777777;
+  color: black;
   line-height: 1; }
 
 a {
@@ -1152,7 +1152,7 @@ button {
     padding: 9px 16px; }
   .btn-solid.btn-xs {
     padding: 5px 8px;
-    text-transform: capitalize; }
+    text-transform: none; }
   .btn-solid.hover-solid {
     -webkit-transition: none;
     transition: none; }
@@ -1832,7 +1832,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     margin-bottom: 0;
     color: #7b7b7b;
     margin-top: 2px;
-    text-transform: capitalize; }
+    text-transform: none; }
 
 .title-borderless {
   margin-bottom: 30px;
@@ -1855,7 +1855,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
   margin-bottom: 30px;
   border-bottom: 1px solid #dddddd; }
   .theme-tab .title-inline h3 {
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 0;
     color: black;
     font-weight: 600; }
@@ -2090,7 +2090,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     color: #222222;
     margin-top: 0;
     margin-bottom: 2px;
-    text-transform: capitalize; }
+    text-transform: none; }
   .ajax-search .description-section span {
     padding: 7px;
     font-size: 16px;
@@ -2277,13 +2277,13 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     font-size: calc(24px + (70 - 24) * ((100vw - 320px) / (1920 - 320)));
     font-weight: 700;
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 0;
     margin-top: 0; }
   .full-banner .banner-contain.christmas-contain h3 {
     font-size: calc(20px + (30 - 20) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     margin-bottom: 15px;
     margin-top: -6px; }
@@ -2291,7 +2291,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     font-size: calc(18px + (24 - 18) * ((100vw - 320px) / (1920 - 320)));
     color: #ffffff;
     font-weight: 600;
-    text-transform: capitalize;
+    text-transform: none;
     letter-spacing: 0.07em;
     padding-top: 10px;
     margin-bottom: -5px;
@@ -2570,7 +2570,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
       transition: all 0.5s ease; }
       .absolute_banner .collection-banner .absolute-contain h3 {
         color: var(--theme-deafult);
-        text-transform: capitalize;
+        text-transform: none;
         margin-top: -5px;
         font-weight: 700; }
       .absolute_banner .collection-banner .absolute-contain h4 {
@@ -2696,7 +2696,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     color: #909090;
     border-bottom: 1px solid #909090;
     font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
-    text-transform: capitalize; }
+    text-transform: none; }
 
 .banner-effect {
   overflow: hidden;
@@ -2838,7 +2838,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
   .blog-details p {
     color: #222222;
     font-size: 18px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     line-height: 1.5;
     letter-spacing: 0.03em;
@@ -2866,7 +2866,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     color: #000000; }
   .blog-left .blog-details p {
     font-size: 14px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 400;
     margin-top: -3px; }
   .blog-left .blog-details h6 {
@@ -2927,7 +2927,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
           padding-top: 10px;
           padding-bottom: 10px; }
           .add_to_cart .cart-inner .cart_media li .total h5 {
-            text-transform: capitalize;
+            text-transform: none;
             margin-bottom: 0;
             color: #999999; }
             .add_to_cart .cart-inner .cart_media li .total h5 span {
@@ -2935,7 +2935,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
         .add_to_cart .cart-inner .cart_media li .buttons a {
           font-size: 16px;
           color: #ffffff;
-          text-transform: capitalize;
+          text-transform: none;
           font-weight: 700;
           -webkit-transition: all 0.5s ease;
           transition: all 0.5s ease; }
@@ -3227,7 +3227,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
   .category-border.category-border-2 div .category-banner .category-box h2 {
     font-size: 26px;
     padding: 16px 17px;
-    text-transform: capitalize; }
+    text-transform: none; }
 
 .category-bg-section .category-border-2:nth-child(2) {
   padding-top: 0; }
@@ -3411,7 +3411,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     margin-top: 20px; }
   .category-m .category-wrapper .category-link li {
     display: block;
-    text-transform: capitalize;
+    text-transform: none;
     margin-top: 5px; }
     .category-m .category-wrapper .category-link li:first-child {
       margin-top: 0; }
@@ -3483,7 +3483,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
             box-shadow: 0 0 8px rgba(0, 0, 0, 0.1); }
     .category-bake .category-box h3 {
       color: black;
-      text-transform: capitalize;
+      text-transform: none;
       font-weight: 600; }
     .category-bake .category-box img {
       width: 25%;
@@ -3499,7 +3499,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
     -webkit-transition: all 0.5s ease;
     transition: all 0.5s ease; }
   .img-category h4 {
-    text-transform: capitalize;
+    text-transform: none;
     margin-top: 12px;
     color: black;
     font-weight: 600;
@@ -3562,7 +3562,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
         -ms-flex-pack: center;
             justify-content: center; }
     .deal-category .deal-content h2 {
-      text-transform: capitalize; }
+      text-transform: none; }
 
 .gradient-category {
   text-align: center;
@@ -3608,7 +3608,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
         bottom: 0;
         z-index: 1; }
   .gradient-category h4 {
-    text-transform: capitalize;
+    text-transform: none;
     margin-top: 12px;
     color: black;
     font-weight: 600;
@@ -3728,7 +3728,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
   .category-img-wrapper .category-wrap .category-content h3 {
     font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
     color: black;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     margin-bottom: calc(0px + (4 - 0) * ((100vw - 320px) / (1920 - 320))); }
   .category-img-wrapper .category-wrap .category-content a {
@@ -4043,7 +4043,7 @@ button.btn.btn-solid:active, button.btn.btn-outline:active {
   .about-section .service .service-block1 img {
     margin-bottom: 10px; }
   .about-section .service .service-block1 h5 {
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     margin-bottom: 0; }
 
@@ -4430,12 +4430,12 @@ footer.pet-layout-footer .social-white {
     margin-top: 3px; }
   .blog.blog_box .blog-details a p {
     color: #40494f;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     margin-bottom: 0;
     margin-top: 10px; }
   .blog.blog_box .blog-details .read-cls {
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     color: #000000; }
 
@@ -4461,7 +4461,7 @@ footer.pet-layout-footer .social-white {
   width: 75%;
   margin: 20px 0; }
   .tools-parallax-product .tools-description .tools-form .search-box select {
-    text-transform: capitalize; }
+    text-transform: none; }
 
 .tools-parallax-product .tools-description .tools-form .btn-find {
   width: 75%;
@@ -4554,7 +4554,7 @@ footer.pet-layout-footer .social-white {
       .service_slide .service-home .service-block1 h4 {
         margin-bottom: 0; }
       .service_slide .service-home .service-block1 p {
-        text-transform: capitalize; }
+        text-transform: none; }
       .service_slide .service-home .service-block1 svg {
         margin-bottom: 5px;
         width: 50px;
@@ -4579,7 +4579,7 @@ footer.pet-layout-footer .social-white {
       margin-right: 100px;
       text-align: left; }
       .tab-left .theme-tab .left-side .tab-title a {
-        text-transform: capitalize; }
+        text-transform: none; }
     .tab-left .theme-tab .left-side li {
       width: 100%;
       padding: 7px 0;
@@ -4761,7 +4761,7 @@ footer.pet-layout-footer .social-white {
   .blog-section .review-box .review-content h6 {
     margin-bottom: 0;
     margin-top: 10px;
-    text-transform: capitalize;
+    text-transform: none;
     color: #555555;
     font-size: 16px; }
   .blog-section .review-box .review-content p {
@@ -4915,7 +4915,7 @@ footer.pet-layout-footer .social-white {
     color: white;
     padding: 8px 6px;
     border-radius: 100%;
-    text-transform: capitalize;
+    text-transform: none;
     position: absolute;
     left: 130px;
     top: 20px; }
@@ -4940,7 +4940,7 @@ footer.pet-layout-footer .social-white {
     padding: 17px 0;
     position: relative; }
     .chef-section .chef-box .chef-detail h3 {
-      text-transform: capitalize;
+      text-transform: none;
       color: var(--theme-deafult);
       margin-bottom: 4px;
       font-weight: 600;
@@ -5130,7 +5130,7 @@ footer.pet-layout-footer .social-white {
       .cycle-box .cart-detail li a,
       .cycle-box .cart-detail li button {
         color: rgba(0, 0, 0, 0.5);
-        text-transform: capitalize;
+        text-transform: none;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -5270,7 +5270,7 @@ footer.pet-layout-footer .social-white {
     text-align: center;
     margin-top: 20px; }
     .wine-process-sec .process-section .process-content h3 {
-      text-transform: capitalize;
+      text-transform: none;
       color: var(--theme-deafult);
       font-weight: 600; }
     .wine-process-sec .process-section .process-content p {
@@ -5324,7 +5324,7 @@ footer.pet-layout-footer .social-white {
     margin-top: 20px;
     text-align: center;
     color: #555;
-    text-transform: capitalize;
+    text-transform: none;
     -webkit-transition: all 0.3s ease;
     transition: all 0.3s ease;
     padding-bottom: 0;
@@ -5347,7 +5347,7 @@ footer.pet-layout-footer .social-white {
   height: 100%; }
   .specification-section h3 {
     font-size: calc(18px + (20 - 18) * ((100vw - 320px) / (1920 - 320)));
-    text-transform: capitalize;
+    text-transform: none;
     color: black;
     font-weight: 700;
     margin-bottom: calc(7px + (15 - 7) * ((100vw - 320px) / (1920 - 320))); }
@@ -5736,7 +5736,6 @@ footer {
   position: relative;
   display: inherit;
   padding-top: 13px;
-  text-transform: capitalize;
   font-size: 14px;
   color: #777777; }
   .footer-theme .sub-title li a {
@@ -5883,7 +5882,7 @@ footer {
   .footer-theme2 .footer-link-b li {
     padding-right: 15px;
     padding-left: 15px;
-    text-transform: capitalize; }
+    text-transform: none; }
   .footer-theme2 .footer-link a,
   .footer-theme2 .footer-link-b a {
     color: #7f786d;
@@ -6453,7 +6452,7 @@ header {
         padding: 8px 15px 8px 0; }
         header.left-header .sidenav .bottom-section ul li a {
           font-size: 16px;
-          text-transform: capitalize;
+          text-transform: none;
           color: #222222; }
           header.left-header .sidenav .bottom-section ul li a i {
             font-size: 18px;
@@ -6467,7 +6466,7 @@ header {
         header.left-header .sidenav .bottom-section .leftside_setting .language h5,
         header.left-header .sidenav .bottom-section .leftside_setting .currency h5 {
           margin-bottom: 0;
-          text-transform: capitalize;
+          text-transform: none;
           color: #999;
           margin-top: 0; }
         header.left-header .sidenav .bottom-section .leftside_setting .language select,
@@ -6475,7 +6474,7 @@ header {
           margin-left: 10px;
           border: none;
           outline: none;
-          text-transform: capitalize;
+          text-transform: none;
           color: #222222; }
       header.left-header .sidenav .bottom-section .leftside_setting h5 {
         margin-top: 10px; }
@@ -6833,7 +6832,7 @@ header {
     .top-header .header-dropdown li:first-child {
       padding-right: 0; }
     .top-header .header-dropdown li a {
-      text-transform: capitalize;
+      text-transform: none;
       color: #999999; }
     .top-header .header-dropdown li i {
       padding-right: 5px;
@@ -7013,7 +7012,7 @@ header {
             padding-top: 10px;
             padding-bottom: 10px; }
             .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .total h5 {
-              text-transform: capitalize;
+              text-transform: none;
               margin-bottom: 0;
               color: #999999; }
               .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .total h5 span {
@@ -7021,7 +7020,7 @@ header {
           .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .buttons a {
             font-size: 16px;
             color: #333333;
-            text-transform: capitalize;
+            text-transform: none;
             font-weight: 700; }
             .main-menu .menu-right .icon-nav .onhover-div .show-div.shopping-cart li .buttons a:hover {
               color: var(--theme-deafult); }
@@ -7034,7 +7033,7 @@ header {
         left: unset; }
         .main-menu .menu-right .icon-nav .onhover-div .show-div.setting h6 {
           font-size: 16px;
-          text-transform: capitalize;
+          text-transform: none;
           color: #333333;
           font-weight: 700;
           margin-bottom: 0;
@@ -7052,7 +7051,7 @@ header {
             color: #333333;
             font-weight: 400;
             font-size: 16px;
-            text-transform: capitalize; }
+            text-transform: none; }
       .main-menu .menu-right .icon-nav .onhover-div .show-div li {
         padding: 0; }
         .main-menu .menu-right .icon-nav .onhover-div .show-div li .form-control {
@@ -7236,7 +7235,7 @@ header {
         display: inline-block;
         color: white;
         font-size: 19px;
-        text-transform: capitalize; }
+        text-transform: none; }
   .header-style-5 .bottom-part .pixelstrap > li > a {
     color: white; }
     .header-style-5 .bottom-part .pixelstrap > li > a:hover, .header-style-5 .bottom-part .pixelstrap > li > a:active {
@@ -8058,7 +8057,7 @@ header.stickycls {
           justify-content: center; }
   .insta-title h4 {
     margin-bottom: 0;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 600; }
     .insta-title h4 span {
       color: var(--theme-deafult); }
@@ -8843,7 +8842,7 @@ header.stickycls {
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
       font-weight: 400;
-      text-transform: capitalize;
+      text-transform: none;
       color: #222222; }
     .pixelstrap .full-mega-menu a img, .pixelstrap .clothing-menu a img {
       display: -webkit-box;
@@ -8863,7 +8862,7 @@ header.stickycls {
 
 .pixelstrap .link-section h5 {
   font-weight: 700;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 14px; }
 
 .pixelstrap .link-section ul {
@@ -9118,7 +9117,7 @@ header.stickycls {
         border-radius: 0 !important;
         font-size: 14px;
         font-weight: 400;
-        text-transform: capitalize;
+        text-transform: none;
         padding: 5px 35px; }
         .pixelstrap ul a:hover:before, .pixelstrap ul a:hover:hover:before, .pixelstrap ul a:focus:hover:before, .pixelstrap ul a:active:hover:before, .pixelstrap ul a.highlighted:hover:before {
           width: 50px;
@@ -9187,7 +9186,7 @@ header.stickycls {
       .main-nav-center .sm > li > a > span.sub-arrow {
         display: ruby-text-container; }
   .layout3-menu .pixelstrap a {
-    text-transform: capitalize;
+    text-transform: none;
     padding-right: 34px;
     letter-spacing: 0.04em; }
   .layout3-menu .pixelstrap .sub-arrow {
@@ -9288,7 +9287,7 @@ header.stickycls {
       position: absolute;
       right: -18px; }
   .pixelstrap .link-section .menu-content a {
-    text-transform: capitalize; }
+    text-transform: none; }
   .pixelstrap .link-section ul {
     background-color: unset; }
   .pixelstrap .link-section h5 {
@@ -9555,7 +9554,7 @@ header.stickycls {
       color: #272727;
       font-size: 18px;
       font-weight: 400;
-      text-transform: capitalize; }
+      text-transform: none; }
     .theme-modal .modal-dialog .modal-content .modal-body .modal-bg .age-content form {
       margin: 0 auto;
       text-align: center; }
@@ -9656,7 +9655,7 @@ header.stickycls {
       text-align: center; }
       .theme-modal.cart-modal .modal-dialog .modal-content .modal-body .modal-bg.addtocart #upsell_product .product-box .product-detail h6 {
         font-weight: 700;
-        text-transform: capitalize; }
+        text-transform: none; }
         .theme-modal.cart-modal .modal-dialog .modal-content .modal-body .modal-bg.addtocart #upsell_product .product-box .product-detail h6 a {
           color: var(--theme-deafult); }
 
@@ -9760,7 +9759,7 @@ header.stickycls {
       .blackfriday-modal .modal-body .modal-bg .content h2 {
         color: white;
         font-family: 'Dancing Script', cursive;
-        text-transform: capitalize;
+        text-transform: none;
         font-size: calc(36px + (55 - 36) * ((100vw - 320px) / (1920 - 320))); }
       .blackfriday-modal .modal-body .modal-bg .content .discount {
         text-transform: uppercase;
@@ -9923,7 +9922,7 @@ header.stickycls {
         color: white; }
       .christmas-modal .modal-body .modal-bg .content h2 {
         color: white;
-        text-transform: capitalize;
+        text-transform: none;
         font-size: calc(20px + (45 - 20) * ((100vw - 320px) / (1920 - 320))); }
       .christmas-modal .modal-body .modal-bg .content .discount {
         text-transform: uppercase;
@@ -10001,7 +10000,7 @@ header.stickycls {
       .newyear-modal .modal-body .modal-bg .content h2 {
         color: white;
         font-family: 'Dancing Script', cursive;
-        text-transform: capitalize;
+        text-transform: none;
         font-size: calc(36px + (55 - 36) * ((100vw - 320px) / (1920 - 320))); }
       .newyear-modal .modal-body .modal-bg .content .discount {
         text-transform: uppercase;
@@ -10184,7 +10183,7 @@ header.stickycls {
         text-align: center; }
         .lookbook .lookbook-block .lookbook-dot .dot-showbox .dot-info h5 {
           margin-bottom: 0;
-          text-transform: capitalize;
+          text-transform: none;
           line-height: 20px; }
           .lookbook .lookbook-block .lookbook-dot .dot-showbox .dot-info h5.title {
             font-weight: 700; }
@@ -10232,7 +10231,7 @@ header.stickycls {
 .product-left-title h3 {
   font-weight: 600;
   color: #222;
-  text-transform: capitalize;
+  text-transform: none;
   max-width: 200px;
   line-height: 36px; }
 
@@ -10296,7 +10295,7 @@ header.stickycls {
     width: 25px; }
   .added-notification h3 {
     color: #ffffff;
-    text-transform: capitalize;
+    text-transform: none;
     font-size: 16px;
     margin-bottom: 0;
     margin-left: 10px;
@@ -11012,7 +11011,7 @@ header.stickycls {
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
       font-size: 16px;
-      text-transform: capitalize;
+      text-transform: none;
       text-overflow: ellipsis;
       white-space: nowrap;
       overflow: hidden; }
@@ -11340,7 +11339,7 @@ header.stickycls {
   .bg-title .theme-tab .bg-title-part .title-border {
     margin-bottom: 0;
     color: white;
-    text-transform: capitalize; }
+    text-transform: none; }
   .bg-title .theme-tab .bg-title-part .tab-title {
     margin-bottom: 0;
     margin-top: 0;
@@ -11519,7 +11518,7 @@ header.stickycls {
   color: white;
   text-align: center;
   font-size: 18px;
-  text-transform: capitalize;
+  text-transform: none;
   position: absolute;
   width: 100%;
   bottom: -40px;
@@ -11796,7 +11795,7 @@ header.stickycls {
   color: white;
   text-align: center;
   font-size: 18px;
-  text-transform: capitalize;
+  text-transform: none;
   position: absolute;
   left: 50%;
   -webkit-transform: translateX(-50%);
@@ -11873,7 +11872,7 @@ header.stickycls {
   bottom: 0; }
   .product-style-2.product-box .product-info .add-btn a, .product-style-2 .product-wrap .product-info .add-btn a {
     color: var(--theme-deafult);
-    text-transform: capitalize;
+    text-transform: none;
     font-size: calc(13px + (17 - 13) * ((100vw - 320px) / (1920 - 320))); }
 
 .product-style-2.product-box:hover .product-info .color-variant, .product-style-2 .product-wrap:hover .product-info .color-variant {
@@ -11892,7 +11891,7 @@ header.stickycls {
             animation: none; }
     .product-style-3.product-box .product-info .add-btn a, .product-style-3 .product-wrap .product-info .add-btn a {
       color: var(--theme-deafult);
-      text-transform: capitalize;
+      text-transform: none;
       font-size: calc(13px + (17 - 13) * ((100vw - 320px) / (1920 - 320))); }
 
 .addtocart_count .product-box.product-style-1 .add-button {
@@ -12076,10 +12075,10 @@ header.stickycls {
       fill: var(--theme-deafult); }
   .service-block h4 {
     font-weight: 700;
-    text-transform: capitalize;
+    text-transform: none;
     letter-spacing: 0.03em; }
   .service-block p {
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 0; }
     .service-block + .service-block {
         border-left: 1px solid #d0c979;
@@ -12302,7 +12301,7 @@ header.stickycls {
   .full-box .theme-card .offer-slider .product-box2 .title {
     text-align: center;
     color: black;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 600;
     margin-bottom: 0; }
   .full-box .theme-card .offer-slider .product-box2 .media img {
@@ -12446,7 +12445,7 @@ header.stickycls {
 ==========================**/
 .sitemap_page .title {
   color: var(--theme-deafult);
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 700; }
 
 .sitemap_page ul {
@@ -12460,7 +12459,7 @@ header.stickycls {
       font-size: 16px;
       -webkit-transition: all 0.5s ease;
       transition: all 0.5s ease;
-      text-transform: capitalize; }
+      text-transform: none; }
       .sitemap_page ul li a i {
         font-size: 10px; }
       .sitemap_page ul li a:hover {
@@ -12627,7 +12626,7 @@ header.stickycls {
 .about-page h4 {
   margin-bottom: 10px;
   margin-top: 30px;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 600;
   line-height: 1.3; }
 
@@ -12722,7 +12721,7 @@ header.stickycls {
           font-weight: 600; }
         .collection-filter-block .product-service .media .media-body p {
           margin-bottom: 0;
-          text-transform: capitalize; }
+          text-transform: none; }
       .collection-filter-block .product-service .media:last-child {
         padding-bottom: 0; }
 
@@ -12966,7 +12965,7 @@ header.stickycls {
     .collection-product-wrapper .product-top-filter .popup-filter .sidebar-popup {
       border-right: 1px solid #dddddd;
       padding: 20px;
-      text-transform: capitalize;
+      text-transform: none;
       width: 35%; }
       .collection-product-wrapper .product-top-filter .product-filter-content .search-count h5,
       .collection-product-wrapper .product-top-filter .product-filter-content .sidebar-popup h5,
@@ -13243,7 +13242,7 @@ header.stickycls {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  text-transform: capitalize;
+  text-transform: none;
   color: #333333; }
   .theme_checkbox label input {
     position: absolute;
@@ -13454,7 +13453,7 @@ header.stickycls {
     .faq-section .accordion.theme-accordion .card .card-body p {
       margin-bottom: 0;
       font-size: 14px;
-      color: #555555;
+      color: black;
       line-height: 1.8;
       letter-spacing: 0.06em; }
 
@@ -13490,7 +13489,7 @@ header.stickycls {
           box-shadow: 0 0 2px 2px #f1f1f1;
   line-height: 1; }
   .login-page .theme-card .theme-form label {
-    text-transform: capitalize;
+    text-transform: none;
     color: #333333;
     font-size: 14px;
     font-weight: 600; }
@@ -13529,7 +13528,7 @@ header.stickycls {
           box-shadow: 0 0 2px 2px #f1f1f1;
   line-height: 1; }
   .register-page .theme-card .theme-form label {
-    text-transform: capitalize;
+    text-transform: none;
     color: #333333;
     font-size: 14px;
     font-weight: 600; }
@@ -13585,7 +13584,7 @@ header.stickycls {
       line-height: 30px; }
 
 .contact-page .theme-form label {
-  text-transform: capitalize;
+  text-transform: none;
   color: #333333;
   font-size: 14px;
   font-weight: 600; }
@@ -13698,7 +13697,7 @@ header.stickycls {
     color: #777777;
     font-weight: 400;
     font-size: 14px;
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 0; }
     .cart-section tbody tr td a img,
     .cart-section tbody tr td p img,
@@ -13758,7 +13757,7 @@ header.stickycls {
     width: 85%;
     font-size: 15px;
     padding-right: 10px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700; }
 
 .cart_counter {
@@ -13855,7 +13854,7 @@ header.stickycls {
       .blog-detail-page .comment-section li h6 span {
         font-size: 13px;
         font-weight: 500;
-        text-transform: capitalize;
+        text-transform: none;
         color: #777777;
         margin-left: 20px; }
     .blog-detail-page .comment-section li p {
@@ -13867,7 +13866,7 @@ header.stickycls {
   margin-top: -5px; }
 
 .blog-detail-page .blog-contact .theme-form label {
-  text-transform: capitalize;
+  text-transform: none;
   color: #333333;
   font-size: 16px;
   font-weight: 700; }
@@ -14134,7 +14133,7 @@ header.stickycls {
 
 .product-right .product-title {
   color: #222222;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 700;
   margin-bottom: 3px;
   font-size: 16px; }
@@ -14321,7 +14320,7 @@ header.stickycls {
     padding: 6px 11px;
     font-size: 12px; }
   .product-right .label-section .label-text {
-    text-transform: capitalize;
+    text-transform: none;
     padding-left: 5px; }
 
 .product-right.product-form-box {
@@ -14379,7 +14378,7 @@ header.stickycls {
   background-color: rgba(127, 127, 127, 0.03); }
 
 .product-related h2 {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: calc(18px + (25 - 18) * ((100vw - 320px) / (1920 - 320)));
   color: #222222;
   padding-bottom: 20px;
@@ -14482,7 +14481,7 @@ header.stickycls {
     .tab-product .product-tab-discription .part .inner-title,
     .product-full-tab .product-tab-discription .part .inner-title {
       font-weight: 600;
-      text-transform: capitalize; }
+      text-transform: none; }
     .tab-product .product-tab-discription .part:last-child,
     .product-full-tab .product-tab-discription .part:last-child {
       margin-bottom: 0; }
@@ -14599,7 +14598,7 @@ header.stickycls {
       right: 10px;
       color: #333333;
       font-weight: 600;
-      text-transform: capitalize;
+      text-transform: none;
       opacity: 0; }
     .tab-product .product-box a,
     .product-full-tab .product-box a {
@@ -14639,7 +14638,7 @@ header.stickycls {
         color: #333333;
         font-weight: 600;
         letter-spacing: 1px;
-        text-transform: capitalize; }
+        text-transform: none; }
       .tab-product .product-box .product-details .price,
       .product-full-tab .product-box .product-details .price {
         padding-bottom: 10px;
@@ -15009,7 +15008,7 @@ header.stickycls {
     margin-top: 30px; }
   .checkout-page .checkout-form .form-group .field-label {
     line-height: 24px;
-    text-transform: capitalize;
+    text-transform: none;
     color: #333333;
     margin-bottom: 10px;
     font-weight: 700; }
@@ -15168,7 +15167,7 @@ header.stickycls {
         .payment-box .payment-options li .radio-option label {
           position: relative;
           padding-left: 30px;
-          text-transform: capitalize;
+          text-transform: none;
           color: #6f6f6f;
           cursor: pointer;
           font-weight: 600;
@@ -15257,7 +15256,7 @@ header.stickycls {
 .dashboard .box-head h2 {
   font-size: 22px;
   margin: 20px 0 0;
-  text-transform: capitalize;
+  text-transform: none;
   color: #333; }
 
 .dashboard .box a {
@@ -15276,7 +15275,7 @@ header.stickycls {
   .dashboard .box .box-title h3 {
     font-size: 16px;
     margin: 0;
-    text-transform: capitalize;
+    text-transform: none;
     color: #333; }
   .dashboard .box .box-title > a {
     position: absolute;
@@ -15395,7 +15394,7 @@ header.stickycls {
     margin-bottom: 15px; }
   .success-text p {
     font-size: 18px;
-    text-transform: capitalize; }
+    text-transform: none; }
   .success-text.order-fail i {
     color: var(--theme-deafult); }
 
@@ -15404,13 +15403,13 @@ header.stickycls {
   padding: 25px; }
   .order-success-sec h4 {
     font-weight: 700;
-    text-transform: capitalize;
+    text-transform: none;
     font-size: 16px; }
   .order-success-sec .order-detail li {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    text-transform: capitalize;
+    text-transform: none;
     line-height: 24px;
     font-size: 16px;
     margin-bottom: 3px;
@@ -15428,7 +15427,7 @@ header.stickycls {
   background-color: transparent; }
   .delivery-sec h3 {
     color: #000000;
-    text-transform: capitalize;
+    text-transform: none;
     font-size: 18px;
     margin-bottom: 0; }
     .delivery-sec h3 span {
@@ -15436,7 +15435,7 @@ header.stickycls {
       margin-left: 5px; }
   .delivery-sec a {
     font-size: 16px;
-    text-transform: capitalize;
+    text-transform: none;
     margin-top: 5px;
     display: block;
     font-weight: 600; }
@@ -15460,12 +15459,12 @@ header.stickycls {
               align-items: center; }
       .product-order .product-order-detail .order_detail h4 {
         margin-bottom: 5px;
-        text-transform: capitalize;
+        text-transform: none;
         font-weight: 400;
         color: #777777;
         font-size: 14px; }
       .product-order .product-order-detail .order_detail h5 {
-        text-transform: capitalize;
+        text-transform: none;
         margin-bottom: 0;
         font-weight: 600;
         font-size: 16px; }
@@ -15477,7 +15476,7 @@ header.stickycls {
     .product-order .total-sec ul li {
       font-size: 16px;
       display: block;
-      text-transform: capitalize;
+      text-transform: none;
       margin-bottom: 8px;
       color: #777777; }
       .product-order .total-sec ul li span {
@@ -15507,7 +15506,7 @@ header.stickycls {
       margin: 0 auto; }
     .compare-section .compare-part .img-secton a h5 {
       margin-bottom: 0;
-      text-transform: capitalize;
+      text-transform: none;
       margin-top: 10px; }
     .compare-section .compare-part .img-secton h5 {
       margin-bottom: 0;
@@ -15566,7 +15565,7 @@ header.stickycls {
   padding-bottom: 0; }
   .compare-page .table-wrapper .table {
     border: 1px solid #eeeeee;
-    text-transform: capitalize;
+    text-transform: none;
     color: #222222; }
     .compare-page .table-wrapper .table .product-name {
       width: 15%; }
@@ -15628,7 +15627,7 @@ header.stickycls {
     background-color: rgba(247, 247, 247, 0.5);
     padding: 8px 12px; }
     .typography_section .typography-box .headings h3 {
-      text-transform: capitalize;
+      text-transform: none;
       color: #2d2d2d;
       margin-bottom: 0;
       font-weight: 400;
@@ -15654,7 +15653,7 @@ header.stickycls {
     margin-bottom: 8px;
     font-size: 18px;
     color: #222222;
-    text-transform: capitalize; }
+    text-transform: none; }
   .typography_section .typography-box .typo-content.product-pagination {
     border: none;
     margin: 0; }
@@ -15667,7 +15666,7 @@ header.stickycls {
     margin-bottom: 10px; }
   .typography_section .typography-box .typo-content.input_button label {
     font-size: 16px;
-    text-transform: capitalize;
+    text-transform: none;
     padding-left: 5px; }
   .typography_section .typography-box .typo-content.loader-typo {
     width: 100%;
@@ -15754,7 +15753,7 @@ header.stickycls {
         margin-bottom: 0;
         margin-top: 0;
         letter-spacing: 0.05em;
-        text-transform: capitalize; }
+        text-transform: none; }
     .vendor-profile .profile-left .profile-detail {
       border-left: 1px solid #efefef;
       padding-left: 20px;
@@ -15770,7 +15769,7 @@ header.stickycls {
         margin-bottom: 0;
         margin-top: 0;
         letter-spacing: 0.05em;
-        text-transform: capitalize; }
+        text-transform: none; }
       .vendor-profile .profile-left .profile-detail p {
         margin-bottom: 0;
         font-size: 14px;
@@ -15803,12 +15802,12 @@ header.stickycls {
         .vendor-profile .profile-left .vendor-contact .footer-social li {
           padding: 0 5px; }
       .vendor-profile .profile-left .vendor-contact h6 {
-        text-transform: capitalize;
+        text-transform: none;
         color: black;
         font-weight: 700;
         margin-bottom: 8px; }
       .vendor-profile .profile-left .vendor-contact a {
-        text-transform: capitalize; }
+        text-transform: none; }
     .vendor-profile .profile-left + .profile-left {
       margin-top: 40px; }
   .vendor-profile .page-link {
@@ -15822,7 +15821,7 @@ header.stickycls {
   overflow: hidden; }
   .become-vendor h4 {
     margin-bottom: 40px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 600;
     line-height: 1.3; }
   .become-vendor .step-bg {
@@ -15893,7 +15892,7 @@ header.stickycls {
 
 .start-selling h4 {
   margin-bottom: 10px;
-  text-transform: capitalize;
+  text-transform: none;
   font-weight: 600;
   line-height: 1.3; }
 
@@ -15941,7 +15940,7 @@ header.stickycls {
       text-align: center;
       margin-top: 15px; }
       .dashboard-section .dashboard-sidebar .profile-top .profile-detail h5 {
-        text-transform: capitalize;
+        text-transform: none;
         font-weight: 700;
         margin-bottom: 5px; }
       .dashboard-section .dashboard-sidebar .profile-top .profile-detail h6 {
@@ -15973,7 +15972,7 @@ header.stickycls {
     font-size: 20px; }
   .dashboard-section .counter-section .counter-box h5 {
     margin-bottom: 0;
-    text-transform: capitalize; }
+    text-transform: none; }
 
 .dashboard-section .faq-content .card {
   border: none;
@@ -15981,7 +15980,7 @@ header.stickycls {
   margin-top: 30px; }
 
 .dashboard-section .dashboard-table h3 {
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 16px;
   color: black;
   margin-bottom: 15px; }
@@ -15995,7 +15994,7 @@ header.stickycls {
 .dashboard-section .dashboard-table .table th,
 .dashboard-section .dashboard-table .table td {
   vertical-align: middle;
-  text-transform: capitalize;
+  text-transform: none;
   text-align: center; }
 
 .dashboard-section .top-sec {
@@ -16004,12 +16003,12 @@ header.stickycls {
   display: flex;
   margin-bottom: 15px; }
   .dashboard-section .top-sec h3 {
-    text-transform: capitalize;
+    text-transform: none;
     color: black;
     font-size: 20px; }
   .dashboard-section .top-sec .btn {
     margin-left: auto;
-    text-transform: capitalize;
+    text-transform: none;
     padding: 7px 14px; }
 
 .dashboard-section .dashboard-box .dashboard-title {
@@ -16021,14 +16020,14 @@ header.stickycls {
       -ms-flex-align: center;
           align-items: center; }
   .dashboard-section .dashboard-box .dashboard-title h4 {
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
     margin-bottom: 0; }
   .dashboard-section .dashboard-box .dashboard-title span {
     margin-left: 30px;
     padding: 2px 16px;
     border-radius: 2px;
-    text-transform: capitalize;
+    text-transform: none;
     color: var(--theme-deafult);
     cursor: pointer; }
 
@@ -16040,12 +16039,12 @@ header.stickycls {
     display: -ms-flexbox;
     display: flex; }
     .dashboard-section .dashboard-box .dashboard-detail ul li .details h6 {
-      text-transform: capitalize;
+      text-transform: none;
       margin-bottom: 0; }
     .dashboard-section .dashboard-box .dashboard-detail ul li .details span {
       margin-left: calc(10px + (30 - 10) * ((100vw - 320px) / (1920 - 320)));
       border-radius: 2px;
-      text-transform: capitalize;
+      text-transform: none;
       color: var(--theme-deafult);
       cursor: pointer; }
     .dashboard-section .dashboard-box .dashboard-detail ul li .details .left {
@@ -16066,7 +16065,7 @@ header.stickycls {
     margin-bottom: 0; }
 
 .dashboard-section .dashboard-box .dashboard-detail .account-setting h5 {
-  text-transform: capitalize; }
+  text-transform: none; }
 
 .dashboard-section .dashboard-box .dashboard-detail .account-setting .row > div .form-check {
   margin-bottom: 10px;
@@ -16126,7 +16125,7 @@ header.stickycls {
     display: block;
     margin-bottom: 0; }
     .faq-tab .nav-tabs .nav-item .nav-link {
-      text-transform: capitalize;
+      text-transform: none;
       color: black;
       font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
       border: none;
@@ -16178,7 +16177,7 @@ header.stickycls {
     margin-bottom: 5px; }
     .tracking-page .tracking-detail ul li .left {
       min-width: 220px;
-      text-transform: capitalize;
+      text-transform: none;
       font-weight: 600; }
     .tracking-page .tracking-detail ul li .right {
       color: #777777; }
@@ -16217,7 +16216,7 @@ header.stickycls {
       position: relative;
       font-size: 16px;
       font-weight: 500;
-      text-transform: capitalize; }
+      text-transform: none; }
       .tracking-page .wrapper .arrow-steps .step span:before {
         opacity: 0;
         content: "✔";
@@ -16265,7 +16264,7 @@ header.stickycls {
 
 .tracking-page .table th, .tracking-page .table td {
   font-size: calc(14px + (16 - 14) * ((100vw - 320px) / (1920 - 320)));
-  text-transform: capitalize; }
+  text-transform: none; }
 
 /**=====================
     invoice pages css start
@@ -16303,7 +16302,7 @@ header.stickycls {
       .invoice-wrapper .invoice-body .table tbody td, .invoice-wrapper .invoice-body .table tbody th {
         padding-top: 10px;
         padding-bottom: 10px;
-        text-transform: capitalize; }
+        text-transform: none; }
       .invoice-wrapper .invoice-body .table tbody th {
         font-weight: normal;
         color: #646464; }
@@ -16386,7 +16385,7 @@ header.stickycls {
         font-size: 16px; }
         .theme-invoice-1 .invoice-header .detail-bottom ul li span {
           color: var(--theme-deafult);
-          text-transform: capitalize; }
+          text-transform: none; }
         .theme-invoice-1 .invoice-header .detail-bottom ul li h4 {
           margin-bottom: 0;
           margin-left: 4px; }
@@ -16424,7 +16423,7 @@ header.stickycls {
   margin-bottom: 20px; }
   .theme-invoice-2 .invoice-body .date-detail li span {
     font-size: 18px;
-    text-transform: capitalize;
+    text-transform: none;
     margin-bottom: 2px;
     display: block; }
   .theme-invoice-2 .invoice-body .date-detail li.total-amount span {
@@ -16494,7 +16493,7 @@ header.stickycls {
           align-items: center; }
   .theme-invoice-3 .date-detail li span {
     font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
-    text-transform: capitalize;
+    text-transform: none;
     color: var(--theme-deafult);
     margin-right: 8px; }
   .theme-invoice-3 .date-detail li h4 {
@@ -16627,7 +16626,7 @@ header.stickycls {
           align-items: center; }
   .theme-invoice-4 .date-detail li span {
     font-size: 18px;
-    text-transform: capitalize;
+    text-transform: none;
     color: var(--theme-deafult);
     margin-right: 8px; }
   .theme-invoice-4 .date-detail li h4 {
@@ -16642,7 +16641,7 @@ header.stickycls {
           align-items: center; }
   .theme-invoice-5 .date-detail li span {
     font-size: 18px;
-    text-transform: capitalize;
+    text-transform: none;
     margin-right: 8px; }
   .theme-invoice-5 .date-detail li h4 {
     margin-bottom: 0; }
@@ -18820,7 +18819,7 @@ body.dark {
   z-index: 9; }
   .setting-sidebar h5 {
     color: #212529;
-    text-transform: capitalize;
+    text-transform: none;
     line-height: 1.2;
     font-weight: 600;
     margin-bottom: 0;
@@ -18894,7 +18893,7 @@ body.dark {
     .setting-box .setting-title h3 {
       line-height: 31px;
       margin-top: 10px;
-      text-transform: capitalize;
+      text-transform: none;
       font-size: 20px;
       margin-bottom: 0;
       color: #a3a3a3; }
@@ -18943,7 +18942,7 @@ body.dark {
           -ms-flex-align: center;
               align-items: center; }
       .setting-box .setting-contant .color-box li span {
-        text-transform: capitalize;
+        text-transform: none;
         margin-bottom: 2px;
         font-size: 15px; }
       .setting-box .setting-contant .color-box li input {
@@ -19048,7 +19047,7 @@ body.dark {
 .demo-section .demo-effects {
   margin-bottom: 30px; }
   .demo-section .demo-effects h4 {
-    text-transform: capitalize; }
+    text-transform: none; }
   .demo-section .demo-effects .set-position {
     display: block; }
   .demo-section .demo-effects > div {
@@ -19121,7 +19120,7 @@ body.dark {
     background-color: white;
     border-radius: 4px;
     padding: 0.5rem 1rem;
-    text-transform: capitalize;
+    text-transform: none;
     color: #223645;
     -webkit-box-shadow: 0 0 16px -4px rgba(0, 20, 40, 0.2), 0 0 80px -10px rgba(0, 20, 40, 0.3);
             box-shadow: 0 0 16px -4px rgba(0, 20, 40, 0.2), 0 0 80px -10px rgba(0, 20, 40, 0.3);
@@ -21291,7 +21290,7 @@ body.dark {
     padding: 20px 0; }
   .theme-tab .tab-title a,
   .theme-tab .tab-title2 a {
-    text-transform: capitalize; }
+    text-transform: none; }
   .about-cls .service.border-section {
     border-bottom: none; }
   .about-cls .service.small-section {
@@ -23067,14 +23066,14 @@ body.dark {
   .tracking-page .table td {
     min-width: 170px; }
   .sticky-bottom-cart .selection-section .form-control {
-    text-transform: capitalize;
+    text-transform: none;
     font-size: 13px; }
   .sticky-bottom-cart .selection-section .form-group {
     width: 80px; }
   .sticky-bottom-cart .add-btn .btn {
     padding: 5px 8px;
     font-size: 13px;
-    text-transform: capitalize; }
+    text-transform: none; }
   .faq-tab .nav-tabs .nav-item {
     margin-bottom: 1px; }
   .invoice-wrapper h2 {

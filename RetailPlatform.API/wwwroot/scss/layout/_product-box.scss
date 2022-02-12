@@ -446,7 +446,7 @@
             padding-bottom: 5px;
             transition: all 0.5s ease;
             font-size: 16px;
-            text-transform: capitalize;
+            text-transform: none;
             text-overflow: ellipsis;
             white-space: nowrap;
             overflow: hidden;
@@ -819,7 +819,7 @@
             .title-border {
                 margin-bottom: 0;
                 color: white;
-                text-transform: capitalize;
+                text-transform: none;
             }
             .tab-title {
                 margin-bottom: 0;
@@ -1053,7 +1053,7 @@
             color: white;
             text-align: center;
             font-size: 18px;
-            text-transform: capitalize;
+            text-transform: none;
             position: absolute;
             width: 100%;
             bottom: -40px;
@@ -1374,7 +1374,7 @@
             color: white;
             text-align: center;
             font-size: 18px;
-            text-transform: capitalize;
+            text-transform: none;
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
@@ -1479,7 +1479,7 @@
                 bottom: 0;
                 a {
                     color: var(--theme-deafult);
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-size: calc(13px + (17 - 13) * ((100vw - 320px) / (1920 - 320)));                
                 }
             }
@@ -1508,7 +1508,7 @@
                 animation: none;
                 a {
                     color: var(--theme-deafult);
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-size: calc(13px + (17 - 13) * ((100vw - 320px) / (1920 - 320)));                
                 }
             }

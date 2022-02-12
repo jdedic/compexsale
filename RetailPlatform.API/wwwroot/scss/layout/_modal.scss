@@ -75,7 +75,7 @@
                             color: #272727;
                             font-size: 18px;
                             font-weight: 400;
-                            text-transform: capitalize;
+                            text-transform: none;
                         }
                         form {
                             margin: 0 auto;
@@ -223,7 +223,7 @@
                                         text-align: center;
                                         h6 {
                                             font-weight: 700;
-                                            text-transform: capitalize;
+                                            text-transform: none;
                                             a {
                                                 color: var(--theme-deafult);
                                             }
@@ -354,7 +354,7 @@
                 h2 {
                     color: white;
                     font-family: 'Dancing Script', cursive;
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-size:calc(36px + (55 - 36) * ((100vw - 320px) / (1920 - 320)));
                 }
                 .discount {
@@ -527,7 +527,7 @@
                 }
                 h2 {
                     color: white;
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-size:calc(20px + (45 - 20) * ((100vw - 320px) / (1920 - 320)));
                 }
                 .discount {
@@ -606,7 +606,7 @@
                 h2 {
                     color: white;
                     font-family: 'Dancing Script', cursive;
-                    text-transform: capitalize;
+                    text-transform: none;
                     font-size:calc(36px + (55 - 36) * ((100vw - 320px) / (1920 - 320)));
                 }
                 .discount {

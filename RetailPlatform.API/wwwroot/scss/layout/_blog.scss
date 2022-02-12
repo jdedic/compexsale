@@ -117,7 +117,7 @@
     p {
         color: $dark-font;
         font-size: 18px;
-        text-transform: capitalize;
+        text-transform: none;
         font-weight: 700;
         line-height: 1.5;
         letter-spacing: 0.03em;
@@ -154,7 +154,7 @@
         }
         p {
             font-size: 14px;
-            text-transform: capitalize;
+            text-transform: none;
             font-weight: 400;
             margin-top: -3px;
         }

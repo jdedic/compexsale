@@ -60,3 +60,7 @@
 .item-border {
     border-right: 1.5px solid #d0c979;
 }
+
+.title-style {
+    text-transform: uppercase !important;
+}

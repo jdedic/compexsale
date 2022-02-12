@@ -1009,7 +1009,7 @@ ul.list-style {
   background-color: #f8f8f8;
   font-weight: 700;
   color: #606060;
-  text-transform: capitalize;
+  text-transform: none;
   font-size: 16px;
   border-radius: 5px; }
   .direct .nav-link.active {

@@ -24,7 +24,7 @@ h1 {
 h2 {
     font-weight: 100;
     font-size: 36px;
-    text-transform: capitalize;
+    text-transform: none;
     line-height: 1.5;
 }
 h3 {
@@ -94,7 +94,7 @@ section, .section-t-space {
     font-size: 20px;
     color: #000000;
     margin-bottom: 15px;
-    text-transform: capitalize;
+    text-transform: none;
     font-weight: 700;
 }
 .btn {
@@ -167,7 +167,7 @@ header {
         }
         .nav-item {
             a {
-                text-transform: capitalize;
+                text-transform: none;
                 &.active {
                     color: $theme-deafult;
                     transition: all 0.5s ease;
@@ -386,7 +386,7 @@ header {
     font-weight: 400;
     font-size: 22px;
     position: relative;
-    text-transform: capitalize;
+    text-transform: none;
 }
 .color-varient {
     display: flex;
@@ -435,7 +435,7 @@ header {
                 margin-bottom: 0;
                 color: #000000;
                 font-weight: 600;
-                text-transform: capitalize;
+                text-transform: none;
                 i {
                     margin-right: 10px;
                 }
@@ -473,7 +473,7 @@ header {
         h6 {
             padding-left: 18px;
             font-weight: 600;
-            text-transform: capitalize;
+            text-transform: none;
         }
     }
     > div{
@@ -485,7 +485,7 @@ header {
         font-weight: 700;
         color: black;
         font-size: calc(18px + (22 - 18) * ((100vw - 320px) / (1920 - 320)));
-        text-transform: capitalize;
+        text-transform: none;
         letter-spacing: 0.2em;
     }
 }
@@ -599,7 +599,7 @@ ul.tabs {
         margin-top: 16px;
         color: black;
         text-align: center;
-        text-transform: capitalize;
+        text-transform: none;
     }
     h6{
         font-size: 14px;
@@ -745,7 +745,7 @@ ul.tabs {
         h4{
             margin-top: 25px;
             font-size: 18px;
-            text-transform: capitalize;
+            text-transform: none;
             margin-bottom: 0;
             font-weight: 400;
         }

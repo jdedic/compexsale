@@ -381,7 +381,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
         text-align: center;
         transition: all 0.5s ease;
         font-weight: 400;
-        text-transform: capitalize;
+        text-transform: none;
         color: #222222;
       }
       img {
@@ -404,7 +404,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
   .link-section {
     h5 {
       font-weight: 700;
-      text-transform: capitalize;
+      text-transform: none;
       font-size: 14px;
     }
     ul {
@@ -773,7 +773,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
           border-radius: 0 !important;
           font-size: 14px;
           font-weight: 400;
-          text-transform: capitalize;
+          text-transform: none;
           padding: 5px 35px;
           &:hover {
             &:before {
@@ -895,7 +895,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
   .layout3-menu {
     .pixelstrap {
       a {
-        text-transform: capitalize;
+        text-transform: none;
         padding-right: 34px;
         letter-spacing: 0.04em;
       }
@@ -1079,7 +1079,7 @@ $theme-deafult__toggle-spacing: floor($theme-deafult__item-height * 0.1);
       }
       .menu-content {
         a {
-          text-transform: capitalize;
+          text-transform: none;
         }
       }
       ul {

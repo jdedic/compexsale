@@ -649,7 +649,7 @@ header {
                         padding: 8px 15px 8px 0;
                         a {
                             font-size: 16px;
-                            text-transform: capitalize;
+                            text-transform: none;
                             color: $dark-font;
                             i {
                                 font-size: 18px;
@@ -665,7 +665,7 @@ header {
                         display: flex;
                         h5 {
                             margin-bottom: 0;
-                            text-transform: capitalize;
+                            text-transform: none;
                             color: #999;
                             margin-top: 0;
                         }
@@ -673,7 +673,7 @@ header {
                             margin-left: 10px;
                             border: none;
                             outline: none;
-                            text-transform: capitalize;
+                            text-transform: none;
                             color: $dark-font;
                         }
                     }
@@ -1175,7 +1175,7 @@ header {
                 padding-right: 0;
             }
             a {
-                text-transform: capitalize;
+                text-transform: none;
                 color: $header-font;
             }
             i {
@@ -1443,7 +1443,7 @@ header {
                                 padding-top: 10px;
                                 padding-bottom: 10px;
                                 h5 {
-                                    text-transform: capitalize;
+                                    text-transform: none;
                                     margin-bottom: 0;
                                     color: $header-font;
                                     span {
@@ -1455,7 +1455,7 @@ header {
                                 a {
                                     font-size: 16px;
                                     color: $font-color;
-                                    text-transform: capitalize;
+                                    text-transform: none;
                                     font-weight: 700;
                                     &:hover {
                                         color: var(--theme-deafult);
@@ -1474,7 +1474,7 @@ header {
                         left: unset;
                         h6 {
                             font-size: 16px;
-                            text-transform: capitalize;
+                            text-transform: none;
                             color: $font-color;
                             font-weight: 700;
                             margin-bottom: 0;
@@ -1493,7 +1493,7 @@ header {
                                     color: $font-color;
                                     font-weight: 400;
                                     font-size: 16px;
-                                    text-transform: capitalize;
+                                    text-transform: none;
                                 }
                             }
                         }
@@ -1763,7 +1763,7 @@ header {
                     display: inline-block;
                     color: white;
                     font-size: 19px;
-                    text-transform: capitalize;
+                    text-transform: none;
                 }
             }
         }

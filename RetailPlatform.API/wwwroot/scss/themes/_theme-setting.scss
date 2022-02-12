@@ -104,7 +104,7 @@
     z-index: 9;
     h5 {
         color: #212529;
-        text-transform: capitalize;
+        text-transform: none;
         line-height: 1.2;
         font-weight: 600;
         margin-bottom: 0;
@@ -183,7 +183,7 @@
         h3 {
             line-height: 31px;
             margin-top: 10px;
-            text-transform: capitalize;
+            text-transform: none;
             font-size: 20px;
             margin-bottom: 0;
             color: #a3a3a3;
@@ -246,7 +246,7 @@
                 display: flex;
                 align-items: center;
                 span {
-                    text-transform: capitalize;
+                    text-transform: none;
                     margin-bottom: 2px;
                     font-size: 15px;
                 }
@@ -365,7 +365,7 @@
     .demo-effects {
         margin-bottom: 30px;
         h4 {
-            text-transform: capitalize;
+            text-transform: none;
         }
         .set-position {
             display: block;
@@ -471,7 +471,7 @@
             background-color: white;
             border-radius: 4px;
             padding: 0.5rem 1rem;
-            text-transform: capitalize;
+            text-transform: none;
             color: #223645;
             box-shadow: 0 0 16px -4px rgba(0, 20, 40, 0.2), 0 0 80px -10px rgba(0, 20, 40, 0.3);
             transform: scale(0);

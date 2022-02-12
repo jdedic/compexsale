@@ -4557,7 +4557,7 @@ body {
         .tab-title,
         .tab-title2 {
             a {
-                text-transform: capitalize;
+                text-transform: none;
             }
         }
     }
@@ -8088,7 +8088,7 @@ body {
     .sticky-bottom-cart {
         .selection-section {
             .form-control {
-                text-transform: capitalize;
+                text-transform: none;
                 font-size: 13px;
             }
             .form-group {
@@ -8099,7 +8099,7 @@ body {
             .btn {
                 padding: 5px 8px;
                 font-size: 13px;
-                text-transform: capitalize;
+                text-transform: none;
             }
         }
     }

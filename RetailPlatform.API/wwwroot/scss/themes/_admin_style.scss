@@ -1621,7 +1621,7 @@ $header-size: 80px;
             font-size: 12px;
             margin-top: 7px;
             letter-spacing: 1px;
-            text-transform: capitalize;
+            text-transform: none;
             color: $theme-body-sub-title-color;
           }
         }
@@ -2190,7 +2190,7 @@ ul.notification-dropdown.onhover-show-div{
           }
           .badge {
             margin-left: 50px;
-            text-transform: capitalize;
+            text-transform: none;
           }
           &:hover > a {
             @extend %common;
@@ -2681,7 +2681,7 @@ $warning-color;
   font-size: 12px;
   line-height: 1;
   margin-bottom: 0;
-  text-transform: capitalize;
+  text-transform: none;
 }
 
 $label-name:theme,

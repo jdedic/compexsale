@@ -169,7 +169,7 @@
                     text-align: center;
                     h5 {
                         margin-bottom: 0;
-                        text-transform: capitalize;
+                        text-transform: none;
                         line-height: 20px;
                         &.title {
                             font-weight: 700;
@@ -228,7 +228,7 @@
     h3 {
         font-weight: 600;
         color: #222;
-        text-transform: capitalize;
+        text-transform: none;
         max-width: 200px;
         line-height: 36px;
     }
@@ -285,7 +285,7 @@
     }
     h3 {
         color: #ffffff;
-        text-transform: capitalize;
+        text-transform: none;
         font-size: 16px;
         margin-bottom: 0;
         margin-left: 10px;

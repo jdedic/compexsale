@@ -46,7 +46,7 @@
                 td, th {
                     padding-top: 10px;
                     padding-bottom: 10px;
-                    text-transform: capitalize;
+                    text-transform: none;
                 }
                 th {
                     font-weight: normal;
@@ -140,7 +140,7 @@
                     font-size: 16px;
                     span {
                         color: var(--theme-deafult);
-                        text-transform: capitalize;
+                        text-transform: none;
                     }
                     h4 {
                         margin-bottom: 0;
@@ -188,7 +188,7 @@
             li {
                 span {
                     font-size: 18px;
-                    text-transform: capitalize;
+                    text-transform: none;
                     margin-bottom: 2px;
                     display: block;
                 }
@@ -248,7 +248,7 @@
             align-items: center;
             span {
                 font-size: calc(16px + (18 - 16) * ((100vw - 320px) / (1920 - 320)));
-                text-transform: capitalize;
+                text-transform: none;
                 color: var(--theme-deafult);
                 margin-right: 8px;
             }
@@ -404,7 +404,7 @@
             align-items: center;
             span {
                 font-size: 18px;
-                text-transform: capitalize;
+                text-transform: none;
                 color: var(--theme-deafult);
                 margin-right: 8px;
             }
@@ -423,7 +423,7 @@
             align-items: center;
             span {
                 font-size: 18px;
-                text-transform: capitalize;
+                text-transform: none;
                 margin-right: 8px;
             }
             h4 {

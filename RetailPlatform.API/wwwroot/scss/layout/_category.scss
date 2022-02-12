@@ -111,7 +111,7 @@
                     h2 {
                         font-size: 26px;
                         padding: 16px 17px;
-                        text-transform: capitalize;
+                        text-transform: none;
                     }
                 }
             }
@@ -336,7 +336,7 @@
         .category-link {
             li {
                 display: block;
-                text-transform: capitalize;
+                text-transform: none;
                 margin-top: 5px;
                 &:first-child {
                     margin-top: 0;
@@ -422,7 +422,7 @@
         box-shadow: 0 0 8px rgba(black, 0.10);
         h3 {
             color: black;
-            text-transform: capitalize;
+            text-transform: none;
             font-weight: 600;
         }
         img {
@@ -443,7 +443,7 @@
         transition: all 0.5s ease;
     }
     h4 {
-        text-transform: capitalize;
+        text-transform: none;
         margin-top: 12px;
         color: black;
         font-weight: 600;
@@ -509,7 +509,7 @@
         align-items: center;
         justify-content: center;
         h2 {
-            text-transform: capitalize;
+            text-transform: none;
         }
     }
 }
@@ -557,7 +557,7 @@
         }
     }
     h4 {
-        text-transform: capitalize;
+        text-transform: none;
         margin-top: 12px;
         color: black;
         font-weight: 600;
@@ -695,7 +695,7 @@
             h3 {
                 font-size: calc(16px + (20 - 16) * ((100vw - 320px) / (1920 - 320)));
                 color: black;
-                text-transform: capitalize;
+                text-transform: none;
                 font-weight: 700;
                 margin-bottom: calc(0px + (4 - 0) * ((100vw - 320px) / (1920 - 320)));
             }
