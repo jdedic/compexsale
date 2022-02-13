@@ -121,7 +121,8 @@
                                 <div>
                                     @Html.CheckBoxFor(model => model.AgreeWithTermsAndConditions)
                                     <label for="@Html.DisplayNameFor(model => model.AgreeWithTermsAndConditions)"><span style="color:darkslategray">Prihvatam</span></label>
-                                    <a class='modal-link text-underline'>uslove korišćenja i pravilnik aktivnosti</a>
+                                    <a class='modal-link text-underline'>uslove korišćenja i pravilnik aktivnosti</a> i 
+                                    <a class="modal-principle text-underline">pravila o zaštiti ličnih podataka</a>
                                 </div>
                             </div>
                         </div>
@@ -140,7 +141,7 @@
         <div class="modal-content">
             <div class="modal-header model-header-bottom">
                 <h5 class="modal-title" id="exampleModalScrollableTitle">USLOVI KORIŠĆENJA I PRAVILA POSLOVNIH AKTIVNOSTI</h5>
-                <button type="button" class="close" style="border:none;" onclick="closeModal()" aria-label="Close">
+                <button type="button" class="close" style="border:none;" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -262,7 +263,136 @@
                 <br />
             </div>
             <div class="modal-footer">
-                <button type="button" onclick="closeModal()" class="close btn btn-solid md" data-dismiss="modal">Zatvori</button>
+                <button type="button" class="close btn btn-solid md" data-dismiss="modal">Zatvori</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="principleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="principleModalScrollableTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header model-header-bottom">
+                <h5 class="modal-title" id="principleModalScrollableTitle">USLOVI KORIŠĆENJA I PRAVILA POSLOVNIH AKTIVNOSTI</h5>
+                <button type="button" class="close close-principle" style="border:none;" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <span class="text-color text-underline">
+                    Politika kolačića i zaštite ličnih podataka
+                </span>
+                <br />
+                <br />
+                Dobrodošli na web stranicu <a href="/Home/Index">COMPEXSALE</a>. Povezivanjem na web stranicu ili pretraživanjem iste, saglasni ste da ste pročitali, razumeli i prihvatili, bez ograničenja ili rezervi, politiku upravljanja kolačićima i ličnim podacima („politika“) i naše odredbe i uslove upotrebe. Preporučujemo da ih pažljivo pročitate.
+                <br />
+                <br />
+                Cilj ovih propisa je da vas informiše o pravima i slobodama koje možete ostvariti u pogledu korišćenja svojih ličnih podataka, kao i da opiše mere koje preduzimamo da bismo te podatke zaštitili.
+                <br />
+                Compexsale  je “kontrolor podataka“ odgovoran za obradu ličnih podataka koji se koriste za upravljanje ovom web stranicom. Ovi postupci obrade obavljaju se u skladu sa važećim zakonom.
+                <br />
+                1. Cilj obrade, pravna osnova, period čuvanja i tipovi podataka koji se prikupljaju
+                <br />
+                Kada posetite ovu web stranicu, možda će biti potrebno da nam dostavite određene lične podatke, kao što je vaše ime i prezime, da biste mogli koristiti usluge koje su vam na raspolaganju.
+                <br />
+                <br />
+                Podaci se obrađuju u sledeće svrhe:
+                <br />
+                •	Pružanje usluge upravljanja pitanjima koja postavljate koristeći obrazac za kontakt. Naročito možemo sakupljati neke vaše lične podatke u svrhu spoljašnje komunikacije, da bismo odgovorili na vaše zahteve za informacijama i naučili da bolje odgovorimo na vaše potrebe.
+                <br />
+                •	U skladu sa vašim pristankom za obradu podataka, koji je izraz vaše slobodne, specifične i jasne volje. Te informacije su potrebne da bismo mogli da obradimo vaš zahtev jer bez njih nije moguće zaključiti ugovor. Imate pravo da svoju saglasnost povučete u bilo kom trenutku bez ugrožavanja bilo kojeg postupka obrade koji je već završen, tako što ćete pisati na sledeću adresu: Compexsale, Štrosmajerova 18a, 25000 Sombor, R.Srbija ili putem elektronske pošte na adresu office@compexsale.com.
+                <br />
+                •	Upravljanje sporovima, kako bismo mogli da ispunimo svoje pravne obaveze. Bez njih, vaš zahtev se ne može obraditi, jer bismo u suprotnom prekršili zakon.
+                <br />
+                •	Izradu statistike o posetama web stranici <a href="/Home/Index">www.compexsale.rs</a> koja je neophodna da bismo mogli da analiziramo vaše pregledanje i merimo posetu web stranici, radi poboljšanja kvaliteta sadržaja i korisničkog iskustva.
+                <br />
+                <br />
+                U našim obrascima na platformi, obavezna polja označena su zvezdicom. Ako ne odgovorite na obavezna pitanja, nećemo moći da vam pružimo traženu uslugu.
+                <br />
+                Vaši lični podaci se nakon toga ne obrađuju ni na koji način koji ne odgovara nameni opisanoj gore ili u obrascima za prikupljanje podataka. Vaši podaci se čuvaju najduže jednu godinu i  ne duže nego koliko je neophodno za odgovor na vaš upit.
+                <br />
+                <br />
+                2. Primaoci podataka
+                <br />
+                Vaši lični podaci mogu biti saopšteni jednom ili većem broju službi kontrolora podataka ili drugim kompanijama sa kojima ćete biti povezani,  u svrhe prosleđivanja odgovora na vaš upit sa web stranice.
+                <br />
+                <br />
+                3. Bezbednost i poverljivost vaših podataka
+                <br />
+                Kontrolor podataka preduzima odgovarajuće korake da sačuva bezbednost i poverljivost vaših ličnih podataka, kao i da spreči njihovo iskrivljavanje, oštećenje ili otkrivanje neovlašćenim trećim stranama.
+                <br />
+                <br />
+                <b>Upravljanje kolačićima</b>
+                <br />
+                <br />
+                <b>4.1. Princip</b>
+                <br />
+                <br />
+                Kolačić je datoteka koja omogućava web stranici da sačuva informacije vezane za pretraživanje te web stranice sa vašeg računara kao što su broj poseta, broj pregledanih stranica, demografski podaci, interesovanja, geografska lokacija, izvor saobraćaja, datum i vreme pregledanja, deljenje na društvenim mrežama, da bi se vaše posete toj web stranici lakše odvijale i kako bismo vam ponudili personalizovan sadržaj.
+                <br />
+                Možete u svakom trenutku izbrisati kolačiće koji su uskladišteni na vašem kompjuteru, suprotstaviti se skladištenju novih kolačića i dobijati obaveštenje pre skladištenja novih kolačića tako što ćete promeniti svoje postavke pretraživača koristeći dole navedena uputstva („Vrste kolačića, kolačići i statistika, postavke“).
+                <br />
+                <b>Napominjemo da, ukoliko uklonite kolačić ili se suprotstavite skladištenju kolačića na vašem uređaju, možda nećete moći da koristite neke od usluga te web stranice.</b>
+                <br />
+                <br />
+                <b>4.2 Vrste kolačića, kolačići i statistika i postavke.</b>
+                <br />
+                <br />
+                Kolačići koji se mogu skladištiti na vašem serveru kada pretražujete web stranicu su kolačići čija je isključiva svrha da omoguće ili olakšaju elektronsku komunikaciju ili koji su neophodni da bi se pružila usluga koju tražite, ili statistički kolačići i drugi kolačići u skladu sa dole navedenim uslovima.
+                <br />
+                Kada je <b>za čuvanje kolačića potrebna vaša saglasnost</b>, tu salgasnost tražimo od vas putem natpisa o kolačićima koji se nalazi na prvoj strani web stranice na koju naiđete, <b>i u kojoj vezi je jasno stavljeno da znanja da prihvatate kolačiće ukoliko nastavite da pretražujete web stranicu.</b>
+                <br />
+                <br />
+                <b>4.2.1. Koji kolačići se skladište?</b>
+                <br />
+                <br />
+                <b>•	Kolačići koje izdaje kontrolor podataka</b>
+                <br />
+                <br />
+                <b>Statistički kolačići</b> se koriste da bi se izmerio broj poseta, broj pregledanih stranica, aktivnost korisnika na web stranici i učestalost poseta. Upotrebljeni statistički alati, AT INTERNET i Google Analytics generišu kolačiće sa jedinstvenim identifikatorom, koji se skladišti najduže 2 godine. Vaša IP adresa se takođe preuzima, da bi se utvrdio grad iz kojeg pristupate web stranici. Vaša IP adresa odmah postaje anonimna nakon upotrebe, tako da se ne možete identifikovati kao fizičko lice. Statističke kolačiće na veb stranici sakupljaju provajderi AT Internet i Google Analytics i potom ih prenose kontroloru podataka u celokupnom i anonimnom obliku na mrežni interfejs kojem jedino on ima pristup. Sakupljeni podaci se ne prenose na treća lica, niti se koriste u neke druge svrhe. Ove kolačiće možete blokirati u svakom trenutku tako što ćete se isključiti na način opisan gore.
+                <br />
+                <br />
+                <b>4.2.2 Kako se brišu kolačići, primaju obaveštenja o njihovom skladištenju, odnosno menjaju postavke pretraživača?</b>
+                <br />
+                <br />
+                <b>•	Kako se brišu kolačići koji su već uskladišteni na vašem kompjuteru?</b>
+                <br />
+                o	Idi na svoju radnu stanicu:
+                <br />
+                o	Na C:\ disk jedinici odaberite fasciklu Windows;
+                <br />
+                o	Otvorite fasciklu „Temporary internet Files“ (privremene internet datoteke)
+                <br />
+                o	Izaberite sve datoteke (CTRL A);
+                <br />
+                o	Izaberite opciju „izbriši“ (delete).
+                <br />
+                <br />
+                <b>•	Kako da promenite postavke pretraživača da biste odbili skladištenje kolačića ili da biste bili obavešteni o istom?</b>
+                <br />
+                •	U pretraživaču Internet Explorer 5 (Microsoft): Odaberite “Tools” i potom “Internet Options”. Kliknite na karticu “Security” tab, onda na “Custom level” i spustite se do odeljka “cookies” (kolačići). Pored “Allow cookies that are stored on your computer” (Dozvolite skladištenje kolačića na svom kompjuteri), odaberite “Ask” da biste bili obavešteni ili “Disable” da odbijete sve kolačiće;
+                <br />
+                •	U pretraživaču Internet Explorer 6, 7 ili 8 (Microsoft): Odaberite “Tools”, “Internet Options”, “Privacy”, a onda nivo koji želite primeniti;
+                <br />
+                •	U pretraživaču Firefox: Kliknite na “Tools” i odaberite “Options”. U kartici “Privacy and security”, odštiklirajte polje “Accept cookies from websites” (Prihvatite kolačiće sa veb stranica);
+                <br />
+                <br />
+                U pretraživaču Chrome (Google): Kliknite na “Customize and control Google Chrome” i odaberite “Settings” (postavke). U rubrici “Privacy and security”, kliknite na “Content settings” i omogućite “Block third-party cookies” (blokirajte kolačiće trećih strana).
+                <br />
+                <br />
+                <b>5. Vaša prava / Kontakt</b>
+                <br />
+                <br />
+                U skladu sa tekućim propisima, imate pravo da uložite prigovor na korišćenje ličnih podataka.
+                <br />
+                Takođe imate pravo da prethodno date saglasnost za marketing i da uložite prigovor na isto u skladu sa važećim propisima.
+                <br />
+                Možete zatražiti da vam se lični podaci pošalju i imate pravo da date uputstva za korišćenje vaših ličnih podataka nakon vaše smrti.  Takođe možete zatražiti ograničenje, prenosivost podataka  i/ili upućivanje zahteva nadležnom nadzornom organu. Molimo vas da koristite obrazac za kontakt da biste podneli zahtev ili ga pošaljite na sledeću adresu: Compexsale, Štrosmajerova 18a, 25000 Sombor, R. Srbija, ili se obratite našoj službi administracije putem e-mail adrese office@compexsale.com.
+                <br />
+                <br />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="close close-principle btn btn-solid md" data-dismiss="modal">Zatvori</button>
             </div>
         </div>
     </div>
@@ -278,8 +408,16 @@
             $('#exampleModalScrollable').modal('show');
         });
 
+        $(".modal-principle").click(function () {
+            $('#principleModalScrollable').modal('show');
+        });
+
         $(".close").click(function () {
             $('#exampleModalScrollable').modal('hide');
+        });
+
+        $(".close-principle").click(function () {
+            $('#principleModalScrollable').modal('hide');
         });
     </script>
 }
