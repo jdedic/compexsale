@@ -41,13 +41,11 @@
                     </div>
                     <div class="col-lg-6 text-end">
                         <ul class="header-dropdown">
-
-                            <li class="onhover-dropdown mobile-account">
-                                <i class="fa fa-user" aria-hidden="true"></i> Moj nalog
-                                <ul class="onhover-show-div">
-                                    <li><a href="@Url.Action("ClientLogin", "Client")">Login</a></li>
-                                    <li><a href="@Url.Action("Register", "Client")">Registracija</a></li>
-                                </ul>
+                            <li>
+                                <a href="@Url.Action("ClientLogin", "Client")"><i class="fa fa-user" aria-hidden="true"></i>Moj nalog</a>
+                            </li>
+                            <li>
+                                <a style="color:#d0c979;" href="@Url.Action("Register", "Client")"><i style="color:#d0c979;" class="fa fa-registered icon-color" aria-hidden="true"></i>Registruj se</a>
                             </li>
                         </ul>
                     </div>
@@ -248,7 +246,7 @@
                                             </ul>
                                         </li>
                                         <li>
-                                            <a href="@Url.Action("Business", "Client")">PRODAJA BIZNISA</a>
+                                            <a href="@Url.Action("Business", "Client")">PRODAJA i KUPOVINA BIZNISA</a>
                                         </li>
                                         <li>
                                             <a href="#">INFO</a>
@@ -314,6 +312,8 @@
                                     <li><a href="#">RAZMENA</a></li>
                                     <li><a href="#">DISKONTNA PRODAJA</a></li>
                                     <li><a href="#">TRANSPORT</a></li>
+                                    <li><a href="#">ŠPEDICIJA</a></li>
+                                    <li><a href="#">SKLADIŠTENJE</a></li>
                                     <li><a href="#">OTKUP</a></li>
                                     <li><a href="#">KONSULTACIJE</a></li>
                                 </ul>
