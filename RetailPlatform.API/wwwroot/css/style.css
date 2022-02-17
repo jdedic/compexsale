@@ -12631,8 +12631,10 @@ header.stickycls {
   line-height: 1.3; }
 
 .about-page p {
-  line-height: 2;
-  letter-spacing: 0.03em; }
+    line-height: 1.5;
+    letter-spacing: 0.03em;
+    text-align: justify;
+}
 
 .testimonial {
   background-color: #f7f7f7; }

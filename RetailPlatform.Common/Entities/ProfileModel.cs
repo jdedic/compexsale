@@ -25,5 +25,7 @@ namespace RetailPlatform.Common.Entities
         public string Password { get; set; }
         public DateTime CreationDate { get; set; }
         public bool AgreeWithTermsAndConditions { get; set; }
+        //categories for customers
+        public string Interests { get; set; }
     }
 }

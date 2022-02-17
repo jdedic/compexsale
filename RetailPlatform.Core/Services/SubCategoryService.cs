@@ -1,9 +1,9 @@
-﻿using RetailPlatform.Common.Entities;
+﻿using Microsoft.AspNetCore.Mvc.Rendering;
+using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace RetailPlatform.Core.Services
 {
@@ -48,6 +48,23 @@ namespace RetailPlatform.Core.Services
         {
             model.CategoryId = await _repositoryWrapper.Category.GetCategoryByName(category);
             await _repositoryWrapper.SubCategory.Update(model);
+        }
+
+        public async Task<List<SelectListItem>> FilterSubCategories()
+        {
+            List<SelectListItem> roles = new List<SelectListItem>();
+
+            foreach (var model in await _repositoryWrapper.SubCategory.GetSubCategories())
+            {
+                SelectListItem item = new SelectListItem
+                {
+                    Value = model.Id.ToString(),
+                    Text = model.Name
+                };
+                roles.Add(item);
+            }
+
+            return roles;
         }
 
     }
