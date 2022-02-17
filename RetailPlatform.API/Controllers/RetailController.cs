@@ -18,6 +18,7 @@ namespace RetailPlatform.API.Controllers
             claims.Add(new Claim("username", username));
             claims.Add(new Claim("roleName", "User"));
             claims.Add(new Claim("isCustomer", isCustomer.ToString()));
+            claims.Add(new Claim("loggedUser", name));
             claims.Add(new Claim("userId", id));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
             claims.Add(new Claim(ClaimTypes.Name, name));

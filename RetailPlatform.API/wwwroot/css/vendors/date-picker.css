@@ -257,7 +257,7 @@
     Navigation
    ------------------------------------------------- */
 .datepicker--nav {
-  color: #ff8084;
+  color: #d0c979;
   text-transform: uppercase;
   letter-spacing: 2px;
   font-weight: 600;
@@ -294,9 +294,9 @@
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  background: #ff8084; }
+  background: #d0c979; }
   .datepicker--nav-action:hover {
-    background: #ff8084; }
+    background: #d0c979; }
   .datepicker--nav-action.-disabled- {
     visibility: hidden; }
   .datepicker--nav-action svg {
@@ -312,7 +312,7 @@
   padding: 0 8px; }
   .datepicker--nav-title i {
     font-style: normal;
-    color: #ff8084;
+    color: #d0c979;
     margin-left: 5px; }
   .datepicker--nav-title.-disabled- {
     cursor: default;
