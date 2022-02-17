@@ -94,14 +94,18 @@ namespace RetailPlatform.API.Controllers
             model.Title = title;
             model.FilteredCategories = await _addService.FilteredCategories(title);
             var subcategoryModel = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(title);
-            model.SelectedCategory = subcategoryModel.Id.ToString();
+            model.SelectedCategory = subcategoryModel != null ? subcategoryModel.Id.ToString() : "";
             model.Adds = new List<AddModel>();
-            adds.ForEach(m =>
+            if(adds != null)
             {
-                var add = _mapper.Map<AddModel>(m);
-                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
-                model.Adds.Add(add);
-            });
+                adds.ForEach(m =>
+                {
+                    var add = _mapper.Map<AddModel>(m);
+                    add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                    model.Adds.Add(add);
+                });
+            }
+           
             return View(model);
         }
 
