@@ -59,7 +59,7 @@
                 <div class="col-sm-12">
                     <div class="main-menu">
                         <div class="menu-left">
-                            
+
                             <div class="brand-logo">
                                 <a href="@Url.Action("Index", "Home")">
                                     <img src="~/images/bicycle/home-slider/Compexsale-Logo.png"
@@ -114,7 +114,7 @@
                                                                     </div>
                                                                     <div class="menu-content">
                                                                         <ul>
-                                                                            <li><a href="index.html">Automobili</a></li>
+                                                                            <li><a href="#" onclick="return returnFilteredPage('Automobili');">Automobili</a></li>
                                                                             <li><a href="index.html">Kamioni</a></li>
                                                                         </ul>
                                                                     </div>
@@ -290,7 +290,7 @@
                         </div>
                         <div class="footer-contant">
                             <p>
-                                <b>Compexsale</b> je agencija za sve vrste dogovora, saradnje i konsultacija 
+                                <b>Compexsale</b> je agencija za sve vrste dogovora, saradnje i konsultacija
                                 vezanih za razmenu, diskontnu prodaju, kompenzaciju, organizaciju transporta i savetodavnih usluga.
                             </p>
                             <div class="footer-social">
@@ -386,6 +386,7 @@
     <script src="~/js/slick.js"></script>
     <script src="~/js/bootstrap-notify.min.js"></script>
     <script src="~/js/script.js"></script>
+    <script src="~/js/custom-js/add-item.js"></script>
     @RenderSection("dataTables", required: false)
     @await RenderSectionAsync("Scripts", required: false)
 </body>

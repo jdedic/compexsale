@@ -4,6 +4,7 @@ using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -21,6 +22,37 @@ namespace RetailPlatform.Core.Services
         public List<Add> FetchAdds(bool active)
         {
             return _repositoryWrapper.Add.FetchAdds(active);
+        }
+
+        public async Task<List<Add>> FetchAddsBySubCategory(string category)
+        {
+            var subcategory = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(category);
+            if(subcategory != null)
+            {
+                return FilterAdds(subcategory.Id, null, null);
+            }
+            return null;
+        }
+
+        public List<Add> FilterAdds(long categoryId, string location, string name)
+        {
+            var adds = _repositoryWrapper.Add.FetchAdds(true);
+
+            if(categoryId != 0)
+            {
+                adds = adds.Where(m => m.SubCategoryId == categoryId).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(location))
+            {
+                adds = adds.Where(m => m.Place.ToLower().Equals(location.ToLower())).ToList();
+            }
+
+            if (!string.IsNullOrEmpty(name))
+            {
+                adds = adds.Where(m => m.Name.ToLower().Equals(name.ToLower())).ToList();
+            }
+            return adds;
         }
 
         public async Task RemoveAdd(long id)
@@ -41,11 +73,16 @@ namespace RetailPlatform.Core.Services
             return await _repositoryWrapper.Add.GetByIdAsync(id);
         }
 
-        public async Task<IEnumerable<SelectListItem>> FilteredCategories()
+        public async Task<IEnumerable<SelectListItem>> FilteredCategories(string name)
         {
             List<SelectListItem> roles = new List<SelectListItem>();
+            var categories = await _repositoryWrapper.SubCategory.FindAllAsync();
+            if (!string.IsNullOrEmpty(name))
+            {
+                categories = categories.Where(m => m.Name.ToLower().Equals(name.ToLower())).ToList();
+            }
 
-            foreach (var role in await _repositoryWrapper.SubCategory.FindAllAsync())
+            foreach (var role in categories)
             {
                 SelectListItem item = new SelectListItem
                 {

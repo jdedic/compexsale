@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.API.Models.DTO.Add;
+using RetailPlatform.API.Models.DTO.HomePage;
 using RetailPlatform.Common.Entities;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
@@ -224,6 +225,21 @@ namespace RetailPlatform.API.Controllers
                 addsList.Add(add);
             });
             return addsList;
+        }
+
+        [HttpPost]
+        [Route("Product/FilterProduct")]
+        public IActionResult FilterProduct(long categoryId, string location, string name)
+        {
+            var adds = _addService.FilterAdds(categoryId, location, name);
+            List<AddModel> addsList = new List<AddModel>();
+            adds.ForEach(m =>
+            {
+                var add = _mapper.Map<AddModel>(m);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                addsList.Add(add);
+            });
+            return new JsonResult(new { adds = addsList });
         }
 
         public async Task<IActionResult> ProductPreview(long id)

@@ -1,5 +1,6 @@
 ﻿using RetailPlatform.API.Models.DTO;
 using RetailPlatform.API.Models.DTO.Add;
+using RetailPlatform.API.Models.DTO.HomePage;
 using RetailPlatform.Common.Entities;
 using System;
 
@@ -30,6 +31,17 @@ namespace RetailPlatform.API.Mappings
                 .ForMember(dest =>
                 dest.DateOfCreation,
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
+
+            CreateMap<Add, AddModel>()
+                .ForMember(dest =>
+                dest.PublicationDate,
+                opt => opt.MapFrom(src => src.CreationDate.ToString("dd.MM.yyyy")))
+                .ForMember(dest =>
+                dest.Location,
+                opt => opt.MapFrom(src => src.Place))
+                .ForMember(dest =>
+                dest.ImagePath,
+                opt => opt.MapFrom(src => src.ImgUrl1));
 
             CreateMap<Add, EditAddDTO>()
                 .ForMember(dest =>

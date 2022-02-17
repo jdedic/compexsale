@@ -1,4 +1,4 @@
-﻿@model RetailPlatform.API.Models.DTO.HomePage.HomepageModel
+﻿@model RetailPlatform.API.Models.DTO.HomePage.AddsGrid
 @{
     Layout = "~/Views/Shared/_SiteLayout.cshtml";
 }
@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="page-title">
-                    <h2>OGLASI</h2>
+                    <h2>@Model.Title</h2>
                 </div>
             </div>
             <div class="col-sm-6">
@@ -21,55 +21,6 @@
         </div>
     </div>
 </div>
-
-<section class="p-0 position-relative height-85 bg_cls">
-    <div class="home-slider slider-animate">
-        <div>
-            <div class="home">
-                <img src="~/images/bicycle/home-slider/1.jpg" alt="" class="bg-img blur-up lazyload">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="slider-contain product-detail">
-                                <div>
-                                    <h1 class="animated font-cormorant" data-animation-in="fadeInUp"
-                                        data-delay-in="0.2">
-                                        Hero Cycles
-                                    </h1>
-
-                                    <a href="#" class="btn btn-solid animated" data-animation-in="fadeInUp"
-                                       data-delay-in="0.6">DETALJI</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div>
-            <div class="home">
-                <img src="~/images/bicycle/home-slider/2.jpg" alt="" class="bg-img blur-up lazyload">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <div class="slider-contain product-detail">
-                                <div>
-                                    <h1 class="animated font-cormorant" data-animation-in="fadeInUp"
-                                        data-delay-in="0.2">
-                                        Launched Bikes
-                                    </h1>
-
-                                    <a href="#" class="btn btn-solid animated" data-animation-in="fadeInUp"
-                                       data-delay-in="0.6">DETALJI</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
 
 <section class="bg_cls">
     <div class="search-section absolute-banner">

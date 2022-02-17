@@ -20,6 +20,11 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.SubCategories.Include(m => m.Category).ToListAsync();
         }
 
+        public async Task<SubCategory> FetchSubcategoryByNameAsync(string name)
+        {
+            return await _dbContext.SubCategories.Where(m => m.Name.ToLower().Equals(name.ToLower())).FirstOrDefaultAsync();
+        }
+
         public bool IsCategoryAssigned(long id)
         {
             return _dbContext.SubCategories.Any(m => m.CategoryId > id);
