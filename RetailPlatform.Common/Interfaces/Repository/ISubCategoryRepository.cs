@@ -11,5 +11,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<SubCategory> GetSubCategoryById(long id);
         bool IsAssignToProduct(long id);
         string GetSubcategoryById(long id);
+        Task<SubCategory> FetchSubcategoryByNameAsync(string name);
     }
 }
