@@ -152,6 +152,8 @@ namespace RetailPlatform.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProduct(EditAddDTO add)
         {
+            var loggedRole = User.FindFirstValue("roleName").ToString();
+
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
@@ -211,12 +213,18 @@ namespace RetailPlatform.API.Controllers
                 add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
             }
 
+            if (loggedRole != "User")
+            {
+                add.Active = false;
+            }
+
             await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
 
             if (!add.Confirmed)
             {
                 await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
             }
+
             return Redirect("/adds");
         }
 
