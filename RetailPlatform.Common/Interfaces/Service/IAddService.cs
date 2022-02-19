@@ -19,5 +19,8 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task<IEnumerable<SelectListItem>> GetUnits();
         Task<IEnumerable<SelectListItem>> GetJobTypes();
         Task<List<Add>> FetchAddsBySubCategory(string category);
+        List<Add> FetchRequests();
+        Task CreateRequest(Add model);
+        Task EditRequest(Add add);
     }
 }

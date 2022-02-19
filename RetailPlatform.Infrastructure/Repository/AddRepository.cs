@@ -16,9 +16,14 @@ namespace RetailPlatform.Infrastructure.Repository
         }
         public List<Add> FetchAdds(bool active)
         {
-            var adds = _dbContext.Adds.Include(m => m.UnitType).ToList();
+            var adds = _dbContext.Adds.Include(m => m.UnitType).Where(m => m.JobTypeId == 1).ToList();
 
             return active ? adds.Where(m => m.Active == true).ToList() : adds;
+        }
+
+        public List<Add> FetchRequests()
+        {
+            return _dbContext.Adds.Include(m => m.SubCategory).Include(m => m.Profile).Where(m => m.JobTypeId == 2).ToList();
         }
 
         public async Task<IEnumerable<UnitType>> GetUnits()
@@ -46,5 +51,6 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return await _dbContext.Adds.Include(m => m.SubCategory).Include(m => m.UnitType).FirstOrDefaultAsync(m => m.Id == id);
         }
+
     }
 }

@@ -24,6 +24,11 @@ namespace RetailPlatform.Core.Services
             return _repositoryWrapper.Add.FetchAdds(active);
         }
 
+        public List<Add> FetchRequests()
+        {
+            return _repositoryWrapper.Add.FetchRequests();
+        }
+
         public async Task<List<Add>> FetchAddsBySubCategory(string category)
         {
             var subcategory = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(category);
@@ -64,6 +69,16 @@ namespace RetailPlatform.Core.Services
         public async Task CreateAdd(Add model)
         {
             model.CreationDate = DateTime.Now;
+            model.JobTypeId = 1;
+            model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
+            await _repositoryWrapper.Add.Create(model);
+        }
+
+        public async Task CreateRequest(Add model)
+        {
+            model.CreationDate = DateTime.Now;
+            model.UnitTypeId = 1;
+            model.JobTypeId = 2;
             model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
             await _repositoryWrapper.Add.Create(model);
         }
@@ -130,6 +145,11 @@ namespace RetailPlatform.Core.Services
         }
 
         public async Task EditAdd(Add add)
+        {
+            await _repositoryWrapper.Add.Update(add);
+        }
+
+        public async Task EditRequest(Add add)
         {
             await _repositoryWrapper.Add.Update(add);
         }
