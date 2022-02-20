@@ -29,10 +29,10 @@
             },
         },
         fields: [
-            { name: "uniqueId", type: "text", width: 60, title: "Unique id" },
-            { name: "name", type: "text", width: 100, title: "Name" },
-            { name: "category", width: 100, title: "Category" },
-            { name: "place", width: 60, title: "Place" },
+            { name: "uniqueId", type: "text", width: 60, title: "Oznaka" },
+            { name: "name", type: "text", width: 100, title: "Naziv" },
+            { name: "category", width: 100, title: "Kategorija" },
+            { name: "place", width: 60, title: "Lokacija" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {
@@ -41,7 +41,7 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Edit")
+                        .text("Izmeni")
                         .click(function (e) {
                             document.location.href = "/Product/EditRequest/" + item.id;
                             e.stopPropagation();
@@ -49,7 +49,7 @@
                     var $customDeleteButton = $("<button>")
                         .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Delete")
+                        .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
                             $('#addModal').modal('show');

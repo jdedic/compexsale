@@ -31,8 +31,8 @@
             },
         },
         fields: [
-            { name: "name", type: "text", width: 100, title: "Name" },
-            { name: "category", type: "text", width: 100, title: "Category" },
+            { name: "name", type: "text", width: 100, title: "Naziv" },
+            { name: "category", type: "text", width: 100, title: "Kategorija" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {
@@ -41,7 +41,7 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Edit")
+                        .text("Izmeni")
                         .click(function (e) {
                             var url = "/SubCategory/EditSubCategory"
                             $.get(url, { id: item.id }, function (data) {
@@ -53,7 +53,7 @@
                     var $customDeleteButton = $("<button>")
                         .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Delete")
+                        .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
                             $('#subCategoryDeleteModal').modal('show');
