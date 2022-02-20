@@ -31,10 +31,10 @@
             },
         },
         fields: [
-            { name: "firstName", type: "text", width: 100, title: "First Name" },
-            { name: "lastName", type: "text", width: 100, title: "Last Name" },
+            { name: "firstName", type: "text", width: 100, title: "Ime" },
+            { name: "lastName", type: "text", width: 100, title: "Prezime" },
             { name: "email", width: 100, title: "Email" },
-            { name: "workingPosition", width: 100, title: "Working Position" },
+            { name: "workingPosition", width: 100, title: "Pozicija" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {
@@ -43,7 +43,7 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Edit")
+                        .text("Izmeni")
                         .click(function (e) {
                             document.location.href = "/User/EditUser/" + item.id;
                             e.stopPropagation();
@@ -51,7 +51,7 @@
                     var $customDeleteButton = $("<button>")
                         .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Delete")
+                        .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
                             $('#userModal').modal('show');

@@ -45,7 +45,7 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Edit")
+                        .text("Izmeni")
                         .click(function (e) {
                             document.location.href = "/Customer/EditBusinessAccount/" + item.id;
                             e.stopPropagation();
@@ -53,7 +53,7 @@
                     var $customDeleteButton = $("<button>")
                         .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Delete")
+                        .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
                             $('#vendorModal').modal('show');

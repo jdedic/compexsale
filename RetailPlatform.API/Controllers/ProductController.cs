@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -43,12 +44,26 @@ namespace RetailPlatform.API.Controllers
             return View(add);
         }
 
+        public async Task<IActionResult> CreateRequest()
+        {
+            CreateRequestDTO add = new CreateRequestDTO();
+            add.FilteredCategories = await _addService.FilteredCategories();
+            return View(add);
+        }
+
         public async Task<IActionResult> EditProduct(long id)
         {
             EditAddDTO model = _mapper.Map<EditAddDTO>(await _addService.GetAddById(id));
             model.FilteredCategories = await _addService.FilteredCategories();
             model.Units = await _addService.GetUnits();
             model.JobTypes = await _addService.GetJobTypes();
+            return View(model);
+        }
+
+        public async Task<IActionResult> EditRequest(long id)
+        {
+            EditRequestDTO model = _mapper.Map<EditRequestDTO>(await _addService.GetAddById(id));
+            model.FilteredCategories = await _addService.FilteredCategories();
             return View(model);
         }
 
@@ -115,12 +130,31 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/adds");
         }
 
+        [HttpPost]
+        [Route("Product/CreateRequest")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CreateRequest(CreateRequestDTO add)
+        {
+            add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
+            if (!ModelState.IsValid)
+            {
+                add.FilteredCategories = await _addService.FilteredCategories();
+                return View(add);
+            }
+
+            await _addService.CreateRequest(_mapper.Map<Add>(add));
+            return Redirect("/requests");
+        }
+
+
         [IgnoreAntiforgeryToken]
         [HttpPost]
         [Route("Product/EditProduct")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditProduct(EditAddDTO add)
         {
+            var loggedRole = User.FindFirstValue("roleName").ToString();
+
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
@@ -187,17 +221,54 @@ namespace RetailPlatform.API.Controllers
             }
 
             var updatedAdd = await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
+            if (loggedRole != "User")
+            {
+                add.Active = false;
+            }
+
+            await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
 
             if (!add.Confirmed)
             {
                 await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
             }
+
             return Redirect("/adds");
+        }
+
+        [IgnoreAntiforgeryToken]
+        [HttpPost]
+        [Route("Product/EditRequest")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditRequest(EditRequestDTO add)
+        {
+            if (!ModelState.IsValid)
+            {
+                add.FilteredCategories = await _addService.FilteredCategories();
+                return View(add);
+            }
+
+            var entity = await _repositoryWrapper.Add.GetByIdAsync(add.Id);
+
+            if (entity == null)
+            {
+                return BadRequest();
+            }
+            
+            await _addService.EditRequest(_mapper.Map<EditRequestDTO, Add>(add, entity));
+            return Redirect("/requests");
         }
 
         [HttpGet]
         [Route("adds")]
         public IActionResult Adds()
+        {
+            return View();
+        }
+
+        [HttpGet]
+        [Route("requests")]
+        public IActionResult Requests()
         {
             return View();
         }
@@ -220,9 +291,17 @@ namespace RetailPlatform.API.Controllers
         [HttpGet]
         public IEnumerable<AddDTO> Get()
         {
-            var adds = _addService.FetchAdds(false);
+            var loggedRole = User.FindFirstValue("roleName").ToString();
+            var userId = Convert.ToInt32(User.FindFirstValue("userId"));
+            var adds = _addService.GetAdds();
+
+            if (loggedRole != "User")
+            {
+                adds = adds.Where(m => m.ProfileId == userId).AsQueryable();
+            }
+
             List<AddDTO> addsList = new List<AddDTO>();
-            adds.ForEach(m =>
+            adds.ToList().ForEach(m =>
             {
                 var add = _mapper.Map<AddDTO>(m);
                 add.Unit = m.UnitType.Name;
@@ -231,6 +310,21 @@ namespace RetailPlatform.API.Controllers
                 addsList.Add(add);
             });
             return addsList;
+        }
+
+        [HttpGet]
+        public IEnumerable<RequestDTO> GetRequest()
+        {
+            var adds = _addService.FetchRequests();
+            List<RequestDTO> requestList = new List<RequestDTO>();
+            adds.ForEach(m =>
+            {
+                var add = _mapper.Map<RequestDTO>(m);
+                add.CreatedBy = _repositoryWrapper.Profile.GetProfileInfoById(m.ProfileId);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                requestList.Add(add);
+            });
+            return requestList;
         }
 
         [HttpPost]

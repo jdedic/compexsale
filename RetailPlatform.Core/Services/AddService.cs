@@ -5,7 +5,6 @@ using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.Core.Services
@@ -22,6 +21,16 @@ namespace RetailPlatform.Core.Services
         public List<Add> FetchAdds(bool active)
         {
             return _repositoryWrapper.Add.FetchAdds(active);
+        }
+
+        public IQueryable<Add> GetAdds()
+        {
+            return _repositoryWrapper.Add.GetAdds();
+        }
+
+        public List<Add> FetchRequests()
+        {
+            return _repositoryWrapper.Add.FetchRequests();
         }
 
         public async Task<List<Add>> FetchAddsBySubCategory(string category)
@@ -68,6 +77,17 @@ namespace RetailPlatform.Core.Services
             number = number + 1;
             model.UniqueId = number.ToString();
             model.CreationDate = DateTime.Now;
+            model.JobTypeId = 1;
+            model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
+            await _repositoryWrapper.Add.Create(model);
+        }
+
+        public async Task CreateRequest(Add model)
+        {
+            model.CreationDate = DateTime.Now;
+            model.UnitTypeId = 1;
+            model.JobTypeId = 2;
+            model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
             await _repositoryWrapper.Add.Create(model);
         }
 
@@ -140,6 +160,11 @@ namespace RetailPlatform.Core.Services
             }
             await _repositoryWrapper.Add.Update(add);
             return add;
+        }
+
+        public async Task EditRequest(Add add)
+        {
+            await _repositoryWrapper.Add.Update(add);
         }
     }
 }

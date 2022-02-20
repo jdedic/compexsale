@@ -1,0 +1,89 @@
+﻿@model RetailPlatform.API.Models.DTO.Add.EditRequestDTO
+
+<div class="container-fluid">
+    <div class="page-header">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="page-header-left">
+                    <h3>
+                        Izmeni zahtev
+                    </h3>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <ol class="breadcrumb pull-right">
+                    <li class="breadcrumb-item"><a href="index.html"><i data-feather="home"></i></a></li>
+                    <li class="breadcrumb-item">Zahtevi</li>
+                    <li class="breadcrumb-item active">Izmeni zahtev</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid">
+    <form id="create-product" asp-controller="Product" asp-action="EditRequest" autocomplete="off">
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.ProfileId)
+        <div class="row product-adding">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Osnovne informacije</h5>
+                </div>
+                <div class="card-body">
+
+                    <div class="digital-add needs-validation">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label class="col-form-label pt-0"><span class="retail-validation">*</span> Naziv</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="validationCustomtitle" class="col-form-label pt-0"><span class="retail-validation">*</span> Mesto</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextBoxFor(model => model.Place, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="retail-validation">*</span> Kategorije</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "category" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "8" })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    <div class="card">
+        <div class="card-body">
+            <div class="digital-add needs-validation">
+                <div class="form-group mb-0">
+                    <div class="product-buttons text-center">
+                        <button type="submit" form="create-product" class="btn btn-primary">Save</button>
+                        <button type="button" class="btn btn-light" onclick="returnToRequests()">Discard</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section dataTables {
+    <script src="~/js/custom-js/request-item.js"></script>
+}
+

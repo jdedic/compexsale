@@ -2,6 +2,7 @@
 using RetailPlatform.Common.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -19,5 +20,9 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task<IEnumerable<SelectListItem>> GetUnits();
         Task<IEnumerable<SelectListItem>> GetJobTypes();
         Task<List<Add>> FetchAddsBySubCategory(string category);
+        List<Add> FetchRequests();
+        Task CreateRequest(Add model);
+        Task EditRequest(Add add);
+        IQueryable<Add> GetAdds();
     }
 }

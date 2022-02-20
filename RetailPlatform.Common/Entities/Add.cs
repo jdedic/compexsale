@@ -30,6 +30,8 @@ namespace RetailPlatform.Common.Entities
         public DateTime CreationDate { get; set; }
         public long UnitTypeId { get; set; }
         public UnitType UnitType { get; set; }
+        public long JobTypeId { get; set; }
+        public JobType JobType { get; set; }
         public decimal? Price { get; set; }
     }
 }

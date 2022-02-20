@@ -3,8 +3,6 @@
     $("#batchDelete").jsGrid({
         width: "100%",
         autoload: true,
-        //filtering: true,
-        //inserting: true,
         paging: true,
         sorting: true,
         confirmDeleting: false,
@@ -16,7 +14,7 @@
             loadData: function (filter) {
                 return $.ajax({
                     type: "GET",
-                    url: "/Vendor/BusinessAccounts",
+                    url: "/Product/GetRequest",
                     data: filter,
                     dataType: "json"
                 });
@@ -24,19 +22,17 @@
             updateItem: function (item) {
                 return $.ajax({
                     type: "GET",
-                    url: "/Vendor/EditBusinessAccount" + item,
+                    url: "/Product/EditRequest" + item,
                     data: item,
                     dataType: "json"
                 });
             },
         },
         fields: [
-            { name: "companyName", type: "text", width: 100, title: "Naziv kompanije" },
-            { name: "pib", type: "text", width: 100, title: "PIB" },
-            { name: "email", width: 100, title: "Email" },
-            { name: "telephone", width: 100, title: "Telefon" },
-            { name: "zipCode", width: 50, title: "Poštanski broj" },
-            { name: "city", width: 60, title: "Grad" },
+            { name: "uniqueId", type: "text", width: 60, title: "Unique id" },
+            { name: "name", type: "text", width: 100, title: "Name" },
+            { name: "category", width: 100, title: "Category" },
+            { name: "place", width: 60, title: "Place" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {
@@ -45,22 +41,20 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Izmeni")
+                        .text("Edit")
                         .click(function (e) {
-                            document.location.href = "/Vendor/EditBusinessAccount/" + item.id;
+                            document.location.href = "/Product/EditRequest/" + item.id;
                             e.stopPropagation();
                         });
-                    var hasAdds = item.isAssigned;
-                    var deleteStyle = hasAdds == true ? "d-none" : "";
                     var $customDeleteButton = $("<button>")
-                        .attr({ class: "btn btn-outline-danger btn-xs" + " " + deleteStyle })
+                        .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Ukloni")
+                        .text("Delete")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
-                            $('#vendorModal').modal('show');
-                            $('#vendorId').text(item.id);
-                            $('#message').text("Da li zelite da uklonite " + item.companyName + " vendora?");
+                            $('#addModal').modal('show');
+                            $('#addId').text(item.id);
+                            $('#message').text("Da li zelite da uklonite " + item.name + " oglas?");
                             e.stopPropagation();
                         });
 
@@ -72,7 +66,19 @@
         ]
     });
 
-
-
+    var deleteSelectedItems = function () {
+        if (!selectedItems.length || !confirm("Are you sure?"))
+            return;
+        deleteClientsFromDb(selectedItems);
+        var $grid = $("#batchDelete");
+        $grid.jsGrid("option", "pActionIndex", 1);
+        $grid.jsGrid("loadData");
+        selectedItems = [];
+    };
+    var deleteClientsFromDb = function (deletingClients) {
+        db.clients = $.map(db.clients, function (client) {
+            return ($.inArray(client, deletingClients) > -1) ? null : client;
+        });
+    };
 })(jQuery);
 
