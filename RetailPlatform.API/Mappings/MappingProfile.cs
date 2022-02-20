@@ -65,7 +65,6 @@ namespace RetailPlatform.API.Mappings
                 dest.Active,
                 opt => opt.MapFrom(src => src.Confirmed));
                 
-                opt => opt.MapFrom(src => src.UnitTypeId.ToString()));
 
             CreateMap<Add, EditRequestDTO>()
                 .ForMember(dest =>
@@ -99,7 +98,7 @@ namespace RetailPlatform.API.Mappings
               .ForMember(dest =>
               dest.UniqueId,
               opt => opt.MapFrom(src => Int32.Parse(src.UniqueId))); 
-              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)));
+              
 
             CreateMap<EditRequestDTO, Add>()
              .ForMember(dest =>
