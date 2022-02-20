@@ -33,6 +33,16 @@ namespace RetailPlatform.Core.Services
             await SendEmailMessage(message);
         }
 
+        public async Task SendEmailForAdd(string email, string id, string name)
+        {
+            var pathToFile = await GetPathToFile("adds-template.html");
+            var body = await GetBody(pathToFile);
+            body = body.Replace("{Name}", name);
+            body = body.Replace("{Id}", id);
+            var message = await GetMessage(email, "Oglas - informacije", body);
+            await SendEmailMessage(message);
+        }
+
         #region helper-methods
 
         public async Task<MailMessage> GetMessage(string email, string subject, string body)

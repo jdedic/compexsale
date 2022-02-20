@@ -30,7 +30,10 @@ namespace RetailPlatform.API.Mappings
             CreateMap<Add, AddDTO>()
                 .ForMember(dest =>
                 dest.DateOfCreation,
-                opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
+                opt => opt.MapFrom(src => src.CreationDate.ToString("s")))
+                .ForMember(dest =>
+                dest.UniqueId,
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")));
 
             CreateMap<Add, RequestDTO>()
                 .ForMember(dest =>
@@ -54,7 +57,14 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.SubCategoryId.ToString()))
                 .ForMember(dest =>
                 dest.SelectedUnit,
-                opt => opt.MapFrom(src => src.UnitTypeId.ToString()));
+                opt => opt.MapFrom(src => src.UnitTypeId.ToString()))
+                 .ForMember(dest =>
+                dest.UniqueId,
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")))
+                .ForMember(dest =>
+                dest.Active,
+                opt => opt.MapFrom(src => src.Confirmed));
+                
 
             CreateMap<Add, EditRequestDTO>()
                 .ForMember(dest =>
@@ -81,7 +91,14 @@ namespace RetailPlatform.API.Mappings
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
               .ForMember(dest =>
               dest.UnitTypeId,
-              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)));
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
+              .ForMember(dest =>
+              dest.Active,
+              opt => opt.MapFrom(src => src.Confirmed ? true : false))
+              .ForMember(dest =>
+              dest.UniqueId,
+              opt => opt.MapFrom(src => Int32.Parse(src.UniqueId))); 
+              
 
             CreateMap<EditRequestDTO, Add>()
              .ForMember(dest =>

@@ -72,6 +72,10 @@ namespace RetailPlatform.Core.Services
 
         public async Task CreateAdd(Add model)
         {
+            var getPreviousUniqueId = _repositoryWrapper.Add.FetchLastAdd(true);
+            var number = string.IsNullOrEmpty(getPreviousUniqueId) ? 0 : Int32.Parse(getPreviousUniqueId);
+            number = number + 1;
+            model.UniqueId = number.ToString();
             model.CreationDate = DateTime.Now;
             model.JobTypeId = 1;
             model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
@@ -148,9 +152,14 @@ namespace RetailPlatform.Core.Services
             return new SelectList(cities, "Value", "Text");
         }
 
-        public async Task EditAdd(Add add)
+        public async Task<Add> EditAdd(Add add)
         {
+            if (add.Active)
+            {
+                add.IsMailSent = true;
+            }
             await _repositoryWrapper.Add.Update(add);
+            return add;
         }
 
         public async Task EditRequest(Add add)

@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220218154323_AddIsEmailSentToAdd")]
+    partial class AddIsEmailSentToAdd
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,9 +64,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                     b.Property<bool>("IsMailSent")
                         .HasColumnType("bit");
 
-                    b.Property<long>("JobTypeId")
-                        .HasColumnType("bigint");
-
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -93,8 +92,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .HasColumnType("bigint");
 
                     b.HasKey("Id");
-
-                    b.HasIndex("JobTypeId");
 
                     b.HasIndex("ProfileId");
 
@@ -455,7 +452,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 19, 9, 22, 43, 791, DateTimeKind.Local).AddTicks(7574),
+                            RegistrationDate = new DateTime(2022, 2, 18, 16, 43, 22, 666, DateTimeKind.Local).AddTicks(9663),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -471,7 +468,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 19, 9, 22, 43, 795, DateTimeKind.Local).AddTicks(4331),
+                            RegistrationDate = new DateTime(2022, 2, 18, 16, 43, 22, 670, DateTimeKind.Local).AddTicks(4738),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -481,12 +478,6 @@ namespace RetailPlatform.Infrastructure.Migrations
 
             modelBuilder.Entity("RetailPlatform.Common.Entities.Add", b =>
                 {
-                    b.HasOne("RetailPlatform.Common.Entities.JobType", "JobType")
-                        .WithMany()
-                        .HasForeignKey("JobTypeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("RetailPlatform.Common.Entities.ProfileModel", "Profile")
                         .WithMany()
                         .HasForeignKey("ProfileId")
@@ -504,8 +495,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .HasForeignKey("UnitTypeId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("JobType");
 
                     b.Navigation("Profile");
 

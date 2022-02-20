@@ -31,6 +31,13 @@ namespace RetailPlatform.Infrastructure.Repository
             return _dbContext.Adds.Include(m => m.SubCategory).Include(m => m.Profile).Where(m => m.JobTypeId == 2).ToList();
         }
 
+        public string FetchLastAdd(bool active)
+        {
+            var add = _dbContext.Adds.OrderBy(m => m.Id).LastOrDefault(m => m.Active == active);
+
+            return add != null ? add.UniqueId : null;
+        }
+
         public async Task<IEnumerable<UnitType>> GetUnits()
         {
             return await _dbContext.UnitTypes.ToListAsync();
