@@ -10,6 +10,7 @@ using System;
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -283,9 +284,17 @@ namespace RetailPlatform.API.Controllers
         [HttpGet]
         public IEnumerable<AddDTO> Get()
         {
-            var adds = _addService.FetchAdds(false);
+            var loggedRole = User.FindFirstValue("roleName").ToString();
+            var userId = Convert.ToInt32(User.FindFirstValue("userId"));
+            var adds = _addService.GetAdds();
+
+            if (loggedRole != "User")
+            {
+                adds = adds.Where(m => m.ProfileId == userId).AsQueryable();
+            }
+
             List<AddDTO> addsList = new List<AddDTO>();
-            adds.ForEach(m =>
+            adds.ToList().ForEach(m =>
             {
                 var add = _mapper.Map<AddDTO>(m);
                 add.Unit = m.UnitType.Name;

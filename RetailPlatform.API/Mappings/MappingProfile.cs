@@ -81,10 +81,7 @@ namespace RetailPlatform.API.Mappings
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
               .ForMember(dest =>
               dest.UnitTypeId,
-              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
-               .ForMember(dest =>
-              dest.Active,
-              opt => opt.MapFrom(src => src.Confirmed ? true : false));
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)));
 
             CreateMap<EditRequestDTO, Add>()
              .ForMember(dest =>

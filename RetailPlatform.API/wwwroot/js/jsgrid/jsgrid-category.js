@@ -31,7 +31,7 @@
             },
         },
         fields: [
-            { name: "name", type: "text", width: 250, title: "Name" },
+            { name: "name", type: "text", width: 250, title: "Naziv" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {
@@ -40,7 +40,7 @@
                         .attr({ class: "btn btn-outline-warning btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.editButtonTooltip })
                         .attr({ id: "btn-edit-" + item.id })
-                        .text("Edit")
+                        .text("Izmeni")
                         .click(function (e) {
                             var url = "/Category/EditCategory"
                             $.get(url, { id: item.id }, function (data) {
@@ -52,7 +52,7 @@
                     var $customDeleteButton = $("<button>")
                         .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
-                        .text("Delete")
+                        .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
                         .click(function (e) {
                             $('#categoryModal').modal('show');

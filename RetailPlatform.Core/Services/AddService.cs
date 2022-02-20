@@ -5,7 +5,6 @@ using RetailPlatform.Common.Interfaces.Service;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.Core.Services
@@ -22,6 +21,11 @@ namespace RetailPlatform.Core.Services
         public List<Add> FetchAdds(bool active)
         {
             return _repositoryWrapper.Add.FetchAdds(active);
+        }
+
+        public IQueryable<Add> GetAdds()
+        {
+            return _repositoryWrapper.Add.GetAdds();
         }
 
         public List<Add> FetchRequests()

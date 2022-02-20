@@ -2,6 +2,7 @@
 using RetailPlatform.Common.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -22,5 +23,6 @@ namespace RetailPlatform.Common.Interfaces.Service
         List<Add> FetchRequests();
         Task CreateRequest(Add model);
         Task EditRequest(Add add);
+        IQueryable<Add> GetAdds();
     }
 }
