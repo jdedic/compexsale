@@ -21,6 +21,13 @@ namespace RetailPlatform.Infrastructure.Repository
             return active ? adds.Where(m => m.Active == true).ToList() : adds;
         }
 
+        public string FetchLastAdd(bool active)
+        {
+            var add = _dbContext.Adds.OrderBy(m => m.Id).LastOrDefault(m => m.Active == active);
+
+            return add != null ? add.UniqueId : null;
+        }
+
         public async Task<IEnumerable<UnitType>> GetUnits()
         {
             return await _dbContext.UnitTypes.ToListAsync();

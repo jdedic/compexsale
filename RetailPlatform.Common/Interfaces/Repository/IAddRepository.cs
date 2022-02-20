@@ -12,5 +12,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<IEnumerable<UnitType>> GetUnits();
         Task<IEnumerable<JobType>> GetJobTypes();
         Task<Add> GetAddWithUnit(long id);
+        string FetchLastAdd(bool active);
     }
 }

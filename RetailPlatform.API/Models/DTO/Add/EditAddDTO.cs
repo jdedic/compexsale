@@ -22,6 +22,7 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string SelectedJobType { get; set; }
         public bool Active { get; set; }
         public bool Confirmed { get; set; }
+        public bool IsMailSent { get; set; }
         public string ReasonForRefusal { get; set; }
         public IFormFile FirstImg { get; set; }
         public IFormFile SecondImg { get; set; }

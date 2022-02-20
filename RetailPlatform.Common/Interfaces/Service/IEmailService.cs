@@ -8,5 +8,6 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task SendEmailForRefusedAdd(string email, string reason);
         Task SendWelcomEmail(string email);
         Task SendContactClientEmail(string email, string clientName, string content);
+        Task SendEmailForAdd(string email, string id, string name);
     }
 }

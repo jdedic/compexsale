@@ -30,7 +30,10 @@ namespace RetailPlatform.API.Mappings
             CreateMap<Add, AddDTO>()
                 .ForMember(dest =>
                 dest.DateOfCreation,
-                opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
+                opt => opt.MapFrom(src => src.CreationDate.ToString("s")))
+                .ForMember(dest =>
+                dest.UniqueId,
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")));
 
             CreateMap<Add, AddModel>()
                 .ForMember(dest =>
@@ -49,7 +52,13 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.SubCategoryId.ToString()))
                 .ForMember(dest =>
                 dest.SelectedUnit,
-                opt => opt.MapFrom(src => src.UnitTypeId.ToString()));
+                opt => opt.MapFrom(src => src.UnitTypeId.ToString()))
+                 .ForMember(dest =>
+                dest.UniqueId,
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")))
+                .ForMember(dest =>
+                dest.Active,
+                opt => opt.MapFrom(src => src.Confirmed));
                 
             CreateMap<CreateAddDTO, Add>()
                .ForMember(dest =>
@@ -66,9 +75,12 @@ namespace RetailPlatform.API.Mappings
               .ForMember(dest =>
               dest.UnitTypeId,
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
-               .ForMember(dest =>
+              .ForMember(dest =>
               dest.Active,
-              opt => opt.MapFrom(src => src.Confirmed ? true : false));  
+              opt => opt.MapFrom(src => src.Confirmed ? true : false))
+              .ForMember(dest =>
+              dest.UniqueId,
+              opt => opt.MapFrom(src => Int32.Parse(src.UniqueId))); 
 
 
             CreateMap<SubCategory, SubCategoryModel>()

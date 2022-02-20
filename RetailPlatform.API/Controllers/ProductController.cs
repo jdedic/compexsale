@@ -180,7 +180,13 @@ namespace RetailPlatform.API.Controllers
                 add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
             }
 
-            await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
+            if (add.Active && !entity.IsMailSent)
+            {
+                var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
+                await _emailService.SendEmailForAdd("jdedic2393@gmail.com", id, entity.Name);
+            }
+
+            var updatedAdd = await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
 
             if (!add.Confirmed)
             {
