@@ -35,8 +35,9 @@
             { name: "name", type: "text", width: 100, title: "Naziv" },
             { name: "category", width: 100, title: "Kategorija" },
             { name: "quantity", width: 50, title: "Količina" },
-            { name: "unit", width: 30, title: "Jedinica" },
-            { name: "place", width: 60, title: "Lokacija" },
+            { name: "unit", width: 20, title: "Jedinica" },
+            { name: "place", width: 50, title: "Lokacija" },
+            { name: "status", width: 50, title: "Status" },
             {
                 type: "control", editButton: false, deleteButton: false,
                 itemTemplate: function (value, item) {

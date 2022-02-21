@@ -33,7 +33,10 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")))
                 .ForMember(dest =>
                 dest.UniqueId,
-                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")));
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")))
+                .ForMember(dest =>
+                dest.Status,
+                opt => opt.MapFrom(src => src.Active == false ? "Kreiran" : "Aktivan"));
 
             CreateMap<Add, RequestDTO>()
                 .ForMember(dest =>
@@ -49,7 +52,10 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.Place))
                 .ForMember(dest =>
                 dest.ImagePath,
-                opt => opt.MapFrom(src => "https://compexsale.com" + src.ImgUrl1));
+                opt => opt.MapFrom(src => "https://compexsale.com" + src.ImgUrl1))
+                .ForMember(dest =>
+                dest.Status,
+                opt => opt.MapFrom(src => src.Active == false ? "Kreiran" : "Aktivan"));
 
             CreateMap<Add, EditAddDTO>()
                 .ForMember(dest =>
