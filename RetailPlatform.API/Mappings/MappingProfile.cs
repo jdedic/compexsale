@@ -49,7 +49,7 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.Place))
                 .ForMember(dest =>
                 dest.ImagePath,
-                opt => opt.MapFrom(src => src.ImgUrl1));
+                opt => opt.MapFrom(src => "https://compexsale.com" + src.ImgUrl1));
 
             CreateMap<Add, EditAddDTO>()
                 .ForMember(dest =>
@@ -60,10 +60,7 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.UnitTypeId.ToString()))
                  .ForMember(dest =>
                 dest.UniqueId,
-                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")))
-                .ForMember(dest =>
-                dest.Active,
-                opt => opt.MapFrom(src => src.Confirmed));
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")));
                 
 
             CreateMap<Add, EditRequestDTO>()
@@ -92,9 +89,6 @@ namespace RetailPlatform.API.Mappings
               .ForMember(dest =>
               dest.UnitTypeId,
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
-              .ForMember(dest =>
-              dest.Active,
-              opt => opt.MapFrom(src => src.Confirmed ? true : false))
               .ForMember(dest =>
               dest.UniqueId,
               opt => opt.MapFrom(src => Int32.Parse(src.UniqueId))); 
@@ -149,7 +143,19 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.IsExchange ? "Razmena" : ""))
                 .ForMember(dest =>
                 dest.Active,
-                opt => opt.MapFrom(src => src.Active ? "Aktivan" : "Neaktivan"));
+                opt => opt.MapFrom(src => src.Active ? "Aktivan" : "Neaktivan"))
+                .ForMember(dest =>
+                dest.ImgUrl1,
+                opt => opt.MapFrom(src => src.ImgUrl1 != null ? $"https://compexsale.com{src.ImgUrl1}" : src.ImgUrl1))
+                .ForMember(dest =>
+                dest.ImgUrl2,
+                opt => opt.MapFrom(src => src.ImgUrl2 != null ? $"https://compexsale.com{src.ImgUrl2}" : src.ImgUrl2))
+                .ForMember(dest =>
+                dest.ImgUrl3,
+                opt => opt.MapFrom(src => src.ImgUrl3 != null ? $"https://compexsale.com{src.ImgUrl3}" : src.ImgUrl3))
+                .ForMember(dest =>
+                dest.ImgUrl4,
+                opt => opt.MapFrom(src => src.ImgUrl4 != null ? $"https://compexsale.com{src.ImgUrl4}" : src.ImgUrl4));
         }
     }
 }

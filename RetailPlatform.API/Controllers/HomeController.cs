@@ -51,7 +51,7 @@ namespace RetailPlatform.API.Controllers
             adds.Take(20).ToList().ForEach(m =>
             {
                 var add = _mapper.Map<AddModel>(m);
-                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.SubCategoryId);
                 model.Adds.Add(add);
             });
             return View(model);

@@ -78,7 +78,6 @@ namespace RetailPlatform.Core.Services
             model.UniqueId = number.ToString();
             model.CreationDate = DateTime.Now;
             model.JobTypeId = 1;
-            model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
             await _repositoryWrapper.Add.Create(model);
         }
 
@@ -87,7 +86,10 @@ namespace RetailPlatform.Core.Services
             model.CreationDate = DateTime.Now;
             model.UnitTypeId = 1;
             model.JobTypeId = 2;
-            model.UniqueId = (Guid.NewGuid().ToString()).Substring(0, 7);
+            var getPreviousUniqueId = _repositoryWrapper.Add.FetchLastAdd(true);
+            var number = string.IsNullOrEmpty(getPreviousUniqueId) ? 0 : Int32.Parse(getPreviousUniqueId);
+            number = number + 1;
+            model.UniqueId = number.ToString();
             await _repositoryWrapper.Add.Create(model);
         }
 

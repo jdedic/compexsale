@@ -5100,8 +5100,7 @@ footer.pet-layout-footer .social-white {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    margin-top: 12px;
-    padding-bottom: 6px; }
+    margin-top: 12px; }
     .cycle-box .bottom-detail h4 {
       margin-bottom: 0;
       color: #000000;
@@ -6926,6 +6925,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  border-bottom: 1px solid #d0c979;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;

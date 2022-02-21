@@ -179,6 +179,9 @@ namespace RetailPlatform.API.Controllers
                     await add.FirstImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl1 = $"/images/adds/{fileName}";
+            } else
+            {
+                add.ImgUrl1 = entity.ImgUrl1;
             }
 
             if (add.SecondImg != null)
@@ -190,6 +193,9 @@ namespace RetailPlatform.API.Controllers
                     await add.SecondImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl2 = $"/images/adds/{backgroundFileName}";
+            } else
+            {
+                add.ImgUrl2 = entity.ImgUrl2;
             }
 
             if (add.ThirdImg != null)
@@ -202,6 +208,10 @@ namespace RetailPlatform.API.Controllers
                 }
                 add.ImgUrl3 = $"/images/adds/{imageFileName}";
             }
+            else
+            {
+                add.ImgUrl3 = entity.ImgUrl3;
+            }
 
             if (add.FourthImg != null)
             {
@@ -212,6 +222,9 @@ namespace RetailPlatform.API.Controllers
                     await add.FourthImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
+            } else
+            {
+                add.ImgUrl4 = entity.ImgUrl4; 
             }
 
             if (add.Active && !entity.IsMailSent)
@@ -306,7 +319,7 @@ namespace RetailPlatform.API.Controllers
                 var add = _mapper.Map<AddDTO>(m);
                 add.Unit = m.UnitType.Name;
                 add.CreatedBy = _repositoryWrapper.Profile.GetProfileInfoById(m.ProfileId);
-                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.SubCategoryId);
                 addsList.Add(add);
             });
             return addsList;
