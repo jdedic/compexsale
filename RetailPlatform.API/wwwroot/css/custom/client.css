@@ -65,3 +65,9 @@
     text-transform: uppercase !important;
 }
 
+.slider-title {
+    color: black;
+    font-weight: bolder;
+    background-color: white;
+}
+
