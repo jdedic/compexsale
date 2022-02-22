@@ -130,7 +130,7 @@ namespace RetailPlatform.API.Controllers
             if (_profileService.CheckUserCredentials(model.Username, model.Password))
             {
                 var user = _repositoryWrapper.Profile.GetProfileByEmail(model.Username);
-                var name = user.IsVendor == true ? user.CompanyName : user.FullName;
+                var name = (user.IsVendor == true && user.LegalEntity == true) ? user.CompanyName : user.FullName;
                 await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.LegalEntity));
                 return RedirectToAction("AdminDashboard", "Home");
             }
