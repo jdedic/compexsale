@@ -19,6 +19,7 @@ namespace RetailPlatform.API.Models.DTO
         public string Category { get; set; }
         public string Date { get; set; }
         public string Unit { get; set; }
+        public decimal? Price { get; set; }
         public string IsComepnsation { get; set; }
         public string IsDiscontSale { get; set; }
         public string IsExchange { get; set; }
