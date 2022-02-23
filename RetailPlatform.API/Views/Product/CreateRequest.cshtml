@@ -24,46 +24,46 @@
 <div class="container-fluid">
     <form id="create-product" asp-controller="Product" asp-action="CreateRequest" autocomplete="off">
         <div class="row product-adding">
-                <div class="card">
-                    <div class="card-header">
-                        <h5>Osnovne informacije</h5>
-                    </div>
-                    <div class="card-body">
+            <div class="card">
+                <div class="card-header">
+                    <h5>Osnovne informacije</h5>
+                </div>
+                <div class="card-body">
 
-                        <div class="digital-add needs-validation">
-                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                            <div class="form-group">
-                                <label class="col-form-label pt-0"><span class="retail-validation">*</span> Naziv proizvoda/usluge</label>
-                                <div class="col-xl-8 col-md-7">
-                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required" })
-                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
-                                </div>
+                    <div class="digital-add needs-validation">
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            <label class="col-form-label pt-0"><span class="retail-validation">*</span> Naziv proizvoda/usluge</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                             </div>
-                            <div class="form-group">
-                                <label for="validationCustomtitle" class="col-form-label pt-0"><span class="retail-validation">*</span> Mesto</label>
-                                <div class="col-xl-8 col-md-7">
-                                    @Html.TextBoxFor(model => model.Place, new { @class = "form-control", autocomplete = "off", required = "required" })
-                                    @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label"><span class="retail-validation">*</span> Kategorije</label>
-                                <div class="col-xl-8 col-md-7">
-                                    @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "category" })
-                                    @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
-                                <div class="col-xl-8 col-md-7">
-                                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "8" })
-                                    @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                                </div>
-                            </div>
-                            
                         </div>
+                        <div class="form-group">
+                            <label for="validationCustomtitle" class="col-form-label pt-0"><span class="retail-validation">*</span> Mesto</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextBoxFor(model => model.Place, new { @class = "form-control", autocomplete = "off", required = "required" })
+                                @Html.ValidationMessageFor(model => model.Place, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="retail-validation">*</span> Kategorije</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "category" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
+                            <div class="col-xl-8 col-md-7">
+                                @Html.TextAreaFor(model => model.Description, new { @class = "form-control", autocomplete = "off", required = "required", @rows = "8" })
+                                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
                     </div>
                 </div>
+            </div>
         </div>
     </form>
     <div class="card">

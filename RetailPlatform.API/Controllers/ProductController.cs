@@ -359,7 +359,7 @@ namespace RetailPlatform.API.Controllers
         {
             var product = await _repositoryWrapper.Add.GetAddWithUnit(id);
             ProductPreviewDTO model = _mapper.Map<ProductPreviewDTO>(product);
-            model.Date = model.CreationDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
+            model.Date = product.CreationDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
             model.Category = product.SubCategory.Name;
             model.Unit = product.UnitType.Name;
             return View(model);
