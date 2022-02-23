@@ -40,7 +40,7 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string SelectedUnit { get; set; }
         public IEnumerable<SelectListItem> JobTypes { get; set; }
         public string SelectedJobType { get; set; }
-        public decimal? Price { get; set; }
+        public float? Price { get; set; }
     }
 
    

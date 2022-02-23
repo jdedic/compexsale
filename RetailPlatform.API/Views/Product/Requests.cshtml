@@ -1,4 +1,9 @@
-﻿    <!-- Container-fluid starts-->
+﻿@using System.Security.Claims;
+
+@{
+    string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+}
+
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
@@ -24,9 +29,12 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            <div class="btn-popup pull-right">
-                <a href="@Url.Action("CreateRequest", "Product")" class="btn btn-secondary">Dodaj zahtev</a>
-            </div>
+            @if (role != "User")
+            {
+                <div class="btn-popup pull-right">
+                    <a href="@Url.Action("CreateRequest", "Product")" class="btn btn-secondary">Dodaj zahtev</a>
+                </div>
+            }
             <div id="batchDelete" class="category-table user-list order-table"></div>
         </div>
     </div>

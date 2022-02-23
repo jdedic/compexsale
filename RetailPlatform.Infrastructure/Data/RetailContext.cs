@@ -43,7 +43,8 @@ namespace RetailPlatform.Infrastructure.Data
                new UnitType { Id = 4, Name = "m3" },
                new UnitType { Id = 5, Name = "t"},
                new UnitType { Id = 6, Name = "l" },
-               new UnitType { Id = 7, Name = "kg" }
+               new UnitType { Id = 7, Name = "kg" },
+               new UnitType { Id = 9, Name = "pal (paleta)"}
            );
 
             modelBuilder.Entity<JobType>().HasData(

@@ -38,7 +38,7 @@ namespace RetailPlatform.API.Controllers
             if (_userService.CheckUserCredentials(model.Username, model.Password))
             {
                 var user = _repositoryWrapper.User.GetUserByEmail(model.Username);
-                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString(), false));
+                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString(), false, false));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
@@ -60,7 +60,7 @@ namespace RetailPlatform.API.Controllers
             if (_userService.CheckUserCredentials(model.Username, model.Password))
             {
                 var user = _repositoryWrapper.User.GetUserByEmail(model.Username);
-                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString(), false));
+                await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString(), false, false));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Message"] = "Zahtev za promenu šifre je uspešno poslat.";

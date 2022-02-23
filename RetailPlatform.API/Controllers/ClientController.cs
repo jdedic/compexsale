@@ -80,17 +80,24 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            if(model.LegalEntity == true && (string.IsNullOrEmpty(model.CompanyName) || string.IsNullOrEmpty(model.PIB) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTermsAndConditions == false)) 
+            if((model.IsVendor == false && model.IsCustomer == false) || model.AgreeWithTermsAndConditions == false)
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
             }
 
-            if (model.LegalEntity == false && (string.IsNullOrEmpty(model.FullName) || string.IsNullOrEmpty(model.JMBG) || (model.IsCustomer == model.IsVendor) || model.AgreeWithTermsAndConditions == false))
+            if(model.LegalEntity == true && (model.CompanyName == null || model.PIB == null)) 
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
             }
+            else if (model.LegalEntity == false && (model.FullName == null || model.JMBG == null))
+            {
+                TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
+                return View(model);
+            }
+
+
 
             await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model), model.IsVendor, model.IsCustomer);
             return RedirectToAction("ClientLogin", "Client");
@@ -131,19 +138,20 @@ namespace RetailPlatform.API.Controllers
             {
                 var user = _repositoryWrapper.Profile.GetProfileByEmail(model.Username);
                 var name = (user.IsVendor == true && user.LegalEntity == true) ? user.CompanyName : user.FullName;
-                await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.LegalEntity));
+                await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.IsVendor, user.LegalEntity));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
 
-        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isPrivateAccount)
+        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isVendor, bool isPrivateAccount)
         {
             var claims = new List<Claim>();
             claims.Add(new Claim("username", username));
             claims.Add(new Claim("roleName", "Profile")); 
             claims.Add(new Claim("isCustomer", isCustomer.ToString()));
+            claims.Add(new Claim("isVendor", isVendor.ToString()));
             claims.Add(new Claim("isPrivateAccount", isPrivateAccount.ToString()));
             claims.Add(new Claim("loggedUser", name));
             claims.Add(new Claim("userId", id));

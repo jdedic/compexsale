@@ -32,6 +32,6 @@ namespace RetailPlatform.Common.Entities
         public UnitType UnitType { get; set; }
         public long JobTypeId { get; set; }
         public JobType JobType { get; set; }
-        public decimal? Price { get; set; }
+        public float? Price { get; set; }
     }
 }

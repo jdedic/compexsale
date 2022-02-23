@@ -12,12 +12,13 @@ namespace RetailPlatform.API.Controllers
             return View();
         }
 
-        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer)
+        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isVendor)
         {
             var claims = new List<Claim>();
             claims.Add(new Claim("username", username));
             claims.Add(new Claim("roleName", "User"));
             claims.Add(new Claim("isCustomer", isCustomer.ToString()));
+            claims.Add(new Claim("isVendor", isVendor.ToString()));
             claims.Add(new Claim("loggedUser", name));
             claims.Add(new Claim("userId", id));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
