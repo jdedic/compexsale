@@ -33,5 +33,8 @@ namespace RetailPlatform.Common.Entities
         public long JobTypeId { get; set; }
         public JobType JobType { get; set; }
         public float? Price { get; set; }
+        public long? SubCategoryId1 { get; set; }
+        public long? SubCategoryId2 { get; set; }
+        public long? SubCategoryId3 { get; set; }
     }
 }

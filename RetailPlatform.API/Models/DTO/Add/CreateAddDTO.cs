@@ -41,6 +41,9 @@ namespace RetailPlatform.API.Models.DTO.Add
         public IEnumerable<SelectListItem> JobTypes { get; set; }
         public string SelectedJobType { get; set; }
         public float? Price { get; set; }
+        public string SelectedCategory1 { get; set; }
+        public string SelectedCategory2 { get; set; }
+        public string SelectedCategory3 { get; set; }
     }
 
    

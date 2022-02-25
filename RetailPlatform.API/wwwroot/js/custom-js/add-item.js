@@ -18,6 +18,15 @@ function returnFilteredPage(name) {
     //});
 }
 
+function handleClick() {
+    var x = document.getElementById("compesation");
+    if (x.classList.contains('d-none')) {
+        x.classList.remove('d-none');
+    } else {
+        x.classList.add('d-none');
+    }
+}
+
 function filterAdds() {
     var category = $("#categoryId").val() !== "" ? parseInt($("#categoryId").val()) : 0;
     var location = $("#location").val();

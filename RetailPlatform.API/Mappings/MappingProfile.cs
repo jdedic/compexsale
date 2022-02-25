@@ -66,7 +66,16 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.UnitTypeId.ToString()))
                  .ForMember(dest =>
                 dest.UniqueId,
-                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")));
+                opt => opt.MapFrom(src => Int32.Parse(src.UniqueId).ToString("D6")))
+                .ForMember(dest =>
+                dest.SelectedCategory1,
+                opt => opt.MapFrom(src => src.SubCategoryId1 != null ? src.SubCategoryId1.ToString() : ""))
+               .ForMember(dest =>
+                dest.SelectedCategory2,
+                opt => opt.MapFrom(src => src.SubCategoryId2 != null ? src.SubCategoryId2.ToString() : ""))
+               .ForMember(dest =>
+                dest.SelectedCategory3,
+                opt => opt.MapFrom(src => src.SubCategoryId3 != null ? src.SubCategoryId3.ToString() : ""));
                 
 
             CreateMap<Add, EditRequestDTO>()
@@ -80,7 +89,16 @@ namespace RetailPlatform.API.Mappings
                opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory) ? 0 : Int32.Parse(src.SelectedCategory)))
                .ForMember(dest =>
                dest.UnitTypeId,
-               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)));
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
+               .ForMember(dest =>
+               dest.SubCategoryId1,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory1) ? 0 : Int32.Parse(src.SelectedCategory1)))
+               .ForMember(dest =>
+               dest.SubCategoryId2,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory2) ? 0 : Int32.Parse(src.SelectedCategory2)))
+               .ForMember(dest =>
+               dest.SubCategoryId3,
+               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory3) ? 0 : Int32.Parse(src.SelectedCategory3)));
 
             CreateMap<CreateRequestDTO, Add>()
               .ForMember(dest =>
@@ -97,7 +115,16 @@ namespace RetailPlatform.API.Mappings
               opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedUnit) ? 0 : Int32.Parse(src.SelectedUnit)))
               .ForMember(dest =>
               dest.UniqueId,
-              opt => opt.MapFrom(src => Int32.Parse(src.UniqueId))); 
+              opt => opt.MapFrom(src => Int32.Parse(src.UniqueId)))
+              .ForMember(dest =>
+              dest.SubCategoryId1,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory1) ? 0 : Int32.Parse(src.SelectedCategory1)))
+              .ForMember(dest =>
+              dest.SubCategoryId2,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory2) ? 0 : Int32.Parse(src.SelectedCategory2)))
+              .ForMember(dest =>
+              dest.SubCategoryId3,
+              opt => opt.MapFrom(src => string.IsNullOrWhiteSpace(src.SelectedCategory3) ? 0 : Int32.Parse(src.SelectedCategory3))); 
               
 
             CreateMap<EditRequestDTO, Add>()

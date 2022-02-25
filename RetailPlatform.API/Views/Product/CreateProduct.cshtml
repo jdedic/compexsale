@@ -95,7 +95,7 @@
                     <div class="row" style="margin:10px;">
                         <div class="m-checkbox-inline mb-0 d-flex" style="margin-top:10px;">
                             <div class="col-sm-4 col-md-4 col-lg-4">
-                                @Html.CheckBoxFor(model => model.IsComepnsation, new { @class = "filled-in chk-col-green form-check-input" })
+                                @Html.CheckBoxFor(model => model.IsComepnsation, new { @class = "filled-in chk-col-green form-check-input", onclick="handleClick()" })
                                 <label for="@Html.DisplayNameFor(model => model.IsComepnsation)">Kompenzacija</label>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
@@ -105,6 +105,28 @@
                             <div class="col-sm-4 col-md-4 col-lg-4">
                                 @Html.CheckBoxFor(model => model.IsExchange, new { @class = "filled-in chk-col-green form-check-input" })
                                 <label for="@Html.DisplayNameFor(model => model.IsExchange)">Razmena</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-none" id="compesation" style="margin:10px;">
+                        <p>Kompenzovao bih ili razmenio robu za:</p>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="col-xl-8 col-md-7">
+                                @Html.DropDownListFor(x => x.SelectedCategory1, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory1, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="col-xl-8 col-md-7">
+                                @Html.DropDownListFor(x => x.SelectedCategory2, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory2, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-sm-4 col-md-4 col-lg-4">
+                            <div class="col-xl-8 col-md-7">
+                                @Html.DropDownListFor(x => x.SelectedCategory3, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory3, "", new { @class = "text-danger" })
                             </div>
                         </div>
                     </div>
