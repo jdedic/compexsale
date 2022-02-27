@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using RetailPlatform.Infrastructure.Data;
 
 namespace RetailPlatform.Infrastructure.Migrations
 {
     [DbContext(typeof(RetailContext))]
-    partial class RetailContextModelSnapshot : ModelSnapshot
+    [Migration("20220226092707_AddEmailTable")]
+    partial class AddEmailTable
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,9 +154,6 @@ namespace RetailPlatform.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<string>("City")
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime?>("DateWhenEmailIsSent")
                         .HasColumnType("datetime2");
@@ -493,7 +492,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Jovana",
                             LastName = "Dedic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 26, 10, 35, 7, 664, DateTimeKind.Local).AddTicks(2114),
+                            RegistrationDate = new DateTime(2022, 2, 26, 10, 27, 6, 352, DateTimeKind.Local).AddTicks(4181),
                             RoleId = 1L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
@@ -509,7 +508,7 @@ namespace RetailPlatform.Infrastructure.Migrations
                             FirstName = "Marko",
                             LastName = "Jankovic",
                             Password = "$2a$12$mSRDmGVv.FFskW4e8XD1eehfSBYFcilJmeHiQeKqpIZ786QmYB0GO",
-                            RegistrationDate = new DateTime(2022, 2, 26, 10, 35, 7, 669, DateTimeKind.Local).AddTicks(396),
+                            RegistrationDate = new DateTime(2022, 2, 26, 10, 27, 6, 356, DateTimeKind.Local).AddTicks(7059),
                             RoleId = 2L,
                             Telephone = "069 5485 156",
                             WorkingPosition = "Business Manager",
