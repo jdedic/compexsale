@@ -27,7 +27,6 @@ namespace RetailPlatform.API.Controllers
         public async Task<IActionResult> Login()
         {
             LoginModel model = new LoginModel();
-            await _emailService.SendWelcomEmail("jdedic2393@gmail.com");
             return View(model);
         }
 
