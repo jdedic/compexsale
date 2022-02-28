@@ -66,3 +66,59 @@
     background-color: white;
 }
 
+
+@media only screen and (max-width: 1400px) and (min-width: 1200px) {
+    .pixelstrap .full-mega-menu a{
+        letter-spacing:unset;
+    }
+} 
+
+@media screen and (max-width: 767px) {
+    .register-page .theme-card {
+        display:flex;
+        flex-direction:column;
+        padding:10px;
+    }
+
+    .retail-button{
+        align-self:center;
+        margin-top:30px;
+    }
+
+    .register-label {
+        padding-left:10px;
+    }
+
+    .top-header{
+        height:auto;
+    }
+    
+    .header-dropdown{
+        display:flex;
+        justify-content:space-evenly;
+        padding: 0px 0px 10px 0px !important;
+    }
+
+    .header-dropdown li {
+        padding:0px !important;
+    }
+
+    .top-header .header-contact li{
+        padding:0;
+        
+    }
+
+    .header-contact ul{
+        display:flex;
+        justify-content:space-around;
+    }
+
+}
+
+@media screen and (max-width: 500px){
+
+    .header-contact ul {
+        flex-direction:column;
+        text-align:center;
+    }
+}

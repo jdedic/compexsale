@@ -6968,7 +6968,24 @@ header {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    float: right; }
+    float: right; 
+  }
+
+.btn-reset {
+    border: 0 !important;
+    margin: 0;
+    background-color: transparent;
+}
+
+.menu-action-btn {
+    padding: 10px;
+}
+
+.menu-close {
+    margin-left: auto;
+    color: var(--theme-deafult) !important;
+}
+
     .main-menu .menu-right .icon-nav {
       display: inline-block; }
       .main-menu .menu-right .icon-nav li {
@@ -9030,7 +9047,7 @@ header.stickycls {
     display: none !important; }
   .pixelstrap ul {
     position: absolute;
-    width: 16em !important; }
+    width: 16em; }
   .pixelstrap li {
     position: relative;
     float: left; }
@@ -9360,7 +9377,7 @@ header.stickycls {
 
 @media (max-width: 991px) {
   .top-header .header-contact {
-    display: none; } }
+    display: block; } }
 
 @media (min-width: 578px) {
   .main-menu .menu-right .icon-nav .mobile-search i, .main-menu .menu-right .icon-nav .mobile-cart i, .main-menu .menu-right .icon-nav .mobile-setting i {
@@ -9370,123 +9387,6 @@ header.stickycls {
   .main-menu .menu-right .icon-nav .mobile-search .show-div .form-inline button i {
     display: inline-block; } }
 
-@media (max-width: 577px) {
-  .top-header {
-    height: 0; }
-  .main-nav-center .toggle-nav {
-    right: 15px;
-    top: -78px; }
-  .mobile-fix-option {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    height: 60px;
-    background-color: #ffffff;
-    width: 100vw;
-    z-index: 9;
-    -webkit-box-shadow: 0 2px 5px 0 #a8a8a8;
-            box-shadow: 0 2px 5px 0 #a8a8a8; }
-  .header-5 .top-header .header-dropdown .mobile-wishlist img, .header-5 .top-header .header-dropdown .mobile-account img {
-    -webkit-filter: none;
-            filter: none;
-    width: 20px;
-    opacity: 0.6; }
-  .header-5 .main-menu .brand-logo {
-    margin: 0;
-    left: 0;
-    -webkit-transform: unset;
-            transform: unset; }
-  .top-header .header-dropdown .mobile-account, .top-header .header-dropdown .mobile-wishlist {
-    position: fixed;
-    bottom: 20px;
-    right: 32%;
-    font-size: 0;
-    padding: 0;
-    z-index: 9; }
-    .top-header .header-dropdown .mobile-account i, .top-header .header-dropdown .mobile-wishlist i {
-      font-size: 22px;
-      font-family: themify;
-      color: #999999; }
-      .top-header .header-dropdown .mobile-account i:before, .top-header .header-dropdown .mobile-wishlist i:before {
-        content: "\e602"; }
-    .top-header .header-dropdown .mobile-account .onhover-show-div, .top-header .header-dropdown .mobile-wishlist .onhover-show-div {
-      top: unset;
-      bottom: 42px;
-      right: 0; }
-    .top-header .header-dropdown .mobile-account:hover i, .top-header .header-dropdown .mobile-wishlist:hover i {
-      color: #999999; }
-  .top-header .header-dropdown .mobile-wishlist {
-    right: 64%; }
-    .top-header .header-dropdown .mobile-wishlist i {
-      font-family: themify;
-      color: #999999 !important; }
-      .top-header .header-dropdown .mobile-wishlist i:before {
-        content: "\e634"; }
-  .main-menu .menu-left.category-nav-right .navbar {
-    padding-left: 0 !important; }
-  .main-menu .menu-left .navbar {
-    padding: 25px 45px 25px 0 !important; }
-  .main-menu .menu-right .icon-nav .mobile-setting, .main-menu .menu-right .icon-nav .mobile-cart, .main-menu .menu-right .icon-nav .mobile-search {
-    position: fixed;
-    bottom: 20px;
-    right: 16%;
-    font-size: 0;
-    padding: 0; }
-    .main-menu .menu-right .icon-nav .mobile-setting .show-div, .main-menu .menu-right .icon-nav .mobile-cart .show-div, .main-menu .menu-right .icon-nav .mobile-search .show-div {
-      top: -58px;
-      left: 0; }
-      .main-menu .menu-right .icon-nav .mobile-setting .show-div.shopping-cart, .main-menu .menu-right .icon-nav .mobile-cart .show-div.shopping-cart, .main-menu .menu-right .icon-nav .mobile-search .show-div.shopping-cart {
-        top: unset;
-        bottom: 42px;
-        left: -118px !important; }
-  .main-menu .menu-right .icon-nav .mobile-setting i {
-    display: inline-block;
-    font-size: 22px;
-    color: #999999; }
-  .main-menu .menu-right .icon-nav .mobile-setting > div img {
-    display: none; }
-  .main-menu .menu-right .icon-nav .mobile-setting .setting {
-    top: unset;
-    bottom: 42px;
-    left: unset !important; }
-  .main-menu .menu-right .icon-nav .mobile-cart {
-    right: 48%; }
-    .main-menu .menu-right .icon-nav .mobile-cart .close-circle i {
-      font-size: 14px; }
-    .main-menu .menu-right .icon-nav .mobile-cart i {
-      display: inline-block;
-      font-size: 22px;
-      color: #999999; }
-    .main-menu .menu-right .icon-nav .mobile-cart > div img {
-      display: none; }
-  .main-menu .menu-right .icon-nav .mobile-search {
-    right: 80%;
-    z-index: 1; }
-    .main-menu .menu-right .icon-nav .mobile-search i {
-      display: inline-block;
-      font-size: 22px;
-      color: #999999; }
-    .main-menu .menu-right .icon-nav .mobile-search img {
-      display: none; }
-    .main-menu .menu-right .icon-nav .mobile-search .show-div .form-group {
-      margin-bottom: 0; }
-    .main-menu .menu-right .icon-nav .mobile-search .show-div .form-inline button i {
-      font-size: 14px; }
-  .brand-logo {
-    position: absolute;
-    left: 50%;
-    margin-right: -50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
-    padding-top: 25px !important;
-    padding-bottom: 25px !important; }
-  .toggle-nav {
-    padding-top: 25px;
-    padding-bottom: 25px; } }
-
-@media (max-width: 480px) {
-  .brand-logo img {
-    height: 25px; } }
 
 /**=================================
     Modal css start
