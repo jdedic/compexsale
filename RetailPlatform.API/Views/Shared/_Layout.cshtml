@@ -6,6 +6,7 @@
     string isCustomer = ((ClaimsIdentity)User.Identity).FindFirst("isCustomer").Value;
     string isVendor = ((ClaimsIdentity)User.Identity).FindFirst("isVendor").Value;
     string userName = ((ClaimsIdentity)User.Identity).FindFirst("loggedUser").Value;
+    var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
 }
 
 <!DOCTYPE html>
@@ -53,7 +54,27 @@
                                 <div class="dotted-animation"><span class="animate-circle"></span><span class="main-circle"></span></div>
                             </div>
                             <ul class="profile-dropdown onhover-show-div p-20">
-                                <li><a href="@Url.Action("EditUser", "User", new { id = @userId })"><i data-feather="user"></i>Edit Profile</a></li>
+                                @if (role == "User")
+                                {
+                                    <li><a href="@Url.Action("EditUser", "User", new { id = @userId })"><i data-feather="user"></i>Edit Profile</a></li>
+                                }
+
+                                @if (isCustomer == "True" && isVendor == "True")
+                                {
+                                    var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
+                                    <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
+                                }
+                                else if (isCustomer == "True" && isVendor != "True")
+                                {
+                                    var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
+                                    <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
+                                }
+                                else if (isVendor == "True" && isCustomer != "True")
+                                {
+                                    var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
+                                    <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
+                                }
+
                                 @if (User.Identity.IsAuthenticated)
                                 {
                                     <li><a href="@Url.Action("Logout", "Account")"><i data-feather="log-out"></i>Logout</a></li>
@@ -157,19 +178,19 @@
                                 <li><a class="sidebar-header" href="@Url.Action("Adds", "Product")"><i data-feather="box"></i><span>Oglasi ponude</span></a></li>
                                 <li><a class="sidebar-header" href="@Url.Action("Requests", "Product")"><i data-feather="box"></i><span>Oglasi tražnje</span></a></li>
                                 var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
-                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Proizvodi</span></a></li>
+                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                             }
                             else if (isCustomer == "True" && isVendor != "True")
                             {
                                 <li><a class="sidebar-header" href="@Url.Action("Requests", "Product")"><i data-feather="box"></i><span>Oglasi tražnje</span></a></li>
                                 var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
-                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Proizvodi</span></a></li>
+                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                             }
                             else if (isVendor == "True" && isCustomer != "True")
                             {
                                 <li><a class="sidebar-header" href="@Url.Action("Adds", "Product")"><i data-feather="box"></i><span>Oglasi ponude</span></a></li>
                                 var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
-                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Proizvodi</span></a></li>
+                                <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                             }
 
                         }
