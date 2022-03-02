@@ -11,15 +11,20 @@ namespace RetailPlatform.API.Controllers
     public class AccountController : RetailController
     {
         private readonly IUserService _userService;
+        private readonly IEmailService _emailService;
         private readonly IRepositoryWrapper _repositoryWrapper;
-        public AccountController(IUserService userService, IRepositoryWrapper repositoryWrapper)
+        public AccountController(
+            IUserService userService,
+            IEmailService emailService,
+            IRepositoryWrapper repositoryWrapper)
         {
-            _repositoryWrapper = repositoryWrapper;
             _userService = userService;
+            _emailService = emailService;
+            _repositoryWrapper = repositoryWrapper;
         }
 
         [HttpGet("login")]
-        public IActionResult Login()
+        public async Task<IActionResult> Login()
         {
             LoginModel model = new LoginModel();
             return View(model);
@@ -41,6 +46,7 @@ namespace RetailPlatform.API.Controllers
                 await HttpContext.SignInAsync(SetClaims(model.Username, user.FirstName + " " + user.LastName, user.Id.ToString(), false, false));
                 return RedirectToAction("AdminDashboard", "Home");
             }
+
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("login");
         }

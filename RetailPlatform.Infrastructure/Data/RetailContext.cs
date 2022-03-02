@@ -62,5 +62,6 @@ namespace RetailPlatform.Infrastructure.Data
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<UnitType> UnitTypes { get; set; }
         public DbSet<JobType> JobTypes { get; set; }
+        public DbSet<Email> Emails { get; set; }
     }
 }
