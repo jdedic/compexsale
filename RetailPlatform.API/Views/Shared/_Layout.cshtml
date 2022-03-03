@@ -6,7 +6,6 @@
     string isCustomer = ((ClaimsIdentity)User.Identity).FindFirst("isCustomer").Value;
     string isVendor = ((ClaimsIdentity)User.Identity).FindFirst("isVendor").Value;
     string userName = ((ClaimsIdentity)User.Identity).FindFirst("loggedUser").Value;
-    var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
 }
 
 <!DOCTYPE html>
@@ -61,16 +60,19 @@
 
                                 @if (isCustomer == "True" && isVendor == "True")
                                 {
+                                    var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
                                     var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
                                     <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                                 }
                                 else if (isCustomer == "True" && isVendor != "True")
                                 {
+                                    var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
                                     var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
                                     <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                                 }
                                 else if (isVendor == "True" && isCustomer != "True")
                                 {
+                                    var privateAccount = ((ClaimsIdentity)User.Identity).FindFirst("isPrivateAccount").Value;
                                     var editUrl = privateAccount == "True" ? "EditBusinessAccount" : "EditPrivateAccount";
                                     <li><a class="sidebar-header" href="@Url.Action(editUrl, "Customer", new { id = @userId })"><i data-feather="user"></i><span>Profil</span></a></li>
                                 }
