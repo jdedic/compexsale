@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
@@ -23,6 +24,7 @@ namespace RetailPlatform.API.Controllers
             _mapper = mapper;
         }
 
+        [Authorize]
         public IActionResult SubCategoryList()
         {
             return View();
@@ -40,6 +42,7 @@ namespace RetailPlatform.API.Controllers
             return subCategories.ToArray();
         }
 
+        [Authorize]
         public async Task<IActionResult> CreateSubCategory()
         {
             SubCategoryDTO dto = new SubCategoryDTO();
@@ -47,6 +50,7 @@ namespace RetailPlatform.API.Controllers
             return PartialView("AddSubcategory", dto);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("SubCategory/CreateSubCategory")]
         [ValidateAntiForgeryToken]
@@ -62,6 +66,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/SubCategory/SubCategoryList");
         }
 
+        [Authorize]
         public async Task<IActionResult> EditSubcategory(long id)
         {
             var subCategory = await _repositoryWrapper.SubCategory.GetSubCategoryById(id);
@@ -71,6 +76,7 @@ namespace RetailPlatform.API.Controllers
             return PartialView("EditSubCategory", model);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("SubCategory/EditSubCategory")]
         [ValidateAntiForgeryToken]
@@ -87,6 +93,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/SubCategory/SubCategoryList");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("SubCategory/RemoveSubCategory")]
         public async Task<IActionResult> RemoveSubCategory(long id)

@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
@@ -24,6 +25,7 @@ namespace RetailPlatform.API.Controllers
             _repositoryWrapper = repositoryWrapper;
         }
 
+        [Authorize]
         public IActionResult CategoryList()
         {
             return View();
@@ -36,6 +38,7 @@ namespace RetailPlatform.API.Controllers
             return result.ToArray();
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Category/CreateCategory")]
         [ValidateAntiForgeryToken]
@@ -50,6 +53,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/Category/CategoryList");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Category/EditCategory")]
         [ValidateAntiForgeryToken]
@@ -66,6 +70,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/Category/CategoryList");
         }
 
+        [Authorize]
         public async Task<IActionResult> EditCategory(int id)
         {
             var category = await _repositoryWrapper.Category.GetCategoryById(id);
@@ -77,6 +82,7 @@ namespace RetailPlatform.API.Controllers
             return PartialView("EditCategory", dto);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Category/RemoveCategory")]
         public async Task<IActionResult> RemoveCategory(long id)

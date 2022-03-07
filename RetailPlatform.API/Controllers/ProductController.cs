@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.API.Models.DTO.Add;
@@ -35,7 +36,7 @@ namespace RetailPlatform.API.Controllers
             _repositoryWrapper = repositoryWrapper;
         }
 
-
+        [Authorize]
         public async Task<IActionResult> CreateProduct()
         {
             CreateAddDTO add = new CreateAddDTO();
@@ -44,6 +45,7 @@ namespace RetailPlatform.API.Controllers
             return View(add);
         }
 
+        [Authorize]
         public async Task<IActionResult> CreateRequest()
         {
             CreateRequestDTO add = new CreateRequestDTO();
@@ -51,6 +53,7 @@ namespace RetailPlatform.API.Controllers
             return View(add);
         }
 
+        [Authorize]
         public async Task<IActionResult> EditProduct(long id)
         {
             EditAddDTO model = _mapper.Map<EditAddDTO>(await _addService.GetAddById(id));
@@ -60,6 +63,7 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
+        [Authorize]
         public async Task<IActionResult> EditRequest(long id)
         {
             EditRequestDTO model = _mapper.Map<EditRequestDTO>(await _addService.GetAddById(id));
@@ -67,6 +71,7 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
+        [Authorize]
         [IgnoreAntiforgeryToken]
         [HttpPost]
         [Route("Product/CreateProduct")]
@@ -130,6 +135,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/adds");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Product/CreateRequest")]
         [ValidateAntiForgeryToken]
@@ -147,6 +153,7 @@ namespace RetailPlatform.API.Controllers
         }
 
 
+        [Authorize]
         [IgnoreAntiforgeryToken]
         [HttpPost]
         [Route("Product/EditProduct")]
@@ -249,6 +256,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/adds");
         }
 
+        [Authorize]
         [IgnoreAntiforgeryToken]
         [HttpPost]
         [Route("Product/EditRequest")]
@@ -272,6 +280,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/requests");
         }
 
+        [Authorize]
         [HttpGet]
         [Route("adds")]
         public IActionResult Adds()
@@ -279,6 +288,7 @@ namespace RetailPlatform.API.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpGet]
         [Route("requests")]
         public IActionResult Requests()
@@ -301,6 +311,7 @@ namespace RetailPlatform.API.Controllers
             return View(new ContactForm());
         }
 
+        [Authorize]
         [HttpGet]
         public IEnumerable<AddDTO> Get()
         {
@@ -340,6 +351,7 @@ namespace RetailPlatform.API.Controllers
             return requestList;
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Product/FilterProduct")]
         public IActionResult FilterProduct(long categoryId, string location, string name)
@@ -368,6 +380,7 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Product/RemoveAdd")]
         public async Task<IActionResult> RemoveAdd(long id)

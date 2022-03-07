@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
@@ -26,6 +27,7 @@ namespace RetailPlatform.API.Controllers
             _repositoryWrapper = repositoryWrapper;
         }
 
+        [Authorize]
         public IActionResult UserList()
         {
             return View();
@@ -38,6 +40,7 @@ namespace RetailPlatform.API.Controllers
             return result.ToArray();
         }
 
+        [Authorize]
         public async Task<IActionResult> CreateUser()
         {
             UserDTO user = new UserDTO();
@@ -45,6 +48,7 @@ namespace RetailPlatform.API.Controllers
             return View(user);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("User/CreateUser")]
         [ValidateAntiForgeryToken]
@@ -60,6 +64,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/User/UserList");
         }
 
+        [Authorize]
         public async Task<IActionResult> EditUser(long id)
         {
             var user = await _repositoryWrapper.User.GetUserById(id);
@@ -69,6 +74,7 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
+        [Authorize]
         [HttpPost]
         [Route("User/EditUser")]
         [ValidateAntiForgeryToken]
@@ -98,6 +104,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/User/UserList");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("User/RemoveUser")]
         public async Task<IActionResult> RemoveUser(long id)

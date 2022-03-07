@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RetailPlatform.API.Models.DTO;
 using RetailPlatform.Common.Entities;
@@ -26,38 +27,45 @@ namespace RetailPlatform.API.Controllers
         }
 
         #region Views
+        [Authorize]
         public IActionResult PrivateAccountList()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult BusinessAccountList()
         {
             return View();
         }
 
+        [Authorize]
         public async Task<IEnumerable<ProfileModelDTO>> PrivateAccounts()
         {
             var privateAccounts = _mapper.Map<List<ProfileModelDTO>>(await _repositoryWrapper.Profile.GetPrivateProfiles());
             return privateAccounts.ToArray();
         }
 
+        [Authorize]
         public async Task<IEnumerable<BusinessAccountModel>> BusinessAccounts()
         {
             var businessAccounts = _mapper.Map<List<BusinessAccountModel>>(await _repositoryWrapper.Profile.GetBusinessProfiles());
             return businessAccounts.ToArray();
         }
 
+        [Authorize]
         public IActionResult CreatePrivateAccount()
         {
             return View();
         }
 
+        [Authorize]
         public IActionResult CreateBusinessAccount()
         {
             return View();
         }
 
+        [Authorize]
         public async Task<IActionResult> EditBusinessAccount(long id)
         {
             var vendor = await _repositoryWrapper.Profile.GetProfileById(id);
@@ -65,7 +73,7 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
-      
+        [Authorize]
         public async Task<IActionResult> EditPrivateAccount(long id)
         {
             var vendor = await _repositoryWrapper.Profile.GetProfileById(id);
@@ -75,7 +83,7 @@ namespace RetailPlatform.API.Controllers
         #endregion
 
         #region CRUD
-
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePrivateAccount(PrivateAccountDTO model)
         {
@@ -89,6 +97,7 @@ namespace RetailPlatform.API.Controllers
             return RedirectToAction("PrivateAccountList", "Customer");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Customer/EditPrivateAccount")]
         [ValidateAntiForgeryToken]
@@ -112,6 +121,7 @@ namespace RetailPlatform.API.Controllers
             return Redirect("/Customer/PrivateAccountList");
         }
 
+        [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreateBusinessAccount(CreateBusinessAccountDTO model)
         {
@@ -124,6 +134,7 @@ namespace RetailPlatform.API.Controllers
             return RedirectToAction("BusinessAccountList", "Customer");
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Customer/RemoveCustomer")]
         public async Task<IActionResult> RemoveCustomer(long id)
@@ -134,6 +145,7 @@ namespace RetailPlatform.API.Controllers
             return new JsonResult(new { done = "Done" });
         }
 
+        [Authorize]
         [HttpPost]
         [Route("Customer/EditBusinessAccount")]
         [ValidateAntiForgeryToken]
