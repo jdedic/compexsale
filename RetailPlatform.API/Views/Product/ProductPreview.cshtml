@@ -87,6 +87,25 @@
                                 @Model.Description
                             </div>
                         </div>
+                        @if (Model.SubCategoryId1 != "" || Model.SubCategoryId2 != "" || Model.SubCategoryId3 != "")
+                        {
+                            <div class="border-product">
+                                <h6 class="product-title">Kompenzovao bih ili razmenio robu za:</h6>
+                                @if (Model.SubCategoryId1 != "")
+                                {
+                                    <div>@Model.SubCategoryId1</div>
+                                }
+                                @if (Model.SubCategoryId2 != "")
+                                {
+                                    <div>@Model.SubCategoryId2</div>
+                                }
+                                @if (Model.SubCategoryId3 != "")
+                                {
+                                    <div>@Model.SubCategoryId3</div>
+                                }
+                            </div>
+                        }
+
                     </div>
                 </div>
             </div>

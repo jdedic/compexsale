@@ -47,7 +47,7 @@ function filterAdds() {
                     addsTable.append(` <div class="col-3">
                                <div class="cycle-box">
                                     <div class="product-detail">
-                                        <a href="/Product/ProductPreview/${data.adds[0].id}">
+                                        <a>
                                             <h4>${data.adds[0].name}</h4>
                                         </a>
                                         <ul class="details">
@@ -58,7 +58,7 @@ function filterAdds() {
                                         </ul>
                                     </div>
                                     <div class="img-wrapper">
-                                        <a href="/Product/ProductPreview/${data.adds[0].id}">
+                                        <a>
                                            <img src="${data.adds[0].imagePath}"
                                                class="img-fluid blur-up lazyload bg-img" alt="">
                                         </a>

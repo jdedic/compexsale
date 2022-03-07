@@ -16,5 +16,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         string FetchLastAdd(bool active);
         List<Add> FetchRequests();
         IQueryable<Add> GetAdds();
+        Task<string> GetCategoryByAddId(long? id);
     }
 }

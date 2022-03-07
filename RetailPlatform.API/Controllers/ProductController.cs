@@ -362,6 +362,9 @@ namespace RetailPlatform.API.Controllers
             model.Date = product.CreationDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
             model.Category = product.SubCategory.Name;
             model.Unit = product.UnitType.Name;
+            model.SubCategoryId1 = product.SubCategoryId1 != null ? await _repositoryWrapper.Add.GetCategoryByAddId(product.SubCategoryId1) : string.Empty;
+            model.SubCategoryId2 = product.SubCategoryId2 != null ? await _repositoryWrapper.Add.GetCategoryByAddId(product.SubCategoryId2) : string.Empty;
+            model.SubCategoryId3 = product.SubCategoryId3 != null ? await _repositoryWrapper.Add.GetCategoryByAddId(product.SubCategoryId3) : string.Empty;
             return View(model);
         }
 
