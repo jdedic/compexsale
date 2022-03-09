@@ -5,6 +5,19 @@
     string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
 }
 
+<style>
+    select {
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+        -webkit-appearance: none;
+    }
+
+    .category-dropdown {
+        width: auto !important;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">

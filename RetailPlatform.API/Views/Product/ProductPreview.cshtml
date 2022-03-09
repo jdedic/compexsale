@@ -8,34 +8,37 @@
     <div class="collection-wrapper ratio_asos">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="row product_image_4">
-                        <div class="col-6">
-                            <div class="image-border">
-                                <img src="@Model.ImgUrl1" alt=""
-                                     class="img-fluid blur-up lazyload bg-img">
+                @if (Model.IsRequest == false)
+                {
+                    <div class="col-lg-6">
+                        <div class="row product_image_4">
+                            <div class="col-6">
+                                <div class="image-border">
+                                    <img src="@Model.ImgUrl1" alt=""
+                                         class="img-fluid blur-up lazyload bg-img">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="image-border">
-                                <img src="@Model.ImgUrl2" alt=""
-                                     class="img-fluid blur-up lazyload bg-img ">
+                            <div class="col-6">
+                                <div class="image-border">
+                                    <img src="@Model.ImgUrl2" alt=""
+                                         class="img-fluid blur-up lazyload bg-img ">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="image-border">
-                                <img src="@Model.ImgUrl3" alt=""
-                                     class="img-fluid blur-up lazyload bg-img">
+                            <div class="col-6">
+                                <div class="image-border">
+                                    <img src="@Model.ImgUrl3" alt=""
+                                         class="img-fluid blur-up lazyload bg-img">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="image-border">
-                                <img src="@Model.ImgUrl4" alt=""
-                                     class="img-fluid blur-up lazyload bg-img">
+                            <div class="col-6">
+                                <div class="image-border">
+                                    <img src="@Model.ImgUrl4" alt=""
+                                         class="img-fluid blur-up lazyload bg-img">
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                }
                 <div class="col-lg-6 rtl-text">
                     <div class="product-right">
                         <div class="product-count">
@@ -51,34 +54,47 @@
                             <span class="badge badge-theme-color">@Model.Active</span>
                         </div>
 
-                        <div class="product-count">
-                            <ul>
-                                <li>
-                                    <img src="~/images/icon/truck.png" class="img-fluid" alt="image">
-                                    <span class="lang">Mogućnost organizacije transporta, skladištenja i isporuke.</span>
-                                </li>
-                            </ul>
-                        </div>
+                        @if (Model.IsRequest == false)
+                        {
+                            <div class="product-count">
+                                <ul>
+                                    <li>
+                                        <img src="~/images/icon/truck.png" class="img-fluid" alt="image">
+                                        <span class="lang">Mogućnost organizacije transporta, skladištenja i isporuke.</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="border-product">
+                                <h6 class="product-title">Načini kupovine / prodaje</h6>
+                                <div>
+                                    @Model.IsComepnsation
+                                </div>
+                                <div>
+                                    @Model.IsExchange
+                                </div>
+                                <div>
+                                    @Model.IsDiscontSale
+                                </div>
+                            </div>
+                        }
                         <div class="border-product">
-                            <h6 class="product-title">Načini kupovine / prodaje</h6>
-                            <div>
-                                @Model.IsComepnsation
-                            </div>
-                            <div>
-                                @Model.IsExchange
-                            </div>
-                            <div>
-                                @Model.IsDiscontSale
-                            </div>
-                        </div>
-                        <div class="border-product">
-                            <h6 class="product-title">Detalji proizvoda</h6>
+                            @if (Model.IsRequest == false)
+                            {
+                                <h6 class="product-title">Detalji proizvoda</h6>
+                            }
+                            else
+                            {
+                                <h6 class="product-title">Detalji tražnje</h6>
+                            }
                             <ul class="shipping-info">
                                 <li>Datum kreiranja oglasa: @Model.Date</li>
                                 <li>Lokacija: @Model.Place</li>
-                                <li>Kolicina: @Model.Quantity</li>
-                                <li>Jedinica: @Model.Unit</li>
-                                <li>Cena / Vrednost: @Model.Price</li>
+                                @if (Model.IsRequest == false)
+                                {
+                                    <li>Kolicina: @Model.Quantity</li>
+                                    <li>Jedinica: @Model.Unit</li>
+                                    <li>Cena / Vrednost: @Model.Price</li>
+                                }
                             </ul>
                         </div>
                         <div class="border-product">

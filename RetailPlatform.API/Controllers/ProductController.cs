@@ -371,6 +371,8 @@ namespace RetailPlatform.API.Controllers
         {
             var product = await _repositoryWrapper.Add.GetAddWithUnit(id);
             ProductPreviewDTO model = _mapper.Map<ProductPreviewDTO>(product);
+            var jobType = await _repositoryWrapper.Add.GetJobTypeName(product.JobTypeId);
+            model.IsRequest = jobType == "Tražnja" ? true : false;
             model.Date = product.CreationDate.ToString("dd/M/yyyy", CultureInfo.InvariantCulture);
             model.Category = product.SubCategory.Name;
             model.Unit = product.UnitType.Name;

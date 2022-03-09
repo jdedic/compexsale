@@ -1,4 +1,9 @@
-﻿@model RetailPlatform.API.Models.DTO.Add.EditRequestDTO
+﻿@using System.Security.Claims;
+@model RetailPlatform.API.Models.DTO.Add.EditRequestDTO
+
+@{
+    string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+}
 
 <div class="container-fluid">
     <div class="page-header">
@@ -62,7 +67,15 @@
                                 @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
                             </div>
                         </div>
-
+                        @if (role == "User")
+                        {
+                            <div class="form-group">
+                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                    @Html.CheckBoxFor(model => model.Active, new { @class = "filled-in chk-col-green form-check-input" })
+                                    <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.Active)">Aktivan</label>
+                                </div>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>

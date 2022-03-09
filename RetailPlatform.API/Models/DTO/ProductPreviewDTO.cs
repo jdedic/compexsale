@@ -32,5 +32,6 @@ namespace RetailPlatform.API.Models.DTO
         public string SubCategoryId1 { get; set; }
         public string SubCategoryId2 { get; set; }
         public string SubCategoryId3 { get; set; }
+        public bool IsRequest { get; set; }
     }
 }

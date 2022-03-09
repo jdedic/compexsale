@@ -1,5 +1,18 @@
 ﻿@model RetailPlatform.API.Models.DTO.Add.CreateAddDTO
 
+<style>
+    select {
+        overflow: hidden;
+        white-space: pre;
+        text-overflow: ellipsis;
+        -webkit-appearance: none;
+    }
+
+    .category-dropdown {
+        width: auto !important;
+    }
+</style>
+
 <div class="container-fluid">
     <div class="page-header">
         <div class="row">
@@ -113,19 +126,19 @@
                         <p>Kompenzovao bih ili razmenio robu za:</p>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="col-xl-8 col-md-7">
-                                @Html.DropDownListFor(x => x.SelectedCategory1, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.DropDownListFor(x => x.SelectedCategory1, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control category-dropdown" })
                                 @Html.ValidationMessageFor(model => model.SelectedCategory1, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="col-xl-8 col-md-7">
-                                @Html.DropDownListFor(x => x.SelectedCategory2, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.DropDownListFor(x => x.SelectedCategory2, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control category-dropdown" })
                                 @Html.ValidationMessageFor(model => model.SelectedCategory2, "", new { @class = "text-danger" })
                             </div>
                         </div>
                         <div class="col-sm-4 col-md-4 col-lg-4">
                             <div class="col-xl-8 col-md-7">
-                                @Html.DropDownListFor(x => x.SelectedCategory3, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control" })
+                                @Html.DropDownListFor(x => x.SelectedCategory3, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control category-dropdown" })
                                 @Html.ValidationMessageFor(model => model.SelectedCategory3, "", new { @class = "text-danger" })
                             </div>
                         </div>
