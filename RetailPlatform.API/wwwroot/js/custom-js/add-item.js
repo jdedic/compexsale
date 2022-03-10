@@ -32,9 +32,9 @@ function handleClick() {
 }
 
 function filterAdds() {
-    var category = $("#categoryId").val() !== "" ? parseInt($("#categoryId").val()) : 0;
-    var location = $("#location").val();
-    var name = $("#name").val();
+    var category = $("#categoryId").val() !== '' ? parseInt($("#categoryId").val()) : 0;
+    var location = $("#location").val() !== '' ? $("#location").val() : null;
+    var name = $("#name").val() != '' ? $("#name").val() : null;
 
     $.ajax({
         type: "POST",
