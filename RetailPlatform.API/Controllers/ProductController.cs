@@ -351,7 +351,6 @@ namespace RetailPlatform.API.Controllers
             return requestList;
         }
 
-        [Authorize]
         [HttpPost]
         [Route("Product/FilterProduct")]
         public IActionResult FilterProduct(long categoryId, string location, string name)
