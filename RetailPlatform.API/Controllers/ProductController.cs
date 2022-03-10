@@ -360,7 +360,7 @@ namespace RetailPlatform.API.Controllers
             adds.ForEach(m =>
             {
                 var add = _mapper.Map<AddModel>(m);
-                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.SubCategoryId);
                 addsList.Add(add);
             });
             return new JsonResult(new { adds = addsList });
