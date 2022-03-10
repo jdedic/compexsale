@@ -18,5 +18,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         IQueryable<Add> GetAdds();
         Task<string> GetCategoryByAddId(long? id);
         Task<string> GetJobTypeName(long id);
+        List<Add> FetchAddsByJobTypeId(long jobTypeId);
     }
 }

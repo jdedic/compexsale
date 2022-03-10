@@ -1,0 +1,225 @@
+﻿@model RetailPlatform.API.Models.DTO.HomePage.AddsGrid
+@{
+    Layout = "~/Views/Shared/_SiteLayout.cshtml";
+}
+
+<div class="breadcrumb-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="page-title">
+                    <h2>@Model.Title</h2>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <nav aria-label="breadcrumb" class="theme-breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="index.html">COMPEXSALE</a></li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+
+<section class="bg_cls">
+    <div class="search-section absolute-banner">
+        <div class="container">
+            <div class="absolute-bg">
+                <form class="row align-items-center">
+                    <div class="col-md-3 col-12">
+                        <div class="form-group mb-0">
+                            <div class="form-group mb-0">
+                                @Html.DropDownListFor(x => x.SelectedCategory, new SelectList(Model.FilteredCategories, "Value", "Text"), "Selektuj kategoriju", htmlAttributes: new { @class = "custom-select form-control", @id = "categoryId" })
+                                @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group mb-0">
+                            @Html.TextBoxFor(model => model.Location, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = "Lokacija", @id = "location" })
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12">
+                        <div class="form-group mb-0">
+                            @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = "Naziv", @id = "name" })
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-12 search-col">
+                        <div class="search-btn">
+                            <a href="#" onclick="return filterAdds();" class="btn btn-solid d-block" tabindex="0">search</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="ratio2_3 bg_cls">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="theme-tab">
+                    <div class="tab-content-cls">
+                        <div id="tab-4" class="tab-content active default">
+                            <div class="row cycle-box-row" id="adds">
+                                @if (Model.Adds.Count() != 0)
+                                {
+                                    @foreach (var item in Model.Adds)
+                                    {
+                                        <div class="col-3">
+                                            <div class="cycle-box">
+                                                <div class="product-detail">
+                                                    <a>
+                                                        <h4>@item.Name</h4>
+                                                    </a>
+
+                                                    <ul class="details">
+                                                        <li><i class="fa fa-user-o" aria-hidden="true"></i> Datum oglašavanja:</li>
+                                                        <li>
+                                                            <i aria-hidden="true"></i> @item.PublicationDate
+                                                        </li>
+                                                    </ul>
+
+                                                </div>
+                                                <div class="img-wrapper">
+                                                    <a>
+                                                        <img src="@item.ImagePath"
+                                                             class="img-fluid blur-up lazyload bg-img" alt="">
+                                                    </a>
+                                                </div>
+                                                <div class="bottom-detail">
+                                                    <div>
+                                                        <h5>KATEGORIJA: @item.Category</h5>
+                                                    </div>
+                                                </div>
+                                                <ul class="cart-detail">
+                                                    <li>
+                                                        <a href="/Product/ProductPreview/@item.Id" title="Pošalji upit" tabindex="0">
+                                                            <i data-feather="refresh-ccw"></i>DETALJI
+                                                        </a>
+                                                    </li>
+                                                    <li>
+                                                        <a href="/Client/Contact" title="Pošalji upit" tabindex="0">
+                                                            <i data-feather="refresh-ccw"></i>POŠALJI UPIT
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    }
+                                }
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="cookie-bar">
+    <p>
+        We use cookies to improve our site and your shopping experience. By continuing to browse our site you accept
+        our cookie policy.
+    </p>
+    <a href="javascript:void(0)" class="btn btn-solid btn-xs">accept</a>
+    <a href="javascript:void(0)" class="btn btn-solid btn-xs">decline</a>
+</div>
+
+<div class="modal fade bd-example-modal-lg theme-modal" id="quick-view" tabindex="-1" role="dialog"
+     aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+        <div class="modal-content quick-view-modal">
+            <div class="modal-body">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <div class="row">
+                    <div class="col-lg-6 col-xs-12">
+                        <div class="quick-view-img ratio_asos">
+                            <div class="quick-slide-1 theme-dots no-arrow">
+                                <div>
+                                    <img src="../assets/images/bicycle/1.png" alt=""
+                                         class="img-fluid blur-up lazyload bg-img">
+                                </div>
+                                <div>
+                                    <img src="../assets/images/bicycle/1.png" alt=""
+                                         class="img-fluid blur-up lazyload bg-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 rtl-text">
+                        <div class="product-right">
+                            <h2>Women Pink Shirt</h2>
+                            <h3>$32.96</h3>
+                            <ul class="color-variant">
+                                <li class="bg-light0"></li>
+                                <li class="bg-light1"></li>
+                                <li class="bg-light2"></li>
+                            </ul>
+                            <div class="border-product">
+                                <h6 class="product-title">product details</h6>
+                                <p>
+                                    Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium
+                                    doloremque laudantium
+                                </p>
+                            </div>
+                            <div class="product-description border-product">
+                                <div class="size-box">
+                                    <ul>
+                                        <li class="active"><a href="javascript:void(0)">s</a></li>
+                                        <li><a href="javascript:void(0)">m</a></li>
+                                        <li><a href="javascript:void(0)">l</a></li>
+                                        <li><a href="javascript:void(0)">xl</a></li>
+                                    </ul>
+                                </div>
+                                <h6 class="product-title">quantity</h6>
+                                <div class="qty-box">
+                                    <div class="input-group">
+                                        <span class="input-group-prepend">
+                                            <button type="button"
+                                                    class="btn quantity-left-minus" data-type="minus" data-field="">
+                                                <i class="ti-angle-left"></i>
+                                            </button>
+                                        </span>
+                                        <input type="text" name="quantity" class="form-control input-number"
+                                               value="1"> <span class="input-group-prepend">
+                                            <button type="button"
+                                                    class="btn quantity-right-plus" data-type="plus" data-field="">
+                                                <i class="ti-angle-right"></i>
+                                            </button>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="product-buttons">
+                                <a href="#" class="btn btn-solid">Pogledaj detalje oglasa</a> <a href="#" class="btn btn-solid">view detail</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section dataTables {
+    <script src="~/js/jquery-ui.min.js"></script>
+    <script src="~/js/slick-animation.min.js"></script>
+    <script src="~/js/wow.min.js"></script>
+    <script src="~/js/feather.min.js"></script>
+    <script src="~/js/theme-setting.js"></script>
+    <script src="~/js/custom-slick-animated.js"></script>
+    <script src="~/js/footer-reveal.min.js"></script>
+
+    <script src="~/js/custom-js/add-item.js"></script>
+}
