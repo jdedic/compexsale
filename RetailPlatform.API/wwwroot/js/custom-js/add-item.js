@@ -18,6 +18,10 @@ function returnFilteredPage(name) {
     //});
 }
 
+function returnFilteredRequestPage(name) {
+    window.location.href = `/Home/RequestsGrid?title=${name}`;
+}
+
 function handleClick() {
     var x = document.getElementById("compesation");
     if (x.classList.contains('d-none')) {

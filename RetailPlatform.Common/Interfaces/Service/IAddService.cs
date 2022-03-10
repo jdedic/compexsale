@@ -17,7 +17,7 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task<Add> EditAdd(Add add);
         Task<IEnumerable<SelectListItem>> GetUnits();
         Task<IEnumerable<SelectListItem>> GetJobTypes();
-        Task<List<Add>> FetchAddsBySubCategory(string category);
+        Task<List<Add>> FetchAddsBySubCategory(string category, long jobTypeId);
         List<Add> FetchRequests();
         Task CreateRequest(Add model);
         Task EditRequest(Add add);

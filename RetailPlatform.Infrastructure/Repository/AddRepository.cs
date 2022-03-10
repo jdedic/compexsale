@@ -21,6 +21,13 @@ namespace RetailPlatform.Infrastructure.Repository
             return active ? adds.Where(m => m.Active == true).ToList() : adds;
         }
 
+        public List<Add> FetchAddsByJobTypeId(long jobTypeId)
+        {
+            var adds = _dbContext.Adds.Include(m => m.UnitType).Where(m => m.JobTypeId == jobTypeId).ToList();
+
+            return adds.Where(m => m.Active == true).ToList();
+        }
+
         public IQueryable<Add> GetAdds()
         {
             return _dbContext.Adds.Include(m => m.UnitType).Where(m => m.JobTypeId == 1).AsQueryable();

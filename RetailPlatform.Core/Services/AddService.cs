@@ -33,12 +33,12 @@ namespace RetailPlatform.Core.Services
             return _repositoryWrapper.Add.FetchRequests();
         }
 
-        public async Task<List<Add>> FetchAddsBySubCategory(string category)
+        public async Task<List<Add>> FetchAddsBySubCategory(string category, long jobTypeId)
         {
             var subcategory = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(category);
             if(subcategory != null)
             {
-                return FilterAdds(subcategory.Id, null, null);
+                return FilterAddsByJobTypeId(subcategory.Id, jobTypeId);
             }
             return null;
         }
@@ -61,6 +61,18 @@ namespace RetailPlatform.Core.Services
             {
                 adds = adds.Where(m => m.Name.ToLower().Equals(name.ToLower())).ToList();
             }
+            return adds;
+        }
+
+        public List<Add> FilterAddsByJobTypeId(long categoryId, long jobTypeId)
+        {
+            var adds = _repositoryWrapper.Add.FetchAddsByJobTypeId(jobTypeId);
+
+            if (categoryId != 0)
+            {
+                adds = adds.Where(m => m.SubCategoryId == categoryId).ToList();
+            }
+           
             return adds;
         }
 

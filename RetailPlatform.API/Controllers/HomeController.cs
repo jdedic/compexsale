@@ -90,7 +90,7 @@ namespace RetailPlatform.API.Controllers
         [Route("Home/AddsGrid")]
         public async Task<IActionResult> AddsGrid([Required]string title)
         {
-            var adds = await _addService.FetchAddsBySubCategory(title);
+            var adds = await _addService.FetchAddsBySubCategory(title, 1);
             AddsGrid model = new AddsGrid();
             model.Title = title;
             model.FilteredCategories = await _addService.FilteredCategories(title);
@@ -102,11 +102,37 @@ namespace RetailPlatform.API.Controllers
                 adds.ForEach(m =>
                 {
                     var add = _mapper.Map<AddModel>(m);
+                    add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
                     add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
                     model.Adds.Add(add);
                 });
             }
            
+            return View(model);
+        }
+
+        [HttpGet]
+        [Route("Home/RequestsGrid")]
+        public async Task<IActionResult> RequestsGrid([Required] string title)
+        {
+            var adds = await _addService.FetchAddsBySubCategory(title, 2);
+            AddsGrid model = new AddsGrid();
+            model.Title = title;
+            model.FilteredCategories = await _addService.FilteredCategories(title);
+            var subcategoryModel = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(title);
+            model.SelectedCategory = subcategoryModel != null ? subcategoryModel.Id.ToString() : "";
+            model.Adds = new List<AddModel>();
+            if (adds != null)
+            {
+                adds.ForEach(m =>
+                {
+                    var add = _mapper.Map<AddModel>(m);
+                    add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
+                    add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                    model.Adds.Add(add);
+                });
+            }
+
             return View(model);
         }
 
