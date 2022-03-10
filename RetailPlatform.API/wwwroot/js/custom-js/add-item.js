@@ -52,29 +52,29 @@ function filterAdds() {
                                <div class="cycle-box">
                                     <div class="product-detail">
                                         <a>
-                                            <h4>${data.adds[0].name}</h4>
+                                            <h4>${data.adds[i].name}</h4>
                                         </a>
                                         <ul class="details">
                                             <li><i class="fa fa-user-o" aria-hidden="true"></i> Datum oglašavanja:</li>
                                             <li>
-                                                <i aria-hidden="true"></i> ${data.adds[0].publicationDate}
+                                                <i aria-hidden="true"></i> ${data.adds[i].publicationDate}
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="img-wrapper">
                                         <a>
-                                           <img src="${data.adds[0].imagePath}"
+                                           <img src="${data.adds[i].imagePath}"
                                                class="img-fluid blur-up lazyload bg-img" alt="">
                                         </a>
                                                 </div>
                                                 <div class="bottom-detail">
                                                     <div>
-                                                        <h5>KATEGORIJA: ${data.adds[0].category}</h5>
+                                                        <h5>KATEGORIJA: ${data.adds[i].category}</h5>
                                                     </div>
                                                 </div>
                                                 <ul class="cart-detail">
                                                     <li>
-                                                        <a href="/Product/ProductPreview/${data.adds[0].id}" title="Pošalji upit" tabindex="0">
+                                                        <a href="/Product/ProductPreview/${data.adds[i].id}" title="Pošalji upit" tabindex="0">
                                                             <i data-feather="refresh-ccw"></i>DETALJI
                                                         </a>
                                                     </li>
