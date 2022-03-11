@@ -40,6 +40,9 @@ namespace RetailPlatform.API.Mappings
 
             CreateMap<Add, RequestDTO>()
                 .ForMember(dest =>
+                dest.Category,
+                opt => opt.MapFrom(src => src.SubCategory.Name))
+                .ForMember(dest =>
                 dest.DateOfCreation,
                 opt => opt.MapFrom(src => src.CreationDate.ToString("s")));
 
@@ -179,16 +182,16 @@ namespace RetailPlatform.API.Mappings
                 opt => opt.MapFrom(src => src.Active ? "Aktivan" : "Neaktivan"))
                 .ForMember(dest =>
                 dest.ImgUrl1,
-                opt => opt.MapFrom(src => src.ImgUrl1 != null ? $"https://compexsale.com{src.ImgUrl1}" : src.ImgUrl1))
+                opt => opt.MapFrom(src => (src.ImgUrl1 != null && src.ImgUrl1 != "https://compexsale.com") ? $"https://compexsale.com{src.ImgUrl1}" : src.ImgUrl1))
                 .ForMember(dest =>
                 dest.ImgUrl2,
-                opt => opt.MapFrom(src => src.ImgUrl2 != null ? $"https://compexsale.com{src.ImgUrl2}" : src.ImgUrl2))
+                opt => opt.MapFrom(src => (src.ImgUrl2 != null && src.ImgUrl2 != "https://compexsale.com") ? $"https://compexsale.com{src.ImgUrl2}" : src.ImgUrl2))
                 .ForMember(dest =>
                 dest.ImgUrl3,
-                opt => opt.MapFrom(src => src.ImgUrl3 != null ? $"https://compexsale.com{src.ImgUrl3}" : src.ImgUrl3))
+                opt => opt.MapFrom(src => (src.ImgUrl3 != null && src.ImgUrl3 != "https://compexsale.com") ? $"https://compexsale.com{src.ImgUrl3}" : src.ImgUrl3))
                 .ForMember(dest =>
                 dest.ImgUrl4,
-                opt => opt.MapFrom(src => src.ImgUrl4 != null ? $"https://compexsale.com{src.ImgUrl4}" : src.ImgUrl4))
+                opt => opt.MapFrom(src => (src.ImgUrl4 != null && src.ImgUrl4 != "https://compexsale.com") ? $"https://compexsale.com{src.ImgUrl4}" : src.ImgUrl4))
                 .ForMember(dest =>
                 dest.Price,
                 opt => opt.MapFrom(src => String.Format("{0:n0}", src.Price)));
