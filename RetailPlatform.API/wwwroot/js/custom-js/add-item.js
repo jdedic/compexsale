@@ -32,6 +32,7 @@ function handleClick() {
 }
 
 function filterAdds() {
+    var jobType = $("#jobTypeId").val() !== '' ? parseInt($("#jobTypeId").val()) : 0;
     var category = $("#categoryId").val() !== '' ? parseInt($("#categoryId").val()) : 0;
     var location = $("#location").val() !== '' ? $("#location").val() : null;
     var name = $("#name").val() != '' ? $("#name").val() : null;
@@ -39,7 +40,7 @@ function filterAdds() {
     $.ajax({
         type: "POST",
         url: '/Product/FilterProduct',
-        data: { categoryId: category, location: location, name: name },
+        data: { categoryId: category, location: location, name: name, jobType: jobType },
         datatype: "json",
         success: function (data) {
             var addsTable = $("#adds");

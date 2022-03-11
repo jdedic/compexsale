@@ -364,9 +364,9 @@ namespace RetailPlatform.API.Controllers
 
         [HttpPost]
         [Route("Product/FilterProduct")]
-        public IActionResult FilterProduct(long categoryId, string location, string name)
+        public IActionResult FilterProduct(long categoryId, string location, string name, long jobType)
         {
-            var adds = _addService.FilterAdds(categoryId, location, name);
+            var adds = _addService.FilterAdds(categoryId, location, name, jobType);
             List<AddModel> addsList = new List<AddModel>();
             adds.ForEach(m =>
             {

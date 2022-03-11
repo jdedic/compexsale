@@ -13,7 +13,6 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
 using System.Linq;
-using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.API.Controllers
@@ -93,9 +92,8 @@ namespace RetailPlatform.API.Controllers
             var adds = await _addService.FetchAddsBySubCategory(title, 1);
             AddsGrid model = new AddsGrid();
             model.Title = title;
-            model.FilteredCategories = await _addService.FilteredCategories(title);
-            var subcategoryModel = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(title);
-            model.SelectedCategory = subcategoryModel != null ? subcategoryModel.Id.ToString() : "";
+            model.FilteredCategories = await _addService.FilteredCategories();
+            model.JobType = 1;
             model.Adds = new List<AddModel>();
             if(adds != null)
             {
@@ -103,7 +101,7 @@ namespace RetailPlatform.API.Controllers
                 {
                     var add = _mapper.Map<AddModel>(m);
                     add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
-                    add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                    add.Category = m.SubCategory.Name;
                     model.Adds.Add(add);
                 });
             }
@@ -118,9 +116,8 @@ namespace RetailPlatform.API.Controllers
             var adds = await _addService.FetchAddsBySubCategory(title, 2);
             AddsGrid model = new AddsGrid();
             model.Title = title;
-            model.FilteredCategories = await _addService.FilteredCategories(title);
-            var subcategoryModel = await _repositoryWrapper.SubCategory.FetchSubcategoryByNameAsync(title);
-            model.SelectedCategory = subcategoryModel != null ? subcategoryModel.Id.ToString() : "";
+            model.FilteredCategories = await _addService.FilteredCategories();
+            model.JobType = 2;
             model.Adds = new List<AddModel>();
             if (adds != null)
             {
@@ -128,7 +125,7 @@ namespace RetailPlatform.API.Controllers
                 {
                     var add = _mapper.Map<AddModel>(m);
                     add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
-                    add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
+                    add.Category = m.SubCategory.Name;
                     model.Adds.Add(add);
                 });
             }
