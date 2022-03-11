@@ -138,14 +138,14 @@ namespace RetailPlatform.API.Controllers
             {
                 var user = _repositoryWrapper.Profile.GetProfileByEmail(model.Username);
                 var name = (user.IsVendor == true && user.LegalEntity == true) ? user.CompanyName : user.FullName;
-                await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.IsVendor, user.LegalEntity));
+                await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.IsVendor, user.LegalEntity, ""));
                 return RedirectToAction("AdminDashboard", "Home");
             }
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
 
-        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isVendor, bool isPrivateAccount)
+        public ClaimsPrincipal SetClaims(string username, string name, string id, bool isCustomer, bool isVendor, bool isPrivateAccount, string assignedRole)
         {
             var claims = new List<Claim>();
             claims.Add(new Claim("username", username));
@@ -155,6 +155,7 @@ namespace RetailPlatform.API.Controllers
             claims.Add(new Claim("isPrivateAccount", isPrivateAccount.ToString()));
             claims.Add(new Claim("loggedUser", name));
             claims.Add(new Claim("userId", id));
+            claims.Add(new Claim("assignedRole", assignedRole));
             claims.Add(new Claim(ClaimTypes.NameIdentifier, username));
             claims.Add(new Claim(ClaimTypes.Name, name));
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
