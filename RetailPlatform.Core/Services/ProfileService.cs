@@ -22,6 +22,7 @@ namespace RetailPlatform.Core.Services
             model.IsVendor = isVendor;
             model.IsCustomer = isCustomer;
             model.Password = PasswordHasher.HashPassword(model.Password);
+            model.Active = true;
             await _repositoryWrapper.Profile.Create(model);
         }
 
