@@ -96,6 +96,9 @@ namespace RetailPlatform.API.Controllers
                     await add.FirstImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl1 = $"/images/adds/{fileName}";
+            } else
+            {
+                add.ImgUrl1 = "/images/icon/default-image.png";
             }
 
             if (add.SecondImg != null)
@@ -107,6 +110,9 @@ namespace RetailPlatform.API.Controllers
                     await add.SecondImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl2 = $"/images/adds/{backgroundFileName}";
+            } else
+            {
+                add.ImgUrl2 = "/images/icon/default-image.png";
             }
 
             if (add.ThirdImg != null)
@@ -118,6 +124,9 @@ namespace RetailPlatform.API.Controllers
                     await add.ThirdImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl3 = $"/images/adds/{imageFileName}";
+            } else
+            {
+                add.ImgUrl3 = "/images/icon/default-image.png";
             }
 
             if (add.FourthImg != null)
@@ -129,6 +138,9 @@ namespace RetailPlatform.API.Controllers
                     await add.FourthImg.CopyToAsync(fileStream);
                 }
                 add.ImgUrl4 = $"/images/adds/{fourthImageFileName}";
+            } else
+            {
+                add.ImgUrl4 = "/images/icon/default-image.png";
             }
 
             await _addService.CreateAdd(_mapper.Map<Add>(add));
@@ -351,7 +363,6 @@ namespace RetailPlatform.API.Controllers
             {
                 var add = _mapper.Map<RequestDTO>(m);
                 add.CreatedBy = _repositoryWrapper.Profile.GetProfileInfoById(m.ProfileId);
-                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.Id);
                 requestList.Add(add);
             });
             return requestList;
@@ -359,9 +370,9 @@ namespace RetailPlatform.API.Controllers
 
         [HttpPost]
         [Route("Product/FilterProduct")]
-        public IActionResult FilterProduct(long categoryId, string location, string name)
+        public IActionResult FilterProduct(long categoryId, string location, string name, long jobType)
         {
-            var adds = _addService.FilterAdds(categoryId, location, name);
+            var adds = _addService.FilterAdds(categoryId, location, name, jobType);
             List<AddModel> addsList = new List<AddModel>();
             adds.ForEach(m =>
             {

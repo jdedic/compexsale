@@ -43,9 +43,16 @@ namespace RetailPlatform.Core.Services
             return null;
         }
 
-        public List<Add> FilterAdds(long categoryId, string location, string name)
+        public List<Add> FilterAdds(long categoryId, string location, string name, long jobTypeId)
         {
-            var adds = _repositoryWrapper.Add.FetchAdds(true);
+            List<Add> adds = new List<Add>();
+            if (jobTypeId > 0)
+            {
+                adds = _repositoryWrapper.Add.FetchAddsByJobTypeId(jobTypeId);
+            } else
+            {
+                adds = _repositoryWrapper.Add.FetchAdds(true);
+            }
 
             if(categoryId != 0)
             {

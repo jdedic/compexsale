@@ -23,7 +23,7 @@ namespace RetailPlatform.Infrastructure.Repository
 
         public List<Add> FetchAddsByJobTypeId(long jobTypeId)
         {
-            var adds = _dbContext.Adds.Include(m => m.UnitType).Where(m => m.JobTypeId == jobTypeId).ToList();
+            var adds = _dbContext.Adds.Include(m => m.UnitType).Include(m => m.SubCategory).Where(m => m.JobTypeId == jobTypeId).ToList();
 
             return adds.Where(m => m.Active == true).ToList();
         }

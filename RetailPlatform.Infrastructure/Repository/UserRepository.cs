@@ -30,7 +30,7 @@ namespace RetailPlatform.Infrastructure.Repository
 
         public User GetUserByEmail(string email)
         {
-            return _dbContext.Users.FirstOrDefault(m => m.Email.Equals(email));
+            return _dbContext.Users.Include(m => m.Role).FirstOrDefault(m => m.Email.Equals(email));
         }
 
         public string GetUserFullNameByEmail(string email)

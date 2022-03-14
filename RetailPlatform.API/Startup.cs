@@ -32,7 +32,7 @@ namespace RetailPlatform.API
             services.AddControllersWithViews();
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
-                    options.LoginPath = "/login";
+                    options.LoginPath = "/Client/ClientLogin";
                     options.AccessDeniedPath = "/denied";
                     options.Events = new CookieAuthenticationEvents()
                     {
