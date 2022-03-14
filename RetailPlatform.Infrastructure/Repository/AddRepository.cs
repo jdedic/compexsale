@@ -81,5 +81,10 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.JobTypes.Where(m => m.Id == id).Select(m => m.Name).FirstOrDefaultAsync();
         }
 
+        public async Task<Add> GetAddAsync(long id)
+        {
+            return await _dbContext.Adds.Where(x => x.Id == id).Include(x => x.Profile).FirstOrDefaultAsync();
+        }
+
     }
 }

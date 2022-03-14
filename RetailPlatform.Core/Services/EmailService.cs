@@ -33,12 +33,16 @@ namespace RetailPlatform.Core.Services
             await SendEmailMessage(message);
         }
 
-        public async Task SendEmailForAdd(string email, string id, string name)
+        public async Task SendEmailForAdd(string email, string id, string addName, string customer)
         {
-            var pathToFile = await GetPathToFile("adds-template.html");
+            var pathToFile = string.IsNullOrEmpty(customer) ? await GetPathToFile("adds-template.html") : await GetPathToFile("adds-template-for-customer.html");
             var body = await GetBody(pathToFile);
-            body = body.Replace("{Name}", name);
+            body = body.Replace("{Name}", addName);
             body = body.Replace("{Id}", id);
+            if (!string.IsNullOrEmpty(customer))
+            {
+                body = body.Replace("{FirstName}", customer);
+            }
             var message = await GetMessage(email, "Oglas - informacije", body);
             await SendEmailMessage(message);
         }

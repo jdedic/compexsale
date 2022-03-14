@@ -170,7 +170,7 @@ namespace RetailPlatform.API.Controllers
                 return View(add);
             }
             
-            var entity = await _repositoryWrapper.Add.GetByIdAsync(add.Id);
+            var entity = await _repositoryWrapper.Add.GetAddAsync(add.Id);
 
             if(entity == null)
             {
@@ -237,7 +237,13 @@ namespace RetailPlatform.API.Controllers
             if (add.Active && !entity.IsMailSent)
             {
                 var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
-                await _emailService.SendEmailForAdd("jdedic2393@gmail.com", id, entity.Name);
+                await _emailService.SendEmailForAdd(entity.Profile.Email, id, entity.Name, null);
+                //ovde dodaj listu potrazivaca
+                List<ProfileDTO> interestedProfiles = new List<ProfileDTO>();
+                if (interestedProfiles.Any())
+                {
+                    await SendEmailToInterestedProfiles(interestedProfiles, id, entity.Name);
+                }
             }
 
             var updatedAdd = await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
@@ -393,6 +399,15 @@ namespace RetailPlatform.API.Controllers
             }
             await _addService.RemoveAdd(id);
             return new JsonResult(new { done = "Done" });
+        }
+
+        [NonAction]
+        public async Task SendEmailToInterestedProfiles(List<ProfileDTO> profiles, string id, string name)
+        {
+            foreach (var profile in profiles)
+            {
+                await _emailService.SendEmailForAdd(profile.Email, id, name, profile.FullName);
+            }
         }
     }
 }
