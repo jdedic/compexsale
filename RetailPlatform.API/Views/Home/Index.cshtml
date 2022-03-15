@@ -74,11 +74,12 @@
                                 {
                                     @foreach (var item in Model.Adds)
                                     {
+                                        var nameSubstr = item.Name.Length > 25 ? string.Concat(item.Name.Substring(0, 26), "...") : item.Name;
                                         <div class="col-3">
                                             <div class="cycle-box">
                                                 <div class="product-detail">
                                                     <a>
-                                                        <h4>@item.Name</h4>
+                                                        <h4 title="@item.Name">@nameSubstr</h4>
                                                     </a>
 
                                                     <ul class="details">

@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using RetailPlatform.API.Extensions;
 using RetailPlatform.Core.Config;
 using RetailPlatform.Infrastructure.Data;
+using System;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -64,6 +65,10 @@ namespace RetailPlatform.API
             services.ConfigureRepositoryWrapper();
             services.ConfigureAppServices();
             services.AddAutoMapper(typeof(Startup));
+
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(60);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -85,6 +90,8 @@ namespace RetailPlatform.API
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
