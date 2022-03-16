@@ -249,8 +249,12 @@ namespace RetailPlatform.API.Controllers
             if (add.Active && !entity.IsMailSent)
             {
                 var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
-                await _emailService.SendEmailForAdd(entity.Profile.Email, id, entity.Name, null);
-                //ovde dodaj listu potrazivaca
+                var emails = await _addService.GetUsersBySubCategories(Convert.ToInt32(add.SelectedCategory1), Convert.ToInt32(add.SelectedCategory2), Convert.ToInt32(add.SelectedCategory3));
+                foreach(var email in emails)
+                {
+                    await _emailService.SendEmailForAdd(email, id, entity.Name, null);
+                }
+                
                 List<ProfileDTO> interestedProfiles = new List<ProfileDTO>();
                 if (interestedProfiles.Any())
                 {

@@ -86,5 +86,11 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.Adds.Where(x => x.Id == id).Include(x => x.Profile).FirstOrDefaultAsync();
         }
 
+        public async Task<IEnumerable<string>> GetEmailsForRequests(int subcategoryId)
+        {
+            return await _dbContext.Adds.Include(m => m.Profile)
+                                    .Where(m => m.SubCategoryId == subcategoryId && m.Profile.IsCustomer == true
+                                    && m.Active == true).Select(m => m.Profile.Email).Distinct().ToListAsync();
+        }
     }
 }

@@ -187,5 +187,29 @@ namespace RetailPlatform.Core.Services
         {
             await _repositoryWrapper.Add.Update(add);
         }
+
+        public async Task<List<string>> GetUsersBySubCategories(int subcategory1, int subcategory2, int subcategory3)
+        {
+            List<string> emailList = new List<string>();
+            if (subcategory1 != 0)
+            {
+                var emails = await _repositoryWrapper.Add.GetEmailsForRequests(subcategory1);
+                emailList.AddRange(emails);
+            }
+
+            if (subcategory2 != 0)
+            {
+                var emails = await _repositoryWrapper.Add.GetEmailsForRequests(subcategory2);
+                emailList.AddRange(emails);
+            }
+
+            if (subcategory3 != 0)
+            {
+                var emails = await _repositoryWrapper.Add.GetEmailsForRequests(subcategory3);
+                emailList.AddRange(emails);
+            }
+
+            return emailList.Distinct().ToList();
+        }
     }
 }

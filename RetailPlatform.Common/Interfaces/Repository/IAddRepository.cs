@@ -20,5 +20,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<string> GetJobTypeName(long id);
         List<Add> FetchAddsByJobTypeId(long jobTypeId);
         Task<Add> GetAddAsync(long id);
+        Task<IEnumerable<string>> GetEmailsForRequests(int subcategoryId);
     }
 }
