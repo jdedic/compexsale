@@ -103,19 +103,19 @@
                                 @Model.Description
                             </div>
                         </div>
-                        @if (Model.SubCategoryId1 != "" || Model.SubCategoryId2 != "" || Model.SubCategoryId3 != "")
+                        @if (Model.SubCategoryId1 != null || Model.SubCategoryId2 != null || Model.SubCategoryId3 != null)
                         {
                             <div class="border-product">
                                 <h6 class="product-title">Kompenzovao bih ili razmenio robu za:</h6>
-                                @if (Model.SubCategoryId1 != "")
+                                @if (Model.SubCategoryId1 != null)
                                 {
                                     <div>@Model.SubCategoryId1</div>
                                 }
-                                @if (Model.SubCategoryId2 != "")
+                                @if (Model.SubCategoryId2 != null)
                                 {
                                     <div>@Model.SubCategoryId2</div>
                                 }
-                                @if (Model.SubCategoryId3 != "")
+                                @if (Model.SubCategoryId3 != null)
                                 {
                                     <div>@Model.SubCategoryId3</div>
                                 }
