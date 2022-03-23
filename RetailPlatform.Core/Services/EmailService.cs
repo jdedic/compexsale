@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Config;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Net.Mail;
@@ -23,7 +24,7 @@ namespace RetailPlatform.Core.Services
             _env = env;
         }
 
-       
+
         public async Task SendEmailForRefusedAdd(string email, string reason)
         {
             var pathToFile = await GetPathToFile("refuse-add-template.html");
@@ -97,12 +98,18 @@ namespace RetailPlatform.Core.Services
             return body;
         }
 
-        public async Task SendWelcomEmail(string email)
+        public async Task SendWelcomEmail(List<string> emails)
         {
+
             var pathToFile = await GetPathToFile("welcome.html");
             var body = await GetBody(pathToFile);
-            var message = await GetMessage(email, "Compexsale saradnja", body);
-            await SendEmailMessage(message);
+
+            foreach (var email in emails)
+            {
+                var message = await GetMessage(email, "Compexsale saradnja", body);
+                await SendEmailMessage(message);
+            }
+
         }
 
         public async Task SendContactClientEmail(string email, string clientName, string content)

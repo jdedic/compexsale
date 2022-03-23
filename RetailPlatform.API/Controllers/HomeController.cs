@@ -9,6 +9,7 @@ using RetailPlatform.API.Models.DTO;
 using RetailPlatform.API.Models.DTO.HomePage;
 using RetailPlatform.Common.Interfaces.Repository;
 using RetailPlatform.Common.Interfaces.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics;
@@ -57,19 +58,26 @@ namespace RetailPlatform.API.Controllers
             return View(model);
         }
 
-        [IgnoreAntiforgeryToken]
-        [HttpPost]
-        [Route("Home/SendEmail")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> SendEmail(EmailModel model)
+        [HttpGet("send-emails")]
+        public async Task<IActionResult> EmailTemplatePage()
         {
+            return View();
+        }
+
+        [HttpPost]
+        [Route("Home/SendEmailsForCollaboration")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SendEmailsForCollaboration(EmailForCollaboration model)
+        {
+
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            await _emailService.SendWelcomEmail(model.Email);
-            return Redirect("/");
+            List<string> emails = new List<string>(Array.ConvertAll(model.Emails.Split(','), p => p.Trim()));
+            await _emailService.SendWelcomEmail(emails);
+            return RedirectToAction("EmailTemplatePage", "Home");
         }
 
         [Authorize]

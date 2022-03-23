@@ -1,0 +1,84 @@
+﻿@model RetailPlatform.API.Models.DTO.EmailForCollaboration
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Yellowtail&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="~/css/vendors/fontawesome.css" rel="stylesheet" />
+
+    <!--Slick slider css-->
+    <link href="~/css/vendors/slick.css" rel="stylesheet" />
+    <link href="~/css/vendors/slick-theme.css" rel="stylesheet" />
+
+    <!-- Animate icon -->
+    <link href="~/css/vendors/animate.css" rel="stylesheet" />
+
+    <!-- Themify icon -->
+    <link href="~/css/vendors/themify-icons.css" rel="stylesheet" />
+
+    <!-- Bootstrap css -->
+    <link href="~/css/vendors/bootstrap.css" rel="stylesheet" />
+
+    <!-- Theme css -->
+    <link href="~/css/style.css" rel="stylesheet" />
+
+
+</head>
+
+<body class="theme-color-1">
+    <div class="template-password">
+        <div class="container">
+            <div id="container" class="text-center">
+                <div>
+                    <div id="login">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <form id="email-template" class="theme-form" asp-controller="Home" asp-action="SendEmailsForCollaboration">
+                                    <div class="col-md-12 mt-2">
+                                        <h4>Unesite email adrese (email adresa bi trebala biti odvojena zarezom): </h4>
+                                    </div>
+                                    <div class="form-row row">
+                                        <div class="col-md-12">
+                                            @Html.TextBoxFor(model => model.Emails, new { @class = "form-control", autocomplete = "off", required = "required", @placeholder = "Unesite email adrese" })
+                                            @Html.ValidationMessageFor(model => model.Emails, "", new { @class = "text-danger" })
+                                        </div>
+                                        <div class="col-md-12">
+                                            <div class="actions">
+                                                <button form="email-template" type="submit" class="btn btn-solid">pošaljite</button>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="powered">
+                        <p>© 2021, Powered by <a href="https://go2concepts.com/" style="color: #d0c979;">Go2MarketConcepts</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/js/jquery-3.3.1.min.js"></script>
+    <script src="~/js/menu.js"></script>
+    <script src="~/js/lazysizes.min.js"></script>
+    <script src="~/js/slick.js"></script>
+    <script src="~/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/bootstrap-notify.min.js"></script>
+    <script src="~/js/script.js"></script>
+</body>
+</html>
