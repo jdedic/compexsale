@@ -1,12 +1,13 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using MailKit.Net.Smtp;
+using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Options;
+using MimeKit;
+using MimeKit.Text;
 using RetailPlatform.Common.Interfaces.Service;
 using RetailPlatform.Core.Config;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net;
-using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace RetailPlatform.Core.Services
@@ -50,14 +51,19 @@ namespace RetailPlatform.Core.Services
 
         #region helper-methods
 
-        public async Task<MailMessage> GetMessage(string email, string subject, string body)
+        public async Task<MimeMessage> GetMessage(string email, string subject, string body)
         {
-            var message = new MailMessage();
-            message.To.Add(new MailAddress(email));
-            message.From = new MailAddress(_emailConfig.IMAPUsername);
+            var message = new MimeMessage();
+            message.From.Add(MailboxAddress.Parse(_emailConfig.IMAPUsername));
+            message.To.Add(MailboxAddress.Parse(email));
             message.Subject = subject;
-            message.IsBodyHtml = true;
-            message.Body = body;
+            message.Body = new TextPart(TextFormat.Plain) { Text = "Example Plain Text Message Body" };
+            //var message = new MailMessage();
+            //message.To.Add(new MailAddress(email));
+            //message.From = new MailAddress(_emailConfig.IMAPUsername);
+            //message.Subject = subject;
+            //message.IsBodyHtml = true;
+            //message.Body = body;
 
             return message;
         }
@@ -71,20 +77,27 @@ namespace RetailPlatform.Core.Services
                     + $"{templateName}";
         }
 
-        public async Task SendEmailMessage(MailMessage message)
+        public async Task SendEmailMessage(MimeMessage message)
         {
-            using (var smtp = new SmtpClient())
+            using (var emailClient = new SmtpClient())
             {
-                var credential = new NetworkCredential
-                {
-                    UserName = _emailConfig.IMAPUsername,
-                    Password = _emailConfig.IMAPPassword
-                };
-                smtp.Credentials = credential;
-                smtp.Host = _emailConfig.IMAPServer;
-                smtp.Port = _emailConfig.IMAPPort;
-                smtp.EnableSsl = false;
-                await smtp.SendMailAsync(message);
+                //The last parameter here is to use SSL (Which you should!)
+                emailClient.Connect(_emailConfig.IMAPServer, _emailConfig.IMAPPort, false);
+                //Remove any OAuth functionality as we won't be using it. 
+                emailClient.AuthenticationMechanisms.Remove("XOAUTH2");
+                emailClient.Authenticate(_emailConfig.IMAPUsername, _emailConfig.IMAPPassword);
+                emailClient.Send(message);
+                emailClient.Disconnect(true);
+                //var credential = new NetworkCredential
+                //{
+                //    UserName = _emailConfig.IMAPUsername,
+                //    Password = _emailConfig.IMAPPassword
+                //};
+                //smtp.Credentials = credential;
+                //smtp.Host = _emailConfig.IMAPServer;
+                //smtp.Port = _emailConfig.IMAPPort;
+                //smtp.EnableSsl = false;
+                //await smtp.SendMailAsync(message);
             }
         }
 
