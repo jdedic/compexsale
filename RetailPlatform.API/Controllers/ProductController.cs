@@ -89,7 +89,7 @@ namespace RetailPlatform.API.Controllers
 
             if (add.FirstImg != null)
             {
-                var fileName = Guid.NewGuid().ToString() + "_" + add.FirstImg.FileName;
+                var fileName = Guid.NewGuid().ToString() + "_" + add.FirstImg.FileName.Replace(" ", string.Empty);
                 var filePath = @"wwwroot\images\adds\" + fileName;
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
