@@ -35,6 +35,19 @@ namespace RetailPlatform.Core.Services
             await SendEmailMessage(message);
         }
 
+        public async Task SendEmailForCreatedAdd(string topic, string name, string category, string createdBy, string link)
+        {
+            var pathToFile = await GetPathToFile("offer.html");
+            var body = await GetBody(pathToFile);
+            body = body.Replace("{Topic}", topic);
+            body = body.Replace("{Name}", name);
+            body = body.Replace("{Category}", category);
+            body = body.Replace("{CreatedBy}", createdBy);
+            body = body.Replace("{Link}", link);
+            var message = await GetMessage("info@compexsale.com", $"Detalji", body);
+            await SendEmailMessage(message);
+        }
+
         public async Task SendEmailForAdd(string email, string id, string addName, string customer)
         {
             var pathToFile = string.IsNullOrEmpty(customer) ? await GetPathToFile("adds-template.html") : await GetPathToFile("adds-template-for-customer.html");

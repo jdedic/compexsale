@@ -89,7 +89,7 @@ namespace RetailPlatform.Core.Services
             await _repositoryWrapper.Add.Delete(add);
         }
 
-        public async Task CreateAdd(Add model)
+        public async Task<long> CreateAdd(Add model)
         {
             var getPreviousUniqueId = _repositoryWrapper.Add.FetchLastAdd(true);
             var number = string.IsNullOrEmpty(getPreviousUniqueId) ? 0 : Int32.Parse(getPreviousUniqueId);
@@ -98,9 +98,11 @@ namespace RetailPlatform.Core.Services
             model.CreationDate = DateTime.Now;
             model.JobTypeId = 1;
             await _repositoryWrapper.Add.Create(model);
+
+            return model.Id;
         }
 
-        public async Task CreateRequest(Add model)
+        public async Task<long> CreateRequest(Add model)
         {
             model.CreationDate = DateTime.Now;
             model.UnitTypeId = 1;
@@ -110,6 +112,8 @@ namespace RetailPlatform.Core.Services
             number = number + 1;
             model.UniqueId = number.ToString();
             await _repositoryWrapper.Add.Create(model);
+
+            return model.Id;
         }
 
         public async Task<Add> GetAddById(long id)
