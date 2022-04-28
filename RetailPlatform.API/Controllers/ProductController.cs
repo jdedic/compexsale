@@ -143,7 +143,11 @@ namespace RetailPlatform.API.Controllers
                 add.ImgUrl4 = "/images/icon/default-image.png";
             }
 
-            await _addService.CreateAdd(_mapper.Map<Add>(add));
+            var id = await _addService.CreateAdd(_mapper.Map<Add>(add));
+            var link = "https://compexsale.com/Product/EditProduct/" + id;
+            var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
+            var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
+            await _emailService.SendEmailForCreatedAdd("Ponudi", add.Name, category.Name, user.Email, link);
             return Redirect("/adds");
         }
 
@@ -160,7 +164,11 @@ namespace RetailPlatform.API.Controllers
                 return View(add);
             }
 
-            await _addService.CreateRequest(_mapper.Map<Add>(add));
+            var id = await _addService.CreateRequest(_mapper.Map<Add>(add));
+            var link = "https://compexsale.com/Product/EditRequest/" + id;
+            var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
+            var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
+            await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
             return Redirect("/requests");
         }
 
@@ -183,7 +191,7 @@ namespace RetailPlatform.API.Controllers
             }
             
             var entity = await _repositoryWrapper.Add.GetAddAsync(add.Id);
-
+            var createdBy = await _repositoryWrapper.Profile.GetByIdAsync(entity.ProfileId);
             if(entity == null)
             {
                 return BadRequest();
@@ -249,6 +257,7 @@ namespace RetailPlatform.API.Controllers
             if (add.Active && !entity.IsMailSent)
             {
                 var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
+                await _emailService.SendEmailForAdd(createdBy.Email, id, entity.Name, null);
                 var emails = await _addService.GetUsersBySubCategories(Convert.ToInt32(add.SelectedCategory1), Convert.ToInt32(add.SelectedCategory2), Convert.ToInt32(add.SelectedCategory3));
                 foreach(var email in emails)
                 {

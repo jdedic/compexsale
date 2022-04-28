@@ -10,5 +10,6 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task SendWelcomEmail(List<string> emails);
         Task SendContactClientEmail(string email, string clientName, string content);
         Task SendEmailForAdd(string email, string id, string addName, string customer);
+        Task SendEmailForCreatedAdd(string topic, string name, string category, string createdBy, string link);
     }
 }
