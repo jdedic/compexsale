@@ -1,4 +1,9 @@
 ﻿@model RetailPlatform.API.Models.DTO.Add.CreateRequestDTO
+@using System.Security.Claims;
+
+@{
+    string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+}
 
 <div class="container-fluid">
     <div class="page-header">
@@ -39,6 +44,21 @@
                                 @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
                             </div>
                         </div>
+                        @if (role == "User")
+                        {
+                            <div class="form-group">
+                                <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                    @Html.CheckBoxFor(model => model.IsLegalEntity, new { @class = "filled-in chk-col-green form-check-input", @id = "legal", onClick = "return filterProfiles();" })
+                                    <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.IsLegalEntity)">Pravno lice</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-xl-8 col-md-7">
+                                    @Html.DropDownListFor(x => x.SelectedEntity, new SelectList(Model.FilteredEntities, "Value", "Text"), "Selektuj ponuđača", htmlAttributes: new { @class = "custom-select form-control", @id = "vendor" })
+                                    @Html.ValidationMessageFor(model => model.SelectedEntity, "", new { @class = "text-danger" })
+                                </div>
+                            </div>
+                        }
                         <div class="form-group">
                             <label for="validationCustomtitle" class="col-form-label pt-0"><span class="retail-validation">*</span> Mesto</label>
                             <div class="col-xl-8 col-md-7">
@@ -83,5 +103,6 @@
 
 @section dataTables {
     <script src="~/js/custom-js/request-item.js"></script>
+    <script src="~/js/custom-js/add-item.js"></script>
 }
 

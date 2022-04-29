@@ -23,5 +23,7 @@ namespace RetailPlatform.Common.Interfaces.Service
         Task EditRequest(Add add);
         IQueryable<Add> GetAdds();
         Task<List<string>> GetUsersBySubCategories(int subcategory1, int subcategory2, int subcategory3);
+
+        Task<IEnumerable<SelectListItem>> FilteredVendors(bool isLegalEntity);
     }
 }

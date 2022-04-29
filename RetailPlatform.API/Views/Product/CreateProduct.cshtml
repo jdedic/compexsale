@@ -1,4 +1,10 @@
 ﻿@model RetailPlatform.API.Models.DTO.Add.CreateAddDTO
+@using System.Security.Claims;
+
+
+@{
+    string role = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+}
 
 <style>
     select {
@@ -67,6 +73,21 @@
                                     @Html.ValidationMessageFor(model => model.SelectedCategory, "", new { @class = "text-danger" })
                                 </div>
                             </div>
+                            @if (role == "User")
+                            {
+                                <div class="form-group">
+                                    <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                        @Html.CheckBoxFor(model => model.IsLegalEntity, new { @class = "filled-in chk-col-green form-check-input", @id = "legal", onClick = "return filterProfiles();" })
+                                        <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.IsLegalEntity)">Pravno lice</label>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                        <div class="col-xl-8 col-md-7">
+                                            @Html.DropDownListFor(x => x.SelectedEntity, new SelectList(Model.FilteredEntities, "Value", "Text"), "Selektuj ponuđača", htmlAttributes: new { @class = "custom-select form-control", @id = "vendor" })
+                                            @Html.ValidationMessageFor(model => model.SelectedEntity, "", new { @class = "text-danger" })
+                                        </div>
+                                </div>
+                            }
                             <div class="form-group">
                                 <label class="col-form-label"><span class="retail-validation">*</span> Opis</label>
                                 <div class="col-xl-8 col-md-7">
@@ -103,12 +124,12 @@
                 </div>
             </div>
             <div class="col-xl-7">
-                
+
                 <div class="card">
                     <div class="row" style="margin:10px;">
                         <div class="m-checkbox-inline mb-0 d-flex" style="margin-top:10px;">
                             <div class="col-sm-4 col-md-4 col-lg-4">
-                                @Html.CheckBoxFor(model => model.IsComepnsation, new { @class = "filled-in chk-col-green form-check-input", onclick="handleClick()" })
+                                @Html.CheckBoxFor(model => model.IsComepnsation, new { @class = "filled-in chk-col-green form-check-input", onclick = "handleClick()" })
                                 <label for="@Html.DisplayNameFor(model => model.IsComepnsation)">Kompenzacija</label>
                             </div>
                             <div class="col-sm-4 col-md-4 col-lg-4">
@@ -143,7 +164,7 @@
                             </div>
                         </div>
                     </div>
-                   
+
                     <div class="card-header">
                         <h5>Dodaj fotografije</h5>
                     </div>

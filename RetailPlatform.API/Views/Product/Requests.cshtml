@@ -29,12 +29,9 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-body">
-            @if (role != "User")
-            {
                 <div class="btn-popup pull-right">
                     <a href="@Url.Action("CreateRequest", "Product")" class="btn btn-secondary">Dodaj oglas</a>
                 </div>
-            }
             <div id="batchDelete" class="category-table user-list order-table"></div>
         </div>
     </div>

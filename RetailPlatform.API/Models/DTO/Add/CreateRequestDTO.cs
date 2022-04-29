@@ -19,6 +19,9 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Required(ErrorMessage = "Izaberite kategoriju")]
         public string SelectedCategory { get; set; }
         public long ProfileId { get; set; }
+        public IEnumerable<SelectListItem> FilteredEntities { get; set; }
+        public string SelectedEntity { get; set; }
+        public bool IsLegalEntity { get; set; }
 
     }
 }

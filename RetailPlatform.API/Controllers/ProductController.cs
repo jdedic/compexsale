@@ -42,6 +42,7 @@ namespace RetailPlatform.API.Controllers
             CreateAddDTO add = new CreateAddDTO();
             add.FilteredCategories = await _addService.FilteredCategories();
             add.Units = await _addService.GetUnits();
+            add.FilteredEntities = await _addService.FilteredVendors(false);
             return View(add);
         }
 
@@ -50,24 +51,32 @@ namespace RetailPlatform.API.Controllers
         {
             CreateRequestDTO add = new CreateRequestDTO();
             add.FilteredCategories = await _addService.FilteredCategories();
+            add.FilteredEntities = await _addService.FilteredVendors(false);
             return View(add);
         }
 
         [Authorize]
         public async Task<IActionResult> EditProduct(long id)
         {
-            EditAddDTO model = _mapper.Map<EditAddDTO>(await _addService.GetAddById(id));
+            var add = await _addService.GetAddById(id);
+            EditAddDTO model = _mapper.Map<EditAddDTO>(add);
             model.FilteredCategories = await _addService.FilteredCategories();
             model.Units = await _addService.GetUnits();
             model.JobTypes = await _addService.GetJobTypes();
+
+            var profile = await _repositoryWrapper.Profile.GetProfileById(add.ProfileId);
+            model.CreatedBy = profile.LegalEntity ? profile.CompanyName : profile.FullName;
             return View(model);
         }
 
         [Authorize]
         public async Task<IActionResult> EditRequest(long id)
         {
-            EditRequestDTO model = _mapper.Map<EditRequestDTO>(await _addService.GetAddById(id));
+            var request = await _addService.GetAddById(id);
+            EditRequestDTO model = _mapper.Map<EditRequestDTO>(request);
             model.FilteredCategories = await _addService.FilteredCategories();
+            var profile = await _repositoryWrapper.Profile.GetProfileById(request.ProfileId);
+            model.CreatedBy = profile.LegalEntity ? profile.CompanyName : profile.FullName;
             return View(model);
         }
 
@@ -78,7 +87,17 @@ namespace RetailPlatform.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateProduct(CreateAddDTO add)
         {
-            add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
+            var profile = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+
+            if (profile.Equals("User"))
+            {
+                add.ProfileId = string.IsNullOrEmpty(add.SelectedEntity) ? 0 : Int32.Parse(add.SelectedEntity);
+            }
+            else
+            {
+                add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
+            }
+            
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
@@ -145,7 +164,7 @@ namespace RetailPlatform.API.Controllers
 
             var id = await _addService.CreateAdd(_mapper.Map<Add>(add));
             var link = "https://compexsale.com/Product/EditProduct/" + id;
-            var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
+            var category = await _repositoryWrapper.SubCategory.GetSubCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
             await _emailService.SendEmailForCreatedAdd("Ponudi", add.Name, category.Name, user.Email, link);
             return Redirect("/adds");
@@ -157,7 +176,17 @@ namespace RetailPlatform.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> CreateRequest(CreateRequestDTO add)
         {
-            add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
+            var profile = ((ClaimsIdentity)User.Identity).FindFirst("roleName").Value;
+
+            if (profile.Equals("User"))
+            {
+                add.ProfileId = string.IsNullOrEmpty(add.SelectedEntity) ? 0 : Int32.Parse(add.SelectedEntity);
+            }
+            else
+            {
+                add.ProfileId = Convert.ToInt16(User.FindFirstValue("userId"));
+            }
+            
             if (!ModelState.IsValid)
             {
                 add.FilteredCategories = await _addService.FilteredCategories();
@@ -166,7 +195,7 @@ namespace RetailPlatform.API.Controllers
 
             var id = await _addService.CreateRequest(_mapper.Map<Add>(add));
             var link = "https://compexsale.com/Product/EditRequest/" + id;
-            var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
+            var category = await _repositoryWrapper.SubCategory.GetSubCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
             await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
             return Redirect("/requests");
@@ -395,6 +424,14 @@ namespace RetailPlatform.API.Controllers
                 addsList.Add(add);
             });
             return new JsonResult(new { adds = addsList });
+        }
+
+        [HttpPost]
+        [Route("Product/FilterVendors")]
+        public async Task<IActionResult> FilterVendors(bool isLegalEntity)
+        {
+            var vendors = await _addService.FilteredVendors(isLegalEntity); 
+            return new JsonResult(new { vendors = vendors });
         }
 
         public async Task<IActionResult> ProductPreview(long id)

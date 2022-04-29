@@ -143,6 +143,24 @@ namespace RetailPlatform.Core.Services
             return new SelectList(roles, "Value", "Text");
         }
 
+        public async Task<IEnumerable<SelectListItem>> FilteredVendors(bool isLegalEntity)
+        {
+            List<SelectListItem> filteredProfiles = new List<SelectListItem>();
+            var profiles = await _repositoryWrapper.Profile.GetVendors(isLegalEntity);
+           
+            foreach (var profile in profiles)
+            {
+                SelectListItem item = new SelectListItem
+                {
+                    Value = profile.Id.ToString(),
+                    Text = isLegalEntity ? profile.CompanyName : profile.FullName
+                };
+            filteredProfiles.Add(item);
+            }
+
+            return new SelectList(filteredProfiles, "Value", "Text");
+        }
+
         public async Task<IEnumerable<SelectListItem>> GetUnits()
         {
             List<SelectListItem> cities = new List<SelectListItem>();

@@ -43,5 +43,6 @@ namespace RetailPlatform.API.Models.DTO.Add
         public string SelectedCategory1 { get; set; }
         public string SelectedCategory2 { get; set; }
         public string SelectedCategory3 { get; set; }
+        public string CreatedBy { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace RetailPlatform.API.Models.DTO.Add
     {
         [Required(ErrorMessage = "Unesite Naziv")]
         public string Name { get; set; }
-        
         public string DateOfCreation { get; set; }
         [Required(ErrorMessage = "Unesite Opis")]
         public string Description { get; set; }
@@ -35,15 +34,17 @@ namespace RetailPlatform.API.Models.DTO.Add
         [Required(ErrorMessage = "Izaberite kategoriju")]
         public string SelectedCategory { get; set; }
         public long ProfileId { get; set; }
-
         public IEnumerable<SelectListItem> Units { get; set; }
         public string SelectedUnit { get; set; }
         public IEnumerable<SelectListItem> JobTypes { get; set; }
+        public IEnumerable<SelectListItem> FilteredEntities { get; set; }
+        public string SelectedEntity { get; set; }
         public string SelectedJobType { get; set; }
         public float? Price { get; set; }
         public string SelectedCategory1 { get; set; }
         public string SelectedCategory2 { get; set; }
         public string SelectedCategory3 { get; set; }
+        public bool IsLegalEntity { get; set; }
     }
 
    

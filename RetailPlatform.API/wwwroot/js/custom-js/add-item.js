@@ -31,6 +31,35 @@ function handleClick() {
     }
 }
 
+function filterProfiles() {
+    var checkbox = document.getElementById('legal');
+    var checked = checkbox.checked;
+    $.ajax({
+        type: "POST",
+        url: '/Product/FilterVendors',
+        data: { isLegalEntity: checked },
+        datatype: "json",
+        success: function (data) {
+            $('#vendor').empty();
+            $('#vendor').append(`<option value>
+                                       Selektuj osobu
+                                  </option>`);
+
+            if (data.vendors.length !== 0) {
+                for (i = 0; i < data.vendors.length; i++) {
+                    $('#vendor').append(`<option value="${data.vendors[i].value}">
+                                       ${data.vendors[i].text}
+                                  </option>`);
+                }
+            }
+
+        },
+        error: function () {
+            alert("Dynamic content load failed.");
+        }
+    });
+}
+
 function filterAdds() {
     var jobType = $("#jobTypeId").val() !== '' ? parseInt($("#jobTypeId").val()) : 0;
     var category = $("#categoryId").val() !== '' ? parseInt($("#categoryId").val()) : 0;

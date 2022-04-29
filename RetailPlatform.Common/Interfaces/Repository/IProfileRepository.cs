@@ -14,5 +14,7 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<List<ProfileModel>> GetBusinessAccountProfiles();
         Task<List<ProfileModel>> GetPrivateProfiles();
         Task<List<ProfileModel>> GetBusinessProfiles();
+
+        Task<IEnumerable<ProfileModel>> GetVendors(bool isLegalEntity);
     }
 }

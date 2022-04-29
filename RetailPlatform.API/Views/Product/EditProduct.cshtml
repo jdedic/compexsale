@@ -60,6 +60,12 @@
                                 </div>
                             </div>
                             <div class="form-group">
+                                <label class="col-form-label pt-0"><span class="retail-validation">*</span> Kreirao</label>
+                                <div class="col-xl-8 col-md-7">
+                                    @Html.TextBoxFor(model => model.CreatedBy, new { @class = "form-control", autocomplete = "off", @readonly = "readonly" })
+                                </div>
+                            </div>
+                            <div class="form-group">
                                 <label class="col-form-label pt-0"><span class="retail-validation">*</span> Naziv proizvoda/usluge</label>
                                 <div class="col-xl-8 col-md-7">
                                     @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required" })

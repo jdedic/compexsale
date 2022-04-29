@@ -54,5 +54,10 @@ namespace RetailPlatform.Infrastructure.Repository
         {
             return _dbContext.Profiles.Where(m => m.Id == id).Select(m => m.CompanyName).FirstOrDefault();
         }
+
+        public async Task<IEnumerable<ProfileModel>> GetVendors(bool isLegalEntity)
+        {
+            return await _dbContext.Profiles.Where(m => m.Active == true && m.IsVendor == true && m.LegalEntity == isLegalEntity).ToListAsync();
+        }
     }
 }
