@@ -46,7 +46,7 @@ namespace RetailPlatform.API.Controllers
             //fetch subcategories
             HomepageModel model = new HomepageModel();
             model.FilteredCategories = await _addService.FilteredCategories();
-            var adds = _addService.FetchAdds(true);
+            var adds = _addService.FetchAdds(true, true);
             model.Adds = new List<AddModel>();
             adds.Take(20).ToList().ForEach(m =>
             {

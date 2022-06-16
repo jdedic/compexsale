@@ -131,6 +131,20 @@
                                         </div>
                                     </div>
                                 </div>
+
+                                <div class="form-group">
+                                    <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                        @Html.CheckBoxFor(model => model.IsVisible, new { @class = "filled-in chk-col-green form-check-input" })
+                                        <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.IsVisible)">Vidljiv</label>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="m-checkbox-inline mb-0 custom-radio-ml d-flex radio-animated">
+                                        @Html.CheckBoxFor(model => model.IsSold, new { @class = "filled-in chk-col-green form-check-input" })
+                                        <label class="retail-checkbox" for="@Html.DisplayNameFor(model => model.IsSold)">Prodato</label>
+                                    </div>
+                                </div>
                             }
 
                             <div class="form-group">

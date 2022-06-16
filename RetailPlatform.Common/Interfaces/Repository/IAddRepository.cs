@@ -7,7 +7,7 @@ namespace RetailPlatform.Common.Interfaces.Repository
 {
     public interface IAddRepository : IBaseRepository<Add>
     {
-        List<Add> FetchAdds(bool active);
+        List<Add> FetchAdds(bool active, bool visible);
         List<Category> GetCategories();
         Task<bool> CheckIfVendorIsAssigned(long vendorId);
         Task<IEnumerable<UnitType>> GetUnits();

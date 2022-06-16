@@ -14,11 +14,11 @@ namespace RetailPlatform.Infrastructure.Repository
         {
 
         }
-        public List<Add> FetchAdds(bool active)
+        public List<Add> FetchAdds(bool active, bool visible)
         {
             var adds = _dbContext.Adds.Include(m => m.UnitType).ToList();
 
-            return active ? adds.Where(m => m.Active == true).ToList() : adds;
+            return active ? adds.Where(m => m.Active == true && m.IsVisible == visible).ToList() : adds;
         }
 
         public List<Add> FetchAddsByJobTypeId(long jobTypeId)

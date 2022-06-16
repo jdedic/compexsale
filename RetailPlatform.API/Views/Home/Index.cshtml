@@ -103,9 +103,19 @@
                                                         </a>
                                                     </li>
                                                     <li>
-                                                        <a href="/Client/Contact" title="Pošalji upit" tabindex="0">
-                                                            <i data-feather="refresh-ccw"></i>POŠALJI UPIT
-                                                        </a>
+                                                        @if (item.IsSold)
+                                                        {
+                                                            <a href="#" title="PRODATO" style="color:#D0C963" tabindex="0">
+                                                                <i></i>PRODATO!
+                                                            </a>
+                                                        }
+                                                        else
+                                                        {
+                                                            <a href="/Client/Contact" title="Pošalji upit" tabindex="0">
+                                                                <i data-feather="refresh-ccw"></i>POŠALJI UPIT
+                                                            </a>
+                                                        }
+
                                                     </li>
                                                 </ul>
                                             </div>

@@ -18,9 +18,9 @@ namespace RetailPlatform.Core.Services
             _repositoryWrapper = repositoryWrapper;
         }
 
-        public List<Add> FetchAdds(bool active)
+        public List<Add> FetchAdds(bool active, bool visible)
         {
-            return _repositoryWrapper.Add.FetchAdds(active);
+            return _repositoryWrapper.Add.FetchAdds(active, visible);
         }
 
         public IQueryable<Add> GetAdds()
@@ -51,7 +51,7 @@ namespace RetailPlatform.Core.Services
                 adds = _repositoryWrapper.Add.FetchAddsByJobTypeId(jobTypeId);
             } else
             {
-                adds = _repositoryWrapper.Add.FetchAdds(true);
+                adds = _repositoryWrapper.Add.FetchAdds(true, true);
             }
 
             if(categoryId != 0)
@@ -97,6 +97,7 @@ namespace RetailPlatform.Core.Services
             model.UniqueId = number.ToString();
             model.CreationDate = DateTime.Now;
             model.JobTypeId = 1;
+            model.IsVisible = true;
             await _repositoryWrapper.Add.Create(model);
 
             return model.Id;

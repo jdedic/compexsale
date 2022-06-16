@@ -8,7 +8,7 @@ namespace RetailPlatform.Common.Interfaces.Service
 {
     public interface IAddService
     {
-        List<Add> FetchAdds(bool active);
+        List<Add> FetchAdds(bool active, bool visible);
         List<Add> FilterAdds(long categoryId, string location, string name, long jobTypeId);
         Task RemoveAdd(long id);
         Task<IEnumerable<SelectListItem>> FilteredCategories(string name=null);

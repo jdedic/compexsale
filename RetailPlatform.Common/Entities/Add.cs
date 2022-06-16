@@ -26,6 +26,8 @@ namespace RetailPlatform.Common.Entities
         public bool IsDiscontSale { get; set; }
         public bool IsExchange { get; set; }
         public bool IsMailSent { get; set; }
+        public bool IsVisible { get; set; }
+        public bool IsSold { get; set; }
         public string ReasonForRefusal { get; set; }
         public DateTime CreationDate { get; set; }
         public long UnitTypeId { get; set; }

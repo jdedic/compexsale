@@ -21,6 +21,7 @@ namespace RetailPlatform.API.Models.DTO.HomePage
         public string ImagePath { get; set; }
         public string Category { get; set; }
         public string Status { get; set; }
+        public bool IsSold { get; set; }
     }
 
 }
