@@ -104,7 +104,7 @@ namespace RetailPlatform.API.Controllers
             if (add.SecondImg != null)
             {
                 var backgroundFileName = Guid.NewGuid().ToString() + "_" + add.SecondImg.FileName;
-                var backgroundFilePath = @"/app/wwwroot/images/adds" + backgroundFileName;
+                var backgroundFilePath = @"/app/wwwroot/images/adds/" + backgroundFileName;
                 using (var fileStream = new FileStream(backgroundFilePath, FileMode.Create))
                 {
                     await add.SecondImg.CopyToAsync(fileStream);
@@ -118,7 +118,7 @@ namespace RetailPlatform.API.Controllers
             if (add.ThirdImg != null)
             {
                 var imageFileName = Guid.NewGuid().ToString() + "_" + add.ThirdImg.FileName;
-                var imageFilePath = @"/app/wwwroot/images/adds" + imageFileName;
+                var imageFilePath = @"/app/wwwroot/images/adds/" + imageFileName;
                 using (var fileStream = new FileStream(imageFilePath, FileMode.Create))
                 {
                     await add.ThirdImg.CopyToAsync(fileStream);
@@ -132,7 +132,7 @@ namespace RetailPlatform.API.Controllers
             if (add.FourthImg != null)
             {
                 var fourthImageFileName = Guid.NewGuid().ToString() + "_" + add.FourthImg.FileName;
-                var fourthFilePath = @"/app/wwwroot/images/adds" + fourthImageFileName;
+                var fourthFilePath = @"/app/wwwroot/images/adds/" + fourthImageFileName;
                 using (var fileStream = new FileStream(fourthFilePath, FileMode.Create))
                 {
                     await add.FourthImg.CopyToAsync(fileStream);
@@ -200,7 +200,7 @@ namespace RetailPlatform.API.Controllers
             if (add.FirstImg != null)
             {
                 var fileName = Guid.NewGuid().ToString() + "_" + add.FirstImg.FileName;
-                var filePath = @"/app/wwwroot/images/adds" + fileName;
+                var filePath = @"/app/wwwroot/images/adds/" + fileName;
                 using (var fileStream = new FileStream(filePath, FileMode.Create))
                 {
                     await add.FirstImg.CopyToAsync(fileStream);
@@ -214,7 +214,7 @@ namespace RetailPlatform.API.Controllers
             if (add.SecondImg != null)
             {
                 var backgroundFileName = Guid.NewGuid().ToString() + "_" + add.SecondImg.FileName;
-                var backgroundFilePath = @"/app/wwwroot/images/adds" + backgroundFileName;
+                var backgroundFilePath = @"/app/wwwroot/images/adds/" + backgroundFileName;
                 using (var fileStream = new FileStream(backgroundFilePath, FileMode.Create))
                 {
                     await add.SecondImg.CopyToAsync(fileStream);
@@ -228,7 +228,7 @@ namespace RetailPlatform.API.Controllers
             if (add.ThirdImg != null)
             {
                 var imageFileName = Guid.NewGuid().ToString() + "_" + add.ThirdImg.FileName;
-                var imageFilePath = @"/app/wwwroot/images/adds" + imageFileName;
+                var imageFilePath = @"/app/wwwroot/images/adds/" + imageFileName;
                 using (var fileStream = new FileStream(imageFilePath, FileMode.Create))
                 {
                     await add.ThirdImg.CopyToAsync(fileStream);
@@ -243,7 +243,7 @@ namespace RetailPlatform.API.Controllers
             if (add.FourthImg != null)
             {
                 var fourthImageFileName = Guid.NewGuid().ToString() + "_" + add.FourthImg.FileName;
-                var fourthFilePath = @"/app/wwwroot/images/adds" + fourthImageFileName;
+                var fourthFilePath = @"/app/wwwroot/images/adds/" + fourthImageFileName;
                 using (var fileStream = new FileStream(fourthFilePath, FileMode.Create))
                 {
                     await add.FourthImg.CopyToAsync(fileStream);
