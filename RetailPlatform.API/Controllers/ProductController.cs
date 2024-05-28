@@ -147,8 +147,7 @@ namespace RetailPlatform.API.Controllers
             var link = "https://compexsale.com/Product/EditProduct/" + id;
             var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
-            //uncomment later
-            //await _emailService.SendEmailForCreatedAdd("Ponudi", add.Name, category.Name, user.Email, link);
+            await _emailService.SendEmailForCreatedAdd("Ponudi", add.Name, category.Name, user.Email, link);
             return Redirect("/adds");
         }
 
@@ -169,8 +168,7 @@ namespace RetailPlatform.API.Controllers
             var link = "https://compexsale.com/Product/EditRequest/" + id;
             var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
-            //uncomment later
-            //await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
+            await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
             return Redirect("/requests");
         }
 
@@ -256,22 +254,22 @@ namespace RetailPlatform.API.Controllers
                 add.ImgUrl4 = entity.ImgUrl4; 
             }
 
-            //if (add.Active && !entity.IsMailSent)
-            //{
-            //    var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
-            //    await _emailService.SendEmailForAdd(createdBy.Email, id, entity.Name, null);
-            //    var emails = await _addService.GetUsersBySubCategories(Convert.ToInt32(add.SelectedCategory1), Convert.ToInt32(add.SelectedCategory2), Convert.ToInt32(add.SelectedCategory3));
-            //    foreach(var email in emails)
-            //    {
-            //        await _emailService.SendEmailForAdd(email, id, entity.Name, null);
-            //    }
-                
-            //    List<ProfileDTO> interestedProfiles = new List<ProfileDTO>();
-            //    if (interestedProfiles.Any())
-            //    {
-            //        await SendEmailToInterestedProfiles(interestedProfiles, id, entity.Name);
-            //    }
-            //}
+            if (add.Active && !entity.IsMailSent)
+            {
+                var id = "https://compexsale.com/Product/ProductPreview/" + entity.Id;
+                await _emailService.SendEmailForAdd(createdBy.Email, id, entity.Name, null);
+                var emails = await _addService.GetUsersBySubCategories(Convert.ToInt32(add.SelectedCategory1), Convert.ToInt32(add.SelectedCategory2), Convert.ToInt32(add.SelectedCategory3));
+                foreach (var email in emails)
+                {
+                    await _emailService.SendEmailForAdd(email, id, entity.Name, null);
+                }
+
+                List<ProfileDTO> interestedProfiles = new List<ProfileDTO>();
+                if (interestedProfiles.Any())
+                {
+                    await SendEmailToInterestedProfiles(interestedProfiles, id, entity.Name);
+                }
+            }
 
             var updatedAdd = await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
             if (loggedRole != "User")
@@ -281,10 +279,10 @@ namespace RetailPlatform.API.Controllers
 
             await _addService.EditAdd(_mapper.Map<EditAddDTO, Add>(add, entity));
 
-            //if (!add.Confirmed)
-            //{
-            //    await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
-            //}
+            if (!add.Confirmed)
+            {
+                await _emailService.SendEmailForRefusedAdd("jdedic2393@gmail.com", add.ReasonForRefusal);
+            }
 
             return Redirect("/adds");
         }
