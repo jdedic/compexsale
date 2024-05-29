@@ -76,7 +76,7 @@ namespace RetailPlatform.API.Controllers
             }
 
             List<string> emails = new List<string>(Array.ConvertAll(model.Emails.Split(','), p => p.Trim()));
-            await _emailService.SendWelcomEmail(emails);
+            //await _emailService.SendWelcomEmail(emails);
             return RedirectToAction("EmailTemplatePage", "Home");
         }
 

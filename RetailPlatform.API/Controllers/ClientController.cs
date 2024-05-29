@@ -114,7 +114,7 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
+            //await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
             return RedirectToAction("Contact", "Client");
         }
 
