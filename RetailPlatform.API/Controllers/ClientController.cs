@@ -127,7 +127,6 @@ namespace RetailPlatform.API.Controllers
         [HttpPost("client-login")]
         public async Task<IActionResult> Validate(LoginModel model)
         {
-            await _emailService.SendEmail();
             if (!ModelState.IsValid)
             {
                 ModelState.Remove("Email");

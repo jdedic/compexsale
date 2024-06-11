@@ -430,7 +430,7 @@ namespace RetailPlatform.API.Controllers
         {
             foreach (var profile in profiles)
             {
-                //await _emailService.SendEmailForAdd(profile.Email, id, name, profile.FullName);
+                await _emailService.SendEmailForAdd(profile.Email, id, name, profile.FullName);
             }
         }
     }
