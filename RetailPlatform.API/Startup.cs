@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 using RetailPlatform.API.Extensions;
 using RetailPlatform.Core.Config;
 using RetailPlatform.Infrastructure.Data;
@@ -31,6 +32,15 @@ namespace RetailPlatform.API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddControllersWithViews();
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo
+                {
+                    Title = "Compexsale API",
+                    Version = "v1"
+                });
+            });
+
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(options => {
                     options.LoginPath = "/Client/ClientLogin";
@@ -93,6 +103,14 @@ namespace RetailPlatform.API
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Compexsale API V1");
+                c.RoutePrefix = string.Empty;
+            });
 
             app.UseSession();
 

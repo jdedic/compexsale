@@ -141,6 +141,8 @@ namespace RetailPlatform.API.Controllers
                 await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.IsVendor, user.LegalEntity, ""));
                 return RedirectToAction("AdminDashboard", "Home");
             }
+
+           
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
