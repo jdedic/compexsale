@@ -66,7 +66,7 @@ namespace RetailPlatform.API.Controllers
 
         [HttpPost]
         [Route("Home/SendEmailsForCollaboration")]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public async Task<IActionResult> SendEmailsForCollaboration(EmailForCollaboration model)
         {
 

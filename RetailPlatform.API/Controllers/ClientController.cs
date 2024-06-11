@@ -127,6 +127,7 @@ namespace RetailPlatform.API.Controllers
         [HttpPost("client-login")]
         public async Task<IActionResult> Validate(LoginModel model)
         {
+            await _emailService.SendEmail();
             if (!ModelState.IsValid)
             {
                 ModelState.Remove("Email");
@@ -141,6 +142,8 @@ namespace RetailPlatform.API.Controllers
                 await HttpContext.SignInAsync(SetClaims(model.Username, name, user.Id.ToString(), user.IsCustomer, user.IsVendor, user.LegalEntity, ""));
                 return RedirectToAction("AdminDashboard", "Home");
             }
+
+           
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
