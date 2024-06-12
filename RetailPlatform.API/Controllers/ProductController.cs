@@ -95,7 +95,7 @@ namespace RetailPlatform.API.Controllers
                 {
                     await add.FirstImg.CopyToAsync(fileStream);
                 }
-                add.ImgUrl1 = $" /images/adds/{fileName}";
+                add.ImgUrl1 = $"/images/adds/{fileName}";
             } else
             {
                 add.ImgUrl1 = "/images/icon/default-image.png";
