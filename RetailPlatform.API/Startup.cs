@@ -86,6 +86,13 @@ namespace RetailPlatform.API
         {
             if (env.IsDevelopment())
             {
+                app.UseSwagger();
+
+                app.UseSwaggerUI(c =>
+                {
+                    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Compexsale API V1");
+                    c.RoutePrefix = string.Empty;
+                });
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -104,13 +111,7 @@ namespace RetailPlatform.API
             app.UseAuthentication();
             app.UseAuthorization();
 
-            app.UseSwagger();
-
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Compexsale API V1");
-                c.RoutePrefix = string.Empty;
-            });
+           
 
             app.UseSession();
 
