@@ -23,7 +23,6 @@ namespace RetailPlatform.API.Controllers
             _repositoryWrapper = repositoryWrapper;
         }
 
-        [HttpGet("login")]
         public async Task<IActionResult> Login()
         {
             LoginModel model = new LoginModel();
