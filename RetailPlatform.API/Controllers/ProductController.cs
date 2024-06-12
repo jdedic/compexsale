@@ -390,7 +390,7 @@ namespace RetailPlatform.API.Controllers
             adds.ForEach(m =>
             {
                 var add = _mapper.Map<AddModel>(m);
-                add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
+                add.ImagePath = string.IsNullOrEmpty(add.ImagePath) ? "/images/icon/default-image.png" : add.ImagePath;
                 add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.SubCategoryId);
                 addsList.Add(add);
             });
