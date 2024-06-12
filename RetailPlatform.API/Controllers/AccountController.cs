@@ -36,7 +36,7 @@ namespace RetailPlatform.API.Controllers
             {
                 ModelState.Remove("Email");
                 if(ModelState.IsValid == false)
-                    return View("login");
+                    return View("Login");
             }
 
             if (_userService.CheckUserCredentials(model.Username, model.Password))
