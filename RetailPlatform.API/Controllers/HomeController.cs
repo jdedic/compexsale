@@ -108,7 +108,7 @@ namespace RetailPlatform.API.Controllers
                 adds.ForEach(m =>
                 {
                     var add = _mapper.Map<AddModel>(m);
-                    add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
+                    add.ImagePath = string.IsNullOrEmpty(add.ImagePath) ? "/images/icon/default-image.png" : add.ImagePath;
                     add.Category = m.SubCategory.Name;
                     model.Adds.Add(add);
                 });
@@ -132,7 +132,7 @@ namespace RetailPlatform.API.Controllers
                 adds.ForEach(m =>
                 {
                     var add = _mapper.Map<AddModel>(m);
-                    add.ImagePath = add.ImagePath == "https://compexsale.com" ? "/images/icon/default-image.png" : add.ImagePath;
+                    add.ImagePath = string.IsNullOrEmpty(add.ImagePath) ? "/images/icon/default-image.png" : add.ImagePath;
                     add.Category = m.SubCategory.Name;
                     model.Adds.Add(add);
                 });

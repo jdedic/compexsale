@@ -144,7 +144,7 @@ namespace RetailPlatform.API.Controllers
             }
 
             var id = await _addService.CreateAdd(_mapper.Map<Add>(add));
-            var link = "https://compexsale.com/Product/EditProduct/" + id;
+            var link = "https://api.compexsale.org/Product/EditProduct/" + id;
             var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
             //await _emailService.SendEmailForCreatedAdd("Ponudi", add.Name, category.Name, user.Email, link);
@@ -165,7 +165,7 @@ namespace RetailPlatform.API.Controllers
             }
 
             var id = await _addService.CreateRequest(_mapper.Map<Add>(add));
-            var link = "https://compexsale.com/Product/EditRequest/" + id;
+            var link = "https://api.compexsale.org/Product/EditRequest/" + id;
             var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
             //await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
