@@ -46,8 +46,6 @@ namespace RetailPlatform.API.Controllers
                 return RedirectToAction("AdminDashboard", "Home");
             }
 
-            
-
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("login");
         }

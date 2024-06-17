@@ -19,7 +19,7 @@ namespace RetailPlatform.API.Controllers
         private readonly IProfileService _profileService;
         private readonly IEmailService _emailService;
 
-        public ClientController(IRepositoryWrapper repositoryWrapper,IMapper mapper,
+        public ClientController(IRepositoryWrapper repositoryWrapper, IMapper mapper,
                                 IProfileService profileService, IEmailService emailService)
         {
             _repositoryWrapper = repositoryWrapper;
@@ -74,19 +74,18 @@ namespace RetailPlatform.API.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(ProfileDTO model)
         {
-         
             if (!ModelState.IsValid)
             {
                 return View(model);
             }
 
-            if((model.IsVendor == false && model.IsCustomer == false) || model.AgreeWithTermsAndConditions == false)
+            if ((model.IsVendor == false && model.IsCustomer == false) || model.AgreeWithTermsAndConditions == false)
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
             }
 
-            if(model.LegalEntity == true && (model.CompanyName == null || model.PIB == null)) 
+            if (model.LegalEntity == true && (model.CompanyName == null || model.PIB == null))
             {
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
@@ -96,8 +95,6 @@ namespace RetailPlatform.API.Controllers
                 TempData["Error"] = "Popunite sva obavezna polja. (Polja sa označena crvenom zvezdicom)";
                 return View(model);
             }
-
-
 
             await _profileService.CreateProfile(_mapper.Map<ProfileModel>(model), model.IsVendor, model.IsCustomer);
             return RedirectToAction("ClientLogin", "Client");
@@ -114,7 +111,7 @@ namespace RetailPlatform.API.Controllers
                 return View(model);
             }
 
-            //await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
+            await _emailService.SendContactClientEmail(model.Email, model.Name, model.Content);
             return RedirectToAction("Contact", "Client");
         }
 
@@ -142,7 +139,7 @@ namespace RetailPlatform.API.Controllers
                 return RedirectToAction("AdminDashboard", "Home");
             }
 
-           
+
             TempData["Error"] = "Error. Username or password is invalid.";
             return View("ClientLogin");
         }
@@ -151,7 +148,7 @@ namespace RetailPlatform.API.Controllers
         {
             var claims = new List<Claim>();
             claims.Add(new Claim("username", username));
-            claims.Add(new Claim("roleName", "Profile")); 
+            claims.Add(new Claim("roleName", "Profile"));
             claims.Add(new Claim("isCustomer", isCustomer.ToString()));
             claims.Add(new Claim("isVendor", isVendor.ToString()));
             claims.Add(new Claim("isPrivateAccount", isPrivateAccount.ToString()));
