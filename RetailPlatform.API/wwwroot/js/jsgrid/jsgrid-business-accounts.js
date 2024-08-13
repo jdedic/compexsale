@@ -53,7 +53,7 @@
                     var hasAdds = item.isAssigned;
                     var deleteStyle = hasAdds == true ? "d-none" : "";
                     var $customDeleteButton = $("<button>")
-                        .attr({ class: "btn btn-outline-danger btn-xs" + " " + deleteStyle })
+                        .attr({ class: "btn btn-outline-danger btn-xs" })
                         .attr({ title: jsGrid.fields.control.prototype.deleteButtonTooltip })
                         .text("Ukloni")
                         .attr({ id: "btn-delete-" + item.id })
