@@ -128,8 +128,8 @@
                             }
 
                             <div class="form-group">
-                                <label class="col-form-label pt-0"><span class="retail-validation">*</span> Cena / vrednost</label><br />
-                                <label>(minimalna procenjena vrednost/cena je 10.000 dinara)</label>
+                                <label class="col-form-label pt-0"><span class="retail-validation">*</span> Cena po jedinici mere:</label><br />
+                                <label>(vrednost je izražena u dinarima)</label>
                                 <div class="col-xl-8 col-md-7">
                                     @Html.TextBoxFor(model => model.Price, new { @class = "form-control", autocomplete = "off", required = "required" })
                                     @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
