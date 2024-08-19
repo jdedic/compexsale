@@ -25,6 +25,11 @@ namespace RetailPlatform.Infrastructure.Repository
             return await _dbContext.Categories.AsNoTracking().FirstOrDefaultAsync(m => m.Id == id);
         }
 
+        public async Task<SubCategory> GetSubcategoryById(long id)
+        { 
+            return await _dbContext.SubCategories.AsNoTracking().FirstOrDefaultAsync(subCategory => subCategory.Id == id);
+        }
+
         public async Task<long> GetCategoryByName(string name)
         {
             return await _dbContext.Categories.Where(m => m.Name.ToLower().Equals(name.ToLower()))

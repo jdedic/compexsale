@@ -166,7 +166,7 @@ namespace RetailPlatform.API.Controllers
 
             var id = await _addService.CreateRequest(_mapper.Map<Add>(add));
             var link = "https://api.compexsale.org/Product/EditRequest/" + id;
-            var category = await _repositoryWrapper.Category.GetCategoryById(Int32.Parse(add.SelectedCategory));
+            var category = await _repositoryWrapper.Category.GetSubcategoryById(Int32.Parse(add.SelectedCategory));
             var user = await _repositoryWrapper.Profile.GetByIdAsync(add.ProfileId);
             await _emailService.SendEmailForCreatedAdd("Tražnji", add.Name, category.Name, user.Email, link);
             return Redirect("/requests");

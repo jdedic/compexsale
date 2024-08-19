@@ -9,5 +9,6 @@ namespace RetailPlatform.Common.Interfaces.Repository
         Task<Category> GetCategoryById(long id);
         List<Category> GetCategories();
         Task<long> GetCategoryByName(string name);
+        Task<SubCategory> GetSubcategoryById(long id);
     }
 }
