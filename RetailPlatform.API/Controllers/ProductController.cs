@@ -397,6 +397,22 @@ namespace RetailPlatform.API.Controllers
             return new JsonResult(new { adds = addsList });
         }
 
+        [HttpGet]
+        [Route("Product/GetProducts")]
+        public IActionResult FilterProduct(long categoryId, string location, string name, long jobType)
+        {
+            var adds = _addService.FetchAdds(true);
+            List<AddModel> addsList = new List<AddModel>();
+            adds.ForEach(m =>
+            {
+                var add = _mapper.Map<AddModel>(m);
+                add.ImagePath = string.IsNullOrEmpty(add.ImagePath) ? "/images/icon/default-image.png" : add.ImagePath;
+                add.Category = _repositoryWrapper.SubCategory.GetSubcategoryById(m.SubCategoryId);
+                addsList.Add(add);
+            });
+            return new JsonResult(new { adds = addsList });
+        }
+
         public async Task<IActionResult> ProductPreview(long id)
         {
             var product = await _repositoryWrapper.Add.GetAddWithUnit(id);

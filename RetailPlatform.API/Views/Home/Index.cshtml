@@ -36,7 +36,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-3 col-12">
+                    <div class="col-md-2 col-12">
                         <div class="form-group mb-0">
                             @Html.TextBoxFor(model => model.Location, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = "Lokacija", @id = "location" })
                         </div>
@@ -46,9 +46,14 @@
                             @Html.TextBoxFor(model => model.Name, new { @class = "form-control", autocomplete = "off", required = "required", placeholder = "Roba/Usluga", @id = "name" })
                         </div>
                     </div>
-                    <div class="col-md-3 col-12 search-col">
+                    <div class="col-md-2 col-12 search-col">
                         <div class="search-btn">
                             <a href="#" onclick="return filterAdds();" class="btn btn-solid d-block" tabindex="0">pretraži</a>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-12 search-col">
+                        <div class="search-btn">
+                            <a href="#" onclick="return resetSearch();" class="btn btn-solid d-block" tabindex="0">poništi</a>
                         </div>
                     </div>
                 </form>
