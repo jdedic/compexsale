@@ -399,7 +399,7 @@ namespace RetailPlatform.API.Controllers
 
         [HttpGet]
         [Route("Product/GetProducts")]
-        public IActionResult FilterProduct(long categoryId, string location, string name, long jobType)
+        public IActionResult GetProducts()
         {
             var adds = _addService.FetchAdds(true);
             List<AddModel> addsList = new List<AddModel>();
